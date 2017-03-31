@@ -1,3 +1,4 @@
 all:
-	ndisasm blort.com -o 0x100 > blort.asm
-	ndisasm blort.com -e 0x982 -o 0x1082 > 1082.asm # due to misalignment in disasm
+	ndisasm blort.com -b 16 -o 0x100 | head -n 2066 > blort.asm
+	echo "" >> blort.asm
+	ndisasm blort.com -b 16 -e 0xf82 -o 0x1082 >> blort.asm

@@ -2,7 +2,7 @@
 00000101  53                push bx
 00000102  51                push cx
 00000103  52                push dx
-00000104  E97B0F            jmp 0x1082
+00000104  E97B0F            jmp word 0x1082
 00000107  0808              or [bx+si],cl
 00000109  0808              or [bx+si],cl
 0000010B  0808              or [bx+si],cl
@@ -23,27 +23,27 @@
 0000012A  6F                outsw
 0000012B  66740D            o32 jz 0x13b
 0000012E  0A1A              or bl,[bp+si]
-00000130  FF                db 0xFF
-00000131  FF                db 0xFF
-00000132  FF                db 0xFF
-00000133  FF                db 0xFF
-00000134  FF                db 0xFF
-00000135  FF                db 0xFF
-00000136  FF                db 0xFF
-00000137  FF                db 0xFF
-00000138  FF                db 0xFF
-00000139  FF                db 0xFF
-0000013A  FF                db 0xFF
-0000013B  FF                db 0xFF
-0000013C  FF                db 0xFF
-0000013D  FF                db 0xFF
-0000013E  FF                db 0xFF
-0000013F  FF                db 0xFF
-00000140  FF                db 0xFF
-00000141  FF                db 0xFF
-00000142  FF                db 0xFF
-00000143  FF                db 0xFF
-00000144  FF                db 0xFF
+00000130  FF                db 0xff
+00000131  FF                db 0xff
+00000132  FF                db 0xff
+00000133  FF                db 0xff
+00000134  FF                db 0xff
+00000135  FF                db 0xff
+00000136  FF                db 0xff
+00000137  FF                db 0xff
+00000138  FF                db 0xff
+00000139  FF                db 0xff
+0000013A  FF                db 0xff
+0000013B  FF                db 0xff
+0000013C  FF                db 0xff
+0000013D  FF                db 0xff
+0000013E  FF                db 0xff
+0000013F  FF                db 0xff
+00000140  FF                db 0xff
+00000141  FF                db 0xff
+00000142  FF                db 0xff
+00000143  FF                db 0xff
+00000144  FF                db 0xff
 00000145  FF800000          inc word [bx+si+0x0]
 00000149  0000              add [bx+si],al
 0000014B  0000              add [bx+si],al
@@ -64,77 +64,77 @@
 0000016B  0000              add [bx+si],al
 0000016D  0000              add [bx+si],al
 0000016F  0000              add [bx+si],al
-00000171  019FFFFF          add [bx+0xffff],bx
-00000175  FF                db 0xFF
-00000176  FF                db 0xFF
-00000177  FF                db 0xFF
-00000178  FF                db 0xFF
-00000179  FF                db 0xFF
-0000017A  FF                db 0xFF
-0000017B  FF                db 0xFF
-0000017C  FF                db 0xFF
-0000017D  FF                db 0xFF
-0000017E  FF                db 0xFF
-0000017F  FF                db 0xFF
-00000180  FF                db 0xFF
-00000181  FF                db 0xFF
-00000182  FF                db 0xFF
-00000183  FF                db 0xFF
-00000184  FF                db 0xFF
-00000185  FF                db 0xFF
-00000186  FF                db 0xFF
+00000171  019FFFFF          add [bx-0x1],bx
+00000175  FF                db 0xff
+00000176  FF                db 0xff
+00000177  FF                db 0xff
+00000178  FF                db 0xff
+00000179  FF                db 0xff
+0000017A  FF                db 0xff
+0000017B  FF                db 0xff
+0000017C  FF                db 0xff
+0000017D  FF                db 0xff
+0000017E  FF                db 0xff
+0000017F  FF                db 0xff
+00000180  FF                db 0xff
+00000181  FF                db 0xff
+00000182  FF                db 0xff
+00000183  FF                db 0xff
+00000184  FF                db 0xff
+00000185  FF                db 0xff
+00000186  FF                db 0xff
 00000187  F9                stc
 00000188  9F                lahf
-00000189  FF                db 0xFF
-0000018A  FF                db 0xFF
-0000018B  FF                db 0xFF
-0000018C  FF                db 0xFF
-0000018D  FF                db 0xFF
-0000018E  FF                db 0xFF
-0000018F  FF                db 0xFF
-00000190  FF                db 0xFF
-00000191  FF                db 0xFF
-00000192  FF                db 0xFF
-00000193  FF                db 0xFF
-00000194  FF                db 0xFF
-00000195  FF                db 0xFF
-00000196  FF                db 0xFF
-00000197  FF                db 0xFF
-00000198  FF                db 0xFF
-00000199  FF                db 0xFF
-0000019A  FF                db 0xFF
-0000019B  FF                db 0xFF
-0000019C  FF                db 0xFF
+00000189  FF                db 0xff
+0000018A  FF                db 0xff
+0000018B  FF                db 0xff
+0000018C  FF                db 0xff
+0000018D  FF                db 0xff
+0000018E  FF                db 0xff
+0000018F  FF                db 0xff
+00000190  FF                db 0xff
+00000191  FF                db 0xff
+00000192  FF                db 0xff
+00000193  FF                db 0xff
+00000194  FF                db 0xff
+00000195  FF                db 0xff
+00000196  FF                db 0xff
+00000197  FF                db 0xff
+00000198  FF                db 0xff
+00000199  FF                db 0xff
+0000019A  FF                db 0xff
+0000019B  FF                db 0xff
+0000019C  FF                db 0xff
 0000019D  F9                stc
 0000019E  9F                lahf
-0000019F  FF                db 0xFF
-000001A0  FF                db 0xFF
-000001A1  FF                db 0xFF
-000001A2  FF                db 0xFF
-000001A3  FF                db 0xFF
-000001A4  FF                db 0xFF
-000001A5  FF                db 0xFF
-000001A6  FF                db 0xFF
-000001A7  FF                db 0xFF
-000001A8  FF                db 0xFF
-000001A9  FF                db 0xFF
-000001AA  FF                db 0xFF
-000001AB  FF                db 0xFF
-000001AC  FF                db 0xFF
-000001AD  FF                db 0xFF
-000001AE  FF                db 0xFF
-000001AF  FF                db 0xFF
-000001B0  FF                db 0xFF
-000001B1  FF                db 0xFF
-000001B2  FF                db 0xFF
+0000019F  FF                db 0xff
+000001A0  FF                db 0xff
+000001A1  FF                db 0xff
+000001A2  FF                db 0xff
+000001A3  FF                db 0xff
+000001A4  FF                db 0xff
+000001A5  FF                db 0xff
+000001A6  FF                db 0xff
+000001A7  FF                db 0xff
+000001A8  FF                db 0xff
+000001A9  FF                db 0xff
+000001AA  FF                db 0xff
+000001AB  FF                db 0xff
+000001AC  FF                db 0xff
+000001AD  FF                db 0xff
+000001AE  FF                db 0xff
+000001AF  FF                db 0xff
+000001B0  FF                db 0xff
+000001B1  FF                db 0xff
+000001B2  FF                db 0xff
 000001B3  F9                stc
-000001B4  9C                pushf
+000001B4  9C                pushfw
 000001B5  0000              add [bx+si],al
 000001B7  07                pop es
 000001B8  E000              loopne 0x1ba
 000001BA  07                pop es
-000001BB  FF                db 0xFF
-000001BC  FF                db 0xFF
+000001BB  FF                db 0xff
+000001BC  FF                db 0xff
 000001BD  F8                clc
 000001BE  007FE0            add [bx-0x20],bh
 000001C1  0000              add [bx+si],al
@@ -142,18 +142,18 @@
 000001C4  0000              add [bx+si],al
 000001C6  0000              add [bx+si],al
 000001C8  0019              add [bx+di],bl
-000001CA  9C                pushf
+000001CA  9C                pushfw
 000001CB  0000              add [bx+si],al
 000001CD  03E0              add sp,ax
 000001CF  0007              add [bx],al
-000001D1  FF                db 0xFF
+000001D1  FF                db 0xff
 000001D2  FF80000F          inc word [bx+si+0xf00]
 000001D6  E000              loopne 0x1d8
 000001D8  000E0000          add [0x0],cl
 000001DC  0000              add [bx+si],al
 000001DE  0019              add [bx+di],bl
 000001E0  98                cbw
-000001E1  FF                db 0xFF
+000001E1  FF                db 0xff
 000001E2  FFF1              push cx
 000001E4  E7FF              out 0xff,ax
 000001E6  E7FF              out 0xff,ax
@@ -162,56 +162,56 @@
 000001EC  E7FF              out 0xff,ax
 000001EE  FFC6              inc si
 000001F0  7FFF              jg 0x1f1
-000001F2  FF                db 0xFF
-000001F3  FE                db 0xFE
+000001F2  FF                db 0xff
+000001F3  FE                db 0xfe
 000001F4  7F99              jg 0x18f
 000001F6  99                cwd
-000001F7  FF                db 0xFF
-000001F8  FF                db 0xFF
+000001F7  FF                db 0xff
+000001F8  FF                db 0xff
 000001F9  F8                clc
 000001FA  E3FF              jcxz 0x1fb
-000001FC  C7                db 0xC7
-000001FD  FF                db 0xFF
+000001FC  C7                db 0xc7
+000001FD  FF                db 0xff
 000001FE  F8                clc
 000001FF  7FFF              jg 0x200
 00000201  D0E3              shl bl,1
-00000203  FF                db 0xFF
+00000203  FF                db 0xff
 00000204  FFE2              jmp dx
 00000206  7FFF              jg 0x207
-00000208  FF                db 0xFF
-00000209  FE                db 0xFE
+00000208  FF                db 0xff
+00000209  FE                db 0xfe
 0000020A  7F99              jg 0x1a5
 0000020C  99                cwd
-0000020D  FF                db 0xFF
-0000020E  FF                db 0xFF
+0000020D  FF                db 0xff
+0000020E  FF                db 0xff
 0000020F  FC                cld
-00000210  61                popa
-00000211  FF8FFFF1          dec word [bx+0xf1ff]
+00000210  61                popaw
+00000211  FF8FFFF1          dec word [bx-0xe01]
 00000215  FFC7              inc di
 00000217  F8                clc
 00000218  71FF              jno 0x219
 0000021A  FFF0              push ax
 0000021C  7FFF              jg 0x21d
-0000021E  FF                db 0xFF
-0000021F  FE                db 0xFE
+0000021E  FF                db 0xff
+0000021F  FE                db 0xfe
 00000220  7F99              jg 0x1bb
-00000222  9C                pushf
+00000222  9C                pushfw
 00000223  7FE7              jg 0x20c
-00000225  FE                db 0xFE
+00000225  FE                db 0xfe
 00000226  38FF              cmp bh,bh
 00000228  1F                pop ds
 00000229  FFC3              inc bx
 0000022B  FF03              inc word [bp+di]
-0000022D  FE                db 0xFE
+0000022D  FE                db 0xfe
 0000022E  38FF              cmp bh,bh
 00000230  9F                lahf
 00000231  F8                clc
 00000232  7C0F              jl 0x243
 00000234  F03E7F99          ds lock jg 0x1d1
-00000238  9C                pushf
+00000238  9C                pushfw
 00000239  3F                aas
 0000023A  C3                ret
-0000023B  FF                db 0xFF
+0000023B  FF                db 0xff
 0000023C  3CFF              cmp al,0xff
 0000023E  3F                aas
 0000023F  FFCF              dec di
@@ -223,10 +223,10 @@
 0000024C  7F99              jg 0x1e7
 0000024E  9F                lahf
 0000024F  3F                aas
-00000250  C1FF1C            sar di,0x1c
-00000253  FF                db 0xFF
+00000250  C1FF1C            sar di,byte 0x1c
+00000253  FF                db 0xff
 00000254  3F                aas
-00000255  FF9FF878          call far [bx+0x78f8]
+00000255  FF9FF878          call word far [bx+0x78f8]
 00000259  FF8CFF07          dec word [si+0x7ff]
 0000025D  FC                cld
 0000025E  71CF              jno 0x22f
@@ -235,25 +235,25 @@
 00000265  3F                aas
 00000266  C8FF9CFF          enter 0x9cff,0xff
 0000026A  3F                aas
-0000026B  FF1F              call far [bx]
+0000026B  FF1F              call word far [bx]
 0000026D  F1                int1
 0000026E  FC                cld
 0000026F  7FCC              jg 0x23d
-00000271  FF23              jmp near [bp+di]
-00000273  FE                db 0xFE
+00000271  FF23              jmp word [bp+di]
+00000273  FE                db 0xfe
 00000274  63CF              arpl di,cx
-00000276  F3                db 0xF3
-00000277  C6                db 0xC6
+00000276  F3                rep
+00000277  C6                db 0xc6
 00000278  7F99              jg 0x213
 0000027A  9F                lahf
 0000027B  3F                aas
 0000027C  CC                int3
-0000027D  FF9CFF3F          call far [si+0x3fff]
-00000281  FE                db 0xFE
+0000027D  FF9CFF3F          call word far [si+0x3fff]
+00000281  FE                db 0xfe
 00000282  7FE3              jg 0x267
-00000284  FE                db 0xFE
+00000284  FE                db 0xfe
 00000285  3F                aas
-00000286  C4                db 0xC4
+00000286  C4                db 0xc4
 00000287  FF33              push word [bp+di]
 00000289  FE47CF            inc byte [bx-0x31]
 0000028C  F3E27F            rep loop 0x30e
@@ -262,384 +262,384 @@
 00000291  3F                aas
 00000292  CC                int3
 00000293  7F9C              jg 0x231
-00000295  FF                db 0xFF
+00000295  FF                db 0xff
 00000296  3F                aas
-00000297  FE                db 0xFE
+00000297  FE                db 0xfe
 00000298  7FE7              jg 0x281
-0000029A  FF                db 0xFF
+0000029A  FF                db 0xff
 0000029B  3F                aas
 0000029C  E0FF              loopne 0x29d
 0000029E  31FE              xor si,di
-000002A0  0F                db 0x0F
-000002A1  CF                iret
-000002A2  F3F07F99          lock rep jg 0x23f
+000002A0  0F                db 0x0f
+000002A1  CF                iretw
+000002A2  F3F07F99          rep lock jg 0x23f
 000002A6  9F                lahf
 000002A7  3F                aas
 000002A8  CE                into
 000002A9  7F9C              jg 0x247
-000002AB  FF                db 0xFF
+000002AB  FF                db 0xff
 000002AC  3F                aas
 000002AD  FC                cld
 000002AE  FFC7              inc di
-000002B0  FF1F              call far [bx]
-000002B2  F0                db 0xF0
-000002B3  FF                db 0xFF
+000002B0  FF1F              call word far [bx]
+000002B2  F0                lock
+000002B3  FF                db 0xff
 000002B4  39FE              cmp si,di
 000002B6  1F                pop ds
-000002B7  CF                iret
+000002B7  CF                iretw
 000002B8  F3F8              rep clc
 000002BA  7F99              jg 0x255
 000002BC  9F                lahf
 000002BD  3F                aas
 000002BE  CC                int3
 000002BF  7F9C              jg 0x25d
-000002C1  FF                db 0xFF
+000002C1  FF                db 0xff
 000002C2  3F                aas
 000002C3  FC                cld
-000002C4  FF8FFF9F          dec word [bx+0x9fff]
+000002C4  FF8FFF9F          dec word [bx-0x6001]
 000002C8  F0FF31            lock push word [bx+di]
-000002CB  FE                db 0xFE
+000002CB  FE                db 0xfe
 000002CC  7FCF              jg 0x29d
-000002CE  F3                db 0xF3
-000002CF  FE                db 0xFE
+000002CE  F3                rep
+000002CF  FE                db 0xfe
 000002D0  7F99              jg 0x26b
 000002D2  9F                lahf
 000002D3  3F                aas
 000002D4  CC                int3
-000002D5  FF9CFF3F          call far [si+0x3fff]
+000002D5  FF9CFF3F          call word far [si+0x3fff]
 000002D9  F9                stc
-000002DA  FF9FFF8F          call far [bx+0x8fff]
+000002DA  FF9FFF8F          call word far [bx-0x7001]
 000002DE  F8                clc
 000002DF  FF33              push word [bp+di]
-000002E1  FE                db 0xFE
+000002E1  FE                db 0xfe
 000002E2  7FCF              jg 0x2b3
-000002E4  F3                db 0xF3
-000002E5  FE                db 0xFE
+000002E4  F3                rep
+000002E5  FE                db 0xfe
 000002E6  7F99              jg 0x281
 000002E8  9F                lahf
 000002E9  3F                aas
 000002EA  CC                int3
-000002EB  FF1C              call far [si]
-000002ED  FF                db 0xFF
+000002EB  FF1C              call word far [si]
+000002ED  FF                db 0xff
 000002EE  3F                aas
 000002EF  F9                stc
-000002F0  FF                db 0xFF
+000002F0  FF                db 0xff
 000002F1  3F                aas
 000002F2  FFCF              dec di
 000002F4  F8                clc
 000002F5  FF33              push word [bp+di]
 000002F7  FC                cld
 000002F8  7FCF              jg 0x2c9
-000002FA  F3                db 0xF3
-000002FB  FE                db 0xFE
+000002FA  F3                rep
+000002FB  FE                db 0xfe
 000002FC  7F99              jg 0x297
 000002FE  9F                lahf
 000002FF  3F                aas
 00000300  C8FF3CFF          enter 0x3cff,0xff
 00000304  3F                aas
 00000305  F9                stc
-00000306  FF                db 0xFF
+00000306  FF                db 0xff
 00000307  3F                aas
 00000308  FFC7              inc di
 0000030A  F8                clc
-0000030B  FF23              jmp near [bp+di]
+0000030B  FF23              jmp word [bp+di]
 0000030D  FC                cld
 0000030E  FFCF              dec di
-00000310  F3                db 0xF3
-00000311  FE                db 0xFE
+00000310  F3                rep
+00000311  FE                db 0xfe
 00000312  7F99              jg 0x2ad
 00000314  9F                lahf
 00000315  3F                aas
-00000316  C1FE3C            sar si,0x3c
-00000319  FF                db 0xFF
+00000316  C1FE3C            sar si,byte 0x3c
+00000319  FF                db 0xff
 0000031A  3F                aas
-0000031B  F3                db 0xF3
-0000031C  FF                db 0xFF
+0000031B  F3                rep
+0000031C  FF                db 0xff
 0000031D  3F                aas
 0000031E  FFE7              jmp di
 00000320  FC                cld
 00000321  FF07              inc word [bx]
 00000323  F8                clc
 00000324  FFCF              dec di
-00000326  F3                db 0xF3
-00000327  FE                db 0xFE
+00000326  F3                rep
+00000327  FE                db 0xfe
 00000328  7F99              jg 0x2c3
 0000032A  9F                lahf
 0000032B  3F                aas
 0000032C  C3                ret
-0000032D  FE                db 0xFE
+0000032D  FE                db 0xfe
 0000032E  7CFF              jl 0x32f
 00000330  3F                aas
-00000331  F3                db 0xF3
-00000332  FF                db 0xFF
+00000331  F3                rep
+00000332  FF                db 0xff
 00000333  3F                aas
 00000334  FFE7              jmp di
 00000336  FC                cld
 00000337  FF0F              dec word [bx]
 00000339  F9                stc
 0000033A  FFCF              dec di
-0000033C  F3                db 0xF3
-0000033D  FE                db 0xFE
+0000033C  F3                rep
+0000033D  FE                db 0xfe
 0000033E  7F99              jg 0x2d9
 00000340  9F                lahf
 00000341  3F                aas
-00000342  FF                db 0xFF
+00000342  FF                db 0xff
 00000343  F8                clc
 00000344  7CFF              jl 0x345
 00000346  3F                aas
-00000347  F3                db 0xF3
-00000348  FE                db 0xFE
+00000347  F3                rep
+00000348  FE                db 0xfe
 00000349  7FFF              jg 0x34a
 0000034B  E7FC              out 0xfc,ax
-0000034D  FF                db 0xFF
+0000034D  FF                db 0xff
 0000034E  FFE1              jmp cx
 00000350  FFCF              dec di
-00000352  F3                db 0xF3
-00000353  FE                db 0xFE
+00000352  F3                rep
+00000353  FE                db 0xfe
 00000354  7F99              jg 0x2ef
 00000356  9F                lahf
 00000357  3F                aas
 00000358  FFE0              jmp ax
 0000035A  FC                cld
-0000035B  FF                db 0xFF
+0000035B  FF                db 0xff
 0000035C  3F                aas
-0000035D  F3                db 0xF3
-0000035E  FE                db 0xFE
+0000035D  F3                rep
+0000035E  FE                db 0xfe
 0000035F  7FFF              jg 0x360
 00000361  E7FE              out 0xfe,ax
-00000363  FF                db 0xFF
-00000364  FF83FFCF          inc word [bp+di+0xcfff]
-00000368  F3                db 0xF3
-00000369  FE                db 0xFE
+00000363  FF                db 0xff
+00000364  FF83FFCF          inc word [bp+di-0x3001]
+00000368  F3                rep
+00000369  FE                db 0xfe
 0000036A  7F99              jg 0x305
 0000036C  9F                lahf
 0000036D  3F                aas
-0000036E  FF                db 0xFF
+0000036E  FF                db 0xff
 0000036F  F8                clc
 00000370  7CFF              jl 0x371
 00000372  3F                aas
-00000373  F3                db 0xF3
-00000374  FE                db 0xFE
+00000373  F3                rep
+00000374  FE                db 0xfe
 00000375  7FFF              jg 0x376
 00000377  E7FE              out 0xfe,ax
-00000379  FF                db 0xFF
+00000379  FF                db 0xff
 0000037A  FFE3              jmp bx
 0000037C  FFCF              dec di
-0000037E  F3                db 0xF3
-0000037F  FE                db 0xFE
+0000037E  F3                rep
+0000037F  FE                db 0xfe
 00000380  7F99              jg 0x31b
 00000382  9F                lahf
 00000383  3F                aas
-00000384  C7                db 0xC7
-00000385  FE                db 0xFE
+00000384  C7                db 0xc7
+00000385  FE                db 0xfe
 00000386  3CFF              cmp al,0xff
 00000388  3F                aas
-00000389  F3                db 0xF3
-0000038A  FE                db 0xFE
+00000389  F3                rep
+0000038A  FE                db 0xfe
 0000038B  7FFF              jg 0x38c
 0000038D  E7FE              out 0xfe,ax
-0000038F  FF1F              call far [bx]
+0000038F  FF1F              call word far [bx]
 00000391  F1                int1
 00000392  FFCF              dec di
-00000394  F3                db 0xF3
-00000395  FE                db 0xFE
+00000394  F3                rep
+00000395  FE                db 0xfe
 00000396  7F99              jg 0x331
 00000398  9F                lahf
 00000399  3F                aas
-0000039A  C1FF0C            sar di,0xc
-0000039D  FF                db 0xFF
+0000039A  C1FF0C            sar di,byte 0xc
+0000039D  FF                db 0xff
 0000039E  3F                aas
-0000039F  F3                db 0xF3
-000003A0  FE                db 0xFE
+0000039F  F3                rep
+000003A0  FE                db 0xfe
 000003A1  7FFF              jg 0x3a2
 000003A3  E7FE              out 0xfe,ax
 000003A5  FF0F              dec word [bx]
 000003A7  F8                clc
 000003A8  FFCF              dec di
-000003AA  F3                db 0xF3
-000003AB  FE                db 0xFE
+000003AA  F3                rep
+000003AB  FE                db 0xfe
 000003AC  7F99              jg 0x347
 000003AE  9F                lahf
 000003AF  3F                aas
 000003B0  C8FF84FF          enter 0x84ff,0xff
 000003B4  3F                aas
-000003B5  F3                db 0xF3
-000003B6  FE                db 0xFE
+000003B5  F3                rep
+000003B6  FE                db 0xfe
 000003B7  7FFF              jg 0x3b8
 000003B9  E7FE              out 0xfe,ax
 000003BB  FF0F              dec word [bx]
 000003BD  FC                cld
 000003BE  FFCF              dec di
-000003C0  F3                db 0xF3
-000003C1  FE                db 0xFE
+000003C0  F3                rep
+000003C1  FE                db 0xfe
 000003C2  7F99              jg 0x35d
 000003C4  9F                lahf
 000003C5  3F                aas
 000003C6  CC                int3
 000003C7  7FE4              jg 0x3ad
-000003C9  FF                db 0xFF
+000003C9  FF                db 0xff
 000003CA  3F                aas
-000003CB  F3                db 0xF3
-000003CC  FF                db 0xFF
+000003CB  F3                rep
+000003CC  FF                db 0xff
 000003CD  3F                aas
 000003CE  FFE7              jmp di
 000003D0  FC                cld
 000003D1  FF07              inc word [bx]
 000003D3  FC                cld
 000003D4  FFCF              dec di
-000003D6  F3                db 0xF3
-000003D7  FE                db 0xFE
+000003D6  F3                rep
+000003D7  FE                db 0xfe
 000003D8  7F99              jg 0x373
 000003DA  9F                lahf
 000003DB  3F                aas
 000003DC  CE                into
 000003DD  7FE0              jg 0x3bf
-000003DF  FF                db 0xFF
+000003DF  FF                db 0xff
 000003E0  3F                aas
-000003E1  F3                db 0xF3
-000003E2  FF                db 0xFF
+000003E1  F3                rep
+000003E2  FF                db 0xff
 000003E3  3F                aas
 000003E4  FFE7              jmp di
 000003E6  FC                cld
-000003E7  FF23              jmp near [bp+di]
+000003E7  FF23              jmp word [bp+di]
 000003E9  FC                cld
 000003EA  FFCF              dec di
-000003EC  F3                db 0xF3
-000003ED  FE                db 0xFE
+000003EC  F3                rep
+000003ED  FE                db 0xfe
 000003EE  7F99              jg 0x389
 000003F0  9F                lahf
 000003F1  3F                aas
 000003F2  CE                into
 000003F3  3F                aas
-000003F4  F0                db 0xF0
-000003F5  FF                db 0xFF
+000003F4  F0                lock
+000003F5  FF                db 0xff
 000003F6  3F                aas
-000003F7  F3                db 0xF3
-000003F8  FF                db 0xFF
+000003F7  F3                rep
+000003F8  FF                db 0xff
 000003F9  3F                aas
 000003FA  FFE7              jmp di
 000003FC  FC                cld
 000003FD  FF33              push word [bp+di]
 000003FF  FC                cld
 00000400  7FCF              jg 0x3d1
-00000402  F3                db 0xF3
-00000403  FE                db 0xFE
+00000402  F3                rep
+00000403  FE                db 0xfe
 00000404  7F99              jg 0x39f
 00000406  9F                lahf
 00000407  3F                aas
-00000408  CF                iret
+00000408  CF                iretw
 00000409  3F                aas
-0000040A  F0                db 0xF0
-0000040B  FF                db 0xFF
+0000040A  F0                lock
+0000040B  FF                db 0xff
 0000040C  3F                aas
-0000040D  F3                db 0xF3
-0000040E  FF                db 0xFF
+0000040D  F3                rep
+0000040E  FF                db 0xff
 0000040F  3F                aas
 00000410  FFC7              inc di
 00000412  FC                cld
 00000413  FF33              push word [bp+di]
-00000415  FE                db 0xFE
+00000415  FE                db 0xfe
 00000416  7FCF              jg 0x3e7
-00000418  F3                db 0xF3
-00000419  FE                db 0xFE
+00000418  F3                rep
+00000419  FE                db 0xfe
 0000041A  7F99              jg 0x3b5
 0000041C  9F                lahf
 0000041D  3F                aas
-0000041E  CF                iret
+0000041E  CF                iretw
 0000041F  1F                pop ds
-00000420  F0                db 0xF0
-00000421  FF                db 0xFF
+00000420  F0                lock
+00000421  FF                db 0xff
 00000422  3F                aas
 00000423  F1                int1
-00000424  FF1F              call far [bx]
+00000424  FF1F              call word far [bx]
 00000426  FFCF              dec di
 00000428  F8                clc
 00000429  FF31              push word [bx+di]
-0000042B  FE                db 0xFE
+0000042B  FE                db 0xfe
 0000042C  7FCF              jg 0x3fd
-0000042E  F3                db 0xF3
-0000042F  FE                db 0xFE
+0000042E  F3                rep
+0000042F  FE                db 0xfe
 00000430  7F99              jg 0x3cb
 00000432  9F                lahf
 00000433  3F                aas
-00000434  CF                iret
+00000434  CF                iretw
 00000435  9F                lahf
 00000436  F8                clc
-00000437  FF                db 0xFF
+00000437  FF                db 0xff
 00000438  3F                aas
 00000439  F9                stc
-0000043A  FF8FFFCF          dec word [bx+0xcfff]
+0000043A  FF8FFFCF          dec word [bx-0x3001]
 0000043E  F8                clc
-0000043F  FF                db 0xFF
+0000043F  FF                db 0xff
 00000440  39FE              cmp si,di
 00000442  7FCF              jg 0x413
-00000444  F3                db 0xF3
-00000445  FE                db 0xFE
+00000444  F3                rep
+00000445  FE                db 0xfe
 00000446  7F99              jg 0x3e1
 00000448  9F                lahf
 00000449  3F                aas
-0000044A  CF                iret
+0000044A  CF                iretw
 0000044B  1F                pop ds
 0000044C  F8                clc
-0000044D  FF                db 0xFF
+0000044D  FF                db 0xff
 0000044E  3F                aas
 0000044F  F9                stc
 00000450  FFCF              dec di
-00000452  FF8FF8FF          dec word [bx+0xfff8]
+00000452  FF8FF8FF          dec word [bx-0x8]
 00000456  38FE              cmp dh,bh
 00000458  7FCF              jg 0x429
-0000045A  F3                db 0xF3
-0000045B  FE                db 0xFE
+0000045A  F3                rep
+0000045B  FE                db 0xfe
 0000045C  7F99              jg 0x3f7
 0000045E  9F                lahf
 0000045F  3F                aas
-00000460  CF                iret
+00000460  CF                iretw
 00000461  3F                aas
 00000462  F8                clc
-00000463  FF                db 0xFF
+00000463  FF                db 0xff
 00000464  3F                aas
 00000465  FC                cld
 00000466  FFC7              inc di
-00000468  FF9FF0FF          call far [bx+0xfff0]
+00000468  FF9FF0FF          call word far [bx-0x10]
 0000046C  3CFE              cmp al,0xfe
 0000046E  7FCF              jg 0x43f
 00000470  F3FE00            rep inc byte [bx+si]
-00000473  199F3FCF          sbb [bx+0xcf3f],bx
+00000473  199F3FCF          sbb [bx-0x30c1],bx
 00000477  3F                aas
 00000478  F8                clc
-00000479  FF                db 0xFF
+00000479  FF                db 0xff
 0000047A  3F                aas
 0000047B  FC                cld
 0000047C  7FE7              jg 0x465
-0000047E  FF1F              call far [bx]
-00000480  F0                db 0xF0
-00000481  FF                db 0xFF
+0000047E  FF1F              call word far [bx]
+00000480  F0                lock
+00000481  FF                db 0xff
 00000482  3CFE              cmp al,0xfe
 00000484  7FCF              jg 0x455
 00000486  F3FE0C            rep dec byte [si]
-00000489  399F3FCE          cmp [bx+0xce3f],bx
+00000489  399F3FCE          cmp [bx-0x31c1],bx
 0000048D  3F                aas
-0000048E  F0                db 0xF0
-0000048F  FF                db 0xFF
+0000048E  F0                lock
+0000048F  FF                db 0xff
 00000490  3F                aas
 00000491  FC                cld
 00000492  FFE3              jmp bx
-00000494  FE                db 0xFE
+00000494  FE                db 0xfe
 00000495  3F                aas
 00000496  E0FF              loopne 0x497
 00000498  3CFE              cmp al,0xfe
 0000049A  7FCF              jg 0x46b
 0000049C  F3FC              rep cld
 0000049E  3F                aas
-0000049F  099F3FCC          or [bx+0xcc3f],bx
+0000049F  099F3FCC          or [bx-0x33c1],bx
 000004A3  7FF0              jg 0x495
-000004A5  FF                db 0xFF
+000004A5  FF                db 0xff
 000004A6  3F                aas
 000004A7  F9                stc
 000004A8  FFF1              push cx
-000004AA  FE                db 0xFE
+000004AA  FE                db 0xfe
 000004AB  7FC4              jg 0x471
-000004AD  FF                db 0xFF
+000004AD  FF                db 0xff
 000004AE  3CFE              cmp al,0xfe
 000004B0  7FCF              jg 0x481
 000004B2  F3F8              rep clc
@@ -649,24 +649,24 @@
 000004B8  C8FFE0FF          enter 0xe0ff,0xff
 000004BC  1F                pop ds
 000004BD  F1                int1
-000004BE  DF                db 0xDF
+000004BE  DF                db 0xdf
 000004BF  F8                clc
 000004C0  7C7F              jl 0x541
 000004C2  CC                int3
-000004C3  FF                db 0xFF
+000004C3  FF                db 0xff
 000004C4  3C7E              cmp al,0x7e
 000004C6  7FCF              jg 0x497
 000004C8  F3F9              rep stc
 000004CA  FFE1              jmp cx
 000004CC  9F                lahf
 000004CD  3F                aas
-000004CE  C1FFE4            sar di,0xe4
-000004D1  FF87C3CF          inc word [bx+0xcfc3]
+000004CE  C1FFE4            sar di,byte 0xe4
+000004D1  FF87C3CF          inc word [bx-0x303d]
 000004D5  FC                cld
 000004D6  10FF              adc bh,bh
 000004D8  0CFF              or al,0xff
 000004DA  3E7E7F            ds jng 0x55c
-000004DD  CF                iret
+000004DD  CF                iretw
 000004DE  F3F9              rep stc
 000004E0  FFE1              jmp cx
 000004E2  9E                sahf
@@ -675,17 +675,17 @@
 000004E5  FFC4              inc sp
 000004E7  FFC0              inc ax
 000004E9  07                pop es
-000004EA  C7                db 0xC7
+000004EA  C7                db 0xc7
 000004EB  FF01              inc word [bx+di]
-000004ED  FE                db 0xFE
+000004ED  FE                db 0xfe
 000004EE  1CFF              sbb al,0xff
 000004F0  3E7E7F            ds jng 0x572
-000004F3  CF                iret
+000004F3  CF                iretw
 000004F4  F3F9              rep stc
 000004F6  FFE1              jmp cx
-000004F8  9C                pushf
+000004F8  9C                pushfw
 000004F9  7FFF              jg 0x4fa
-000004FB  FF88FFF0          dec word [bx+si+0xf0ff]
+000004FB  FF88FFF0          dec word [bx+si-0xf01]
 000004FF  1F                pop ds
 00000500  C3                ret
 00000501  FFC7              inc di
@@ -693,18 +693,18 @@
 00000504  78FF              js 0x505
 00000506  1E                push ds
 00000507  7E7F              jng 0x588
-00000509  8F                db 0x8F
+00000509  8F                db 0x8f
 0000050A  F1                int1
 0000050B  F9                stc
 0000050C  FFE1              jmp cx
 0000050E  98                cbw
-0000050F  FF                db 0xFF
-00000510  FF                db 0xFF
-00000511  FF11              call near [bx+di]
-00000513  FF                db 0xFF
-00000514  FF                db 0xFF
+0000050F  FF                db 0xff
+00000510  FF                db 0xff
+00000511  FF11              call word [bx+di]
+00000513  FF                db 0xff
+00000514  FF                db 0xff
 00000515  FFC8              dec ax
-00000517  FF                db 0xFF
+00000517  FF                db 0xff
 00000518  FFF0              push ax
 0000051A  F1                int1
 0000051B  FF8E3E3F          dec word [bp+0x3f3e]
@@ -713,11 +713,11 @@
 00000521  F9                stc
 00000522  FFE1              jmp cx
 00000524  91                xchg ax,cx
-00000525  FF                db 0xFF
-00000526  FF                db 0xFF
+00000525  FF                db 0xff
+00000526  FF                db 0xff
 00000527  FC                cld
 00000528  23FF              and di,di
-0000052A  FF                db 0xFF
+0000052A  FF                db 0xff
 0000052B  FFCC              dec sp
 0000052D  3F                aas
 0000052E  FFC1              inc cx
@@ -728,11 +728,11 @@
 00000537  78FF              js 0x538
 00000539  C9                leave
 0000053A  93                xchg ax,bx
-0000053B  FF                db 0xFF
+0000053B  FF                db 0xff
 0000053C  FFC0              inc ax
-0000053E  67                db 0x67
-0000053F  FF                db 0xFF
-00000540  FF                db 0xFF
+0000053E  67                a32
+0000053F  FF                db 0xff
+00000540  FF                db 0xff
 00000541  FFCE              dec si
 00000543  07                pop es
 00000544  FF07              inc word [bx]
@@ -756,68 +756,68 @@
 00000569  1F                pop ds
 0000056A  E000              loopne 0x56c
 0000056C  0000              add [bx+si],al
-0000056E  0F                db 0x0F
+0000056E  0F                db 0x0f
 0000056F  F0007FE0          lock add [bx-0x20],bh
 00000573  0007              add [bx],al
 00000575  9F                lahf
 00000576  8E00              mov es,[bx+si]
 00000578  007E00            add [bp+0x0],bh
-0000057B  199FFFFF          sbb [bx+0xffff],bx
-0000057F  FF                db 0xFF
-00000580  FF                db 0xFF
-00000581  FF                db 0xFF
-00000582  FF                db 0xFF
-00000583  FF                db 0xFF
-00000584  FF                db 0xFF
-00000585  FF                db 0xFF
-00000586  FF                db 0xFF
-00000587  FF                db 0xFF
-00000588  FF                db 0xFF
-00000589  FF                db 0xFF
-0000058A  FF8FC7FF          dec word [bx+0xffc7]
-0000058E  FF                db 0xFF
+0000057B  199FFFFF          sbb [bx-0x1],bx
+0000057F  FF                db 0xff
+00000580  FF                db 0xff
+00000581  FF                db 0xff
+00000582  FF                db 0xff
+00000583  FF                db 0xff
+00000584  FF                db 0xff
+00000585  FF                db 0xff
+00000586  FF                db 0xff
+00000587  FF                db 0xff
+00000588  FF                db 0xff
+00000589  FF                db 0xff
+0000058A  FF8FC7FF          dec word [bx-0x39]
+0000058E  FF                db 0xff
 0000058F  FFE1              jmp cx
 00000591  F9                stc
 00000592  9F                lahf
-00000593  FF                db 0xFF
-00000594  FF                db 0xFF
-00000595  FF                db 0xFF
-00000596  FF                db 0xFF
-00000597  FF                db 0xFF
-00000598  FF                db 0xFF
-00000599  FF                db 0xFF
-0000059A  FF                db 0xFF
-0000059B  FF                db 0xFF
-0000059C  FF                db 0xFF
-0000059D  FF                db 0xFF
-0000059E  FF                db 0xFF
-0000059F  FF                db 0xFF
+00000593  FF                db 0xff
+00000594  FF                db 0xff
+00000595  FF                db 0xff
+00000596  FF                db 0xff
+00000597  FF                db 0xff
+00000598  FF                db 0xff
+00000599  FF                db 0xff
+0000059A  FF                db 0xff
+0000059B  FF                db 0xff
+0000059C  FF                db 0xff
+0000059D  FF                db 0xff
+0000059E  FF                db 0xff
+0000059F  FF                db 0xff
 000005A0  FFC7              inc di
 000005A2  E3FF              jcxz 0x5a3
-000005A4  FF                db 0xFF
-000005A5  FF                db 0xFF
-000005A6  FF                db 0xFF
+000005A4  FF                db 0xff
+000005A5  FF                db 0xff
+000005A6  FF                db 0xff
 000005A7  F9                stc
 000005A8  9F                lahf
-000005A9  FF                db 0xFF
-000005AA  FF                db 0xFF
-000005AB  FF                db 0xFF
-000005AC  FF                db 0xFF
-000005AD  FF                db 0xFF
-000005AE  FF                db 0xFF
-000005AF  FF                db 0xFF
-000005B0  FF                db 0xFF
-000005B1  FF                db 0xFF
-000005B2  FF                db 0xFF
-000005B3  FF                db 0xFF
-000005B4  FF                db 0xFF
-000005B5  FF                db 0xFF
+000005A9  FF                db 0xff
+000005AA  FF                db 0xff
+000005AB  FF                db 0xff
+000005AC  FF                db 0xff
+000005AD  FF                db 0xff
+000005AE  FF                db 0xff
+000005AF  FF                db 0xff
+000005B0  FF                db 0xff
+000005B1  FF                db 0xff
+000005B2  FF                db 0xff
+000005B3  FF                db 0xff
+000005B4  FF                db 0xff
+000005B5  FF                db 0xff
 000005B6  FFE3              jmp bx
 000005B8  F1                int1
-000005B9  FF                db 0xFF
-000005BA  FF                db 0xFF
-000005BB  FF                db 0xFF
-000005BC  FF                db 0xFF
+000005B9  FF                db 0xff
+000005BA  FF                db 0xff
+000005BB  FF                db 0xff
+000005BC  FF                db 0xff
 000005BD  F9                stc
 000005BE  800000            add byte [bx+si],0x0
 000005C1  0000              add [bx+si],al
@@ -840,25 +840,25 @@
 000005E5  0000              add [bx+si],al
 000005E7  0000              add [bx+si],al
 000005E9  01FF              add di,di
-000005EB  FF                db 0xFF
-000005EC  FF                db 0xFF
-000005ED  FF                db 0xFF
-000005EE  FF                db 0xFF
-000005EF  FF                db 0xFF
-000005F0  FF                db 0xFF
-000005F1  FF                db 0xFF
-000005F2  FF                db 0xFF
-000005F3  FF                db 0xFF
-000005F4  FF                db 0xFF
-000005F5  FF                db 0xFF
-000005F6  FF                db 0xFF
-000005F7  FF                db 0xFF
-000005F8  FF                db 0xFF
+000005EB  FF                db 0xff
+000005EC  FF                db 0xff
+000005ED  FF                db 0xff
+000005EE  FF                db 0xff
+000005EF  FF                db 0xff
+000005F0  FF                db 0xff
+000005F1  FF                db 0xff
+000005F2  FF                db 0xff
+000005F3  FF                db 0xff
+000005F4  FF                db 0xff
+000005F5  FF                db 0xff
+000005F6  FF                db 0xff
+000005F7  FF                db 0xff
+000005F8  FF                db 0xff
 000005F9  FF01              inc word [bx+di]
-000005FB  FF                db 0xFF
-000005FC  FF                db 0xFF
-000005FD  FF                db 0xFF
-000005FE  FF                db 0xFF
+000005FB  FF                db 0xff
+000005FC  FF                db 0xff
+000005FD  FF                db 0xff
+000005FE  FF                db 0xff
 000005FF  FF426C            inc word [bp+si+0x6c]
 00000602  6F                outsw
 00000603  7274              jc 0x679
@@ -877,7 +877,7 @@
 00000625  206A75            and [bp+si+0x75],ch
 00000628  7374              jnc 0x69e
 0000062A  206772            and [bx+0x72],ah
-0000062D  61                popa
+0000062D  61                popaw
 0000062E  626269            bound sp,[bp+si+0x69]
 00000631  6E                outsb
 00000632  67206120          and [ecx+0x20],ah
@@ -916,7 +916,7 @@
 0000068B  207468            and [si+0x68],dh
 0000068E  657265            gs jc 0x6f6
 00000691  2C20              sub al,0x20
-00000693  61                popa
+00000693  61                popaw
 00000694  6E                outsb
 00000695  6420536C          and [fs:bp+di+0x6c],dl
 00000699  7564              jnz 0x6ff
@@ -926,7 +926,7 @@
 000006A4  6E                outsb
 000006A5  65206974          and [gs:bx+di+0x74],ch
 000006A9  206167            and [bx+di+0x67],ah
-000006AC  61                popa
+000006AC  61                popaw
 000006AD  696E2E0D0A        imul bp,[bp+0x2e],word 0xa0d
 000006B2  53                push bx
 000006B3  6C                insb
@@ -942,12 +942,12 @@
 000006CC  6C                insb
 000006CD  6F                outsw
 000006CE  7420              jz 0x6f0
-000006D0  61                popa
+000006D0  61                popaw
 000006D1  207368            and [bp+di+0x68],dh
 000006D4  7574              jnz 0x74a
 000006D6  746C              jz 0x744
 000006D8  652C20            gs sub al,0x20
-000006DB  61                popa
+000006DB  61                popaw
 000006DC  6E                outsb
 000006DD  64207468          and [fs:si+0x68],dh
 000006E1  65207261          and [gs:bp+si+0x61],dh
@@ -979,7 +979,7 @@
 0000071F  54                push sp
 00000720  686520            push word 0x2065
 00000723  6C                insb
-00000724  61                popa
+00000724  61                popaw
 00000725  756E              jnz 0x795
 00000727  636820            arpl [bx+si+0x20],bp
 0000072A  7061              jo 0x78d
@@ -999,16 +999,16 @@
 0000074F  62646F            bound sp,[si+0x6f]
 00000752  776E              ja 0x7c2
 00000754  2C20              sub al,0x20
-00000756  61                popa
+00000756  61                popaw
 00000757  6E                outsb
 00000758  6420536C          and [fs:bp+di+0x6c],dl
 0000075C  7564              jnz 0x7c2
 0000075E  6765206D61        and [gs:ebp+0x61],ch
 00000763  6E                outsb
-00000764  61                popa
-00000765  67656420746F0D    and [fs:edi+ebp*2+0xd],dh
+00000764  61                popaw
+00000765  67656420746F0D    and [dword fs:edi+ebp*2+0xd],dh
 0000076C  0A6372            or ah,[bp+di+0x72]
-0000076F  61                popa
+0000076F  61                popaw
 00000770  776C              ja 0x7de
 00000772  20696E            and [bx+di+0x6e],ch
 00000775  746F              jz 0x7e6
@@ -1048,7 +1048,7 @@
 000007CB  6F                outsw
 000007CC  6C                insb
 000007CD  6C                insb
-000007CE  61                popa
+000007CE  61                popaw
 000007CF  626C79            bound bp,[si+0x79]
 000007D2  206F75            and [bx+0x75],ch
 000007D5  7420              jz 0x7f7
@@ -1068,7 +1068,7 @@
 000007F7  636572            arpl [di+0x72],sp
 000007FA  6E                outsb
 000007FB  6564207370        and [fs:bp+di+0x70],dh
-00000800  61                popa
+00000800  61                popaw
 00000801  636563            arpl [di+0x63],sp
 00000804  7261              jc 0x867
 00000806  66740D            o32 jz 0x816
@@ -1085,12 +1085,12 @@
 00000825  7269              jc 0x890
 00000827  656E              gs outsb
 00000829  647320            fs jnc 0x84c
-0000082C  61                popa
+0000082C  61                popaw
 0000082D  7265              jc 0x894
 0000082F  20736F            and [bp+di+0x6f],dh
 00000832  6D                insw
 00000833  657768            gs ja 0x89e
-00000836  61                popa
+00000836  61                popaw
 00000837  7420              jz 0x859
 00000839  6D                insw
 0000083A  6F                outsw
@@ -1122,19 +1122,19 @@
 00000871  7573              jnz 0x8e6
 00000873  65207468          and [gs:si+0x68],dh
 00000877  6520605A          and [gs:bx+si+0x5a],ah
-0000087B  60                pusha
+0000087B  60                pushaw
 0000087C  206B65            and [bp+di+0x65],ch
 0000087F  7920              jns 0x8a1
 00000881  286C65            sub [si+0x65],ch
 00000884  667429            o32 jz 0x8b0
 00000887  20616E            and [bx+di+0x6e],ah
 0000088A  64206058          and [fs:bx+si+0x58],ah
-0000088E  60                pusha
+0000088E  60                pushaw
 0000088F  206B65            and [bp+di+0x65],ch
 00000892  790D              jns 0x8a1
 00000894  0A28              or ch,[bx+si]
 00000896  7269              jc 0x901
-00000898  67687429          a32 push word 0x2974
+00000898  67687429          push word 0x2974
 0000089C  20746F            and [si+0x6f],dh
 0000089F  207061            and [bx+si+0x61],dh
 000008A2  7274              jc 0x918
@@ -1166,7 +1166,7 @@
 000008E3  750D              jnz 0x8f2
 000008E5  0A6D61            or ch,[di+0x61]
 000008E8  7920              jns 0x90a
-000008EA  61                popa
+000008EA  61                popaw
 000008EB  7320              jnc 0x90d
 000008ED  7765              ja 0x954
 000008EF  6C                insb
@@ -1174,7 +1174,7 @@
 000008F1  20626C            and [bp+si+0x6c],ah
 000008F4  6F                outsw
 000008F5  7720              ja 0x917
-000008F7  61                popa
+000008F7  61                popaw
 000008F8  7761              ja 0x95b
 000008FA  7920              jns 0x91c
 000008FC  7468              jz 0x966
@@ -1184,9 +1184,9 @@
 00000909  7468              jz 0x973
 0000090B  207468            and [si+0x68],dh
 0000090E  65207370          and [gs:bp+di+0x70],dh
-00000912  61                popa
+00000912  61                popaw
 00000913  636562            arpl [di+0x62],sp
-00000916  61                popa
+00000916  61                popaw
 00000917  722E              jc 0x947
 00000919  205468            and [si+0x68],dl
 0000091C  657265            gs jc 0x984
@@ -1213,7 +1213,7 @@
 00000951  7468              jz 0x9bb
 00000953  6520616C          and [gs:bx+di+0x6c],ah
 00000957  69656E7320        imul sp,[di+0x6e],word 0x2073
-0000095C  61                popa
+0000095C  61                popaw
 0000095D  637469            arpl [si+0x69],si
 00000960  7661              jna 0x9c3
 00000962  7465              jz 0x9c9
@@ -1243,7 +1243,7 @@
 0000099D  53                push bx
 0000099E  41                inc cx
 0000099F  206275            and [bp+si+0x75],ah
-000009A2  6467657420        gs a32 jz 0x9c7
+000009A2  6467657420        gs jz 0x9c7
 000009A7  636F6E            arpl [bx+0x6e],bp
 000009AA  7374              jnc 0xa20
 000009AC  7261              jc 0xa0f
@@ -1253,7 +1253,7 @@
 000009BA  2E205573          and [cs:di+0x73],dl
 000009BE  65207468          and [gs:si+0x68],dh
 000009C2  6520604C          and [gs:bx+si+0x4c],ah
-000009C6  60                pusha
+000009C6  60                pushaw
 000009C7  0D0A6B            or ax,0x6b0a
 000009CA  657920            gs jns 0x9ed
 000009CD  746F              jz 0xa3e
@@ -1265,7 +1265,7 @@
 000009D9  41                inc cx
 000009DA  53                push bx
 000009DB  41                inc cx
-000009DC  60                pusha
+000009DC  60                pushaw
 000009DD  7320              jnc 0x9ff
 000009DF  696E766573        imul bp,[bp+0x76],word 0x7365
 000009E4  746D              jz 0xa53
@@ -1277,10 +1277,10 @@
 000009F8  657665            gs jna 0xa60
 000009FB  6C                insb
 000009FC  2032              and [bp+si],dh
-000009FE  60                pusha
+000009FE  60                pushaw
 000009FF  7320              jnc 0xa21
 00000A01  6C                insb
-00000A02  61                popa
+00000A02  61                popaw
 00000A03  6E                outsb
 00000A04  646D              fs insw
 00000A06  696E657320        imul bp,[bp+0x65],word 0x2073
@@ -1297,20 +1297,20 @@
 00000A20  57                push di
 00000A21  68696C            push word 0x6c69
 00000A24  6520706C          and [gs:bx+si+0x6c],dh
-00000A28  61                popa
+00000A28  61                popaw
 00000A29  7969              jns 0xa94
 00000A2B  6E                outsb
 00000A2C  673A20            cmp ah,[eax]
-00000A2F  60                pusha
+00000A2F  60                pushaw
 00000A30  51                push cx
-00000A31  60                pusha
+00000A31  60                pushaw
 00000A32  207175            and [bx+di+0x75],dh
 00000A35  6974732C20        imul si,[si+0x73],word 0x202c
-00000A3A  61                popa
+00000A3A  61                popaw
 00000A3B  6E                outsb
 00000A3C  64206045          and [fs:bx+si+0x45],ah
 00000A40  7363              jnc 0xaa5
-00000A42  60                pusha
+00000A42  60                pushaw
 00000A43  207061            and [bx+si+0x61],dh
 00000A46  7573              jnz 0xabb
 00000A48  65732F            gs jnc 0xa7a
@@ -1340,7 +1340,7 @@
 00000A7E  6C                insb
 00000A7F  646C              fs insb
 00000A81  7920              jns 0xaa3
-00000A83  61                popa
+00000A83  61                popaw
 00000A84  64646963746976    imul sp,[fs:bp+di+0x74],word 0x7669
 00000A8B  65206761          and [gs:bx+0x61],ah
 00000A8F  6D                insw
@@ -1350,7 +1350,7 @@
 00000A9B  7265              jc 0xb02
 00000A9D  627920            bound di,[bx+di+0x20]
 00000AA0  706C              jo 0xb0e
-00000AA2  61                popa
+00000AA2  61                popaw
 00000AA3  636564            arpl [di+0x64],sp
 00000AA6  20696E            and [bx+di+0x6e],ch
 00000AA9  746F              jz 0xb1a
@@ -1361,7 +1361,7 @@
 00000AB6  6320              arpl [bx+si],sp
 00000AB8  646F              fs outsw
 00000ABA  6D                insw
-00000ABB  61                popa
+00000ABB  61                popaw
 00000ABC  696E2E2049        imul bp,[bp+0x2e],word 0x4920
 00000AC1  7420              jz 0xae3
 00000AC3  7761              ja 0xb26
@@ -1372,7 +1372,7 @@
 00000AD1  2038              and [bx+si],bh
 00000AD3  3038              xor [bx+si],bh
 00000AD5  3820              cmp [bx+si],ah
-00000AD7  61                popa
+00000AD7  61                popaw
 00000AD8  7373              jnc 0xb4d
 00000ADA  656D              gs insw
 00000ADC  626C65            bound bp,[si+0x65]
@@ -1422,7 +1422,7 @@
 00000B4D  656564696E67206D  imul bp,[fs:bp+0x67],word 0x6d20
 00000B55  65292C            sub [gs:si],bp
 00000B58  20706C            and [bx+si+0x6c],dh
-00000B5B  6561              gs popa
+00000B5B  6561              gs popaw
 00000B5D  7365              jnc 0xbc4
 00000B5F  207365            and [bp+di+0x65],dh
 00000B62  6E                outsb
@@ -1431,7 +1431,7 @@
 00000B69  20646F            and [si+0x6f],ah
 00000B6C  6C                insb
 00000B6D  6C                insb
-00000B6E  61                popa
+00000B6E  61                popaw
 00000B6F  7273              jc 0xbe4
 00000B71  20746F            and [si+0x6f],dh
 00000B74  3A0D              cmp cl,[di]
@@ -1493,7 +1493,7 @@
 00000BDA  7274              jc 0xc50
 00000BDC  49                dec cx
 00000BDD  49                dec cx
-00000BDE  60                pusha
+00000BDE  60                pushaw
 00000BDF  7320              jnc 0xc01
 00000BE1  53                push bx
 00000BE2  4F                dec di
@@ -1507,7 +1507,7 @@
 00000BEC  2C20              sub al,0x20
 00000BEE  666F              outsd
 00000BF0  7220              jc 0xc12
-00000BF2  61                popa
+00000BF2  61                popaw
 00000BF3  6E                outsb
 00000BF4  796F              jns 0xc65
 00000BF6  6E                outsb
@@ -1526,27 +1526,27 @@
 00000C18  726F              jc 0xc89
 00000C1A  7567              jnz 0xc83
 00000C1C  68206D            push word 0x6d20
-00000C1F  61                popa
+00000C1F  61                popaw
 00000C20  636869            arpl [bx+si+0x69],bp
 00000C23  6E                outsb
 00000C24  650D0A6C          gs or ax,0x6c0a
-00000C28  61                popa
+00000C28  61                popaw
 00000C29  6E                outsb
-00000C2A  677561            a32 jnz 0xc8e
-00000C2D  67652C20          gs a32 sub al,0x20
+00000C2A  677561            jnz 0xc8e
+00000C2D  67652C20          gs sub al,0x20
 00000C31  6973206176        imul si,[bp+di+0x20],word 0x7661
-00000C36  61                popa
+00000C36  61                popaw
 00000C37  696C61626C        imul bp,[si+0x61],word 0x6c62
 00000C3C  65206F6E          and [gs:bx+0x6e],ch
 00000C40  2D6469            sub ax,0x6964
 00000C43  736B              jnc 0xcb0
 00000C45  20666F            and [bp+0x6f],ah
 00000C48  7220              jc 0xc6a
-00000C4A  61                popa
+00000C4A  61                popaw
 00000C4B  6E                outsb
 00000C4C  206164            and [bx+di+0x64],ah
 00000C4F  646974696F6E      imul si,[fs:si+0x69],word 0x6e6f
-00000C55  61                popa
+00000C55  61                popaw
 00000C56  6C                insb
 00000C57  206669            and [bp+0x69],ah
 00000C5A  667465            o32 jz 0xcc2
@@ -1554,7 +1554,7 @@
 00000C5F  20646F            and [si+0x6f],ah
 00000C62  6C                insb
 00000C63  6C                insb
-00000C64  61                popa
+00000C64  61                popaw
 00000C65  7273              jc 0xcda
 00000C67  2E0D0A0A          cs or ax,0xa0a
 00000C6B  59                pop cx
@@ -1562,11 +1562,11 @@
 00000C6D  7572              jnz 0xce1
 00000C6F  206578            and [di+0x78],ah
 00000C72  7472              jz 0xce6
-00000C74  61                popa
+00000C74  61                popaw
 00000C75  2031              and [bx+di],dh
 00000C77  352063            xor ax,0x6320
 00000C7A  6C                insb
-00000C7B  61                popa
+00000C7B  61                popaw
 00000C7C  6D                insw
 00000C7D  7320              jnc 0xc9f
 00000C7F  7769              ja 0xcea
@@ -1576,7 +1576,7 @@
 00000C86  7420              jz 0xca8
 00000C88  796F              jns 0xcf9
 00000C8A  7520              jnz 0xcac
-00000C8C  61                popa
+00000C8C  61                popaw
 00000C8D  206469            and [si+0x69],ah
 00000C90  736B              jnc 0xcfd
 00000C92  207769            and [bx+0x69],dh
@@ -1602,12 +1602,12 @@
 00000CAE  4F                dec di
 00000CAF  4D                dec bp
 00000CB0  2C20              sub al,0x20
-00000CB2  61                popa
+00000CB2  61                popaw
 00000CB3  6E                outsb
 00000CB4  64207468          and [fs:si+0x68],dh
 00000CB8  650D0A75          gs or ax,0x750a
 00000CBC  7064              jo 0xd22
-00000CBE  61                popa
+00000CBE  61                popaw
 00000CBF  7465              jz 0xd26
 00000CC1  64206F72          and [fs:bx+0x72],ch
 00000CC5  6967696E61        imul sp,[bx+0x69],word 0x616e
@@ -1633,11 +1633,11 @@
 00000CEF  6720524F          and [edx+0x4f],dl
 00000CF3  4D                dec bp
 00000CF4  206368            and [bp+di+0x68],ah
-00000CF7  61                popa
+00000CF7  61                popaw
 00000CF8  7261              jc 0xd5b
 00000CFA  637465            arpl [si+0x65],si
 00000CFD  7220              jc 0xd1f
-00000CFF  61                popa
+00000CFF  61                popaw
 00000D00  6E                outsb
 00000D01  696D617469        imul bp,[di+0x61],word 0x6974
 00000D06  6F                outsw
@@ -1645,20 +1645,20 @@
 00000D08  0D0A69            or ax,0x690a
 00000D0B  6E                outsb
 00000D0C  7374              jnc 0xd82
-00000D0E  6561              gs popa
+00000D0E  6561              gs popaw
 00000D10  64206F66          and [fs:bx+0x66],ch
 00000D14  20426C            and [bp+si+0x6c],al
 00000D17  6F                outsw
 00000D18  7274              jc 0xd8e
 00000D1A  49                dec cx
 00000D1B  49                dec cx
-00000D1C  60                pusha
+00000D1C  60                pushaw
 00000D1D  7320              jnc 0xd3f
 00000D1F  363430            ss xor al,0x30
 00000D22  7832              js 0xd56
 00000D24  3030              xor [bx+si],dh
 00000D26  206772            and [bx+0x72],ah
-00000D29  61                popa
+00000D29  61                popaw
 00000D2A  7068              jo 0xd94
 00000D2C  6963732061        imul sp,[bp+di+0x73],word 0x6120
 00000D31  6E                outsb
@@ -1673,16 +1673,16 @@
 00000D4A  6F                outsw
 00000D4B  7274              jc 0xdc1
 00000D4D  2120              and [bx+si],sp
-00000D4F  61                popa
+00000D4F  61                popaw
 00000D50  7070              jo 0xdc2
-00000D52  6561              gs popa
+00000D52  6561              gs popaw
 00000D54  7265              jc 0xdbb
 00000D56  640D0A69          fs or ax,0x690a
 00000D5A  6E                outsb
 00000D5B  207468            and [si+0x68],dh
 00000D5E  65206574          and [gs:di+0x74],ah
 00000D62  65726E            gs jc 0xdd3
-00000D65  61                popa
+00000D65  61                popaw
 00000D66  6C                insb
 00000D67  6C                insb
 00000D68  7920              jns 0xd8a
@@ -1696,7 +1696,7 @@
 00000D78  67204E6F          and [esi+0x6f],cl
 00000D7C  7721              ja 0xd9f
 00000D7E  206D61            and [di+0x61],ch
-00000D81  6761              a32 popa
+00000D81  6761              a32 popaw
 00000D83  7A69              jpe 0xdee
 00000D85  6E                outsb
 00000D86  65206173          and [gs:bx+di+0x73],ah
@@ -1750,7 +1750,7 @@
 00000E00  49                dec cx
 00000E01  207761            and [bx+0x61],dh
 00000E04  7320              jnc 0xe26
-00000E06  61                popa
+00000E06  61                popaw
 00000E07  7373              jnc 0xe7c
 00000E09  656D              gs insw
 00000E0B  626C65            bound bp,[si+0x65]
@@ -1760,14 +1760,14 @@
 00000E19  6320              arpl [bx+si],sp
 00000E1B  49                dec cx
 00000E1C  7361              jnc 0xe7f
-00000E1E  61                popa
+00000E1E  61                popaw
 00000E1F  63736F            arpl [bp+di+0x6f],si
 00000E22  6E                outsb
-00000E23  60                pusha
+00000E23  60                pushaw
 00000E24  7320              jnc 0xe46
 00000E26  41                inc cx
 00000E27  3836204D          cmp [0x4d20],dh
-00000E2B  61                popa
+00000E2B  61                popaw
 00000E2C  63726F            arpl [bp+si+0x6f],si
 00000E2F  204173            and [bx+di+0x73],al
 00000E32  7365              jnc 0xe99
@@ -1781,7 +1781,7 @@
 00000E48  20796F            and [bx+di+0x6f],bh
 00000E4B  7572              jnz 0xebf
 00000E4D  206E65            and [bp+0x65],ch
-00000E50  61                popa
+00000E50  61                popaw
 00000E51  7265              jc 0xeb8
 00000E53  7374              jnc 0xec9
 00000E55  207075            and [bx+si+0x75],dh
@@ -1789,10 +1789,10 @@
 00000E5B  6320              arpl [bx+si],sp
 00000E5D  646F              fs outsw
 00000E5F  6D                insw
-00000E60  61                popa
+00000E60  61                popaw
 00000E61  696E20736F        imul bp,[bp+0x20],word 0x6f73
 00000E66  667477            o32 jz 0xee0
-00000E69  61                popa
+00000E69  61                popaw
 00000E6A  7265              jc 0xed1
 00000E6C  20736F            and [bp+di+0x6f],dh
 00000E6F  7572              jnz 0xee3
@@ -1840,35 +1840,35 @@
 00000ED1  2407              and al,0x7
 00000ED3  FFE0              jmp ax
 00000ED5  1F                pop ds
-00000ED6  FF                db 0xFF
+00000ED6  FF                db 0xff
 00000ED7  F8                clc
 00000ED8  F9                stc
 00000ED9  99                cwd
 00000EDA  9F                lahf
 00000EDB  1F                pop ds
-00000EDC  FF                db 0xFF
+00000EDC  FF                db 0xff
 00000EDD  F8                clc
 00000EDE  07                pop es
 00000EDF  E7E0              out 0xe0,ax
 00000EE1  03FF              add di,di
-00000EE3  C007FF            rol byte [bx],0xff
+00000EE3  C007FF            rol byte [bx],byte 0xff
 00000EE6  E01F              loopne 0xf07
-00000EE8  FF                db 0xFF
+00000EE8  FF                db 0xff
 00000EE9  F8                clc
 00000EEA  7800              js 0xeec
 00000EEC  1E                push ds
-00000EED  C7                db 0xC7
+00000EED  C7                db 0xc7
 00000EEE  FFE3              jmp bx
 00000EF0  7E3C              jng 0xf2e
 00000EF2  7EFD              jng 0xef1
 00000EF4  66FD              o32 std
 00000EF6  FC                cld
-00000EF7  FF                db 0xFF
+00000EF7  FF                db 0xff
 00000EF8  7D83              jnl 0xe7d
 00000EFA  66837E3C7E        cmp dword [bp+0x3c],byte +0x7e
-00000EFF  FF                db 0xFF
-00000F00  FF                db 0xFF
-00000F01  FF                db 0xFF
+00000EFF  FF                db 0xff
+00000F00  FF                db 0xff
+00000F01  FF                db 0xff
 00000F02  3C42              cmp al,0x42
 00000F04  3C17              cmp al,0x17
 00000F06  FFC8              dec ax
@@ -1880,13 +1880,13 @@
 00000F13  E7C7              out 0xc7,ax
 00000F15  E7E7              out 0xe7,ax
 00000F17  E7C3              out 0xc3,ax
-00000F19  FF                db 0xFF
+00000F19  FF                db 0xff
 00000F1A  FFE7              jmp di
 00000F1C  99                cwd
 00000F1D  F9                stc
-00000F1E  C7                db 0xC7
+00000F1E  C7                db 0xc7
 00000F1F  BF81FF            mov di,0xff81
-00000F22  FF81F9E7          inc word [bx+di+0xe7f9]
+00000F22  FF81F9E7          inc word [bx+di-0x1807]
 00000F26  F1                int1
 00000F27  99                cwd
 00000F28  C3                ret
@@ -1914,7 +1914,7 @@
 00000F51  6F                outsw
 00000F52  FD                std
 00000F53  EE                out dx,al
-00000F54  D8AA1B81          fsubr dword [bp+si+0x811b]
+00000F54  D8AA1B81          fsubr dword [bp+si-0x7ee5]
 00000F58  42                inc dx
 00000F59  2418              and al,0x18
 00000F5B  3476              xor al,0x76
@@ -1923,7 +1923,7 @@
 00000F5F  FD                std
 00000F60  AE                scasb
 00000F61  3DFE1D            cmp ax,0x1dfe
-00000F64  FE                db 0xFE
+00000F64  FE                db 0xfe
 00000F65  3D4E1E            cmp ax,0x1e4e
 00000F68  4E                dec si
 00000F69  3E9E              ds sahf
@@ -2064,8 +2064,9 @@
 0000107B  3030              xor [bx+si],dh
 0000107D  3030              xor [bx+si],dh
 0000107F  3030              xor [bx+si],dh
-00001081  24B8              and al,0xb8
-00001083  00B88EC0          add [bx+si+0xc08e],bh
+
+00001082  B800B8            mov ax,0xb800
+00001085  8EC0              mov es,ax
 00001087  B400              mov ah,0x0
 00001089  B006              mov al,0x6
 0000108B  CD10              int 0x10
@@ -2188,14 +2189,14 @@
 00001196  31FF              xor di,di
 00001198  BB3001            mov bx,0x130
 0000119B  B91600            mov cx,0x16
-0000119E  E8DB18            call 0x2a7c
+0000119E  E8DB18            call word 0x2a7c
 000011A1  E2FB              loop 0x119e
 000011A3  FE0E3110          dec byte [0x1031]
 000011A7  803E311000        cmp byte [0x1031],0x0
 000011AC  7420              jz 0x11ce
 000011AE  81C7EA1F          add di,0x1fea
 000011B2  B91600            mov cx,0x16
-000011B5  E8C418            call 0x2a7c
+000011B5  E8C418            call word 0x2a7c
 000011B8  E2FB              loop 0x11b5
 000011BA  FE0E3110          dec byte [0x1031]
 000011BE  803E311000        cmp byte [0x1031],0x0
@@ -2237,17 +2238,17 @@
 00001232  FE063F10          inc byte [0x103f]
 00001236  803E3F103A        cmp byte [0x103f],0x3a
 0000123B  742B              jz 0x1268
-0000123D  E85518            call 0x2a95
+0000123D  E85518            call word 0x2a95
 00001240  3C00              cmp al,0x0
 00001242  7506              jnz 0x124a
 00001244  FF063510          inc word [0x1035]
 00001248  EB98              jmp short 0x11e2
 0000124A  3C31              cmp al,0x31
 0000124C  7503              jnz 0x1251
-0000124E  E9AF00            jmp 0x1300
+0000124E  E9AF00            jmp word 0x1300
 00001251  3C32              cmp al,0x32
 00001253  7503              jnz 0x1258
-00001255  E90101            jmp 0x1359
+00001255  E90101            jmp word 0x1359
 00001258  3C33              cmp al,0x33
 0000125A  75E8              jnz 0x1244
 0000125C  B400              mov ah,0x0
@@ -2291,22 +2292,22 @@
 000012CD  FE063F10          inc byte [0x103f]
 000012D1  803E3F103A        cmp byte [0x103f],0x3a
 000012D6  7503              jnz 0x12db
-000012D8  E9F3FE            jmp 0x11ce
-000012DB  E8B717            call 0x2a95
+000012D8  E9F3FE            jmp word 0x11ce
+000012DB  E8B717            call word 0x2a95
 000012DE  3C00              cmp al,0x0
 000012E0  7403              jz 0x12e5
-000012E2  E90600            jmp 0x12eb
+000012E2  E90600            jmp word 0x12eb
 000012E5  FF0E3510          dec word [0x1035]
 000012E9  EB92              jmp short 0x127d
 000012EB  3C31              cmp al,0x31
 000012ED  7503              jnz 0x12f2
-000012EF  E90E00            jmp 0x1300
+000012EF  E90E00            jmp word 0x1300
 000012F2  3C32              cmp al,0x32
 000012F4  7503              jnz 0x12f9
-000012F6  E96000            jmp 0x1359
+000012F6  E96000            jmp word 0x1359
 000012F9  3C33              cmp al,0x33
 000012FB  75E8              jnz 0x12e5
-000012FD  E95CFF            jmp 0x125c
+000012FD  E95CFF            jmp word 0x125c
 00001300  B400              mov ah,0x0
 00001302  B002              mov al,0x2
 00001304  CD10              int 0x10
@@ -2349,7 +2350,7 @@
 00001350  B24F              mov dl,0x4f
 00001352  B707              mov bh,0x7
 00001354  CD10              int 0x10
-00001356  E92EFD            jmp 0x1087
+00001356  E92EFD            jmp word 0x1087
 00001359  B406              mov ah,0x6
 0000135B  B000              mov al,0x0
 0000135D  31C9              xor cx,cx
@@ -2364,15 +2365,15 @@
 0000137A  803E461001        cmp byte [0x1046],0x1
 0000137F  7506              jnz 0x1387
 00001381  BBD20E            mov bx,0xed2
-00001384  E91D00            jmp 0x13a4
+00001384  E91D00            jmp word 0x13a4
 00001387  803E461002        cmp byte [0x1046],0x2
 0000138C  7506              jnz 0x1394
 0000138E  BBE10E            mov bx,0xee1
-00001391  E91000            jmp 0x13a4
+00001391  E91000            jmp word 0x13a4
 00001394  803E461003        cmp byte [0x1046],0x3
 00001399  7506              jnz 0x13a1
 0000139B  BBF00E            mov bx,0xef0
-0000139E  E90300            jmp 0x13a4
+0000139E  E90300            jmp word 0x13a4
 000013A1  BBFF0E            mov bx,0xeff
 000013A4  B005              mov al,0x5
 000013A6  B90300            mov cx,0x3
@@ -2424,14 +2425,14 @@
 00001410  8B3E7E0F          mov di,[0xf7e]
 00001414  BB560F            mov bx,0xf56
 00001417  B90300            mov cx,0x3
-0000141A  E86716            call 0x2a84
+0000141A  E86716            call word 0x2a84
 0000141D  E2FB              loop 0x141a
 0000141F  FE0E3010          dec byte [0x1030]
 00001423  803E301000        cmp byte [0x1030],0x0
 00001428  7420              jz 0x144a
 0000142A  81EFFD1F          sub di,0x1ffd
 0000142E  B90300            mov cx,0x3
-00001431  E85016            call 0x2a84
+00001431  E85016            call word 0x2a84
 00001434  E2FB              loop 0x1431
 00001436  FE0E3010          dec byte [0x1030]
 0000143A  803E301000        cmp byte [0x1030],0x0
@@ -2439,13 +2440,13 @@
 00001441  81C70020          add di,0x2000
 00001445  83EF4D            sub di,byte +0x4d
 00001448  EBCD              jmp short 0x1417
-0000144A  E8F601            call 0x1643
-0000144D  E81E00            call 0x146e
-00001450  E80601            call 0x1559
-00001453  E8F302            call 0x1749
+0000144A  E8F601            call word 0x1643
+0000144D  E81E00            call word 0x146e
+00001450  E80601            call word 0x1559
+00001453  E8F302            call word 0x1749
 00001456  803E4C1002        cmp byte [0x104c],0x2
 0000145B  75ED              jnz 0x144a
-0000145D  E8A207            call 0x1c02
+0000145D  E8A207            call word 0x1c02
 00001460  EBE8              jmp short 0x144a
 00001462  B400              mov ah,0x0
 00001464  B002              mov al,0x2
@@ -2461,10 +2462,10 @@
 00001479  833E381000        cmp word [0x1038],byte +0x0
 0000147E  7517              jnz 0x1497
 00001480  C606481000        mov byte [0x1048],0x0
-00001485  E97200            jmp 0x14fa
+00001485  E97200            jmp word 0x14fa
 00001488  833E38104D        cmp word [0x1038],byte +0x4d
 0000148D  7403              jz 0x1492
-0000148F  E96800            jmp 0x14fa
+0000148F  E96800            jmp word 0x14fa
 00001492  C606481001        mov byte [0x1048],0x1
 00001497  C606401000        mov byte [0x1040],0x0
 0000149C  C606371000        mov byte [0x1037],0x0
@@ -2532,10 +2533,10 @@
 00001564  833E3A1000        cmp word [0x103a],byte +0x0
 00001569  7517              jnz 0x1582
 0000156B  C606491000        mov byte [0x1049],0x0
-00001570  E97100            jmp 0x15e4
+00001570  E97100            jmp word 0x15e4
 00001573  833E3A104D        cmp word [0x103a],byte +0x4d
 00001578  7403              jz 0x157d
-0000157A  E96700            jmp 0x15e4
+0000157A  E96700            jmp word 0x15e4
 0000157D  C606491001        mov byte [0x1049],0x1
 00001582  C606401000        mov byte [0x1040],0x0
 00001587  C606371000        mov byte [0x1037],0x0
@@ -2635,7 +2636,7 @@
 000016A1  E2EA              loop 0x168d
 000016A3  C7062C10910A      mov word [0x102c],0xa91
 000016A9  C7062A10F401      mov word [0x102a],0x1f4
-000016AF  E8AA13            call 0x2a5c
+000016AF  E8AA13            call word 0x2a5c
 000016B2  EB9D              jmp short 0x1651
 000016B4  3C60              cmp al,0x60
 000016B6  7C02              jl 0x16ba
@@ -2685,7 +2686,7 @@
 0000173D  A25A10            mov [0x105a],al
 00001740  A25B10            mov [0x105b],al
 00001743  A25C10            mov [0x105c],al
-00001746  E93EF9            jmp 0x1087
+00001746  E93EF9            jmp word 0x1087
 00001749  FE064410          inc byte [0x1044]
 0000174D  803E411001        cmp byte [0x1041],0x1
 00001752  7401              jz 0x1755
@@ -2729,7 +2730,7 @@
 000017BA  A13810            mov ax,[0x1038]
 000017BD  39C8              cmp ax,cx
 000017BF  7503              jnz 0x17c4
-000017C1  E92F00            jmp 0x17f3
+000017C1  E92F00            jmp word 0x17f3
 000017C4  48                dec ax
 000017C5  39C8              cmp ax,cx
 000017C7  742A              jz 0x17f3
@@ -2749,7 +2750,7 @@
 000017F2  C3                ret
 000017F3  C7062C103101      mov word [0x102c],0x131
 000017F9  C7062A101027      mov word [0x102a],0x2710
-000017FF  E85A12            call 0x2a5c
+000017FF  E85A12            call word 0x2a5c
 00001802  C6064A1001        mov byte [0x104a],0x1
 00001807  C6062E1001        mov byte [0x102e],0x1
 0000180C  EBBD              jmp short 0x17cb
@@ -2764,15 +2765,15 @@
 00001827  803E461001        cmp byte [0x1046],0x1
 0000182C  7506              jnz 0x1834
 0000182E  BBD20E            mov bx,0xed2
-00001831  E91D00            jmp 0x1851
+00001831  E91D00            jmp word 0x1851
 00001834  803E461002        cmp byte [0x1046],0x2
 00001839  7506              jnz 0x1841
 0000183B  BBE10E            mov bx,0xee1
-0000183E  E91000            jmp 0x1851
+0000183E  E91000            jmp word 0x1851
 00001841  803E461003        cmp byte [0x1046],0x3
 00001846  7506              jnz 0x184e
 00001848  BBF00E            mov bx,0xef0
-0000184B  E90300            jmp 0x1851
+0000184B  E90300            jmp word 0x1851
 0000184E  BBFF0E            mov bx,0xeff
 00001851  8B3E5410          mov di,[0x1054]
 00001855  B90300            mov cx,0x3
@@ -2815,10 +2816,10 @@
 000018AE  A15210            mov ax,[0x1052]
 000018B1  3D301B            cmp ax,0x1b30
 000018B4  7D0C              jnl 0x18c2
-000018B6  E8A0FC            call 0x1559
-000018B9  E887FD            call 0x1643
+000018B6  E8A0FC            call word 0x1559
+000018B9  E887FD            call word 0x1643
 000018BC  A15210            mov ax,[0x1052]
-000018BF  E95AFF            jmp 0x181c
+000018BF  E95AFF            jmp word 0x181c
 000018C2  C6062E1000        mov byte [0x102e],0x0
 000018C7  8B3E5210          mov di,[0x1052]
 000018CB  83EF50            sub di,byte +0x50
@@ -2841,10 +2842,10 @@
 000018FB  7405              jz 0x1902
 000018FD  B90300            mov cx,0x3
 00001900  EBD1              jmp short 0x18d3
-00001902  E81E01            call 0x1a23
+00001902  E81E01            call word 0x1a23
 00001905  803E461004        cmp byte [0x1046],0x4
 0000190A  7403              jz 0x190f
-0000190C  E96500            jmp 0x1974
+0000190C  E96500            jmp word 0x1974
 0000190F  C606461001        mov byte [0x1046],0x1
 00001914  C6064C1001        mov byte [0x104c],0x1
 00001919  BF2800            mov di,0x28
@@ -2868,7 +2869,7 @@
 00001947  268A05            mov al,[es:di]
 0000194A  3C24              cmp al,0x24
 0000194C  7403              jz 0x1951
-0000194E  E91F00            jmp 0x1970
+0000194E  E91F00            jmp word 0x1970
 00001951  B009              mov al,0x9
 00001953  BFD81D            mov di,0x1dd8
 00001956  30E4              xor ah,ah
@@ -2881,7 +2882,7 @@
 00001968  7406              jz 0x1970
 0000196A  81EFB01F          sub di,0x1fb0
 0000196E  EBE8              jmp short 0x1958
-00001970  E84900            call 0x19bc
+00001970  E84900            call word 0x19bc
 00001973  C3                ret
 00001974  803E461002        cmp byte [0x1046],0x2
 00001979  7539              jnz 0x19b4
@@ -2904,24 +2905,24 @@
 000019A9  B90100            mov cx,0x1
 000019AC  B032              mov al,0x32
 000019AE  CD10              int 0x10
-000019B0  E80900            call 0x19bc
+000019B0  E80900            call word 0x19bc
 000019B3  C3                ret
 000019B4  FE064610          inc byte [0x1046]
-000019B8  E80100            call 0x19bc
+000019B8  E80100            call word 0x19bc
 000019BB  C3                ret
 000019BC  8B3E4E10          mov di,[0x104e]
 000019C0  803E461001        cmp byte [0x1046],0x1
 000019C5  7506              jnz 0x19cd
 000019C7  BBD20E            mov bx,0xed2
-000019CA  E91D00            jmp 0x19ea
+000019CA  E91D00            jmp word 0x19ea
 000019CD  803E461002        cmp byte [0x1046],0x2
 000019D2  7506              jnz 0x19da
 000019D4  BBE10E            mov bx,0xee1
-000019D7  E91000            jmp 0x19ea
+000019D7  E91000            jmp word 0x19ea
 000019DA  803E461003        cmp byte [0x1046],0x3
 000019DF  7506              jnz 0x19e7
 000019E1  BBF00E            mov bx,0xef0
-000019E4  E90300            jmp 0x19ea
+000019E4  E90300            jmp word 0x19ea
 000019E7  BBFF0E            mov bx,0xeff
 000019EA  B005              mov al,0x5
 000019EC  B90300            mov cx,0x3
@@ -2949,7 +2950,7 @@
 00001A22  C3                ret
 00001A23  803E461003        cmp byte [0x1046],0x3
 00001A28  7D03              jnl 0x1a2d
-00001A2A  E92D01            jmp 0x1b5a
+00001A2A  E92D01            jmp word 0x1b5a
 00001A2D  8A265A10          mov ah,[0x105a]
 00001A31  80FC09            cmp ah,0x9
 00001A34  743B              jz 0x1a71
@@ -3044,7 +3045,7 @@
 00001B17  8A265C10          mov ah,[0x105c]
 00001B1B  80FC09            cmp ah,0x9
 00001B1E  7503              jnz 0x1b23
-00001B20  E97500            jmp 0x1b98
+00001B20  E97500            jmp word 0x1b98
 00001B23  FEC4              inc ah
 00001B25  88265C10          mov [0x105c],ah
 00001B29  BF4A00            mov di,0x4a
@@ -3090,7 +3091,7 @@
 00001B8E  B40A              mov ah,0xa
 00001B90  B90100            mov cx,0x1
 00001B93  CD10              int 0x10
-00001B95  E995FE            jmp 0x1a2d
+00001B95  E995FE            jmp word 0x1a2d
 00001B98  28C0              sub al,al
 00001B9A  A25C10            mov [0x105c],al
 00001B9D  BF4A00            mov di,0x4a
@@ -3136,7 +3137,7 @@
 00001C01  C3                ret
 00001C02  803E421001        cmp byte [0x1042],0x1
 00001C07  7503              jnz 0x1c0c
-00001C09  E94A00            jmp 0x1c56
+00001C09  E94A00            jmp word 0x1c56
 00001C0C  803E441027        cmp byte [0x1044],0x27
 00001C11  7542              jnz 0x1c55
 00001C13  803E44102E        cmp byte [0x1044],0x2e
@@ -3168,14 +3169,14 @@
 00001C59  268A25            mov ah,[es:di]
 00001C5C  80FC00            cmp ah,0x0
 00001C5F  7403              jz 0x1c64
-00001C61  E90B00            jmp 0x1c6f
+00001C61  E90B00            jmp word 0x1c6f
 00001C64  BFC93E            mov di,0x3ec9
 00001C67  268A25            mov ah,[es:di]
 00001C6A  80FC00            cmp ah,0x0
 00001C6D  74E6              jz 0x1c55
 00001C6F  C7062C103C73      mov word [0x102c],0x733c
 00001C75  C7062A103075      mov word [0x102a],0x7530
-00001C7B  E8DE0D            call 0x2a5c
+00001C7B  E8DE0D            call word 0x2a5c
 00001C7E  B009              mov al,0x9
 00001C80  BFD81D            mov di,0x1dd8
 00001C83  30E4              xor ah,ah
@@ -3300,7 +3301,7 @@
 00001DAF  EBF9              jmp short 0x1daa
 00001DB1  80EB01            sub bl,0x1
 00001DB4  7403              jz 0x1db9
-00001DB6  E977FF            jmp 0x1d30
+00001DB6  E977FF            jmp word 0x1d30
 00001DB9  B47E              mov ah,0x7e
 00001DBB  BF751E            mov di,0x1e75
 00001DBE  268825            mov [es:di],ah
@@ -4222,7 +4223,7 @@
 00002961  A04D10            mov al,[0x104d]
 00002964  3C00              cmp al,0x0
 00002966  7403              jz 0x296b
-00002968  E9A900            jmp 0x2a14
+00002968  E9A900            jmp word 0x2a14
 0000296B  A05910            mov al,[0x1059]
 0000296E  8A265A10          mov ah,[0x105a]
 00002972  8A1E5B10          mov bl,[0x105b]
@@ -4258,7 +4259,7 @@
 000029CB  88167C10          mov [0x107c],dl
 000029CF  80C630            add dh,0x30
 000029D2  88367B10          mov [0x107b],dh
-000029D6  E939ED            jmp 0x1712
+000029D6  E939ED            jmp word 0x1712
 000029D9  A25D10            mov [0x105d],al
 000029DC  88265E10          mov [0x105e],ah
 000029E0  881E5F10          mov [0x105f],bl
@@ -4275,7 +4276,7 @@
 00002A06  80C730            add bh,0x30
 00002A09  883E6810          mov [0x1068],bh
 00002A0D  883E7B10          mov [0x107b],bh
-00002A11  E9FEEC            jmp 0x1712
+00002A11  E9FEEC            jmp word 0x1712
 00002A14  30C0              xor al,al
 00002A16  C7063A100000      mov word [0x103a],0x0
 00002A1C  A24910            mov [0x1049],al
