@@ -1,2 +1,2 @@
 all:
-	ndisasm digdug.com -o 0x100 > digdug.asm
+	ndisasm digdug.com -b 16 -o 0x100 > digdug.asm
