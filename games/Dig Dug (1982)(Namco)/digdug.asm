@@ -2463,6 +2463,8 @@
 00001505  0202              add al,[bp+si]
 00001507  0202              add al,[bp+si]
 00001509  02BBA035          add bh,[bp+di+0x35a0]
+
+0000150A  BBA035            mov bx,0x35a0
 0000150D  E89CFA            call 0xfac
 00001510  BB0037            mov bx,0x3700
 00001513  E896FA            call 0xfac

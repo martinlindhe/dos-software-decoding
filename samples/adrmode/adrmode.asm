@@ -3,7 +3,14 @@
     org  0x100        ; .com files always start 256 bytes into the segment
 
 
+xchg ax, cx
+
   ;  int 3 ; // breakpoint for dosbox debugger. run "BPINT 3" in dosbox debugger before running program
+mybench:
+    mov cx, 0xffff
+    dec cx
+    jmp mybench   ; should amount to 1 + (3 * 0xffff) instructions
+
 
 
 ; rep movsw test
