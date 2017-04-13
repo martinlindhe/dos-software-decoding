@@ -1,0 +1,47 @@
+To begin the game, the first player starts by placing a stone (playing piece)
+on the center point.  The second player then places a stone on any inter-
+section, anywhere on the board.  The players then continue to alternate moves
+playing one stone at a time on any unoccupied intersection.  The stones are
+only played on the intersections of the lines, including the edge of the board.
+
+Once played, a stone may not be moved again unless captured.
+
+                      The object of the game
+
+  I.     To win by getting five (or more) stones in a row, either horizontally,
+          vertically, or along a diagonal, with no empty points between them.
+
+  II.    To win by capturing five pairs (or more) of the opponents stones.
+
+
+
+          There now follows:
+
+           I.   An explanation of five-in-a-row
+           II.  An explanation of captures
+           III. An explanation of placing pieces
+----
+Five-in-a-row must be in a straight consecutive line, but may run in any
+direction, horizontally, vertically or diagonally, just like tic-tac-toe.
+For a demonstration of a winning game sequence touch the space bar.
+----
+Note that now the player playing with the "#" cannot win. If a move is made on
+either side, the other player may put the winning move on the other.  This
+situation is called an unblocked 4 and is usually equivalent to check-mate!
+----
+Stones are captured in pairs (and only in pairs) whenever two adjacent stones
+are bracketed by stones of the opposite color. All four pieces involved must be
+in a straight consecutive line. Captures can be made along diagonal as well as
+horizontal and vertical lines. As soon as the capturing play is made, the
+captured stones should be removed from the grid ( when playing on the computer
+this is done automatically ) and placed in view, along the boarder so that both
+players can see how many pieces have been captured.
+----
+When playing pente against the computer, choose the "H" option from the main
+menu. The computer will allow you to move first. To place your move, place the
+angle brackets over the intersection where you wish to move (note: on the
+first move you must move in the center position) by touching the arrow keys on
+the right of the keyboard. Once you have positioned the angle brackets at that
+position, you will place the move by touching the space-bar.  You will now
+alternate turns with the computer until the game is over, or you may start
+a new game by touching ESC (escape key).   Good luck and enjoy!!

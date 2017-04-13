@@ -1,0 +1,22 @@
+MUMMIES.COM is an enjoyable little game written for the IBM PC/compatible in
+TURBO PASCAL.  It may be played on a monochrome or color display.
+
+Game constants (i.e. speed of game and number of objects) may be defined by
+pressing D (or d) in response to start up message.  Definitions are self
+explanatory.
+
+Game should run on a PC-AT with delays set to 12 (Mummie delay) and 400 (Loop
+delay).
+
+Please send reports of problems, suggestions for improvements or comments to:
+
+		Iain W. Brown (author)
+		2812 S. 226 St.
+		Des Moines, WA 98188
+
+		Compuserve I.D. 75206,2561
+
+This program is in the public domain.
+
+Unsqueeze MUMMIES.CQM with USQ before using.  Let me know what you think of it!
+

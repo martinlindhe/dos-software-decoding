@@ -1,0 +1,45 @@
+
+       M A D B A L L      -   Copyright (c) 1977,1985 MicroTec.
+
+   This is a simple nerve racking game of dexterity and
+   coordination.  The object is to move your piece across the
+   screen and out the door on the right side without getting hit
+   by a bouncing ball and without touching the walls.
+
+   You start by choosing a level of play from 1 to 4 with 1 being
+   the most difficult.  You are given three pieces to play with.
+   Pressing the space bar places a piece on the board and
+   positions a 'door' on the right edge which is your way out.
+   The game starts with one bouncing ball and adds a ball each
+   time you make it across the board.  The highest number of
+   balls officially recorded to date is 23......
+
+   You control the movement of your piece using the numeric
+   keypad:
+                        NW     N     NE
+                           \   |   /
+                            7  8  9
+                        W - 4     6 - E
+                            1  2  3
+                           /   |   \
+                        SW     S     SE
+
+   You may press Ctrl-C at any point to quit the game.
+
+   You are free to copy and distribute this program for
+   noncommercial use.  It is provided AS IS without warranty,
+   expressed or implied.  If you like this shareware version,
+   send $12.00 (Ca. residents add 6.5% sales tax) to:
+                  MicroTec Consulting
+                  1744 Westwood Bl.
+                  Los Angeles, Ca. 90024
+   And we'll send you the commercial version of MADNESS which
+   will drive you and your CGA Mmmmmaaaaaadddddd !!!!
+
+
+
+
+
+
+
+

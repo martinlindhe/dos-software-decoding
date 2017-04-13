@@ -1,0 +1,65 @@
+-----------------
+INC '91 Presents!
+-----------------
+---------------
+Logical Trainer
+---------------
+
+Update v1.1 -
+
+	Well it seems that I mistook that hourglass as just a time bonus
+and not a time factor in the game. That hourglass timer serves as the
+game time, while the time I was preventing was placing the next ball
+into an open slot.
+
+	The unlimited timer function will work correctly now and I also
+put in a skip to level key. Some of those puzzles take long to finish
+and I wanted to see the rest of the layouts.
+
+
+                            ----------
+
+Version 1.0 -
+	
+
+	This game reminded me of that safe cracking game.
+
+	The objec of the game is to fill each of the dials with the same
+color. If you've completed a dial, the dial holes will turn black.
+Those dials that you haven't finished will be open or see-thru.
+
+	In keyboard mode, you can move a ball from one dial to another
+provided there is a valid path between them. To move a ball, hold
+down the right shift key and then a valid direction. If the
+destination dial slot already contains a ball, the moving ball will
+return to the source dial.
+
+	The trainer keys will give you unlimited men and time. I may do a
+"skip to level" toggle if someone wants it. The location is a little
+trickier so it'll take more than the 1/2 hour I spent figuring out
+the current cheat.
+
+	As for the trainer tune, it's been nullified by the game's INT 08
+so you'll here grinding noises if you have an adlib.
+
+
+- Rescue Raider [INC]
+
+
+Other June '91 trainers include:
+
+Logical, Skull and Crossbones, Shiftrix, Martian Dreams Character Editor,
+Martian Dreams VGA
+
+
+Other May '91 trainers include:
+
+Lemmings C/E/VGA, Never Ending Story II, F-29 Retaliator, Slordax,
+Elite Plus, Prehistorik, Sarakon, Gold of the Aztecs, Mighty Bomb Jack,
+Predator II
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+Megapede        Version 1.1             (c)  Dom. Early       1992
+
+Intro :
+-------
+
+ The game was written to fill a gap in my PC games collection. I love the
+ arcade games of old, but could find no version of this arcade classic. So
+ I wrote one for the PC.
+
+The Game :
+----------
+
+ The object of Megapede, as with any GOOD game, is to shoot as many 'baddies'
+ as possible, and in doing so amount the high score. You control a base at the
+ bottom of the screen which fires missiles upwards towards the ever advancing
+ MEGAPEDES who 'worm' their way down the screen. Each megapede is made up of
+ many segments and hitting one of these segments causes the megapede to split
+ into two smaller megapedes. Touching any of these megapedes means instant
+ death, as you only have one life (how realistic!).
+
+
+ Other hazards include the various 'grow pills' (cleverly disguised as hearts)
+ which appear around the screen. Though not fatal to touch, these pills cause
+ the megapedes to rapidly grow by several segments, multiplying the enemy!
+ You can destroy these pills but you must hit them with 10 missiles before
+ they disappear.
+
+
+ Bricks also appear around the screen and perform no useful function except
+ getting in the way of your missiles and causing the megapedes to descend more
+ rapidly. Again they can be destroyed but require 10 hits before disappearing.
+
+
+ Finally there is the DEADLY SPIDER which scampers across the screen from time
+ to time. This enemy lays lots of grow pills across the screen for the megapedes
+ to gorge themselves on. He is also fatal to touch.
+
+
+        -       Your Base               I       -       Missile
+
+ @@@@@@  -       Megapede                       -       Grow Pill
+
+ ±       -       Brick                          -       Spider
+
+
+Base Controls :
+---------------
+
+ Q       -       Up                      A       -       Down
+
+ O       -       Left                    P       -       Right
+
+                     SPACE   -       Fire
+
+
+Other Controls :
+----------------
+
+ ALT-S   -       Toggle Sound ON/OFF     ESC     -       Quit
+
+
+Requirements :
+--------------
+
+ Megapede Will work with any machine from a bog standard XT to a breathtaking
+ 486. It runs in text mode so any display will do, although it is nicer in
+ colo(u)r !
+
+
+Registering :
+-------------
+
+ Please support shareware by registering. To do so send $5 or œ5 to
+        Dom. Early
+        Finara
+        Celbridge Road
+        Leixlip
+        County. Kildare
+        Rep. of Ireland
+
+ Feel free to distribute MEGAPEDE by giving your friends, relatives,
+ grandmothers etc. a copy of the game. This copy must include unaltered
+ versions of the files
+        MEGAPEDE.COM
+        MEGAPEDE.DOC
+
+ Enjoy !

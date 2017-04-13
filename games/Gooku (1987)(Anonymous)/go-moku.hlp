@@ -1,0 +1,42 @@
+
+
+OBJECT OF THE GAME
+
+This program plays a very
+old  Japanese game called
+GOMOKU  (also  known as 5
+in line and Pente).   The
+board has  19x19 squares;
+Get 5 stones in a row and
+you win!
+
+
+
+
+HOW TO MOVE
+
+Use  the  keypad  keys to
+move the cursor:
+
+    Home    PgUp
+
+      Ä     Ä
+
+     End    PgDn
+
+Touch <RETURN> or <SPACE>
+to make your move.
+
+USING THE MENU
+
+Use  the  menu  above  to
+perform  these   commands
+(type the first letter):
+
+  N - Start a new game
+  Q - Exit the program
+  A - Program plays alone
+  P - Switch sides
+  H - Get a hint
+
+
