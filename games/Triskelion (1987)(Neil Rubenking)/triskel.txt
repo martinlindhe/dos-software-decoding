@@ -1,0 +1,41 @@
+                          T R I S K E L I O N
+
+Requirements: IBM-compatible with EGA -- EGA must have 128K at least.
+
+This game is similar to the "Hungarian Rings" puzzle.  You rotate the
+rings to move the marbles.  Of course, the challenge comes of the fact
+that rings CROSS, so rotating one affects all three.
+
+It's convenient to put the NumLock key ON -- then the 123 keys turn the
+rings clockwise, and the 456 keys above them turn counterclockwise.
+
+GOAL:  At the start, there is a central yellow triskelion and three
+arcs of other colors.  Your goal is to put another color in the
+triskelion.  Of course, the remaining marbles should still form
+three arcs.
+
+SUGGESTIONS for solving:  Notice that a move like 1245 doesn't change
+very much.  It rotates two triads of marbles at the intersections of
+rings 1 and 2.  Repeat it twice more and you're back where you started.
+This kind of move is called a COMMUTATOR in group theory, and puzzles
+that can be described by group theory are usually solved with the help
+of commutators.  To get more specific, suppose F is a series of moves.
+Define F' to be another series of moves such that the first move of F'
+is the reverse of the last move of F, the second of F' the reverse of
+the second-to-last of F, and so on 'til the last move of F' is the
+reverse of the first move of F.  Then F followed by F' will not change
+the position of the marbles.
+
+A Commutator is of the form FGF'G', where F and G are series of moves.
+Back to the example, F is 1, F' is 4, G is 2, G' is 5.  The commutator
+is 1245.
+
+Another useful commutator is 11111111222222224444444455555555.  (That's
+8 repetitions of each).  This move swaps two pairs of marbles -- look
+closely to see which two.  Moves of this sort will be handy!
+
+SOLUTION: Sorry, I don't have one!  I though up the puzzle, but MY
+challenge was programming it.  Enjoy!
+
+      Neil J. Rubenking
+

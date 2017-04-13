@@ -6,11 +6,10 @@
     int 3 ; // breakpoint for dosbox debugger. run "BPINT 3" in dosbox debugger before running program
 
     ;--
-    ;Unsigned divide r/m8 by 2, CL times.
 
     mov dh,0xF0
     mov cl, 5
-    shr dh, cl
+    rcr dh, cl    ; = ???
 
 
 
