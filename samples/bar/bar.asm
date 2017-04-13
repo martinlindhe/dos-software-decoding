@@ -51,6 +51,8 @@ ALoop:     push cx                      ;
            mov  ax,0003h                ; set screen back to text (80x25)
            int  10h                     ;
 
+           mov  ax, 4c00h               ; terminate program
+           int  21h
 
 
 Fade:                                   ; print first and third parts
