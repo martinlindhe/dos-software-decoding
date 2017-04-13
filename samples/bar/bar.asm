@@ -1,5 +1,7 @@
 ; from http://www.fysnet.net/modex.htm
 
+section .text
+
            org  100h
 
            push ds                      ; make sure ds=es
@@ -7,7 +9,7 @@
 
            mov  cx,64                   ; set up our palette
            xor  ax,ax                   ;  of  0.0.0, 1.1.1, 2,2,2, ...
-           mov  di, Palette       ;
+           mov  di, Palette             ;
 PLoop:     stosb                        ;
            stosb                        ;
            stosb                        ;
@@ -17,10 +19,12 @@ PLoop:     stosb                        ;
            mov  ax,0013h                ; set video mode to 320x200x256
            int  10h                     ;
 
-           mov  dx, Palette       ; set the palette (DAC)
-           xor  bx,bx                   ;
-           mov  cx,64                   ;
-           mov  ax,1012h                ;
+           mov  dx, Palette             ; ES:DX -> table of 3*CX bytes where each 3
+                                        ; byte group represents one byte each of red,
+                                        ; green and blue (0-63)
+           xor  bx,bx                   ; BX = starting color register
+           mov  cx,64                   ; CX = number of registers to set
+           mov  ax,1012h                ; set the palette (DAC)
            int  10h                     ;
 
            mov  ax,0A000h               ; point to VGA memory
@@ -34,8 +38,7 @@ PLoop:     stosb                        ;
            mov  al,32                   ;  middle color
 ALoop:     push cx                      ;
            mov  cx,128                  ;
-           rep                          ;
-           stosb                        ;
+           rep  stosb                   ;
            add  di,192                  ;
            pop  cx                      ;
            loop ALoop                   ;
@@ -64,7 +67,6 @@ PLoop2:    mov  al,cl                   ;
            loop PLoop1                  ;
            ret                          ;
 
-                
+section .bss
  Palette:   RESB 768                    ; our palette buffer
-
 
