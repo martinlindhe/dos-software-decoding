@@ -3,9 +3,18 @@
     org  0x100        ; .com files always start 256 bytes into the segment
 
 
-xchg ax, cx
+    int 3 ; // breakpoint for dosbox debugger. run "BPINT 3" in dosbox debugger before running program
 
-  ;  int 3 ; // breakpoint for dosbox debugger. run "BPINT 3" in dosbox debugger before running program
+    ;--
+    ;Unsigned divide r/m8 by 2, CL times.
+
+    mov dh,0xF0
+    mov cl, 5
+    shr dh, cl
+
+
+
+
 mybench:
     mov cx, 0xffff
     dec cx
