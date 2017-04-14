@@ -8,12 +8,12 @@ section .text
            pop  es
 
            mov  cx,64                   ; set up our palette
-           xor  ax,ax                   ;  of  0.0.0, 1.1.1, 2,2,2, ...
+           xor  al,al                   ;  of  0.0.0, 1.1.1, 2,2,2, ...
            mov  di, Palette             ;
 PLoop:     stosb                        ;
            stosb                        ;
            stosb                        ;
-           inc  ax                      ;
+           inc  al                      ;
            loop PLoop                   ;
 
            mov  ax,0013h                ; set video mode to 320x200x256
