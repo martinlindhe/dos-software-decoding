@@ -5,6 +5,11 @@
 
     int 3 ; // breakpoint for dosbox debugger. run "BPINT 3" in dosbox debugger before running program
 
+    ; neg tesxt
+    mov bx, 0x123
+    neg bx
+
+
     ;--
 
     mov dh,0xF0
