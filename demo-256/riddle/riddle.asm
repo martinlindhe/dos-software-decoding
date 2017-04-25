@@ -1,0 +1,111 @@
+00000100  B013              mov al,0x13
+00000102  CD10              int 0x10
+00000104  6800A0            push word 0xa000
+00000107  07                pop es
+00000108  E87300            call word 0x17e
+0000010B  B105              mov cl,0x5
+0000010D  C70698010023      mov word [0x198],0x2300
+00000113  C706FF019A01      mov word [0x1ff],0x19a
+00000119  51                push cx
+0000011A  8B16FF01          mov dx,[0x1ff]
+0000011E  E84000            call word 0x161
+00000121  B123              mov cl,0x23
+00000123  8306FF0119        add word [0x1ff],byte +0x19
+00000128  51                push cx
+00000129  B9FFFF            mov cx,0xffff
+0000012C  E83700            call word 0x166
+0000012F  8BDA              mov bx,dx
+00000131  268A27            mov ah,[es:bx]
+00000134  80FC00            cmp ah,0x0
+00000137  7414              jz 0x14d
+00000139  FEC4              inc ah
+0000013B  2688A7C0FE        mov [es:bx-0x140],ah
+00000140  2688A74001        mov [es:bx+0x140],ah
+00000145  268867FF          mov [es:bx-0x1],ah
+00000149  26886701          mov [es:bx+0x1],ah
+0000014D  E2DD              loop 0x12c
+0000014F  59                pop cx
+00000150  E2D6              loop 0x128
+00000152  59                pop cx
+00000153  810698010023      add word [0x198],0x2300
+00000159  E2BE              loop 0x119
+0000015B  B80300            mov ax,0x3
+0000015E  CD10              int 0x10
+00000160  C3                ret
+00000161  B409              mov ah,0x9
+00000163  CD21              int 0x21
+00000165  C3                ret
+00000166  8B1E9601          mov bx,[0x196]
+0000016A  81C34892          add bx,0x9248
+0000016E  D1CB              ror bx,1
+00000170  D1CB              ror bx,1
+00000172  D1CB              ror bx,1
+00000174  891E9601          mov [0x196],bx
+00000178  A19801            mov ax,[0x198]
+0000017B  F7E3              mul bx
+0000017D  C3                ret
+0000017E  B1FF              mov cl,0xff
+00000180  B801FF            mov ax,0xff01
+00000183  BAC803            mov dx,0x3c8
+00000186  EE                out dx,al
+00000187  42                inc dx
+00000188  86E0              xchg ah,al
+0000018A  EE                out dx,al
+0000018B  EE                out dx,al
+0000018C  EE                out dx,al
+0000018D  86E0              xchg ah,al
+0000018F  FEC0              inc al
+00000191  FECC              dec ah
+00000193  E2EE              loop 0x183
+00000195  C3                ret
+00000196  1111              adc [bx+di],dx
+00000198  0000              add [bx+si],al
+0000019A  0A0A              or cl,[bp+si]
+0000019C  0A0D              or cl,[di]
+0000019E  0A09              or cl,[bx+di]
+000001A0  2020              and [bx+si],ah
+000001A2  2020              and [bx+si],ah
+000001A4  2020              and [bx+si],ah
+000001A6  204920            and [bx+di+0x20],cl
+000001A9  61                popaw
+000001AA  6D                insw
+000001AB  20596F            and [bx+di+0x6f],bl
+000001AE  7520              jnz 0x1d0
+000001B0  2020              and [bx+si],ah
+000001B2  240A              and al,0xa
+000001B4  0A0A              or cl,[bp+si]
+000001B6  0D0A09            or ax,0x90a
+000001B9  2020              and [bx+si],ah
+000001BB  2020              and [bx+si],ah
+000001BD  2020              and [bx+si],ah
+000001BF  59                pop cx
+000001C0  6F                outsw
+000001C1  7520              jnz 0x1e3
+000001C3  61                popaw
+000001C4  7265              jc 0x22b
+000001C6  206D65            and [di+0x65],ch
+000001C9  2020              and [bx+si],ah
+000001CB  240A              and al,0xa
+000001CD  0A0A              or cl,[bp+si]
+000001CF  0D0A09            or ax,0x90a
+000001D2  2020              and [bx+si],ah
+000001D4  2020              and [bx+si],ah
+000001D6  57                push di
+000001D7  686F20            push word 0x206f
+000001DA  6973207374        imul si,[bp+di+0x20],word 0x7473
+000001DF  7570              jnz 0x251
+000001E1  69643A240A        imul sp,[si+0x3a],word 0xa24
+000001E6  0A0A              or cl,[bp+si]
+000001E8  0D0A09            or ax,0x90a
+000001EB  2020              and [bx+si],ah
+000001ED  2020              and [bx+si],ah
+000001EF  2020              and [bx+si],ah
+000001F1  59                pop cx
+000001F2  6F                outsw
+000001F3  7520              jnz 0x215
+000001F5  6F                outsw
+000001F6  7220              jc 0x218
+000001F8  6D                insw
+000001F9  653F              gs aas
+000001FB  2020              and [bx+si],ah
+000001FD  2424              and al,0x24
