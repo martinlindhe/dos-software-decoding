@@ -1,6 +1,7 @@
 00000100  FA                cli
 00000101  B013              mov al,0x13
 00000103  CD10              int 0x10
+
 00000105  BAC903            mov dx,0x3c9
 00000108  EE                out dx,al
 00000109  B102              mov cl,0x2
@@ -16,6 +17,7 @@
 0000011C  59                pop cx
 0000011D  EE                out dx,al
 0000011E  E2EB              loop 0x10b
+
 00000120  BB8F79            mov bx,0x798f
 00000123  BD0002            mov bp,0x200
 00000126  B8D9FF            mov ax,0xffd9
@@ -29,6 +31,7 @@
 00000139  07                pop es
 0000013A  6800F0            push word 0xf000
 0000013D  0FA1              pop fs
+
 0000013F  33FF              xor di,di
 00000141  B464              mov ah,0x64
 00000143  8BCA              mov cx,dx
@@ -64,6 +67,7 @@
 00000185  75BF              jnz 0x146
 00000187  5A                pop dx
 00000188  81EAFF01          sub dx,0x1ff
+
 0000018C  60                pushaw
 0000018D  BF91ED            mov di,0xed91
 00000190  BEED01            mov si,0x1ed
@@ -92,6 +96,7 @@
 000001BE  83C723            add di,byte +0x23
 000001C1  59                pop cx
 000001C2  E2D2              loop 0x196
+
 000001C4  BADA03            mov dx,0x3da
 000001C7  EC                in al,dx
 000001C8  2408              and al,0x8
@@ -107,6 +112,7 @@
 000001DB  CD10              int 0x10
 000001DD  FB                sti
 000001DE  C3                ret
+
 000001DF  8AC3              mov al,bl
 000001E1  EE                out dx,al
 000001E2  EE                out dx,al
@@ -116,6 +122,8 @@
 000001E9  B03F              mov al,0x3f
 000001EB  EE                out dx,al
 000001EC  C3                ret
+
+# data:
 000001ED  50                push ax
 000001EE  4C                dec sp
 000001EF  41                inc cx
