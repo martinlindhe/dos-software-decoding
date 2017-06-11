@@ -10,8 +10,8 @@ SECTION .text
         mov ah,0x9
         mov dx,str1
         int 0x21            ; write string in dx to stdout
-        mov cx,0x32
 
+        mov cx,0x32
 halt_loop:
         hlt                 ; ???
         loop halt_loop
@@ -26,7 +26,7 @@ halt_loop:
         out dx,al
         inc dx
         xor bl,bl
-loop1:  mov al,bl          ; 00000126
+loop1:  mov al,bl
         shr al,byte 0x2
         out dx,al
         out dx,al
@@ -39,7 +39,7 @@ loop1:  mov al,bl          ; 00000126
         mov cl,0xa0
         mov bx,0x5f5
         xor dx,dx
-loop2:  mov ax,dx      ; 0000013E
+loop2:  mov ax,dx
         sar ax,byte 0xb
         sub bx,ax
         shl ax,byte 0x2
@@ -56,12 +56,12 @@ loop2:  mov ax,dx      ; 0000013E
         push word 0xa000
         pop es
 
-mine1:  mov bh,0x12   ; 0000015F
+mine1:  mov bh,0x12
         inc bl
         mov si,0x13e8
         mov di,0x21
         mov dl,0x7f
-other1: mov al,dl     ; 0000016B
+other1: mov al,dl
         imul byte [bx]
         shl ax,1
         mov cl,ah
@@ -76,7 +76,7 @@ other1: mov al,dl     ; 0000016B
         jno other1
         mov dh,0x64
         mov dl,0x7f
-label1: xor cx,cx  ; 00000188
+label1: xor cx,cx
         mov si,0x13e8
         mov al,dh
         imul byte [bx]
@@ -86,13 +86,13 @@ label1: xor cx,cx  ; 00000188
         imul byte [bx+0x40]
         add ax,ax
         sub cl,ah
-this1:  push cx  ; 0000019E
+this1:  push cx
         push dx
         lodsw
         add cx,ax
         mov ax,0xff
         mov dx,bp
-more1:  sub al,0x7         ; 000001A8
+more1:  sub al,0x7
         sub dx,cx
         add cx,0xa0a
         test dx,0x8080
@@ -123,4 +123,4 @@ more1:  sub al,0x7         ; 000001A8
         int 0x20        ; exit to DOS
 
 SECTION .data
-str1    db   'Optimized by Tsc!$'           ; 000001EC
+str1    db   'Optimized by Tsc!$'

@@ -1,1 +1,6 @@
-shows some gfx, incomplete
+seems functional
+
+lacks some instruction emulation:
+
+XXX impl hlt
+
