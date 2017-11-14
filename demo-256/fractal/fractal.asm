@@ -13,7 +13,7 @@
 00000124  2EA1FB01          mov ax,[cs:0x1fb]
 00000128  2EA3FF01          mov [cs:0x1ff],ax
 0000012C  B9A000            mov cx,0xa0
-0000012F  51                push cx
+0000012F  51                push cx                          <-- gets corrupted!
 00000130  B10F              mov cl,0xf
 00000132  2EA1FF01          mov ax,[cs:0x1ff]
 00000136  2EA30302          mov [cs:0x203],ax
