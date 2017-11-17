@@ -13,7 +13,7 @@
 00000124  2EA1FB01          mov ax,[cs:0x1fb]
 00000128  2EA3FF01          mov [cs:0x1ff],ax
 0000012C  B9A000            mov cx,0xa0
-0000012F  51                push cx                          <-- gets corrupted!
+0000012F  51                push cx
 00000130  B10F              mov cl,0xf
 00000132  2EA1FF01          mov ax,[cs:0x1ff]
 00000136  2EA30302          mov [cs:0x203],ax
@@ -21,18 +21,18 @@
 0000013E  2EA30502          mov [cs:0x205],ax
 00000142  2EA10302          mov ax,[cs:0x203]
 00000146  2E8B1E0302        mov bx,[cs:0x203]
-0000014B  E89E00            call word 0x1ec
+0000014B  E89E00            call 0x1ec
 0000014E  50                push ax
 0000014F  2EA10502          mov ax,[cs:0x205]
 00000153  2E8B1E0502        mov bx,[cs:0x205]
-00000158  E89100            call word 0x1ec
+00000158  E89100            call 0x1ec
 0000015B  050300            add ax,0x3
 0000015E  5A                pop dx
 0000015F  2BC2              sub ax,dx
 00000161  2EA30902          mov [cs:0x209],ax
 00000165  2EA10302          mov ax,[cs:0x203]
 00000169  2E8B1E0502        mov bx,[cs:0x205]
-0000016E  E87B00            call word 0x1ec
+0000016E  E87B00            call 0x1ec
 00000171  054E00            add ax,0x4e
 00000174  2EA30702          mov [cs:0x207],ax
 00000178  2EA10702          mov ax,[cs:0x207]
@@ -57,12 +57,12 @@
 000001AA  2EA1FD01          mov ax,[cs:0x1fd]
 000001AE  2E0106FF01        add [cs:0x1ff],ax
 000001B3  49                dec cx
-000001B4  0F8577FF          jnz word 0x12f
+000001B4  0F8577FF          jnz near 0x12f
 000001B8  59                pop cx
 000001B9  2EA1FD01          mov ax,[cs:0x1fd]
 000001BD  2E01060102        add [cs:0x201],ax
 000001C2  49                dec cx
-000001C3  0F855CFF          jnz word 0x123
+000001C3  0F855CFF          jnz near 0x123
 000001C7  33FF              xor di,di
 000001C9  33F6              xor si,si
 000001CB  B9803E            mov cx,0x3e80
@@ -72,7 +72,7 @@
 000001DD  2E8306FB0132      add word [cs:0x1fb],byte +0x32
 000001E3  E460              in al,0x60
 000001E5  3C01              cmp al,0x1
-000001E7  0F852BFF          jnz word 0x116
+000001E7  0F852BFF          jnz near 0x116
 000001EB  C3                ret
 000001EC  F7EB              imul bx
 000001EE  0FACD00A          shrd ax,dx,0xa

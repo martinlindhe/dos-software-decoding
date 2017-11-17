@@ -9,7 +9,7 @@ org 0x100
             mov es,ax
             mov ax,0x5000
             mov ds,ax
-            mov word [cs:val000001FD],0x7c
+            mov word [cs:val000001FD],0x7c      ; checked, write seems ok in my emu
 label_116:  xor di,di
             mov ax,[cs:val000001F9]
             mov [cs:val00000201],ax
@@ -26,12 +26,12 @@ label_12f:  push cx                             ; <-- gets corrupted!
             mov [cs:val00000205],ax
 label_142:  mov ax,[cs:val00000203]
             mov bx,[cs:val00000203]
-            call label_1ec
+            call calc_into_ax
 
-            push ax
+            push ax                 ; XXX did first check here (. compare reg values vs dosbox (from 1 run of calc_into_ax)  00000150. all looks same ...
             mov ax,[cs:val00000205]
             mov bx,[cs:val00000205]
-            call label_1ec
+            call calc_into_ax
 
             add ax,0x3
             pop dx
@@ -39,7 +39,7 @@ label_142:  mov ax,[cs:val00000203]
             mov [cs:val00000209],ax
             mov ax,[cs:val00000203]
             mov bx,[cs:val00000205]
-            call label_1ec
+            call calc_into_ax
 
             add ax,0x4e
             mov [cs:val00000207],ax
@@ -82,7 +82,10 @@ label_19e:  mov al,cl
             cmp al,0x1
             jnz label_116
             ret
-label_1ec:  imul bx
+
+; returns AX, in = bx + dx ???
+calc_into_ax:
+            imul bx
             shrd ax,dx,0xa
             and dx,0x8000
             or ax,dx
