@@ -1,3 +1,15 @@
+# 18 nov, 2017
+
+demo_256: ../dos-software-decoding/demo-256/twisted/twisted.com
+op C6 unknown reg = 2 at 085F:0120 (008710 flat), 15830 instructions executed
+executed unknown op, stopping. 15830 instructions executed
+
+
+
+
+
+# older
+
 code gets corrupted
 
 [085F:011B] 0101       Add16    word [bx+di], ax

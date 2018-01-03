@@ -1,3 +1,11 @@
+# 18 nov, 2017
+
+demo_256: ../dos-software-decoding/demo-256/lava/lava.com
+XXX video: set video mode to 320x200, 256 colors (VGA)
+op 8F unknown reg = 1: at 085F:015B (00874B flat), 36294 instructions executed
+executed unknown op, stopping. 36294 instructions executed
+
+
 code gets corrupted
 
 op 8F unknown reg = 1
