@@ -1,4 +1,6 @@
-loops at 
+# 5 jan, 2018
+
+black screen, loops at 
 
 [085F:0117] EC         In8      al, dx
 [085F:0118] A808       Test8    al, 0x08

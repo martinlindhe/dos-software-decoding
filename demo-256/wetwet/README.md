@@ -1,4 +1,6 @@
-stuck in loop
+# 5 jan, 2018
+
+stuck in loop, black screen
 
 [085F:0151] EC         In8      al, dx
 [085F:0152] A808       Test8    al, 0x08

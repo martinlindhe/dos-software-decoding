@@ -1,7 +1,9 @@
-sp wraps to 0 due to pop16,
-resulting in
+# 5 jan, 2018
 
-[085F:0155] 7F3C       Jg       0x0193
-[085F:0193] C3         Retn
-cpu: unknown op 6D at 085F:0000 (1420 instructions executed)
-[085F:0000] 6D         Unknown
+XXX video: set video mode to 320x200, 256 colors (VGA)
+XXX impl KEYBOARD - CHECK FOR KEYSTROKE
+op 0F, unknown 92: at 085F:017E (00876E flat), 256122 instructions executed
+executed unknown op, stopping. 256122 instructions executed
+
+
+0000017D  0F9205            setc [di]

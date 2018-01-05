@@ -1,7 +1,8 @@
-code gets corrupted
+# 5 jan, 2018
 
-cpu: unknown op 37 at 085F:0136 (30000 instructions executed)
+black screen
 
-should be
-
-00000136  33FF              xor di,di
+demo_256: ../dos-software-decoding/demo-256/plasmalr/plasmalr.com
+XXX video: set video mode to 320x200, 256 colors (VGA)
+int21 error: unknown AH=4A, AX=4A13
+int21 error: unknown AH=48, AX=4813

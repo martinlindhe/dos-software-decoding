@@ -1,3 +1,5 @@
 game of life effect
 
-shows some gfx, incomplete
+# 5 jan, 2018
+
+gfx looks correct
