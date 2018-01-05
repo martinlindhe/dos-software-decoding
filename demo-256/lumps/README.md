@@ -10,5 +10,13 @@ DAC palette 0 = 0, 0, 0
 DAC palette 0 = 0, 0, 0
 DAC palette 0 = 0, 0, 0
 DAC palette 0 = 0, 0, 0
-int error: unknown interrupt 33, AX=4803, BX=0000
-int error: unknown interrupt 33, AX=0003, BX=0000
+int33 error: unknown AX=4803
+XXX impl MOUSE - RETURN POSITION AND BUTTON STATUS
+
+
+
+NOTE: "int33 error: unknown AX=4803"  looks to be a failed 0003 call because ah wasnt cleared:
+
+00000132  B003              mov al,0x3
+00000134  CD33              int 0x33
+

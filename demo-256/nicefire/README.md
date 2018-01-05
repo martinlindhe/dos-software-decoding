@@ -1,6 +1,8 @@
 # 5 jan, 2018
 
-gfx seems correct
+gfx is wrong and squeezed in the middle of the screen
+
+
 
 XXX video: set video mode to 320x200, 256 colors (VGA)
 VIDEO - SET BLOCK OF DAC REGISTERS (VGA/MCGA) start=1, count=255

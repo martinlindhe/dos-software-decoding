@@ -1,8 +1,6 @@
 # 5 jan, 2018
 
-shows gfx
-
-palette is wrong!
+shows gfx, unsure if they are fully correct
 
 
 XXX video: set video mode to 320x200, 256 colors (VGA)
