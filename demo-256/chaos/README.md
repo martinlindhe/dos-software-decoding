@@ -1,13 +1,9 @@
 # 5 jan, 2018
 
-stuck in loop
+crashes due to corruption:
 
-[085F:012C] EC         In8      al, dx
-[085F:012D] A808       Test8    al, 0x08
-[085F:012F] 74FB       Je       0x012C
+some code corrupts the instruction at 0141 turning it into
+[085F:0141] FE02             Inc8     byte [bp+si]
+where it should be
+00000141  48                dec ax
 
-
-XXX idiv16 INTERRUPT0 (div by 0)
-XXX idiv16 INTERRUPT0 (div by 0)
-XXX idiv16 INTERRUPT0 (div by 0)
-XXX idiv16 INTERRUPT0 (div by 0)
