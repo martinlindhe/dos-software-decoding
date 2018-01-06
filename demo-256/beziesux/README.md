@@ -1,6 +1,7 @@
 # 5 jan, 2018
 
-gfx seems correct
+gfx seems mostly ok.
+background is blue where it should be black
 
 XXX video: set video mode to 320x200, 256 colors (VGA)
 XXX int10: VIDEO - WRITE STRING unhandled
