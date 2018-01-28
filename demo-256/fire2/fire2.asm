@@ -8,6 +8,7 @@
 00000111  B409              mov ah,0x9
 00000113  BAB001            mov dx,0x1b0
 00000116  CD21              int 0x21
+
 00000118  50                push ax
 00000119  55                push bp
 0000011A  8BEC              mov bp,sp
@@ -17,19 +18,24 @@
 00000123  33F6              xor si,si
 00000125  BFF201            mov di,0x1f2
 00000128  B108              mov cl,0x8
+
 0000012A  B5A0              mov ch,0xa0
+
 0000012C  AC                lodsb
 0000012D  22C0              and al,al
 0000012F  7402              jz 0x133
+
 00000131  B00F              mov al,0xf
 00000133  8AE0              mov ah,al
 00000135  2689854001        mov [es:di+0x140],ax
 0000013A  AB                stosw
 0000013B  FECD              dec ch
 0000013D  75ED              jnz 0x12c
+
 0000013F  81C6A000          add si,0xa0
 00000143  81C74001          add di,0x140
 00000147  E2E1              loop 0x12a
+
 00000149  1E                push ds
 0000014A  06                push es
 0000014B  1F                pop ds
@@ -42,6 +48,7 @@
 00000159  56                push si
 0000015A  BF507D            mov di,0x7d50
 0000015D  B110              mov cl,0x10
+
 0000015F  51                push cx
 00000160  56                push si
 00000161  B150              mov cl,0x50
@@ -51,10 +58,13 @@
 00000167  81C7A000          add di,0xa0
 0000016B  81C64001          add si,0x140
 0000016F  E2EE              loop 0x15f
+
 00000171  5E                pop si
 00000172  B314              mov bl,0x14
 00000174  B9007D            mov cx,0x7d00
 00000177  BF803E            mov di,0x3e80
+
+loop17a:        ; dustbox gets stuck here-ish
 0000017A  268A854101        mov al,[es:di+0x141]
 0000017F  2602854001        add al,[es:di+0x140]
 00000184  2602853F01        add al,[es:di+0x13f]
@@ -62,11 +72,13 @@
 0000018C  D0E8              shr al,1
 0000018E  D0E8              shr al,1
 00000190  AA                stosb
-00000191  E2E7              loop 0x17a
-00000193  BADA03            mov dx,0x3da
+00000191  E2E7              loop loop17a
+
+00000193  BADA03            mov dx,0x3da  ; CGA status reg
 00000196  EC                in al,dx
 00000197  A808              test al,0x8
-00000199  75FB              jnz 0x196
+00000199  75FB              jnz 0x196  ; waits until we leave vertical retrace (bit 3)
+
 0000019B  EC                in al,dx
 0000019C  A808              test al,0x8
 0000019E  74FB              jz 0x19b
@@ -76,8 +88,11 @@
 000001A6  FECB              dec bl
 000001A8  75CA              jnz 0x174
 000001AA  EBA9              jmp short 0x155
-000001AC  B44C              mov ah,0x4c
+
+000001AC  B44C              mov ah,0x4c     ; exit
 000001AE  CD21              int 0x21
+
+; data:
 000001B0  46                inc si
 000001B1  49                dec cx
 000001B2  41                inc cx

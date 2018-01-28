@@ -1,3 +1,8 @@
+# trioptimum2
+
+https://www.pouet.net/prod.php?which=25809
+
+
 loading rom to 0086F0..00886A
 XXX video: set video mode to 320x200, 256 colors (VGA)
 op F7 unknown reg=5 at 085F:0123
