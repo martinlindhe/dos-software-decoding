@@ -1,5 +1,6 @@
 00000100  B012              mov al,0x12
 00000102  CD10              int 0x10
+
 00000104  B7A0              mov bh,0xa0
 00000106  8EC3              mov es,bx
 00000108  8BFB              mov di,bx
@@ -8,6 +9,9 @@
 0000010F  AC                lodsb
 00000110  AA                stosb
 00000111  E2FC              loop 0x10f
+
+; registers are the same so far
+
 00000113  B401              mov ah,0x1
 00000115  CD16              int 0x16
 00000117  7505              jnz 0x11e

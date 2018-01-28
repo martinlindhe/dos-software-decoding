@@ -2,32 +2,35 @@
 00000102  CD10              int 0x10
 00000104  B44A              mov ah,0x4a
 00000106  B710              mov bh,0x10
-00000108  CD21              int 0x21
+00000108  CD21              int 0x21        ; resize ram segment ES to 0x1000
 0000010A  B448              mov ah,0x48
-0000010C  CD21              int 0x21
+0000010C  CD21              int 0x21        ; allocate 0x1000 paragraphs. ax = segment of allocated block
 0000010E  8ED8              mov ds,ax
 00000110  8EC0              mov es,ax
 00000112  49                dec cx
 00000113  B000              mov al,0x0
 00000115  F3AA              rep stosb
-00000117  B506              mov ch,0x6
-00000119  E440              in al,0x40
+
+00000117  B506              mov ch,0x6      ; loop 0x600 times
+                                            ; 0x40 = Programmable Interval Timer
+00000119  E440              in al,0x40      ; read low byte
 0000011B  8AE0              mov ah,al
-0000011D  E440              in al,0x40
+0000011D  E440              in al,0x40      ; read high byte
 0000011F  97                xchg ax,di
 00000120  B020              mov al,0x20
 00000122  B320              mov bl,0x20
-00000124  800104            add byte [bx+di],0x4
+00000124  800104            add byte [bx+di],0x4    ; xxx this leads to corrupting code. bx = 0001, di = 0139
 00000127  4B                dec bx
 00000128  75FA              jnz 0x124
 0000012A  81C74001          add di,0x140
 0000012E  FEC8              dec al
 00000130  75F0              jnz 0x122
 00000132  E2E5              loop 0x119
+
 00000134  B10B              mov cl,0xb
 00000136  33FF              xor di,di
 00000138  8A45FF            mov al,[di-0x1]
-0000013B  024501            add al,[di+0x1]
+0000013B  024501            add al,[di+0x1]         ; xxx gets corrupted with 0x16
 0000013E  8A9D4001          mov bl,[di+0x140]
 00000142  03C3              add ax,bx
 00000144  8A9DC0FE          mov bl,[di-0x140]

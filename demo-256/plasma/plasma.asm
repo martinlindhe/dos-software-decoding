@@ -22,6 +22,7 @@
 0000012C  83C750            add di,byte +0x50
 0000012F  268805            mov [es:di],al
 00000132  C3                ret
+
 00000133  BA9F00            mov dx,0x9f
 00000136  C70604026300      mov word [0x204],0x63
 0000013C  8BDA              mov bx,dx
@@ -55,6 +56,7 @@
 00000199  A0C101            mov al,[0x1c1]
 0000019C  00060302          add [0x203],al
 000001A0  C3                ret
+
 000001A1  B81300            mov ax,0x13
 000001A4  CD10              int 0x10
 000001A6  50                push ax
@@ -65,7 +67,7 @@
 000001B0  07                pop es
 000001B1  E87FFF            call word 0x133
 000001B4  BA6000            mov dx,0x60
-000001B7  EC                in al,dx
+000001B7  EC                in al,dx            ; in port 0x60 (keyboard)
 000001B8  3C01              cmp al,0x1
 000001BA  75F5              jnz 0x1b1
 000001BC  B44C              mov ah,0x4c

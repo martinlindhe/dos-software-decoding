@@ -1,2 +1,2 @@
 all:
-	ndisasm conf.com -b 16 -o 0x100 > conf.asm
+	nasm -f bin -o conf.com conf.asm
