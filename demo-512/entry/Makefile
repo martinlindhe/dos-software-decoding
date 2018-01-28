@@ -1,0 +1,2 @@
+all:
+	ndisasm entry.com -b 16 -o 0x100 > entry.asm
