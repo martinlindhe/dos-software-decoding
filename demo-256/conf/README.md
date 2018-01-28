@@ -1,9 +1,6 @@
-# 5 jan, 2018
+# 28 jan, 2018
 
-black screen, waits for ENTER press before it begins
+org/conf.com waited for ENTER press before it begins.
+so patched version does not.
 
-
-Press enter for CONFUSION!!
-XXX impl KEYBOARD - CHECK FOR KEYSTROKE
-XXX impl KEYBOARD - CHECK FOR KEYSTROKE
-XXX impl KEYBOARD - CHECK FOR KEYSTROKE
+works ok

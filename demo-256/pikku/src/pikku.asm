@@ -1,37 +1,30 @@
-;pikku v1.4
+org 0x100
 
-        .model tiny
-        ASSUME CS:DGROUP, DS:DGROUP
+section .data
+        jmax    equ     16
+        palndx  equ     16
+        ftype   equ     7
 
-jmax    equ     16   
-palndx  equ     16   
-ftype   equ     7    
-        
-        .386
-        .code
-
-
-
-        org     100h
-start:  mov     al,13h
+section .text
+start:  mov     al,13h          ; 320 x 200
         int     10h
         push    0a000h
         pop     es
 
-        mov     dx,640                  
+        mov     dx,640
         mov     cl,184
 jp3:    xor     di,di
         mov     bh,0fah
         mov     bp,-400
 jp1:    mov     si,-640
 jp2:    dec     bx
-        call    julia
-        add     si,4
+        call    julia                   ; 0118
+        add     si,4                    ; 011B
         cmp     si,dx
-        jnz     jp2
-        add     bp,4
-        jnz     jp1
-        sub     word ptr[jcp+1],ax
+        jnz     jp2                     ; 0120
+        add     bp,4                    ; 0122
+        jnz     jp1                     ; 0125
+        sub     word [jcp+1],ax
         loop    jp3
 
 
@@ -46,8 +39,8 @@ jp5:    pusha
         imul    si,cx
         sar     bp,1
         sar     si,1
-        mov     word ptr[jrp+1],si
-        mov     word ptr[jcp+1],bp
+        mov     word [jrp+1],si
+        mov     word [jcp+1],bp
         call    julia
         popa
         inc     bx
@@ -59,51 +52,49 @@ jp5:    pusha
         jnz     jp4
         loop    jp6
 
-        mov     al,3
+        mov     al,3            ; text mode
         int     10h
 
 
 
 
 julia:
-        pusha
+        pusha                   ; push all general regs
         push    bx
 
-        mov     cl,jmax             
+        mov     cl,jmax
 
 jloop2:
-        mov     ax,bp               
+        mov     ax,bp
         imul    ax
         mov     bl, ah
         mov     bh, dl
 
-        mov     ax,si               
+        mov     ax,si
         imul    ax
         shrd    ax,dx,8
 
-        add     ax,bx               
+        add     ax,bx
 
-        cmp     ah,4                
+        cmp     ah,4
         jnl     short jout
 
-        sub     ax,bx               
-        sub     ax,bx               
-jrp:    add     ax,0034             
-        xchg    ax,si               
+        sub     ax,bx
+        sub     ax,bx
+jrp:    add     ax,0034
+        xchg    ax,si
 
-        imul    bp                  
-        shrd    ax,dx,ftype         
-jcp:    add     ax,1500             
-        xchg    bp,ax               
+        imul    bp
+        shrd    ax,dx,ftype
+jcp:    add     ax,1500
+        xchg    bp,ax
         loop    jloop2
 
-jout:   xchg    ax, cx              
-        add     al,palndx           
-        stosb                       
+jout:   xchg    ax, cx
+        add     al,palndx
+        stosb
         pop     di
-        stosb                       
+        stosb
         popa
         inc     di
         ret
-
-        end     start
