@@ -3,19 +3,22 @@
 00000104  31E4              xor sp,sp
 00000106  B8024F            mov ax,0x4f02
 00000109  BB0001            mov bx,0x100
-0000010C  CD10              int 0x10
+0000010C  CD10              int 0x10            ; set svga mode
 0000010E  B8014F            mov ax,0x4f01
 00000111  89D9              mov cx,bx
 00000113  16                push ss
 00000114  07                pop es
 00000115  BF9400            mov di,0x94
-00000118  CD10              int 0x10
+00000118  CD10              int 0x10            ; check if mode has been set
 0000011A  FA                cli
 0000011B  FC                cld
+
+; few-byte way of clearing registers:
 0000011C  B90B00            mov cx,0xb
 0000011F  6A00              push byte +0x0
 00000121  E2FC              loop 0x11f
 00000123  61                popa
+
 00000124  B740              mov bh,0x40
 00000126  8EC3              mov es,bx
 00000128  B580              mov ch,0x80
