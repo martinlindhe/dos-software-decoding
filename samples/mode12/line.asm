@@ -1,3 +1,5 @@
+; from http://www.fysnet.net/modex.htm
+; draws a colorful line from (0,0) to (639,479) on the 640x480x16 screen.
     org 100h
 
 section .text
@@ -58,7 +60,7 @@ putpixel: ;   proc near uses ax bx cx dx
     mov  [es:bx],al              ; write to register
     ret
 
-section .data
-X          dw 0
-Y          dw 0
-Color      db 0
+section .bss
+X          resw 1
+Y          resw 1
+Color      resb 1

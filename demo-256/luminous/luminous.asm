@@ -12,9 +12,11 @@
 00000116  EE                out dx,al
 00000117  EE                out dx,al
 00000118  E2F1              loop 0x10b
-0000011A  B409              mov ah,0x9
+
+0000011A  B409              mov ah,0x9      ; WRITE STRING at DX TO STANDARD OUTPUT
 0000011C  BAF701            mov dx,0x1f7
 0000011F  CD21              int 0x21
+
 00000121  6800A0            push word 0xa000
 00000124  1F                pop ds
 00000125  BF004B            mov di,0x4b00
@@ -34,6 +36,7 @@
 00000140  43                inc bx
 00000141  83C705            add di,byte +0x5
 00000144  E2E3              loop 0x129
+
 00000146  B90600            mov cx,0x6
 00000149  51                push cx
 0000014A  33C9              xor cx,cx
@@ -52,6 +55,7 @@
 0000016D  E2DF              loop 0x14e
 0000016F  59                pop cx
 00000170  E2D7              loop 0x149
+
 00000172  06                push es
 00000173  1E                push ds
 00000174  0E                push cs
