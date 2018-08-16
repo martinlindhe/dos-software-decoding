@@ -1,6 +1,8 @@
 
 segment code
 ..start:
+    int 3
+
     mov ax, data
     mov ds, ax
     mov ah, 09h
