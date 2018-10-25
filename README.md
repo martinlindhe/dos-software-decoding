@@ -1,6 +1,6 @@
 # About
 
-Contains test binaries for https://github.com/martinlindhe/rs-x86emu
+Contains test binaries for https://github.com/martinlindhe/dustbox-rs
 
 
 # Copyright
