@@ -7,7 +7,7 @@
 0000010F  CD10              int 0x10
 00000111  B409              mov ah,0x9
 00000113  BAB001            mov dx,0x1b0
-00000116  CD21              int 0x21
+00000116  CD21              int 0x21        ; WRITE STRING at dx TO STANDARD OUTPUT
 
 00000118  50                push ax
 00000119  55                push bp
