@@ -76,12 +76,13 @@
 000001BF  BBC0FE            mov bx,0xfec0
 000001C2  E80E00            call word 0x1d3
 000001C5  EBCF              jmp short 0x196
-000001C7  E460              in al,0x60
-000001C9  A880              test al,0x80
+000001C7  E460              in al,0x60          ; keyboard controller data output buffer
+000001C9  A880              test al,0x80        ; is bit 7 set ?
 000001CB  75AF              jnz 0x17c
-000001CD  B8070C            mov ax,0xc07
+000001CD  B8070C            mov ax,0xc07    ; FLUSH BUFFER AND READ STANDARD INPUT (wait for keypress)
 000001D0  CD21              int 0x21
-000001D2  C3                ret
+000001D2  C3                ret     ; exits back to OS XXX??
+
 000001D3  8A04              mov al,[si]
 000001D5  03DE              add bx,si
 000001D7  8A27              mov ah,[bx]

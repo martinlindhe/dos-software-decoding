@@ -3,7 +3,7 @@
 00000105  50                push ax
 00000106  55                push bp
 00000107  8BEC              mov bp,sp
-00000109  C746024000        mov word [bp+0x2],0x40
+00000109  C746024000        mov word [bp+0x2],0x40          ; write_u16 085F:FFFC = 0040 ... stack 085F:FFFA (dist 2)
 0000010E  5D                pop bp
 0000010F  07                pop es
 00000110  268B1E6C00        mov bx,[es:0x6c]
@@ -40,7 +40,7 @@
 0000016B  50                push ax
 0000016C  55                push bp
 0000016D  8BEC              mov bp,sp
-0000016F  C7460200A0        mov word [bp+0x2],0xa000
+0000016F  C7460200A0        mov word [bp+0x2],0xa000        ; write_u16 085F:FFFC = A000 ... stack 085F:FFFA (dist 2)
 00000174  5D                pop bp
 00000175  07                pop es
 00000176  C7063C055C21      mov word [0x53c],0x215c
@@ -101,12 +101,13 @@
 0000020E  81EFA001          sub di,0x1a0
 00000212  59                pop cx
 00000213  E2D8              loop 0x1ed
-00000215  E460              in al,0x60
+00000215  E460              in al,0x60          ; XXX ?
 00000217  2F                das
-00000218  7282              jc 0x19c
+00000218  7282              jc 0x19c            ; doesnt jump here - causes app to exit!
+
 0000021A  B80300            mov ax,0x3
 0000021D  CD10              int 0x10
-0000021F  C3                ret
+0000021F  C3                ret                 ; XXX exec fails here becuase COM exits with a simple "ret"
 00000220  50                push ax
 00000221  52                push dx
 00000222  B85562            mov ax,0x6255
