@@ -1,0 +1,7 @@
+notes = [
+    { offset = 0x011E, text = "snippet sets up palette entries 0x00..0x40" },
+    { offset = 0x0135, text = "snippet 0135..XXXX sets up palette entries 0x40..0xC0" },
+    { offset = 0x01C7, text = "snippet 01C7..01D2 waits for a key to be entered, then read input, returns input in AL" },
+    { offset = 0x01CD, text = "FLUSH BUFFER AND READ STANDARD INPUT" },
+    { offset = 0x01D3, text = "function 01D3..01FF does xxx" },
+]

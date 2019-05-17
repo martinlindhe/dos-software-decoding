@@ -1,0 +1,15 @@
+notes = [
+    { offset = 0x0102, text = "function reads pit.timer0 measures and writes value in memory and more" },
+    { offset = 0x0118, text = "snippet sets up a grayscale palette" },
+    { offset = 0x0134, text = "fs = cs + 0x1000" },
+    { offset = 0x013D, text = "es = cs + 0x2000" },
+    { offset = 0x0145, text = "dst is [cs + 0x2000:0]" },
+    { offset = 0x014D, text = "dst is [cs + 0x1000:0]" },
+    { offset = 0x01E5, text = "check for escape key press (scancode 0x01)" },
+    { offset = 0x01E7, text = "exits to DOS if bit 0 of IN port 0x60 is 0" },
+]
+
+labels = [
+    // XXX make use of this: replace jump offsets with label name
+    { offset = 0x014F, label = "main_loop" },
+]

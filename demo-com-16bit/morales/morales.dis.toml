@@ -1,0 +1,4 @@
+notes = [
+    { offset = 0x0195, text = "function 0195..01A7: set palette. input AL = index, BL = R, BH = G, AH = B. returns increased index in AL" },
+]
+
