@@ -1,0 +1,6 @@
+notes = [
+    { offset = 0x0185, text = "push cs + 0x20", debug = "085F:0185"},
+    { offset = 0x0189, text = "???", debug = "085F:0189 (Mov16    word [ds:0x0201], ax)"},
+    { offset = 0x018E, text = "push 0", debug = "085F:018E"},
+    { offset = 0x018F, text = "set cs:ip to 087F:0000", debug = "085F:018F"},
+]
