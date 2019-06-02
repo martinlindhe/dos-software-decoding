@@ -5,30 +5,30 @@
 [085F:0104] B80005           Mov16    ax, 0x0500
 [085F:0107] B128             Mov8     cl, 0x28
 [085F:0109] B305             Mov8     bl, 0x05
-[085F:010B] E88700           CallNear 0x0195                        ; xref: branch@085F:0110
-[085F:010E] FEC4             Inc8     ah
-[085F:0110] E2F9             Loop     0x010B
+    [085F:010B] E88700           CallNear 0x0195                        ; xref: branch@085F:0110
+    [085F:010E] FEC4             Inc8     ah
+    [085F:0110] E2F9             Loop     0x010B
 
 [085F:0112] B128             Mov8     cl, 0x28
 [085F:0114] BB1414           Mov16    bx, 0x1414
 [085F:0117] B402             Mov8     ah, 0x02
-[085F:0119] E87900           CallNear 0x0195                        ; xref: branch@085F:0120
-[085F:011C] FEC7             Inc8     bh
-[085F:011E] FEC3             Inc8     bl
-[085F:0120] E2F7             Loop     0x0119
+    [085F:0119] E87900           CallNear 0x0195                        ; xref: branch@085F:0120
+    [085F:011C] FEC7             Inc8     bh
+    [085F:011E] FEC3             Inc8     bl
+    [085F:0120] E2F7             Loop     0x0119
 
-[085F:0122] BDA801           Mov16    bp, 0x01A8
+[085F:0122] BDA801           Mov16    bp, 0x01A8        ; XXX referencing data at [085F:01A8]
 [085F:0125] B90800           Mov16    cx, 0x0008
-[085F:0128] B80013           Mov16    ax, 0x1300                    ; xref: branch@085F:013D
-[085F:012B] 51               Push16   cx
-[085F:012C] 8A4E00           Mov8     cl, byte [ds:bp+0x00]
-[085F:012F] 8B5601           Mov16    dx, word [ds:bp+0x01]
-[085F:0132] BB2800           Mov16    bx, 0x0028
-[085F:0135] 83C503           Add16    bp, byte +0x03
-[085F:0138] CD10             Int      0x10
-[085F:013A] 03E9             Add16    bp, cx
-[085F:013C] 59               Pop16    cx
-[085F:013D] E2E9             Loop     0x0128
+    [085F:0128] B80013           Mov16    ax, 0x1300                    ; xref: branch@085F:013D
+    [085F:012B] 51               Push16   cx
+    [085F:012C] 8A4E00           Mov8     cl, byte [ds:bp+0x00]
+    [085F:012F] 8B5601           Mov16    dx, word [ds:bp+0x01]
+    [085F:0132] BB2800           Mov16    bx, 0x0028
+    [085F:0135] 83C503           Add16    bp, byte +0x03
+    [085F:0138] CD10             Int      0x10          ; XXX ??!! ax 0x1300 = gfx: write string from es:bp
+    [085F:013A] 03E9             Add16    bp, cx
+    [085F:013C] 59               Pop16    cx
+    [085F:013D] E2E9             Loop     0x0128
 
 [085F:013F] 6800A0           Push16   0xA000
 [085F:0142] 07               Pop16    es
@@ -37,7 +37,7 @@
 [085F:0148] B619             Mov8     dh, 0x19
 [085F:014A] 33C9             Xor16    cx, cx                        ; xref: branch@085F:0187
 [085F:014C] FEC6             Inc8     dh                            ; xref: branch@085F:0183
-[085F:014E] E440             In8      al, 0x40                      ; XXX in_u8_port_desc unrecognized port 0040
+[085F:014E] E440             In8      al, 0x40                      ; pit counter 0
 [085F:0150] D0D8             Rcr8     al, 0x01
 [085F:0152] D0D8             Rcr8     al, 0x01
 [085F:0154] 83D300           Adc16    bx, byte +0x00
@@ -68,7 +68,7 @@
 [085F:018B] 3C01             Cmp8     al, 0x01
 [085F:018D] 75FA             Jnz      0x0189
 [085F:018F] B80300           Mov16    ax, 0x0003
-[085F:0192] CD10             Int      0x10
+[085F:0192] CD10             Int      0x10              ; gfx: set mode text 80x25
 [085F:0194] C3               Retn
 
 ; function 0195..01A7: set palette. input AL = index, BL = R, BH = G, AH = B. returns increased index in AL
@@ -86,10 +86,10 @@
 [085F:01A5] FEC0             Inc8     al
 [085F:01A7] C3               Retn
 
-[085F:01A8] 0B               db       0x0B
-[085F:01A9] 0E               db       0x0E
-[085F:01AA] 05               db       0x05
-[085F:01AB] 2D               db       0x2D
+[085F:01A8] 0B               db       0x0B  ; XXX read as byte at 085F:012C
+[085F:01A9] 0E               db       0x0E  ; XXX read as word at 085F:012F
+[085F:01AA] 05               db       0x05  ; XXX 2nd part of word
+[085F:01AB] 2D               db       0x2D  ; XXX write string ?! at 085F:0138
 [085F:01AC] 20               db       0x20
 [085F:01AD] 6D               db       0x6D
 [085F:01AE] 4F               db       0x4F

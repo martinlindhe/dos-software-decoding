@@ -2,11 +2,11 @@
 
 [085F:0100] B81300           Mov16    ax, 0x0013
 [085F:0103] CD10             Int      0x10
+
+; XXX manipulates the value that will be popped in ES
 [085F:0105] 50               Push16   ax
 [085F:0106] 55               Push16   bp
 [085F:0107] 8BEC             Mov16    bp, sp
-
-; XXX manipulates the value that will be popped in ES
 [085F:0109] C746024000       Mov16    word [ds:bp+0x02], 0x0040
 [085F:010E] 5D               Pop16    bp
 [085F:010F] 07               Pop16    es

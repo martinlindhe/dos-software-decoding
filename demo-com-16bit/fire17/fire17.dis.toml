@@ -1,0 +1,3 @@
+notes = [
+    { offset = 0x01CF, text = "check for escape press ???" },
+]
