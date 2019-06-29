@@ -1,0 +1,154 @@
+00000100  50                push ax
+00000101  48                dec ax
+00000102  357E7E            xor ax,0x7e7e
+00000105  50                push ax
+00000106  59                pop cx
+00000107  304828            xor [bx+si+0x28],cl
+0000010A  30482C            xor [bx+si+0x2c],cl
+0000010D  314834            xor [bx+si+0x34],cx
+00000110  304837            xor [bx+si+0x37],cl
+00000113  314838            xor [bx+si+0x38],cx
+00000116  31483B            xor [bx+si+0x3b],cx
+00000119  314840            xor [bx+si+0x40],cx
+0000011C  254041            and ax,0x4140
+0000011F  3442              xor al,0x42
+00000121  50                push ax
+00000122  50                push ax
+00000123  5E                pop si
+00000124  5F                pop di
+00000125  58                pop ax
+00000126  40                inc ax
+00000127  50                push ax
+00000128  2D3C21            sub ax,0x213c
+0000012B  727A              jc 0x1a7
+0000012D  243F              and al,0x3f
+0000012F  3440              xor al,0x40
+00000131  50                push ax
+00000132  5A                pop dx
+00000133  58                pop ax
+00000134  51                push cx
+00000135  6B746E51          imul si,[si+0x6e],byte +0x51
+00000139  51                push cx
+0000013A  7379              jnc 0x1b5
+0000013C  2B5358            sub dx,[bp+di+0x58]
+0000013F  40                inc ax
+00000140  63735D            arpl [bp+di+0x5d],si
+00000143  49                dec cx
+00000144  46                inc si
+00000145  50                push ax
+00000146  6D                insw
+00000147  705F              jo 0x1a8
+00000149  7453              jz 0x19e
+0000014B  4C                dec sp
+0000014C  4B                dec bx
+0000014D  61                popa
+0000014E  49                dec cx
+0000014F  46                inc si
+00000150  7D53              jnl 0x1a5
+00000152  4D                dec bp
+00000153  50                push ax
+00000154  7071              jo 0x1c7
+00000156  44                inc sp
+00000157  4B                dec bx
+00000158  59                pop cx
+00000159  54                push sp
+0000015A  7848              js 0x1a4
+0000015C  7667              jna 0x1c5
+0000015E  4B                dec bx
+0000015F  6C                insb
+00000160  7C75              jl 0x1d7
+00000162  60                pusha
+00000163  6C                insb
+00000164  7071              jo 0x1d7
+00000166  6E                outsb
+00000167  7C78              jl 0x1e1
+00000169  42                inc dx
+0000016A  5B                pop bx
+0000016B  787C              js 0x1e9
+0000016D  47                inc di
+0000016E  43                inc bx
+0000016F  5C                pop sp
+00000170  41                inc cx
+00000171  50                push ax
+00000172  7048              jo 0x1bc
+00000174  40                inc ax
+00000175  4F                dec di
+00000176  7E7B              jng 0x1f3
+00000178  4A                dec dx
+00000179  50                push ax
+0000017A  4D                dec bp
+0000017B  703F              jo 0x1bc
+0000017D  45                inc bp
+0000017E  48                dec ax
+0000017F  42                inc dx
+00000180  50                push ax
+00000181  43                inc bx
+00000182  44                inc sp
+00000183  5C                pop sp
+00000184  7D59              jnl 0x1df
+00000186  7C50              jl 0x1d8
+00000188  60                pusha
+00000189  4B                dec bx
+0000018A  706D              jo 0x1f9
+0000018C  7045              jo 0x1d3
+0000018E  4E                dec si
+0000018F  3F                aas
+00000190  7340              jnc 0x1d2
+00000192  57                push di
+00000193  40                inc ax
+00000194  44                inc sp
+00000195  4C                dec sp
+00000196  42                inc dx
+00000197  6454              fs push sp
+00000199  4B                dec bx
+0000019A  40                inc ax
+0000019B  4D                dec bp
+0000019C  4B                dec bx
+0000019D  61                popa
+0000019E  43                inc bx
+0000019F  43                inc bx
+000001A0  205B74            and [bp+di+0x74],bl
+000001A3  68452F            push word 0x2f45
+000001A6  50                push ax
+000001A7  41                inc cx
+000001A8  50                push ax
+000001A9  4F                dec di
+000001AA  2F                das
+000001AB  284272            sub [bp+si+0x72],al
+000001AE  61                popa
+000001AF  694E294B69        imul cx,[bp+0x29],word 0x694b
+000001B4  4C                dec sp
+000001B5  4C                dec sp
+000001B6  6552              gs push dx
+000001B8  5D                pop bp
+000001B9  205B45            and [bp+di+0x45],bl
+000001BC  4E                dec si
+000001BD  636F64            arpl [bx+0x64],bp
+000001C0  65723C            gs jc 0x1ff
+000001C3  49                dec cx
+000001C4  4E                dec si
+000001C5  2E636F6D          arpl [cs:bx+0x6d],bp
+000001C9  3E4F              ds dec di
+000001CB  55                push bp
+000001CC  54                push sp
+000001CD  2E61              cs popa
+000001CF  7363              jnc 0x234
+000001D1  5D                pop bp
+000001D2  205B66            and [bp+di+0x66],bl
+000001D5  6972737420        imul si,[bp+si+0x73],word 0x2074
+000001DA  363642            ss inc dx
+000001DD  3D4463            cmp ax,0x6344
+000001E0  6F                outsw
+000001E1  6465723A          gs jc 0x21f
+000001E5  736B              jnc 0x252
+000001E7  6970233332        imul si,[bx+si+0x23],word 0x3233
+000001EC  2F                das
+000001ED  43                inc bx
+000001EE  52                push dx
+000001EF  6C                insb
+000001F0  6645              inc ebp
+000001F2  4F                dec di
+000001F3  46                inc si
+000001F4  5D                pop bp
+000001F5  203A              and [bp+si],bh
+000001F7  29                db 0x29

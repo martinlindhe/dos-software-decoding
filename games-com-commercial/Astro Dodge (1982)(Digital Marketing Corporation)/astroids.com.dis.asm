@@ -1,0 +1,4625 @@
+; Source games-com-commercial/Astro Dodge (1982)(Digital Marketing Corporation)/astroids.com
+
+[085F:0100] E91A00           JmpNear  0x011D
+
+[085F:0103] BB1D01B9         db       0xBB, 0x1D, 0x01, 0xB9
+[085F:0107] 0050881F         db       0x00, 0x50, 0x88, 0x1F
+[085F:010B] 43E2FB33         db       0x43, 0xE2, 0xFB, 0x33
+[085F:010F] DB8EDBC7         db       0xDB, 0x8E, 0xDB, 0xC7
+[085F:0113] 06720434         db       0x06, 0x72, 0x04, 0x34
+[085F:0117] 12EA5BE0         db       0x12, 0xEA, 0x5B, 0xE0
+[085F:011B] 00F0             db       0x00, 0xF0
+[085F:011D] FA               Cli                                    ; xref: jump@085F:0100
+[085F:011E] B80000           Mov16    ax, 0x0000                    ; ax = 0x0000
+[085F:0121] 8EC0             Mov16    es, ax                        ; es = 0x0000
+[085F:0123] 268B0E2400       Mov16    cx, word [es:0x0024]
+[085F:0128] 268B162600       Mov16    dx, word [es:0x0026]
+[085F:012D] 890EDB03         Mov16    word [ds:0x03DB], cx
+[085F:0131] 8916DD03         Mov16    word [ds:0x03DD], dx
+[085F:0135] 8CC8             Mov16    ax, cs
+[085F:0137] 26A32600         Mov16    word [es:0x0026], ax
+[085F:013B] 26C7062400A702   Mov16    word [es:0x0024], 0x02A7
+[085F:0142] 8CC8             Mov16    ax, cs
+[085F:0144] 8ED8             Mov16    ds, ax                        ; ds = 0x0000
+[085F:0146] 8ED0             Mov16    ss, ax                        ; ss = 0x0000
+[085F:0148] FB               Sti
+[085F:0149] C70631123312     Mov16    word [ds:0x1231], 0x1233
+[085F:014F] E8620E           CallNear 0x0FB4
+[085F:0152] C6062C1200       Mov8     byte [ds:0x122C], 0x00
+[085F:0157] F6062C12FF       Test8    byte [ds:0x122C], 0xFF        ; xref: branch@085F:015C
+[085F:015C] 74F9             Jz       0x0157
+[085F:015E] BC6F36           Mov16    sp, 0x366F                    ; xref: jump@085F:0F6C; sp = 0x366F
+[085F:0161] B9E501           Mov16    cx, 0x01E5                    ; cx = 0x01E5
+[085F:0164] BB4810           Mov16    bx, 0x1048                    ; bx = 0x1048
+[085F:0167] C60700           Mov8     byte [ds:bx], 0x00            ; xref: branch@085F:016B
+[085F:016A] 43               Inc16    bx                            ; bx = 0x1049
+[085F:016B] E2FA             Loop     0x0167
+
+[085F:016D] C606501030       Mov8     byte [ds:0x1050], 0x30
+[085F:0172] C6065F10FF       Mov8     byte [ds:0x105F], 0xFF
+[085F:0177] C70653100080     Mov16    word [ds:0x1053], 0x8000
+[085F:017D] C70655100080     Mov16    word [ds:0x1055], 0x8000
+[085F:0183] C70659100000     Mov16    word [ds:0x1059], 0x0000
+[085F:0189] C70657100000     Mov16    word [ds:0x1057], 0x0000
+[085F:018F] C706FB110000     Mov16    word [ds:0x11FB], 0x0000
+[085F:0195] C706FC110000     Mov16    word [ds:0x11FC], 0x0000
+[085F:019B] C6060712FF       Mov8     byte [ds:0x1207], 0xFF
+[085F:01A0] C606061200       Mov8     byte [ds:0x1206], 0x00
+[085F:01A5] E8D206           CallNear 0x087A
+[085F:01A8] E8E206           CallNear 0x088D
+[085F:01AB] C606CB1100       Mov8     byte [ds:0x11CB], 0x00
+[085F:01B0] C6060B1203       Mov8     byte [ds:0x120B], 0x03
+[085F:01B5] C70625120001     Mov16    word [ds:0x1225], 0x0100
+[085F:01BB] FE060712         Inc8     byte [ds:0x1207]              ; xref: jump@085F:0A47
+[085F:01BF] A00712           Mov8     al, byte [ds:0x1207]
+[085F:01C2] 803E071204       Cmp8     byte [ds:0x1207], 0x04
+[085F:01C7] 7202             Jc       0x01CB
+[085F:01C9] B003             Mov8     al, 0x03                      ; al = 0x03
+[085F:01CB] D0E0             Shl8     al, 0x01                      ; xref: branch@085F:01C7; al is dirty
+[085F:01CD] 0405             Add8     al, 0x05                      ; al = 0x08
+[085F:01CF] A2D811           Mov8     byte [ds:0x11D8], al
+[085F:01D2] A20512           Mov8     byte [ds:0x1205], al
+[085F:01D5] E85205           CallNear 0x072A                        ; xref: branch@085F:0219
+[085F:01D8] C606C91103       Mov8     byte [ds:0x11C9], 0x03
+[085F:01DD] A16110           Mov16    ax, word [ds:0x1061]
+[085F:01E0] F6C408           Test8    ah, 0x08
+[085F:01E3] 740F             Jz       0x01F4
+[085F:01E5] A16310           Mov16    ax, word [ds:0x1063]
+[085F:01E8] A3CC11           Mov16    word [ds:0x11CC], ax
+[085F:01EB] C706CE110000     Mov16    word [ds:0x11CE], 0x0000
+[085F:01F1] E90C00           JmpNear  0x0200
+
+[085F:01F4] A16310           Mov16    ax, word [ds:0x1063]          ; xref: branch@085F:01E3
+[085F:01F7] A3CE11           Mov16    word [ds:0x11CE], ax
+[085F:01FA] C706CC110000     Mov16    word [ds:0x11CC], 0x0000
+[085F:0200] B108             Mov8     cl, 0x08                      ; xref: jump@085F:01F1; cl = 0x08
+[085F:0202] A16510           Mov16    ax, word [ds:0x1065]
+[085F:0205] D3F8             Sar16    ax, cl
+[085F:0207] A3D011           Mov16    word [ds:0x11D0], ax
+[085F:020A] A16710           Mov16    ax, word [ds:0x1067]
+[085F:020D] D3E8             Shr16    ax, cl                        ; ax is dirty
+[085F:020F] A3D211           Mov16    word [ds:0x11D2], ax
+[085F:0212] E86404           CallNear 0x0679
+[085F:0215] FE0ED811         Dec8     byte [ds:0x11D8]
+[085F:0219] 75BA             Jnz      0x01D5
+[085F:021B] FE06DA11         Inc8     byte [ds:0x11DA]              ; xref: jump@085F:0262
+[085F:021F] FF062512         Inc16    word [ds:0x1225]
+[085F:0223] E83E00           CallNear 0x0264
+[085F:0226] E83A02           CallNear 0x0463
+[085F:0229] E8B301           CallNear 0x03DF
+[085F:022C] E8B302           CallNear 0x04E2
+[085F:022F] E8C704           CallNear 0x06F9
+[085F:0232] E83405           CallNear 0x0769
+[085F:0235] E8A105           CallNear 0x07D9
+[085F:0238] E8AA07           CallNear 0x09E5
+[085F:023B] E8F407           CallNear 0x0A32
+[085F:023E] E8C208           CallNear 0x0B03
+[085F:0241] E86C08           CallNear 0x0AB0
+[085F:0244] E87109           CallNear 0x0BB8
+[085F:0247] E81609           CallNear 0x0B60
+[085F:024A] E8CB09           CallNear 0x0C18
+[085F:024D] E8910A           CallNear 0x0CE1
+[085F:0250] E8EA0A           CallNear 0x0D3D
+[085F:0253] E8520B           CallNear 0x0DA8
+[085F:0256] E8D60B           CallNear 0x0E2F
+[085F:0259] E8970C           CallNear 0x0EF3
+[085F:025C] E8DA0C           CallNear 0x0F39
+[085F:025F] E80E0D           CallNear 0x0F70
+[085F:0262] EBB7             JmpShort 0x021B
+
+[085F:0264] F606DA1103       Test8    byte [ds:0x11DA], 0x03        ; xref: call@085F:0223
+[085F:0269] 753B             Jnz      0x02A6
+[085F:026B] F6060812FF       Test8    byte [ds:0x1208], 0xFF
+[085F:0270] 7534             Jnz      0x02A6
+[085F:0272] F6062812FF       Test8    byte [ds:0x1228], 0xFF
+[085F:0277] 7409             Jz       0x0282
+[085F:0279] FE065010         Inc8     byte [ds:0x1050]
+[085F:027D] 802650103F       And8     byte [ds:0x1050], 0x3F
+[085F:0282] F6062912FF       Test8    byte [ds:0x1229], 0xFF        ; xref: branch@085F:0277
+[085F:0287] 7409             Jz       0x0292
+[085F:0289] FE0E5010         Dec8     byte [ds:0x1050]
+[085F:028D] 802650103F       And8     byte [ds:0x1050], 0x3F
+[085F:0292] F6062A12FF       Test8    byte [ds:0x122A], 0xFF        ; xref: branch@085F:0287
+[085F:0297] 7408             Jz       0x02A1
+[085F:0299] C6066010FF       Mov8     byte [ds:0x1060], 0xFF
+[085F:029E] E90500           JmpNear  0x02A6
+
+[085F:02A1] C606601000       Mov8     byte [ds:0x1060], 0x00        ; xref: branch@085F:0297
+[085F:02A6] C3               Retn                                   ; xref: branch@085F:0269, branch@085F:0270, jump@085F:029E
+
+[085F:02A7] FB505351         db       0xFB, 0x50, 0x53, 0x51
+[085F:02AB] 5206E560         db       0x52, 0x06, 0xE5, 0x60
+[085F:02AF] 88C388C7         db       0x88, 0xC3, 0x88, 0xC7
+[085F:02B3] 80E37FE5         db       0x80, 0xE3, 0x7F, 0xE5
+[085F:02B7] 6188C40C         db       0x61, 0x88, 0xC4, 0x0C
+[085F:02BB] 80E76186         db       0x80, 0xE7, 0x61, 0x86
+[085F:02BF] E0E76180         db       0xE0, 0xE7, 0x61, 0x80
+[085F:02C3] FB397503         db       0xFB, 0x39, 0x75, 0x03
+[085F:02C7] E95C0080         db       0xE9, 0x5C, 0x00, 0x80
+[085F:02CB] FB437503         db       0xFB, 0x43, 0x75, 0x03
+[085F:02CF] E9600080         db       0xE9, 0x60, 0x00, 0x80
+[085F:02D3] FB447503         db       0xFB, 0x44, 0x75, 0x03
+[085F:02D7] E96B0080         db       0xE9, 0x6B, 0x00, 0x80
+[085F:02DB] FB527503         db       0xFB, 0x52, 0x75, 0x03
+[085F:02DF] E9760080         db       0xE9, 0x76, 0x00, 0x80
+[085F:02E3] FB537503         db       0xFB, 0x53, 0x75, 0x03
+[085F:02E7] E9810080         db       0xE9, 0x81, 0x00, 0x80
+[085F:02EB] FB457503         db       0xFB, 0x45, 0x75, 0x03
+[085F:02EF] E9850080         db       0xE9, 0x85, 0x00, 0x80
+[085F:02F3] FB467503         db       0xFB, 0x46, 0x75, 0x03
+[085F:02F7] E9840080         db       0xE9, 0x84, 0x00, 0x80
+[085F:02FB] FB3B7503         db       0xFB, 0x3B, 0x75, 0x03
+[085F:02FF] E97F0080         db       0xE9, 0x7F, 0x00, 0x80
+[085F:0303] FB3C7503         db       0xFB, 0x3C, 0x75, 0x03
+[085F:0307] E9830080         db       0xE9, 0x83, 0x00, 0x80
+[085F:030B] FB3D9075         db       0xFB, 0x3D, 0x90, 0x75
+[085F:030F] 03E9A700         db       0x03, 0xE9, 0xA7, 0x00
+[085F:0313] 80FB3E75         db       0x80, 0xFB, 0x3E, 0x75
+[085F:0317] 03E97E00         db       0x03, 0xE9, 0x7E, 0x00
+[085F:031B] FAB020E7         db       0xFA, 0xB0, 0x20, 0xE7
+[085F:031F] 20075A59         db       0x20, 0x07, 0x5A, 0x59
+[085F:0323] 5B58CFF6         db       0x5B, 0x58, 0xCF, 0xF6
+[085F:0327] C7807505         db       0xC7, 0x80, 0x75, 0x05
+[085F:032B] B0FFA227         db       0xB0, 0xFF, 0xA2, 0x27
+[085F:032F] 12EBE9F6         db       0x12, 0xEB, 0xE9, 0xF6
+[085F:0333] C7807507         db       0xC7, 0x80, 0x75, 0x07
+[085F:0337] B0FFA229         db       0xB0, 0xFF, 0xA2, 0x29
+[085F:033B] 12EBDD32         db       0x12, 0xEB, 0xDD, 0x32
+[085F:033F] C0A22912         db       0xC0, 0xA2, 0x29, 0x12
+[085F:0343] EBD6F6C7         db       0xEB, 0xD6, 0xF6, 0xC7
+[085F:0347] 807507B0         db       0x80, 0x75, 0x07, 0xB0
+[085F:034B] FFA22812         db       0xFF, 0xA2, 0x28, 0x12
+[085F:034F] EBCA32C0         db       0xEB, 0xCA, 0x32, 0xC0
+[085F:0353] A22812EB         db       0xA2, 0x28, 0x12, 0xEB
+[085F:0357] C3F6C780         db       0xC3, 0xF6, 0xC7, 0x80
+[085F:035B] 7507B0FF         db       0x75, 0x07, 0xB0, 0xFF
+[085F:035F] A22A12EB         db       0xA2, 0x2A, 0x12, 0xEB
+[085F:0363] B732C0A2         db       0xB7, 0x32, 0xC0, 0xA2
+[085F:0367] 2A12EBB0         db       0x2A, 0x12, 0xEB, 0xB0
+[085F:036B] F6C78075         db       0xF6, 0xC7, 0x80, 0x75
+[085F:036F] ABB0FFA2         db       0xAB, 0xB0, 0xFF, 0xA2
+[085F:0373] 2B12EBA4         db       0x2B, 0x12, 0xEB, 0xA4
+[085F:0377] B0FFA22C         db       0xB0, 0xFF, 0xA2, 0x2C
+[085F:037B] 12EB9DE9         db       0x12, 0xEB, 0x9D, 0xE9
+[085F:037F] 82FDC606         db       0x82, 0xFD, 0xC6, 0x06
+[085F:0383] 2D1207C6         db       0x2D, 0x12, 0x07, 0xC6
+[085F:0387] 062E1255         db       0x06, 0x2E, 0x12, 0x55
+[085F:038B] EB8EC606         db       0xEB, 0x8E, 0xC6, 0x06
+[085F:038F] 2D1206C6         db       0x2D, 0x12, 0x06, 0xC6
+[085F:0393] 062E12AA         db       0x06, 0x2E, 0x12, 0xAA
+[085F:0397] EB82BAD8         db       0xEB, 0x82, 0xBA, 0xD8
+[085F:039B] 03F6C780         db       0x03, 0xF6, 0xC7, 0x80
+[085F:039F] 7516803E         db       0x75, 0x16, 0x80, 0x3E
+[085F:03A3] 2F120A74         db       0x2F, 0x12, 0x0A, 0x74
+[085F:03A7] 09B00AA2         db       0x09, 0xB0, 0x0A, 0xA2
+[085F:03AB] 2F12EEE9         db       0x2F, 0x12, 0xEE, 0xE9
+[085F:03AF] 6AFFB00E         db       0x6A, 0xFF, 0xB0, 0x0E
+[085F:03B3] A22F12EE         db       0xA2, 0x2F, 0x12, 0xEE
+[085F:03B7] E961FFBA         db       0xE9, 0x61, 0xFF, 0xBA
+[085F:03BB] D903F6C7         db       0xD9, 0x03, 0xF6, 0xC7
+[085F:03BF] 80751680         db       0x80, 0x75, 0x16, 0x80
+[085F:03C3] 3E301210         db       0x3E, 0x30, 0x12, 0x10
+[085F:03C7] 7409B010         db       0x74, 0x09, 0xB0, 0x10
+[085F:03CB] A23012EE         db       0xA2, 0x30, 0x12, 0xEE
+[085F:03CF] E949FFB0         db       0xE9, 0x49, 0xFF, 0xB0
+[085F:03D3] 18A23012         db       0x18, 0xA2, 0x30, 0x12
+[085F:03D7] EEE940FF         db       0xEE, 0xE9, 0x40, 0xFF
+[085F:03DB] FB527503         db       0xFB, 0x52, 0x75, 0x03
+[085F:03DF] F606DA1107       Test8    byte [ds:0x11DA], 0x07        ; xref: call@085F:0229
+[085F:03E4] 7539             Jnz      0x041F
+[085F:03E6] F6060812FF       Test8    byte [ds:0x1208], 0xFF
+[085F:03EB] 7532             Jnz      0x041F
+[085F:03ED] A05210           Mov8     al, byte [ds:0x1052]
+[085F:03F0] A25110           Mov8     byte [ds:0x1051], al
+[085F:03F3] A15B10           Mov16    ax, word [ds:0x105B]
+[085F:03F6] A35D10           Mov16    word [ds:0x105D], ax
+[085F:03F9] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:03FE] E81F00           CallNear 0x0420
+[085F:0401] A05610           Mov8     al, byte [ds:0x1056]
+[085F:0404] 8A265410         Mov8     ah, byte [ds:0x1054]
+[085F:0408] A35D10           Mov16    word [ds:0x105D], ax
+[085F:040B] A35B10           Mov16    word [ds:0x105B], ax
+[085F:040E] A05010           Mov8     al, byte [ds:0x1050]
+[085F:0411] A25110           Mov8     byte [ds:0x1051], al
+[085F:0414] A25210           Mov8     byte [ds:0x1052], al
+[085F:0417] C6064C1055       Mov8     byte [ds:0x104C], 0x55
+[085F:041C] E80100           CallNear 0x0420
+[085F:041F] C3               Retn                                   ; xref: branch@085F:03E4, branch@085F:03EB
+
+[085F:0420] A05110           Mov8     al, byte [ds:0x1051]          ; xref: call@085F:03FE, call@085F:041C, call@085F:0A97
+[085F:0423] 243F             And8     al, 0x3F                      ; al is dirty
+[085F:0425] B70A             Mov8     bh, 0x0A                      ; bh = 0x0A
+[085F:0427] F6E7             Mul8     bh                            ; bh is dirty
+[085F:0429] 89C3             Mov16    bx, ax                        ; bx is dirty
+[085F:042B] 8B165D10         Mov16    dx, word [ds:0x105D]
+[085F:042F] 8B8F6F15         Mov16    cx, word [ds:bx+0x156F]
+[085F:0433] 86CD             Xchg8    ch, cl                        ; ch is dirty
+[085F:0435] 02EE             Add8     ch, dh                        ; ch = 0x02
+[085F:0437] 02CA             Add8     cl, dl
+[085F:0439] 51               Push16   cx
+[085F:043A] 890E4D10         Mov16    word [ds:0x104D], cx
+[085F:043E] C6064F1004       Mov8     byte [ds:0x104F], 0x04
+[085F:0443] 43               Inc16    bx                            ; xref: branch@085F:045C; bx = 0x0A01
+[085F:0444] 43               Inc16    bx                            ; bx = 0x0A02
+[085F:0445] 53               Push16   bx
+[085F:0446] 52               Push16   dx
+[085F:0447] 8B8F6F15         Mov16    cx, word [ds:bx+0x156F]
+[085F:044B] 86CD             Xchg8    ch, cl                        ; ch is dirty
+[085F:044D] 02EE             Add8     ch, dh                        ; ch = 0x02
+[085F:044F] 02CA             Add8     cl, dl
+[085F:0451] 89CB             Mov16    bx, cx                        ; bx is dirty
+[085F:0453] E8760B           CallNear 0x0FCC
+[085F:0456] 5A               Pop16    dx                            ; dx is dirty
+[085F:0457] 5B               Pop16    bx                            ; bx is dirty
+[085F:0458] FE0E4F10         Dec8     byte [ds:0x104F]
+[085F:045C] 75E5             Jnz      0x0443
+[085F:045E] 5B               Pop16    bx                            ; bx is dirty
+[085F:045F] E86A0B           CallNear 0x0FCC
+[085F:0462] C3               Retn
+
+[085F:0463] F606DA1107       Test8    byte [ds:0x11DA], 0x07        ; xref: call@085F:0226
+[085F:0468] 7548             Jnz      0x04B2
+[085F:046A] F6060812FF       Test8    byte [ds:0x1208], 0xFF
+[085F:046F] 7541             Jnz      0x04B2
+[085F:0471] F6066010FF       Test8    byte [ds:0x1060], 0xFF
+[085F:0476] 741C             Jz       0x0494
+[085F:0478] 8A1E5010         Mov8     bl, byte [ds:0x1050]
+[085F:047C] 81E33F00         And16    bx, 0x003F                    ; bx is dirty
+[085F:0480] 02DB             Add8     bl, bl
+[085F:0482] 02DB             Add8     bl, bl
+[085F:0484] 8B876F1C         Mov16    ax, word [ds:bx+0x1C6F]
+[085F:0488] 01065910         Add16    word [ds:0x1059], ax
+[085F:048C] 8B87711C         Mov16    ax, word [ds:bx+0x1C71]
+[085F:0490] 01065710         Add16    word [ds:0x1057], ax
+[085F:0494] 8B165910         Mov16    dx, word [ds:0x1059]          ; xref: branch@085F:0476
+[085F:0498] E81800           CallNear 0x04B3
+[085F:049B] 89165910         Mov16    word [ds:0x1059], dx
+[085F:049F] 01165310         Add16    word [ds:0x1053], dx
+[085F:04A3] 8B165710         Mov16    dx, word [ds:0x1057]
+[085F:04A7] E80900           CallNear 0x04B3
+[085F:04AA] 89165710         Mov16    word [ds:0x1057], dx
+[085F:04AE] 01165510         Add16    word [ds:0x1055], dx
+[085F:04B2] C3               Retn                                   ; xref: branch@085F:0468, branch@085F:046F
+
+[085F:04B3] F6C680           Test8    dh, 0x80                      ; xref: call@085F:0498, call@085F:04A7
+[085F:04B6] 7522             Jnz      0x04DA
+
+[085F:04B8] 89D1             Mov16    cx, dx                        ; xref: call@085F:04DC; cx is dirty
+[085F:04BA] BB0000           Mov16    bx, 0x0000                    ; bx = 0x0000
+[085F:04BD] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04BF] D0D7             Rcl8     bh, 0x01
+[085F:04C1] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04C3] D0D7             Rcl8     bh, 0x01
+[085F:04C5] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04C7] D0D7             Rcl8     bh, 0x01
+[085F:04C9] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04CB] D0D7             Rcl8     bh, 0x01
+[085F:04CD] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04CF] D0D7             Rcl8     bh, 0x01
+[085F:04D1] D1E9             Shr16    cx, 0x0001                    ; cx is dirty
+[085F:04D3] D0D7             Rcl8     bh, 0x01
+[085F:04D5] 2ADF             Sub8     bl, bh                        ; bl = 0x00
+[085F:04D7] 1BD1             Sbb16    dx, cx
+[085F:04D9] C3               Retn
+
+[085F:04DA] F7DA             Neg16    dx                            ; xref: branch@085F:04B6
+[085F:04DC] E8D9FF           CallNear 0x04B8
+[085F:04DF] F7DA             Neg16    dx
+[085F:04E1] C3               Retn
+
+[085F:04E2] F606DA1107       Test8    byte [ds:0x11DA], 0x07        ; xref: call@085F:022C
+[085F:04E7] 7523             Jnz      0x050C
+[085F:04E9] A0CB11           Mov8     al, byte [ds:0x11CB]
+[085F:04EC] 241F             And8     al, 0x1F                      ; al is dirty
+[085F:04EE] 7503             Jnz      0x04F3
+[085F:04F0] A2D911           Mov8     byte [ds:0x11D9], al
+[085F:04F3] A0CB11           Mov8     al, byte [ds:0x11CB]          ; xref: branch@085F:04EE, branch@085F:050A
+[085F:04F6] A2CA11           Mov8     byte [ds:0x11CA], al
+[085F:04F9] E80001           CallNear 0x05FC
+[085F:04FC] FE06CB11         Inc8     byte [ds:0x11CB]
+[085F:0500] 8026CB111F       And8     byte [ds:0x11CB], 0x1F
+[085F:0505] F606CB110F       Test8    byte [ds:0x11CB], 0x0F
+[085F:050A] 75E7             Jnz      0x04F3
+[085F:050C] C3               Retn                                   ; xref: branch@085F:04E7
+
+[085F:050D] 8B16D611         Mov16    dx, word [ds:0x11D6]          ; xref: call@085F:09C9, call@085F:09FA, call@085F:0A0B, call@085F:0B5C
+[085F:0511] 8B1ED411         Mov16    bx, word [ds:0x11D4]
+[085F:0515] 8A27             Mov8     ah, byte [ds:bx]
+[085F:0517] 43               Inc16    bx                            ; bx = 0x0021
+[085F:0518] 8A2F             Mov8     ch, byte [ds:bx]              ; xref: branch@085F:052B
+[085F:051A] 43               Inc16    bx                            ; bx = 0x0022
+[085F:051B] 02EE             Add8     ch, dh                        ; ch = 0xA0
+[085F:051D] 8A0F             Mov8     cl, byte [ds:bx]
+[085F:051F] 43               Inc16    bx                            ; bx = 0x0023
+[085F:0520] 02CA             Add8     cl, dl
+[085F:0522] 53               Push16   bx
+[085F:0523] 89CB             Mov16    bx, cx                        ; bx = 0xA004
+[085F:0525] E80B03           CallNear 0x0833
+[085F:0528] 5B               Pop16    bx                            ; bx is dirty
+[085F:0529] FECC             Dec8     ah                            ; ah = 0x17
+[085F:052B] 75EB             Jnz      0x0518
+[085F:052D] C3               Retn
+
+[085F:052E] 8B16D611         Mov16    dx, word [ds:0x11D6]          ; xref: call@085F:0641, call@085F:064E, call@085F:0962, call@085F:0B7F, call@085F:0BB4, call@085F:0F61
+[085F:0532] 8B1ED411         Mov16    bx, word [ds:0x11D4]
+[085F:0536] 88F0             Mov8     al, dh                        ; al = 0x80
+[085F:0538] 2403             And8     al, 0x03                      ; al is dirty
+[085F:053A] 02F8             Add8     bh, al
+[085F:053C] D0EE             Shr8     dh, 0x01                      ; dh is dirty
+[085F:053E] D0EE             Shr8     dh, 0x01                      ; dh is dirty
+[085F:0540] 89DE             Mov16    si, bx                        ; si is dirty
+[085F:0542] 0214             Add8     dl, byte [ds:si]
+[085F:0544] 46               Inc16    si                            ; si = 0x121F
+[085F:0545] 0234             Add8     dh, byte [ds:si]
+[085F:0547] 46               Inc16    si                            ; si = 0x1220
+[085F:0548] 88F3             Mov8     bl, dh                        ; bl = 0x80
+[085F:054A] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:054C] F6C201           Test8    dl, 0x01
+[085F:054F] 7403             Jz       0x0554
+[085F:0551] 80CF20           Or8      bh, 0x20                      ; bh is dirty
+[085F:0554] 88D6             Mov8     dh, dl                        ; xref: branch@085F:054F; dh = 0xA4
+[085F:0556] 80E6FE           And8     dh, 0xFE                      ; dh is dirty
+[085F:0559] 32D2             Xor8     dl, dl                        ; dl = 0x00
+[085F:055B] D1EA             Shr16    dx, 0x0001                    ; dx is dirty
+[085F:055D] D1EA             Shr16    dx, 0x0001                    ; dx is dirty
+[085F:055F] D1EA             Shr16    dx, 0x0001                    ; dx is dirty
+[085F:0561] 03DA             Add16    bx, dx
+[085F:0563] 8A34             Mov8     dh, byte [ds:si]
+[085F:0565] 46               Inc16    si                            ; si = 0x1221
+[085F:0566] 8A14             Mov8     dl, byte [ds:si]
+[085F:0568] 46               Inc16    si                            ; si = 0x1222
+[085F:0569] 8A0E4C10         Mov8     cl, byte [ds:0x104C]
+[085F:056D] F6C1FF           Test8    cl, 0xFF
+[085F:0570] 7445             Jz       0x05B7
+[085F:0572] 88D4             Mov8     ah, dl                        ; xref: jump@085F:05B4; ah = 0x00
+[085F:0574] 53               Push16   bx
+[085F:0575] 8A04             Mov8     al, byte [ds:si]              ; xref: branch@085F:0580
+[085F:0577] 22C1             And8     al, cl                        ; al is dirty
+[085F:0579] 260807           Or8      byte [es:bx], al
+[085F:057C] 46               Inc16    si                            ; si = 0x1223
+[085F:057D] 43               Inc16    bx                            ; bx = 0x0081
+[085F:057E] FECC             Dec8     ah                            ; ah = 0xFF
+[085F:0580] 75F3             Jnz      0x0575
+[085F:0582] 5B               Pop16    bx                            ; bx is dirty
+[085F:0583] FECE             Dec8     dh                            ; dh = 0xA3
+[085F:0585] 7474             Jz       0x05FB
+[085F:0587] 88D4             Mov8     ah, dl                        ; ah = 0x00
+[085F:0589] F6C720           Test8    bh, 0x20
+[085F:058C] 7403             Jz       0x0591
+[085F:058E] 83C340           Add16    bx, byte +0x40                ; bx = 0x00C1
+[085F:0591] 81F30020         Xor16    bx, 0x2000                    ; xref: branch@085F:058C
+[085F:0595] 53               Push16   bx
+[085F:0596] 8A04             Mov8     al, byte [ds:si]              ; xref: branch@085F:05A1
+[085F:0598] 22C1             And8     al, cl                        ; al is dirty
+[085F:059A] 260807           Or8      byte [es:bx], al
+[085F:059D] 46               Inc16    si                            ; si = 0x1224
+[085F:059E] 43               Inc16    bx                            ; bx = 0x00C2
+[085F:059F] FECC             Dec8     ah                            ; ah = 0xFF
+[085F:05A1] 75F3             Jnz      0x0596
+[085F:05A3] 5B               Pop16    bx                            ; bx is dirty
+[085F:05A4] FECE             Dec8     dh                            ; dh = 0xA2
+[085F:05A6] 7453             Jz       0x05FB
+[085F:05A8] F6C720           Test8    bh, 0x20
+[085F:05AB] 7403             Jz       0x05B0
+[085F:05AD] 83C340           Add16    bx, byte +0x40                ; bx = 0x0102
+[085F:05B0] 81F30020         Xor16    bx, 0x2000                    ; xref: branch@085F:05AB
+[085F:05B4] EBBC             JmpShort 0x0572
+
+[085F:05B6] C3               db       0xC3
+[085F:05B7] 88D4             Mov8     ah, dl                        ; xref: branch@085F:0570, jump@085F:05F9; ah = 0x64
+[085F:05B9] 53               Push16   bx
+[085F:05BA] 8A04             Mov8     al, byte [ds:si]              ; xref: branch@085F:05C5
+[085F:05BC] F6D0             Not8     al
+[085F:05BE] 262007           And8     byte [es:bx], al
+[085F:05C1] 46               Inc16    si                            ; si = 0x11E0
+[085F:05C2] 43               Inc16    bx                            ; bx = 0x0082
+[085F:05C3] FECC             Dec8     ah                            ; ah = 0x63
+[085F:05C5] 75F3             Jnz      0x05BA
+[085F:05C7] 5B               Pop16    bx                            ; bx is dirty
+[085F:05C8] FECE             Dec8     dh                            ; dh = 0xFF
+[085F:05CA] 742F             Jz       0x05FB
+[085F:05CC] 88D4             Mov8     ah, dl                        ; ah = 0x64
+[085F:05CE] F6C720           Test8    bh, 0x20
+[085F:05D1] 7403             Jz       0x05D6
+[085F:05D3] 83C340           Add16    bx, byte +0x40                ; bx = 0x00C2
+[085F:05D6] 81F30020         Xor16    bx, 0x2000                    ; xref: branch@085F:05D1
+[085F:05DA] 53               Push16   bx
+[085F:05DB] 8A04             Mov8     al, byte [ds:si]              ; xref: branch@085F:05E6
+[085F:05DD] F6D0             Not8     al
+[085F:05DF] 262007           And8     byte [es:bx], al
+[085F:05E2] 46               Inc16    si                            ; si = 0x11E1
+[085F:05E3] 43               Inc16    bx                            ; bx = 0x00C3
+[085F:05E4] FECC             Dec8     ah                            ; ah = 0x63
+[085F:05E6] 75F3             Jnz      0x05DB
+[085F:05E8] 5B               Pop16    bx                            ; bx is dirty
+[085F:05E9] FECE             Dec8     dh                            ; dh = 0xFE
+[085F:05EB] 740E             Jz       0x05FB
+[085F:05ED] F6C720           Test8    bh, 0x20
+[085F:05F0] 7403             Jz       0x05F5
+[085F:05F2] 83C340           Add16    bx, byte +0x40                ; bx = 0x0103
+[085F:05F5] 81F30020         Xor16    bx, 0x2000                    ; xref: branch@085F:05F0
+[085F:05F9] EBBC             JmpShort 0x05B7
+
+[085F:05FB] C3               Retn                                   ; xref: branch@085F:0585, branch@085F:05A6, branch@085F:05CA, branch@085F:05EB
+
+[085F:05FC] 8A1ECA11         Mov8     bl, byte [ds:0x11CA]          ; xref: call@085F:04F9
+[085F:0600] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:0602] 8A876910         Mov8     al, byte [ds:bx+0x1069]
+[085F:0606] 0AC0             Or8      al, al                        ; al is dirty
+[085F:0608] 7469             Jz       0x0673
+[085F:060A] A2C911           Mov8     byte [ds:0x11C9], al
+[085F:060D] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:060F] 8B8F8911         Mov16    cx, word [ds:bx+0x1189]
+[085F:0613] 53               Push16   bx
+[085F:0614] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:0616] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:0618] 8AB78A10         Mov8     dh, byte [ds:bx+0x108A]
+[085F:061C] 8A978C10         Mov8     dl, byte [ds:bx+0x108C]
+[085F:0620] 890ED611         Mov16    word [ds:0x11D6], cx
+[085F:0624] 8A1EC911         Mov8     bl, byte [ds:0x11C9]
+[085F:0628] FECB             Dec8     bl                            ; bl = 0x01
+[085F:062A] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:062C] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:062E] 8B8F260A         Mov16    cx, word [ds:bx+0x0A26]
+[085F:0632] 890ED411         Mov16    word [ds:0x11D4], cx
+[085F:0636] 5B               Pop16    bx                            ; bx is dirty
+[085F:0637] 89978911         Mov16    word [ds:bx+0x1189], dx
+[085F:063B] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0640] 52               Push16   dx
+[085F:0641] E8EAFE           CallNear 0x052E
+[085F:0644] 5A               Pop16    dx                            ; dx is dirty
+[085F:0645] 8916D611         Mov16    word [ds:0x11D6], dx
+[085F:0649] C6064C10FF       Mov8     byte [ds:0x104C], 0xFF
+[085F:064E] E8DDFE           CallNear 0x052E
+[085F:0651] 8B16D611         Mov16    dx, word [ds:0x11D6]
+[085F:0655] 80EE80           Sub8     dh, 0x80                      ; dh = 0x80
+[085F:0658] 7302             Jnc      0x065C
+[085F:065A] F6DE             Neg8     dh
+[085F:065C] 80FE20           Cmp8     dh, 0x20                      ; xref: branch@085F:0658
+[085F:065F] 7711             Ja       0x0672
+[085F:0661] 80EA80           Sub8     dl, 0x80                      ; dl = 0xA4
+[085F:0664] 7302             Jnc      0x0668
+[085F:0666] F6DA             Neg8     dl
+[085F:0668] 80FA20           Cmp8     dl, 0x20                      ; xref: branch@085F:0664
+[085F:066B] 7705             Ja       0x0672
+[085F:066D] C606D911FF       Mov8     byte [ds:0x11D9], 0xFF
+[085F:0672] C3               Retn                                   ; xref: branch@085F:065F, branch@085F:066B
+
+[085F:0673] B90003           Mov16    cx, 0x0300                    ; xref: branch@085F:0608; cx = 0x0300
+[085F:0676] E2FE             Loop     0x0676                        ; xref: branch@085F:0676
+
+[085F:0678] C3               Retn
+
+[085F:0679] BB0000           Mov16    bx, 0x0000                    ; xref: call@085F:0212, call@085F:09A8; bx = 0x0000
+[085F:067C] 8A876910         Mov8     al, byte [ds:bx+0x1069]       ; xref: branch@085F:0688
+[085F:0680] 0AC0             Or8      al, al                        ; al is dirty
+[085F:0682] 7407             Jz       0x068B
+[085F:0684] 43               Inc16    bx                            ; bx = 0x0001
+[085F:0685] 80FB20           Cmp8     bl, 0x20
+[085F:0688] 75F2             Jnz      0x067C
+[085F:068A] C3               Retn
+
+[085F:068B] A0C911           Mov8     al, byte [ds:0x11C9]          ; xref: branch@085F:0682
+[085F:068E] 88876910         Mov8     byte [ds:bx+0x1069], al
+[085F:0692] B103             Mov8     cl, 0x03                      ; cl = 0x03
+[085F:0694] D3E3             Shl16    bx, cl                        ; bx is dirty
+[085F:0696] 81C38910         Add16    bx, 0x1089                    ; bx = 0x1093
+[085F:069A] A1CC11           Mov16    ax, word [ds:0x11CC]
+[085F:069D] 8907             Mov16    word [ds:bx], ax
+[085F:069F] 43               Inc16    bx                            ; bx = 0x1094
+[085F:06A0] 43               Inc16    bx                            ; bx = 0x1095
+[085F:06A1] A1CE11           Mov16    ax, word [ds:0x11CE]
+[085F:06A4] 8907             Mov16    word [ds:bx], ax
+[085F:06A6] 43               Inc16    bx                            ; bx = 0x1096
+[085F:06A7] 43               Inc16    bx                            ; bx = 0x1097
+[085F:06A8] A1D011           Mov16    ax, word [ds:0x11D0]
+[085F:06AB] 8907             Mov16    word [ds:bx], ax
+[085F:06AD] 43               Inc16    bx                            ; bx = 0x1098
+[085F:06AE] 43               Inc16    bx                            ; bx = 0x1099
+[085F:06AF] A1D211           Mov16    ax, word [ds:0x11D2]
+[085F:06B2] 8907             Mov16    word [ds:bx], ax
+[085F:06B4] C3               Retn
+
+[085F:06B5] A0CA11           Mov8     al, byte [ds:0x11CA]          ; xref: call@085F:070A
+[085F:06B8] 88C4             Mov8     ah, al                        ; ah = 0x00
+[085F:06BA] BB6910           Mov16    bx, 0x1069                    ; bx = 0x1069
+[085F:06BD] D7               Xlatb
+[085F:06BE] 0AC0             Or8      al, al                        ; al is dirty
+[085F:06C0] 7436             Jz       0x06F8
+[085F:06C2] A2C911           Mov8     byte [ds:0x11C9], al
+[085F:06C5] FE060512         Inc8     byte [ds:0x1205]
+[085F:06C9] 88E3             Mov8     bl, ah                        ; bl = 0x00
+[085F:06CB] B700             Mov8     bh, 0x00                      ; bh = 0x00
+[085F:06CD] B103             Mov8     cl, 0x03                      ; cl = 0x03
+[085F:06CF] D3E3             Shl16    bx, cl                        ; bx is dirty
+[085F:06D1] 81C38910         Add16    bx, 0x1089                    ; bx = 0x1089
+[085F:06D5] 8A6701           Mov8     ah, byte [ds:bx+0x01]
+[085F:06D8] 8A4703           Mov8     al, byte [ds:bx+0x03]
+[085F:06DB] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:06DE] 53               Push16   bx
+[085F:06DF] E8CD01           CallNear 0x08AF
+[085F:06E2] E86603           CallNear 0x0A4B
+[085F:06E5] E80A07           CallNear 0x0DF2
+[085F:06E8] E8AE05           CallNear 0x0C99
+[085F:06EB] 5B               Pop16    bx                            ; bx is dirty
+[085F:06EC] 8B4704           Mov16    ax, word [ds:bx+0x04]
+[085F:06EF] 0107             Add16    word [ds:bx], ax
+[085F:06F1] 43               Inc16    bx                            ; bx = 0x108A
+[085F:06F2] 43               Inc16    bx                            ; bx = 0x108B
+[085F:06F3] 8B4704           Mov16    ax, word [ds:bx+0x04]
+[085F:06F6] 0107             Add16    word [ds:bx], ax
+[085F:06F8] C3               Retn                                   ; xref: branch@085F:06C0
+
+[085F:06F9] F606DA1103       Test8    byte [ds:0x11DA], 0x03        ; xref: call@085F:022F
+[085F:06FE] 7529             Jnz      0x0729
+[085F:0700] B000             Mov8     al, 0x00                      ; al = 0x00
+[085F:0702] C606051200       Mov8     byte [ds:0x1205], 0x00
+[085F:0707] A2CA11           Mov8     byte [ds:0x11CA], al          ; xref: branch@085F:0714
+[085F:070A] E8A8FF           CallNear 0x06B5
+[085F:070D] A0CA11           Mov8     al, byte [ds:0x11CA]
+[085F:0710] FEC0             Inc8     al                            ; al = 0x01
+[085F:0712] 241F             And8     al, 0x1F                      ; al is dirty
+[085F:0714] 75F1             Jnz      0x0707
+[085F:0716] F6060512FF       Test8    byte [ds:0x1205], 0xFF
+[085F:071B] 750C             Jnz      0x0729
+[085F:071D] F6060612FF       Test8    byte [ds:0x1206], 0xFF
+[085F:0722] 7505             Jnz      0x0729
+[085F:0724] C606061205       Mov8     byte [ds:0x1206], 0x05
+[085F:0729] C3               Retn                                   ; xref: branch@085F:06FE, branch@085F:071B, branch@085F:0722
+
+[085F:072A] 33C3             Xor16    ax, bx                        ; xref: call@085F:01D5, call@085F:0991, call@085F:0BDD, call@085F:0D64, call@085F:0F8F
+[085F:072C] D1C0             Rol16    ax, 0x0001
+[085F:072E] 33C1             Xor16    ax, cx
+[085F:0730] D1C0             Rol16    ax, 0x0001
+[085F:0732] 33C2             Xor16    ax, dx
+[085F:0734] D1C0             Rol16    ax, 0x0001
+[085F:0736] D1C0             Rol16    ax, 0x0001
+[085F:0738] D1C0             Rol16    ax, 0x0001
+[085F:073A] D1C0             Rol16    ax, 0x0001
+[085F:073C] A36110           Mov16    word [ds:0x1061], ax
+[085F:073F] 33066710         Xor16    ax, word [ds:0x1067]
+[085F:0743] D1C8             Ror16    ax, 0x0001
+[085F:0745] D1C8             Ror16    ax, 0x0001
+[085F:0747] A36310           Mov16    word [ds:0x1063], ax
+[085F:074A] D1C8             Ror16    ax, 0x0001
+[085F:074C] D1C8             Ror16    ax, 0x0001
+[085F:074E] D1C8             Ror16    ax, 0x0001
+[085F:0750] 33066110         Xor16    ax, word [ds:0x1061]
+[085F:0754] D1C0             Rol16    ax, 0x0001
+[085F:0756] D1C0             Rol16    ax, 0x0001
+[085F:0758] A36510           Mov16    word [ds:0x1065], ax
+[085F:075B] 33066310         Xor16    ax, word [ds:0x1063]
+[085F:075F] D1C0             Rol16    ax, 0x0001
+[085F:0761] 33066110         Xor16    ax, word [ds:0x1061]
+[085F:0765] A36710           Mov16    word [ds:0x1067], ax
+[085F:0768] C3               Retn
+
+[085F:0769] F6060812FF       Test8    byte [ds:0x1208], 0xFF        ; xref: call@085F:0232
+[085F:076E] 751C             Jnz      0x078C
+[085F:0770] F6062B12FF       Test8    byte [ds:0x122B], 0xFF
+[085F:0775] 7415             Jz       0x078C
+[085F:0777] C6062B1200       Mov8     byte [ds:0x122B], 0x00
+[085F:077C] BBFB11           Mov16    bx, 0x11FB                    ; bx = 0x11FB
+[085F:077F] B404             Mov8     ah, 0x04                      ; ah = 0x04
+[085F:0781] 8A07             Mov8     al, byte [ds:bx]              ; xref: branch@085F:078A
+[085F:0783] 0AC0             Or8      al, al                        ; al is dirty
+[085F:0785] 7406             Jz       0x078D
+[085F:0787] 43               Inc16    bx                            ; bx = 0x11FC
+[085F:0788] FECC             Dec8     ah                            ; ah = 0x03
+[085F:078A] 75F5             Jnz      0x0781
+[085F:078C] C3               Retn                                   ; xref: branch@085F:076E, branch@085F:0775
+
+[085F:078D] C607B0           Mov8     byte [ds:bx], 0xB0            ; xref: branch@085F:0785
+[085F:0790] B304             Mov8     bl, 0x04                      ; bl = 0x04
+[085F:0792] 2ADC             Sub8     bl, ah                        ; bl = 0x04
+[085F:0794] B700             Mov8     bh, 0x00                      ; bh = 0x00
+[085F:0796] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:0798] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:079A] A15310           Mov16    ax, word [ds:0x1053]
+[085F:079D] 8987DB11         Mov16    word [ds:bx+0x11DB], ax
+[085F:07A1] A15510           Mov16    ax, word [ds:0x1055]
+[085F:07A4] 8987DD11         Mov16    word [ds:bx+0x11DD], ax
+[085F:07A8] 53               Push16   bx
+[085F:07A9] 8A1E5010         Mov8     bl, byte [ds:0x1050]
+[085F:07AD] B700             Mov8     bh, 0x00                      ; bh = 0x00
+[085F:07AF] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:07B1] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:07B3] 8B8F6F1B         Mov16    cx, word [ds:bx+0x1B6F]
+[085F:07B7] 8B97711B         Mov16    dx, word [ds:bx+0x1B71]
+[085F:07BB] A15910           Mov16    ax, word [ds:0x1059]
+[085F:07BE] 89CB             Mov16    bx, cx                        ; bx = 0x0203
+[085F:07C0] B104             Mov8     cl, 0x04                      ; cl = 0x04
+[085F:07C2] D3F8             Sar16    ax, cl
+[085F:07C4] 03D8             Add16    bx, ax
+[085F:07C6] A15710           Mov16    ax, word [ds:0x1057]
+[085F:07C9] D3F8             Sar16    ax, cl
+[085F:07CB] 03D0             Add16    dx, ax
+[085F:07CD] 89D9             Mov16    cx, bx                        ; cx = 0x0203
+[085F:07CF] 5B               Pop16    bx                            ; bx is dirty
+[085F:07D0] 898FEB11         Mov16    word [ds:bx+0x11EB], cx
+[085F:07D4] 8997ED11         Mov16    word [ds:bx+0x11ED], dx
+[085F:07D8] C3               Retn
+
+[085F:07D9] C606FF1104       Mov8     byte [ds:0x11FF], 0x04        ; xref: call@085F:0235
+[085F:07DE] BB0400           Mov16    bx, 0x0004                    ; xref: branch@085F:0830; bx = 0x0004
+[085F:07E1] 2A1EFF11         Sub8     bl, byte [ds:0x11FF]
+[085F:07E5] F687FB11FF       Test8    byte [ds:bx+0x11FB], 0xFF
+[085F:07EA] 7440             Jz       0x082C
+[085F:07EC] 53               Push16   bx
+[085F:07ED] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:07EF] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:07F1] 8B87DB11         Mov16    ax, word [ds:bx+0x11DB]
+[085F:07F5] 88E5             Mov8     ch, ah                        ; ch = 0x03
+[085F:07F7] 0387EB11         Add16    ax, word [ds:bx+0x11EB]
+[085F:07FB] 88E6             Mov8     dh, ah                        ; dh = 0x03
+[085F:07FD] 8987DB11         Mov16    word [ds:bx+0x11DB], ax
+[085F:0801] 8B87DD11         Mov16    ax, word [ds:bx+0x11DD]
+[085F:0805] 88E1             Mov8     cl, ah                        ; cl = 0x03
+[085F:0807] 0387ED11         Add16    ax, word [ds:bx+0x11ED]
+[085F:080B] 88E2             Mov8     dl, ah                        ; dl = 0x03
+[085F:080D] 8987DD11         Mov16    word [ds:bx+0x11DD], ax
+[085F:0811] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0816] 89CB             Mov16    bx, cx                        ; bx = 0x0303
+[085F:0818] E81800           CallNear 0x0833
+[085F:081B] 5B               Pop16    bx                            ; bx is dirty
+[085F:081C] FE8FFB11         Dec8     byte [ds:bx+0x11FB]
+[085F:0820] 740A             Jz       0x082C
+[085F:0822] C6064C10AA       Mov8     byte [ds:0x104C], 0xAA
+[085F:0827] 89D3             Mov16    bx, dx                        ; bx = 0x0303
+[085F:0829] E80700           CallNear 0x0833
+[085F:082C] FE0EFF11         Dec8     byte [ds:0x11FF]              ; xref: branch@085F:07EA, branch@085F:0820
+[085F:0830] 75AC             Jnz      0x07DE
+[085F:0832] C3               Retn
+
+[085F:0833] 50               Push16   ax                            ; xref: call@085F:0525, call@085F:0818, call@085F:0829, call@085F:0921, call@085F:0C6E, call@085F:0DB9, call@085F:0DEE, call@085F:1029
+[085F:0834] 53               Push16   bx
+[085F:0835] 51               Push16   cx
+[085F:0836] 52               Push16   dx
+[085F:0837] 32ED             Xor8     ch, ch                        ; ch = 0x00
+[085F:0839] F6C301           Test8    bl, 0x01
+[085F:083C] 7405             Jz       0x0843
+[085F:083E] B520             Mov8     ch, 0x20                      ; ch = 0x20
+[085F:0840] 80E3FE           And8     bl, 0xFE                      ; bl is dirty
+[085F:0843] 88F9             Mov8     cl, bh                        ; xref: branch@085F:083C; cl = 0x02
+[085F:0845] 80E103           And8     cl, 0x03                      ; cl is dirty
+[085F:0848] D0E1             Shl8     cl, 0x01                      ; cl is dirty
+[085F:084A] D0EF             Shr8     bh, 0x01                      ; bh is dirty
+[085F:084C] D0EF             Shr8     bh, 0x01                      ; bh is dirty
+[085F:084E] B4C0             Mov8     ah, 0xC0                      ; ah = 0xC0
+[085F:0850] D2EC             Shr8     ah, cl                        ; ah is dirty
+[085F:0852] 88F9             Mov8     cl, bh                        ; cl = 0x02
+[085F:0854] 88DF             Mov8     bh, bl                        ; bh = 0x03
+[085F:0856] 32DB             Xor8     bl, bl                        ; bl = 0x00
+[085F:0858] D1EB             Shr16    bx, 0x0001                    ; bx is dirty
+[085F:085A] D1EB             Shr16    bx, 0x0001                    ; bx is dirty
+[085F:085C] D1EB             Shr16    bx, 0x0001                    ; bx is dirty
+[085F:085E] 03D9             Add16    bx, cx                        ; bx = 0x2302
+[085F:0860] F6064C10FF       Test8    byte [ds:0x104C], 0xFF
+[085F:0865] 740C             Jz       0x0873
+[085F:0867] 22264C10         And8     ah, byte [ds:0x104C]          ; ah is dirty
+[085F:086B] 260827           Or8      byte [es:bx], ah
+[085F:086E] 5A               Pop16    dx                            ; xref: jump@085F:0878; dx is dirty
+[085F:086F] 59               Pop16    cx                            ; cx is dirty
+[085F:0870] 5B               Pop16    bx                            ; bx is dirty
+[085F:0871] 58               Pop16    ax                            ; ax is dirty
+[085F:0872] C3               Retn
+
+[085F:0873] F6D4             Not8     ah                            ; xref: branch@085F:0865
+[085F:0875] 262027           And8     byte [es:bx], ah
+[085F:0878] EBF4             JmpShort 0x086E
+
+[085F:087A] B90040           Mov16    cx, 0x4000                    ; xref: call@085F:01A5; cx = 0x4000
+[085F:087D] BB0000           Mov16    bx, 0x0000                    ; bx = 0x0000
+[085F:0880] B800B8           Mov16    ax, 0xB800                    ; ax = 0xB800
+[085F:0883] 8EC0             Mov16    es, ax                        ; es = 0xB800
+[085F:0885] 26C60700         Mov8     byte [es:bx], 0x00            ; xref: branch@085F:088A
+[085F:0889] 43               Inc16    bx                            ; bx = 0x0001
+[085F:088A] E2F9             Loop     0x0885
+
+[085F:088C] C3               Retn
+
+[085F:088D] B90E00           Mov16    cx, 0x000E                    ; xref: call@085F:01A8; cx = 0x000E
+[085F:0890] BAD403           Mov16    dx, 0x03D4                    ; dx = 0x03D4
+[085F:0893] BB5315           Mov16    bx, 0x1553                    ; bx = 0x1553
+[085F:0896] 8A07             Mov8     al, byte [ds:bx]              ; xref: branch@085F:08A0
+[085F:0898] EE               Out8     dx, al                        ; ega/vga: CRT (6845) index register (0x03D4) = 00
+[085F:0899] 43               Inc16    bx                            ; bx = 0x1554
+[085F:089A] 42               Inc16    dx                            ; dx = 0x03D5
+[085F:089B] 8A07             Mov8     al, byte [ds:bx]
+[085F:089D] EE               Out8     dx, al                        ; unrecognized (0x03D5) = 00
+[085F:089E] 43               Inc16    bx                            ; bx = 0x1555
+[085F:089F] 4A               Dec16    dx                            ; dx = 0x03D4
+[085F:08A0] E2F4             Loop     0x0896
+
+[085F:08A2] BAD803           Mov16    dx, 0x03D8                    ; dx = 0x03D8
+[085F:08A5] A02F12           Mov8     al, byte [ds:0x122F]
+[085F:08A8] EE               Out8     dx, al                        ; unrecognized (0x03D8) = 00
+[085F:08A9] 42               Inc16    dx                            ; dx = 0x03D9
+[085F:08AA] A03012           Mov8     al, byte [ds:0x1230]
+[085F:08AD] EE               Out8     dx, al                        ; unrecognized (0x03D9) = 00
+[085F:08AE] C3               Retn
+
+[085F:08AF] BEDB11           Mov16    si, 0x11DB                    ; xref: call@085F:06DF; si = 0x11DB
+[085F:08B2] BFFB11           Mov16    di, 0x11FB                    ; di = 0x11FB
+[085F:08B5] C606FF1104       Mov8     byte [ds:0x11FF], 0x04
+[085F:08BA] F605FF           Test8    byte [ds:di], 0xFF            ; xref: branch@085F:08ED
+[085F:08BD] 7425             Jz       0x08E4
+[085F:08BF] 8A6C01           Mov8     ch, byte [ds:si+0x01]
+[085F:08C2] 8A4C03           Mov8     cl, byte [ds:si+0x03]
+[085F:08C5] A0C911           Mov8     al, byte [ds:0x11C9]
+[085F:08C8] BA1000           Mov16    dx, 0x0010                    ; dx = 0x0010
+[085F:08CB] FEC8             Dec8     al                            ; al = 0xFE
+[085F:08CD] 740A             Jz       0x08D9
+[085F:08CF] BA2400           Mov16    dx, 0x0024                    ; dx = 0x0024
+[085F:08D2] FEC8             Dec8     al                            ; al = 0xFD
+[085F:08D4] 7403             Jz       0x08D9
+[085F:08D6] BA6400           Mov16    dx, 0x0064                    ; dx = 0x0064
+[085F:08D9] 8B1ED611         Mov16    bx, word [ds:0x11D6]          ; xref: branch@085F:08CD, branch@085F:08D4
+[085F:08DD] 51               Push16   cx
+[085F:08DE] E80F00           CallNear 0x08F0
+[085F:08E1] 59               Pop16    cx                            ; cx is dirty
+[085F:08E2] 7231             Jc       0x0915
+[085F:08E4] 47               Inc16    di                            ; xref: branch@085F:08BD; di = 0x11FC
+[085F:08E5] 46               Inc16    si                            ; si = 0x11DC
+[085F:08E6] 46               Inc16    si                            ; si = 0x11DD
+[085F:08E7] 46               Inc16    si                            ; si = 0x11DE
+[085F:08E8] 46               Inc16    si                            ; si = 0x11DF
+[085F:08E9] FE0EFF11         Dec8     byte [ds:0x11FF]
+[085F:08ED] 75CB             Jnz      0x08BA
+[085F:08EF] C3               Retn
+
+[085F:08F0] 2AD9             Sub8     bl, cl                        ; xref: call@085F:08DE, call@085F:0A6C, call@085F:0C50, call@085F:0CBE, call@085F:0D05, call@085F:0D2C, call@085F:0E1C; bl = 0xFE
+[085F:08F2] 7302             Jnc      0x08F6
+[085F:08F4] F6DB             Neg8     bl
+[085F:08F6] 80FB0F           Cmp8     bl, 0x0F                      ; xref: branch@085F:08F2
+[085F:08F9] 7319             Jnc      0x0914
+[085F:08FB] 2AFD             Sub8     bh, ch                        ; bh = 0x61
+[085F:08FD] 7302             Jnc      0x0901
+[085F:08FF] F6DF             Neg8     bh
+[085F:0901] 80FF0F           Cmp8     bh, 0x0F                      ; xref: branch@085F:08FD
+[085F:0904] 730E             Jnc      0x0914
+[085F:0906] 88D8             Mov8     al, bl                        ; al = 0xFE
+[085F:0908] F6E3             Mul8     bl                            ; bl is dirty
+[085F:090A] 89C1             Mov16    cx, ax                        ; cx = 0xFFFE
+[085F:090C] 88F8             Mov8     al, bh                        ; al = 0x61
+[085F:090E] F6E7             Mul8     bh                            ; bh is dirty
+[085F:0910] 03C1             Add16    ax, cx                        ; ax = 0xFF5F
+[085F:0912] 3BC2             Cmp16    ax, dx
+[085F:0914] C3               Retn                                   ; xref: branch@085F:08F9, branch@085F:0904
+
+[085F:0915] 5A               Pop16    dx                            ; xref: branch@085F:08E2; dx is dirty
+[085F:0916] 5A               Pop16    dx                            ; dx is dirty
+[085F:0917] C60500           Mov8     byte [ds:di], 0x00
+[085F:091A] 89CB             Mov16    bx, cx                        ; bx = 0x0303
+[085F:091C] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0921] E80FFF           CallNear 0x0833
+[085F:0924] 8A1EC911         Mov8     bl, byte [ds:0x11C9]
+[085F:0928] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:092A] 4B               Dec16    bx                            ; bx = 0x0002
+[085F:092B] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:092D] 8B874D15         Mov16    ax, word [ds:bx+0x154D]
+[085F:0931] A32112           Mov16    word [ds:0x1221], ax
+[085F:0934] E88D05           CallNear 0x0EC4
+
+[085F:0937] 8A1ECA11         Mov8     bl, byte [ds:0x11CA]          ; xref: call@085F:0A73, call@085F:0CCD, call@085F:0E26
+[085F:093B] B700             Mov8     bh, 0x00                      ; bh = 0x00
+[085F:093D] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:093F] 8B8F8911         Mov16    cx, word [ds:bx+0x1189]
+[085F:0943] A1D611           Mov16    ax, word [ds:0x11D6]
+[085F:0946] 50               Push16   ax
+[085F:0947] 890ED611         Mov16    word [ds:0x11D6], cx
+[085F:094B] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0950] 8A1EC911         Mov8     bl, byte [ds:0x11C9]
+[085F:0954] FECB             Dec8     bl                            ; bl = 0x01
+[085F:0956] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:0958] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:095A] 8B9F260A         Mov16    bx, word [ds:bx+0x0A26]
+[085F:095E] 891ED411         Mov16    word [ds:0x11D4], bx
+[085F:0962] E8C9FB           CallNear 0x052E
+[085F:0965] 8A1ECA11         Mov8     bl, byte [ds:0x11CA]
+[085F:0969] B700             Mov8     bh, 0x00                      ; bh = 0x00
+[085F:096B] C687691000       Mov8     byte [ds:bx+0x1069], 0x00
+[085F:0970] 5B               Pop16    bx                            ; bx is dirty
+[085F:0971] 891ED611         Mov16    word [ds:0x11D6], bx
+[085F:0975] 88DD             Mov8     ch, bl                        ; ch = 0x01
+[085F:0977] 32DB             Xor8     bl, bl                        ; bl = 0x00
+[085F:0979] 88D9             Mov8     cl, bl                        ; cl = 0x00
+[085F:097B] 891ECC11         Mov16    word [ds:0x11CC], bx
+[085F:097F] 890ECE11         Mov16    word [ds:0x11CE], cx
+[085F:0983] FE0EC911         Dec8     byte [ds:0x11C9]              ; xref: jump@085F:098C
+[085F:0987] 7423             Jz       0x09AC
+[085F:0989] E80200           CallNear 0x098E
+[085F:098C] EBF5             JmpShort 0x0983
+
+[085F:098E] E80000           CallNear 0x0991                        ; xref: call@085F:0989
+
+[085F:0991] E896FD           CallNear 0x072A                        ; xref: call@085F:098E
+[085F:0994] A16110           Mov16    ax, word [ds:0x1061]
+[085F:0997] 8A0E2D12         Mov8     cl, byte [ds:0x122D]
+[085F:099B] D3F8             Sar16    ax, cl
+[085F:099D] A3D011           Mov16    word [ds:0x11D0], ax
+[085F:09A0] A16310           Mov16    ax, word [ds:0x1063]
+[085F:09A3] D3F8             Sar16    ax, cl
+[085F:09A5] A3D211           Mov16    word [ds:0x11D2], ax
+[085F:09A8] E8CEFC           CallNear 0x0679
+[085F:09AB] C3               Retn
+
+[085F:09AC] E80100           CallNear 0x09B0                        ; xref: branch@085F:0987
+[085F:09AF] C3               Retn
+
+[085F:09B0] F6060112FF       Test8    byte [ds:0x1201], 0xFF        ; xref: call@085F:09AC, call@085F:0C7F
+[085F:09B5] 7422             Jz       0x09D9
+[085F:09B7] A1D611           Mov16    ax, word [ds:0x11D6]
+[085F:09BA] 50               Push16   ax
+[085F:09BB] A10212           Mov16    ax, word [ds:0x1202]
+[085F:09BE] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:09C1] E84B00           CallNear 0x0A0F
+[085F:09C4] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:09C9] E841FB           CallNear 0x050D
+[085F:09CC] 58               Pop16    ax                            ; ax is dirty
+[085F:09CD] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:09D0] A30212           Mov16    word [ds:0x1202], ax
+[085F:09D3] C606011220       Mov8     byte [ds:0x1201], 0x20
+[085F:09D8] C3               Retn
+
+[085F:09D9] A1D611           Mov16    ax, word [ds:0x11D6]          ; xref: branch@085F:09B5
+[085F:09DC] A30212           Mov16    word [ds:0x1202], ax
+[085F:09DF] C606011220       Mov8     byte [ds:0x1201], 0x20
+[085F:09E4] C3               Retn
+
+[085F:09E5] F6060112FF       Test8    byte [ds:0x1201], 0xFF        ; xref: call@085F:0238
+[085F:09EA] 7422             Jz       0x0A0E
+[085F:09EC] A10212           Mov16    ax, word [ds:0x1202]
+[085F:09EF] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:09F2] E81A00           CallNear 0x0A0F
+[085F:09F5] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:09FA] E810FB           CallNear 0x050D
+[085F:09FD] FE0E0112         Dec8     byte [ds:0x1201]
+[085F:0A01] 740B             Jz       0x0A0E
+[085F:0A03] E80900           CallNear 0x0A0F
+[085F:0A06] C6064C10AA       Mov8     byte [ds:0x104C], 0xAA
+[085F:0A0B] E8FFFA           CallNear 0x050D
+[085F:0A0E] C3               Retn                                   ; xref: branch@085F:09EA, branch@085F:0A01
+
+[085F:0A0F] B020             Mov8     al, 0x20                      ; xref: call@085F:09C1, call@085F:09F2, call@085F:0A03; al = 0x20
+[085F:0A11] 2A060112         Sub8     al, byte [ds:0x1201]
+[085F:0A15] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0A17] 89C3             Mov16    bx, ax                        ; bx = 0x0020
+[085F:0A19] B104             Mov8     cl, 0x04                      ; cl = 0x04
+[085F:0A1B] D3E0             Shl16    ax, cl                        ; ax is dirty
+[085F:0A1D] 03C3             Add16    ax, bx                        ; ax = 0x0040
+[085F:0A1F] 056F18           Add16    ax, 0x186F                    ; ax = 0x18AF
+[085F:0A22] A3D411           Mov16    word [ds:0x11D4], ax
+[085F:0A25] C3               Retn
+
+[085F:0A26] 6F256F21         db       0x6F, 0x25, 0x6F, 0x21
+[085F:0A2A] 6F1D4000         db       0x6F, 0x1D, 0x40, 0x00
+[085F:0A2E] 6400C400         db       0x64, 0x00, 0xC4, 0x00
+[085F:0A32] F606DA111F       Test8    byte [ds:0x11DA], 0x1F        ; xref: call@085F:023B
+[085F:0A37] 7511             Jnz      0x0A4A
+[085F:0A39] F6060612FF       Test8    byte [ds:0x1206], 0xFF
+[085F:0A3E] 740A             Jz       0x0A4A
+[085F:0A40] FE0E0612         Dec8     byte [ds:0x1206]
+[085F:0A44] 7504             Jnz      0x0A4A
+[085F:0A46] 5A               Pop16    dx                            ; dx is dirty
+[085F:0A47] E971F7           JmpNear  0x01BB
+
+[085F:0A4A] C3               Retn                                   ; xref: branch@085F:0A37, branch@085F:0A3E, branch@085F:0A44
+
+[085F:0A4B] F6060812FF       Test8    byte [ds:0x1208], 0xFF        ; xref: call@085F:06E2
+[085F:0A50] 755D             Jnz      0x0AAF
+[085F:0A52] 8A1EC911         Mov8     bl, byte [ds:0x11C9]
+[085F:0A56] FECB             Dec8     bl                            ; bl = 0x81
+[085F:0A58] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:0A5A] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:0A5C] 8B972C0A         Mov16    dx, word [ds:bx+0x0A2C]
+[085F:0A60] 8B0ED611         Mov16    cx, word [ds:0x11D6]
+[085F:0A64] 8A3E5410         Mov8     bh, byte [ds:0x1054]
+[085F:0A68] 8A1E5610         Mov8     bl, byte [ds:0x1056]
+[085F:0A6C] E881FE           CallNear 0x08F0
+[085F:0A6F] 733E             Jnc      0x0AAF
+[085F:0A71] 5A               Pop16    dx                            ; dx is dirty
+[085F:0A72] 5A               Pop16    dx                            ; dx is dirty
+[085F:0A73] E8C1FE           CallNear 0x0937
+
+[085F:0A76] A15B10           Mov16    ax, word [ds:0x105B]          ; xref: call@085F:0D12, call@085F:0D39, call@085F:0FAA
+[085F:0A79] A30912           Mov16    word [ds:0x1209], ax
+[085F:0A7C] C606041280       Mov8     byte [ds:0x1204], 0x80
+[085F:0A81] C6060812FF       Mov8     byte [ds:0x1208], 0xFF
+[085F:0A86] A05210           Mov8     al, byte [ds:0x1052]
+[085F:0A89] A25110           Mov8     byte [ds:0x1051], al
+[085F:0A8C] A15B10           Mov16    ax, word [ds:0x105B]
+[085F:0A8F] A35D10           Mov16    word [ds:0x105D], ax
+[085F:0A92] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0A97] E886F9           CallNear 0x0420
+[085F:0A9A] FE0E0B12         Dec8     byte [ds:0x120B]
+[085F:0A9E] B000             Mov8     al, 0x00                      ; al = 0x00
+[085F:0AA0] A22B12           Mov8     byte [ds:0x122B], al
+[085F:0AA3] A26010           Mov8     byte [ds:0x1060], al
+[085F:0AA6] A22812           Mov8     byte [ds:0x1228], al
+[085F:0AA9] A22912           Mov8     byte [ds:0x1229], al
+[085F:0AAC] A22A12           Mov8     byte [ds:0x122A], al
+[085F:0AAF] C3               Retn                                   ; xref: branch@085F:0A50, branch@085F:0A6F
+
+[085F:0AB0] F6060812FF       Test8    byte [ds:0x1208], 0xFF        ; xref: call@085F:0241
+[085F:0AB5] 744B             Jz       0x0B02
+[085F:0AB7] FE0E0812         Dec8     byte [ds:0x1208]
+[085F:0ABB] 7545             Jnz      0x0B02
+[085F:0ABD] FE060812         Inc8     byte [ds:0x1208]
+[085F:0AC1] F606D911FF       Test8    byte [ds:0x11D9], 0xFF
+[085F:0AC6] 753A             Jnz      0x0B02
+[085F:0AC8] F6060C12FF       Test8    byte [ds:0x120C], 0xFF
+[085F:0ACD] 7533             Jnz      0x0B02
+[085F:0ACF] F6060B12FF       Test8    byte [ds:0x120B], 0xFF
+[085F:0AD4] 742C             Jz       0x0B02
+[085F:0AD6] C606081200       Mov8     byte [ds:0x1208], 0x00
+[085F:0ADB] C606501030       Mov8     byte [ds:0x1050], 0x30
+[085F:0AE0] C70653100080     Mov16    word [ds:0x1053], 0x8000
+[085F:0AE6] C70655100080     Mov16    word [ds:0x1055], 0x8000
+[085F:0AEC] C70657100000     Mov16    word [ds:0x1057], 0x0000
+[085F:0AF2] C70659100000     Mov16    word [ds:0x1059], 0x0000
+[085F:0AF8] C606271200       Mov8     byte [ds:0x1227], 0x00
+[085F:0AFD] C6062B1200       Mov8     byte [ds:0x122B], 0x00
+[085F:0B02] C3               Retn                                   ; xref: branch@085F:0AB5, branch@085F:0ABB, branch@085F:0AC6, branch@085F:0ACD, branch@085F:0AD4
+
+[085F:0B03] F606DA1101       Test8    byte [ds:0x11DA], 0x01        ; xref: call@085F:023E
+[085F:0B08] 7526             Jnz      0x0B30
+[085F:0B0A] F6060412FF       Test8    byte [ds:0x1204], 0xFF
+[085F:0B0F] 741F             Jz       0x0B30
+[085F:0B11] A00412           Mov8     al, byte [ds:0x1204]
+[085F:0B14] A880             Test8    al, 0x80
+[085F:0B16] 7419             Jz       0x0B31
+[085F:0B18] C6064C10AA       Mov8     byte [ds:0x104C], 0xAA
+[085F:0B1D] E82400           CallNear 0x0B44
+[085F:0B20] FE060412         Inc8     byte [ds:0x1204]
+[085F:0B24] F606041220       Test8    byte [ds:0x1204], 0x20
+[085F:0B29] 7405             Jz       0x0B30
+[085F:0B2B] 802604127F       And8     byte [ds:0x1204], 0x7F
+[085F:0B30] C3               Retn                                   ; xref: branch@085F:0B08, branch@085F:0B0F, branch@085F:0B29
+
+[085F:0B31] FE0E0412         Dec8     byte [ds:0x1204]              ; xref: branch@085F:0B16
+[085F:0B35] B01F             Mov8     al, 0x1F                      ; al = 0x1F
+[085F:0B37] 2A060412         Sub8     al, byte [ds:0x1204]
+[085F:0B3B] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0B40] E80100           CallNear 0x0B44
+[085F:0B43] C3               Retn
+
+[085F:0B44] 247F             And8     al, 0x7F                      ; xref: call@085F:0B1D, call@085F:0B40; al is dirty
+[085F:0B46] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0B48] 89C3             Mov16    bx, ax                        ; bx is dirty
+[085F:0B4A] B104             Mov8     cl, 0x04                      ; cl = 0x04
+[085F:0B4C] D3E0             Shl16    ax, cl                        ; ax is dirty
+[085F:0B4E] 03C3             Add16    ax, bx
+[085F:0B50] 056F18           Add16    ax, 0x186F                    ; ax = 0x188E
+[085F:0B53] A3D411           Mov16    word [ds:0x11D4], ax
+[085F:0B56] A10912           Mov16    ax, word [ds:0x1209]
+[085F:0B59] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:0B5C] E8AEF9           CallNear 0x050D
+[085F:0B5F] C3               Retn
+
+[085F:0B60] F6060C12FF       Test8    byte [ds:0x120C], 0xFF        ; xref: call@085F:0247, call@085F:0C76, call@085F:0CCA, call@085F:0D36
+[085F:0B65] 7450             Jz       0x0BB7
+[085F:0B67] F606DA1107       Test8    byte [ds:0x11DA], 0x07
+[085F:0B6C] 7549             Jnz      0x0BB7
+[085F:0B6E] A10D12           Mov16    ax, word [ds:0x120D]
+[085F:0B71] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:0B74] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0B79] A11112           Mov16    ax, word [ds:0x1211]
+[085F:0B7C] A3D411           Mov16    word [ds:0x11D4], ax
+[085F:0B7F] E8ACF9           CallNear 0x052E
+[085F:0B82] FE0E0C12         Dec8     byte [ds:0x120C]
+[085F:0B86] 742F             Jz       0x0BB7
+[085F:0B88] A01012           Mov8     al, byte [ds:0x1210]
+[085F:0B8B] 00060E12         Add8     byte [ds:0x120E], al
+[085F:0B8F] F6060C1220       Test8    byte [ds:0x120C], 0x20
+[085F:0B94] 7513             Jnz      0x0BA9
+[085F:0B96] F606611040       Test8    byte [ds:0x1061], 0x40
+[085F:0B9B] 7408             Jz       0x0BA5
+[085F:0B9D] FE0E0D12         Dec8     byte [ds:0x120D]
+[085F:0BA1] FE0E0D12         Dec8     byte [ds:0x120D]
+[085F:0BA5] FE060D12         Inc8     byte [ds:0x120D]              ; xref: branch@085F:0B9B
+[085F:0BA9] A10D12           Mov16    ax, word [ds:0x120D]          ; xref: branch@085F:0B94
+[085F:0BAC] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:0BAF] C6064C10AA       Mov8     byte [ds:0x104C], 0xAA
+[085F:0BB4] E877F9           CallNear 0x052E
+[085F:0BB7] C3               Retn                                   ; xref: branch@085F:0B65, branch@085F:0B6C, branch@085F:0B86
+
+[085F:0BB8] F6060C12FF       Test8    byte [ds:0x120C], 0xFF        ; xref: call@085F:0244
+[085F:0BBD] 7554             Jnz      0x0C13
+[085F:0BBF] 803E051203       Cmp8     byte [ds:0x1205], 0x03
+[085F:0BC4] 7608             Jna      0x0BCE
+[085F:0BC6] F7062512FF1F     Test16   word [ds:0x1225], 0x1FFF
+[085F:0BCC] 7545             Jnz      0x0C13
+[085F:0BCE] F7062512FF03     Test16   word [ds:0x1225], 0x03FF      ; xref: branch@085F:0BC4
+[085F:0BD4] 753D             Jnz      0x0C13
+[085F:0BD6] F6060812FF       Test8    byte [ds:0x1208], 0xFF
+[085F:0BDB] 7536             Jnz      0x0C13
+[085F:0BDD] E84AFB           CallNear 0x072A
+[085F:0BE0] A16110           Mov16    ax, word [ds:0x1061]
+[085F:0BE3] A20D12           Mov8     byte [ds:0x120D], al
+[085F:0BE6] C6060E1200       Mov8     byte [ds:0x120E], 0x00
+[085F:0BEB] C6060C12FF       Mov8     byte [ds:0x120C], 0xFF
+[085F:0BF0] C606101201       Mov8     byte [ds:0x1210], 0x01
+[085F:0BF5] F6C408           Test8    ah, 0x08
+[085F:0BF8] 7504             Jnz      0x0BFE
+[085F:0BFA] F61E1012         Neg8     byte [ds:0x1210]
+[085F:0BFE] A06110           Mov8     al, byte [ds:0x1061]          ; xref: branch@085F:0BF8
+[085F:0C01] 2401             And8     al, 0x01                      ; al is dirty
+[085F:0C03] A20F12           Mov8     byte [ds:0x120F], al
+[085F:0C06] 88C3             Mov8     bl, al                        ; bl = 0x01
+[085F:0C08] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:0C0A] D1E3             Shl16    bx, 0x0001                    ; bx is dirty
+[085F:0C0C] 8B87140C         Mov16    ax, word [ds:bx+0x0C14]
+[085F:0C10] A31112           Mov16    word [ds:0x1211], ax
+[085F:0C13] C3               Retn                                   ; xref: branch@085F:0BBD, branch@085F:0BCC, branch@085F:0BD4, branch@085F:0BDB
+
+[085F:0C14] 6F296F2D         db       0x6F, 0x29, 0x6F, 0x2D
+[085F:0C18] F606DA1101       Test8    byte [ds:0x11DA], 0x01        ; xref: call@085F:024A
+[085F:0C1D] 7540             Jnz      0x0C5F
+[085F:0C1F] F6060C12FF       Test8    byte [ds:0x120C], 0xFF
+[085F:0C24] 7439             Jz       0x0C5F
+[085F:0C26] BEFB11           Mov16    si, 0x11FB                    ; si = 0x11FB
+[085F:0C29] BFDB11           Mov16    di, 0x11DB                    ; di = 0x11DB
+[085F:0C2C] C606FF1104       Mov8     byte [ds:0x11FF], 0x04
+[085F:0C31] F604FF           Test8    byte [ds:si], 0xFF            ; xref: branch@085F:0C5D
+[085F:0C34] 741F             Jz       0x0C55
+[085F:0C36] 8A7D01           Mov8     bh, byte [ds:di+0x01]
+[085F:0C39] 8A5D03           Mov8     bl, byte [ds:di+0x03]
+[085F:0C3C] 8B0E0D12         Mov16    cx, word [ds:0x120D]
+[085F:0C40] BA1900           Mov16    dx, 0x0019                    ; dx = 0x0019
+[085F:0C43] A00F12           Mov8     al, byte [ds:0x120F]
+[085F:0C46] D0E0             Shl8     al, 0x01                      ; al is dirty
+[085F:0C48] D0E0             Shl8     al, 0x01                      ; al is dirty
+[085F:0C4A] D0E0             Shl8     al, 0x01                      ; al is dirty
+[085F:0C4C] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0C4E] 03D0             Add16    dx, ax
+[085F:0C50] E89DFC           CallNear 0x08F0
+[085F:0C53] 720B             Jc       0x0C60
+[085F:0C55] 46               Inc16    si                            ; xref: branch@085F:0C34; si = 0x11FC
+[085F:0C56] 83C704           Add16    di, byte +0x04                ; di = 0x11DF
+[085F:0C59] FE0EFF11         Dec8     byte [ds:0x11FF]
+[085F:0C5D] 75D2             Jnz      0x0C31
+[085F:0C5F] C3               Retn                                   ; xref: branch@085F:0C1D, branch@085F:0C24
+
+[085F:0C60] C60400           Mov8     byte [ds:si], 0x00            ; xref: branch@085F:0C53
+[085F:0C63] 8A7D01           Mov8     bh, byte [ds:di+0x01]
+[085F:0C66] 8A5D03           Mov8     bl, byte [ds:di+0x03]
+[085F:0C69] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0C6E] E8C2FB           CallNear 0x0833
+[085F:0C71] C6060C1201       Mov8     byte [ds:0x120C], 0x01
+[085F:0C76] E8E7FE           CallNear 0x0B60
+[085F:0C79] A10D12           Mov16    ax, word [ds:0x120D]
+[085F:0C7C] A3D611           Mov16    word [ds:0x11D6], ax
+[085F:0C7F] E82EFD           CallNear 0x09B0
+[085F:0C82] C70621120002     Mov16    word [ds:0x1221], 0x0200
+[085F:0C88] F6060F1201       Test8    byte [ds:0x120F], 0x01
+[085F:0C8D] 7506             Jnz      0x0C95
+[085F:0C8F] C70621120010     Mov16    word [ds:0x1221], 0x1000
+[085F:0C95] E82C02           CallNear 0x0EC4                        ; xref: branch@085F:0C8D
+[085F:0C98] C3               Retn
+
+[085F:0C99] F6060C12FF       Test8    byte [ds:0x120C], 0xFF        ; xref: call@085F:06E8
+[085F:0C9E] 7430             Jz       0x0CD0
+[085F:0CA0] B103             Mov8     cl, 0x03                      ; cl = 0x03
+[085F:0CA2] 8A1E0F12         Mov8     bl, byte [ds:0x120F]
+[085F:0CA6] 32FF             Xor8     bh, bh                        ; bh = 0x00
+[085F:0CA8] D3E3             Shl16    bx, cl                        ; bx is dirty
+[085F:0CAA] 021EC911         Add8     bl, byte [ds:0x11C9]
+[085F:0CAE] 021EC911         Add8     bl, byte [ds:0x11C9]
+[085F:0CB2] 8B97D10C         Mov16    dx, word [ds:bx+0x0CD1]
+[085F:0CB6] 8B1ED611         Mov16    bx, word [ds:0x11D6]
+[085F:0CBA] 8B0E0D12         Mov16    cx, word [ds:0x120D]
+[085F:0CBE] E82FFC           CallNear 0x08F0
+[085F:0CC1] 730D             Jnc      0x0CD0
+[085F:0CC3] 5A               Pop16    dx                            ; dx is dirty
+[085F:0CC4] 5A               Pop16    dx                            ; dx is dirty
+[085F:0CC5] C6060C1201       Mov8     byte [ds:0x120C], 0x01
+[085F:0CCA] E893FE           CallNear 0x0B60
+[085F:0CCD] E867FC           CallNear 0x0937
+[085F:0CD0] C3               Retn                                   ; xref: branch@085F:0C9E, branch@085F:0CC1
+
+[085F:0CD1] 00004000         db       0x00, 0x00, 0x40, 0x00
+[085F:0CD5] 6400C400         db       0x64, 0x00, 0xC4, 0x00
+[085F:0CD9] 00006400         db       0x00, 0x00, 0x64, 0x00
+[085F:0CDD] 90000001         db       0x90, 0x00, 0x00, 0x01
+[085F:0CE1] F6060812FF       Test8    byte [ds:0x1208], 0xFF        ; xref: call@085F:024D
+[085F:0CE6] 7554             Jnz      0x0D3C
+[085F:0CE8] F606DA1101       Test8    byte [ds:0x11DA], 0x01
+[085F:0CED] 754D             Jnz      0x0D3C
+[085F:0CEF] F6061A12FF       Test8    byte [ds:0x121A], 0xFF
+[085F:0CF4] 7420             Jz       0x0D16
+[085F:0CF6] 8A3E5410         Mov8     bh, byte [ds:0x1054]
+[085F:0CFA] 8A1E5610         Mov8     bl, byte [ds:0x1056]
+[085F:0CFE] 8B0E1312         Mov16    cx, word [ds:0x1213]
+[085F:0D02] BA2400           Mov16    dx, 0x0024                    ; dx = 0x0024
+[085F:0D05] E8E8FB           CallNear 0x08F0
+[085F:0D08] 730C             Jnc      0x0D16
+[085F:0D0A] C6061A1201       Mov8     byte [ds:0x121A], 0x01
+[085F:0D0F] E89600           CallNear 0x0DA8
+[085F:0D12] E861FD           CallNear 0x0A76
+[085F:0D15] C3               Retn
+
+[085F:0D16] F6060C12FF       Test8    byte [ds:0x120C], 0xFF        ; xref: branch@085F:0CF4, branch@085F:0D08
+[085F:0D1B] 741F             Jz       0x0D3C
+[085F:0D1D] 8A3E5410         Mov8     bh, byte [ds:0x1054]
+[085F:0D21] 8A1E5610         Mov8     bl, byte [ds:0x1056]
+[085F:0D25] 8B0E0D12         Mov16    cx, word [ds:0x120D]
+[085F:0D29] BA3100           Mov16    dx, 0x0031                    ; dx = 0x0031
+[085F:0D2C] E8C1FB           CallNear 0x08F0
+[085F:0D2F] 730B             Jnc      0x0D3C
+[085F:0D31] C6060C1201       Mov8     byte [ds:0x120C], 0x01
+[085F:0D36] E827FE           CallNear 0x0B60
+[085F:0D39] E83AFD           CallNear 0x0A76
+[085F:0D3C] C3               Retn                                   ; xref: branch@085F:0CE6, branch@085F:0CED, branch@085F:0D1B, branch@085F:0D2F
+
+[085F:0D3D] F6060C12FF       Test8    byte [ds:0x120C], 0xFF        ; xref: call@085F:0250
+[085F:0D42] 7463             Jz       0x0DA7
+[085F:0D44] F6061A12FF       Test8    byte [ds:0x121A], 0xFF
+[085F:0D49] 755C             Jnz      0x0DA7
+[085F:0D4B] F6060F1201       Test8    byte [ds:0x120F], 0x01
+[085F:0D50] 7512             Jnz      0x0D64
+[085F:0D52] 803E0C12DF       Cmp8     byte [ds:0x120C], 0xDF
+[085F:0D57] 730B             Jnc      0x0D64
+[085F:0D59] 8A3E5410         Mov8     bh, byte [ds:0x1054]
+[085F:0D5D] 8A1E5610         Mov8     bl, byte [ds:0x1056]
+[085F:0D61] E90700           JmpNear  0x0D6B
+
+[085F:0D64] E8C3F9           CallNear 0x072A                        ; xref: branch@085F:0D50, branch@085F:0D57
+[085F:0D67] 8B1E6110         Mov16    bx, word [ds:0x1061]
+[085F:0D6B] 8B160D12         Mov16    dx, word [ds:0x120D]          ; xref: jump@085F:0D61
+[085F:0D6F] 89161312         Mov16    word [ds:0x1213], dx
+[085F:0D73] B90001           Mov16    cx, 0x0100                    ; cx = 0x0100
+[085F:0D76] 2AFE             Sub8     bh, dh                        ; bh = 0x61
+[085F:0D78] 7304             Jnc      0x0D7E
+[085F:0D7A] F6DF             Neg8     bh
+[085F:0D7C] F6DD             Neg8     ch
+[085F:0D7E] 2ADA             Sub8     bl, dl                        ; xref: branch@085F:0D78; bl = 0xCD
+[085F:0D80] BA0100           Mov16    dx, 0x0001                    ; dx = 0x0001
+[085F:0D83] 7304             Jnc      0x0D89
+[085F:0D85] F6DB             Neg8     bl
+[085F:0D87] F7DA             Neg16    dx
+[085F:0D89] 3ADF             Cmp8     bl, bh                        ; xref: branch@085F:0D83
+[085F:0D8B] 7304             Jnc      0x0D91
+[085F:0D8D] 87CA             Xchg16   dx, cx                        ; dx is dirty
+[085F:0D8F] 86DF             Xchg8    bh, bl                        ; bh is dirty
+[085F:0D91] 89161512         Mov16    word [ds:0x1215], dx          ; xref: branch@085F:0D8B
+[085F:0D95] 890E1712         Mov16    word [ds:0x1217], cx
+[085F:0D99] 88D9             Mov8     cl, bl                        ; cl = 0xCD
+[085F:0D9B] D0E1             Shl8     cl, 0x01                      ; cl is dirty
+[085F:0D9D] B5AA             Mov8     ch, 0xAA                      ; ch = 0xAA
+[085F:0D9F] 890E1912         Mov16    word [ds:0x1219], cx
+[085F:0DA3] 891E1B12         Mov16    word [ds:0x121B], bx
+[085F:0DA7] C3               Retn                                   ; xref: branch@085F:0D42, branch@085F:0D49
+
+[085F:0DA8] F6061A12FF       Test8    byte [ds:0x121A], 0xFF        ; xref: call@085F:0253, call@085F:0D0F, call@085F:0E29
+[085F:0DAD] 7442             Jz       0x0DF1
+[085F:0DAF] C6064C1000       Mov8     byte [ds:0x104C], 0x00
+[085F:0DB4] 8B1E1312         Mov16    bx, word [ds:0x1213]
+[085F:0DB8] 53               Push16   bx
+[085F:0DB9] E877FA           CallNear 0x0833
+[085F:0DBC] 5A               Pop16    dx                            ; dx is dirty
+[085F:0DBD] 8B0E1912         Mov16    cx, word [ds:0x1219]
+[085F:0DC1] 8B1E1B12         Mov16    bx, word [ds:0x121B]
+[085F:0DC5] 02CF             Add8     cl, bh                        ; cl = 0x03
+[085F:0DC7] 7204             Jc       0x0DCD
+[085F:0DC9] 3ACB             Cmp8     cl, bl
+[085F:0DCB] 7206             Jc       0x0DD3
+[085F:0DCD] 2ACB             Sub8     cl, bl                        ; xref: branch@085F:0DC7; cl = 0x02
+[085F:0DCF] 03161712         Add16    dx, word [ds:0x1217]
+[085F:0DD3] 03161512         Add16    dx, word [ds:0x1215]          ; xref: branch@085F:0DCB
+[085F:0DD7] FECD             Dec8     ch                            ; ch = 0x02
+[085F:0DD9] 89161312         Mov16    word [ds:0x1213], dx
+[085F:0DDD] 890E1912         Mov16    word [ds:0x1219], cx
+[085F:0DE1] 891E1B12         Mov16    word [ds:0x121B], bx
+[085F:0DE5] 740A             Jz       0x0DF1
+[085F:0DE7] C6064C10AA       Mov8     byte [ds:0x104C], 0xAA
+[085F:0DEC] 89D3             Mov16    bx, dx                        ; bx is dirty
+[085F:0DEE] E842FA           CallNear 0x0833
+[085F:0DF1] C3               Retn                                   ; xref: branch@085F:0DAD, branch@085F:0DE5
+
+[085F:0DF2] F606DA1101       Test8    byte [ds:0x11DA], 0x01        ; xref: call@085F:06E5
+[085F:0DF7] 7535             Jnz      0x0E2E
+[085F:0DF9] F6061A12FF       Test8    byte [ds:0x121A], 0xFF
+[085F:0DFE] 742E             Jz       0x0E2E
+[085F:0E00] A0C911           Mov8     al, byte [ds:0x11C9]
+[085F:0E03] BA1000           Mov16    dx, 0x0010                    ; dx = 0x0010
+[085F:0E06] FEC8             Dec8     al                            ; al = 0xFC
+[085F:0E08] 740A             Jz       0x0E14
+[085F:0E0A] BA2400           Mov16    dx, 0x0024                    ; dx = 0x0024
+[085F:0E0D] FEC8             Dec8     al                            ; al = 0xFB
+[085F:0E0F] 7403             Jz       0x0E14
+[085F:0E11] BA6400           Mov16    dx, 0x0064                    ; dx = 0x0064
+[085F:0E14] 8B0ED611         Mov16    cx, word [ds:0x11D6]          ; xref: branch@085F:0E08, branch@085F:0E0F
+[085F:0E18] 8B1E1312         Mov16    bx, word [ds:0x1213]
+[085F:0E1C] E8D1FA           CallNear 0x08F0
+[085F:0E1F] 730D             Jnc      0x0E2E
+[085F:0E21] C6061A1201       Mov8     byte [ds:0x121A], 0x01
+[085F:0E26] E80EFB           CallNear 0x0937
+[085F:0E29] E87CFF           CallNear 0x0DA8
+[085F:0E2C] 5A               Pop16    dx                            ; dx is dirty
+[085F:0E2D] 5A               Pop16    dx                            ; dx is dirty
+[085F:0E2E] C3               Retn                                   ; xref: branch@085F:0DF7, branch@085F:0DFE, branch@085F:0E1F
+
+[085F:0E2F] F606DA111F       Test8    byte [ds:0x11DA], 0x1F        ; xref: call@085F:0256
+[085F:0E34] 752D             Jnz      0x0E63
+[085F:0E36] A02E12           Mov8     al, byte [ds:0x122E]
+[085F:0E39] A24C10           Mov8     byte [ds:0x104C], al
+[085F:0E3C] C606FF1104       Mov8     byte [ds:0x11FF], 0x04
+[085F:0E41] C7062312085C     Mov16    word [ds:0x1223], 0x5C08
+[085F:0E47] BE1D12           Mov16    si, 0x121D                    ; si = 0x121D
+[085F:0E4A] 8A04             Mov8     al, byte [ds:si]              ; xref: branch@085F:0E61
+[085F:0E4C] B104             Mov8     cl, 0x04                      ; cl = 0x04
+[085F:0E4E] D2E8             Shr8     al, cl                        ; al is dirty
+[085F:0E50] 240F             And8     al, 0x0F                      ; al is dirty
+[085F:0E52] E80F00           CallNear 0x0E64
+[085F:0E55] 8A04             Mov8     al, byte [ds:si]
+[085F:0E57] 240F             And8     al, 0x0F                      ; al is dirty
+[085F:0E59] E80800           CallNear 0x0E64
+[085F:0E5C] 46               Inc16    si                            ; si = 0x121E
+[085F:0E5D] FE0EFF11         Dec8     byte [ds:0x11FF]
+[085F:0E61] 75E7             Jnz      0x0E4A
+[085F:0E63] C3               Retn                                   ; xref: branch@085F:0E34
+
+[085F:0E64] 8B162312         Mov16    dx, word [ds:0x1223]          ; xref: call@085F:0E52, call@085F:0E59, call@085F:0F18, call@085F:0F2D, call@085F:0F35
+[085F:0E68] 80E2FE           And8     dl, 0xFE                      ; dl is dirty
+[085F:0E6B] D0EE             Shr8     dh, 0x01                      ; dh is dirty
+[085F:0E6D] D0EE             Shr8     dh, 0x01                      ; dh is dirty
+[085F:0E6F] 88F3             Mov8     bl, dh                        ; bl = 0x00
+[085F:0E71] 88D6             Mov8     dh, dl                        ; dh = 0x01
+[085F:0E73] 32D2             Xor8     dl, dl                        ; dl = 0x00
+[085F:0E75] 88D7             Mov8     bh, dl                        ; bh = 0x00
+[085F:0E77] B103             Mov8     cl, 0x03                      ; cl = 0x03
+[085F:0E79] D3EA             Shr16    dx, cl                        ; dx is dirty
+[085F:0E7B] 03DA             Add16    bx, dx
+[085F:0E7D] BF9D14           Mov16    di, 0x149D                    ; di = 0x149D
+[085F:0E80] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0E82] FEC1             Inc8     cl                            ; cl = 0x04
+[085F:0E84] D3E0             Shl16    ax, cl                        ; ax is dirty
+[085F:0E86] 03F8             Add16    di, ax
+[085F:0E88] B104             Mov8     cl, 0x04                      ; cl = 0x04
+[085F:0E8A] 8A2E4C10         Mov8     ch, byte [ds:0x104C]
+[085F:0E8E] 53               Push16   bx                            ; xref: branch@085F:0EBC
+[085F:0E8F] 8A05             Mov8     al, byte [ds:di]
+[085F:0E91] 47               Inc16    di                            ; di = 0x149E
+[085F:0E92] 22C5             And8     al, ch                        ; al is dirty
+[085F:0E94] 268807           Mov8     byte [es:bx], al
+[085F:0E97] 43               Inc16    bx                            ; bx = 0x0001
+[085F:0E98] 8A05             Mov8     al, byte [ds:di]
+[085F:0E9A] 47               Inc16    di                            ; di = 0x149F
+[085F:0E9B] 22C5             And8     al, ch                        ; al is dirty
+[085F:0E9D] 268807           Mov8     byte [es:bx], al
+[085F:0EA0] 4B               Dec16    bx                            ; bx = 0x0000
+[085F:0EA1] 81F30020         Xor16    bx, 0x2000
+[085F:0EA5] 8A05             Mov8     al, byte [ds:di]
+[085F:0EA7] 47               Inc16    di                            ; di = 0x14A0
+[085F:0EA8] 22C5             And8     al, ch                        ; al is dirty
+[085F:0EAA] 268807           Mov8     byte [es:bx], al
+[085F:0EAD] 43               Inc16    bx                            ; bx = 0x0001
+[085F:0EAE] 8A05             Mov8     al, byte [ds:di]
+[085F:0EB0] 47               Inc16    di                            ; di = 0x14A1
+[085F:0EB1] 22C5             And8     al, ch                        ; al is dirty
+[085F:0EB3] 268807           Mov8     byte [es:bx], al
+[085F:0EB6] 5B               Pop16    bx                            ; bx is dirty
+[085F:0EB7] 83C340           Add16    bx, byte +0x40                ; bx = 0x0041
+[085F:0EBA] FEC9             Dec8     cl                            ; cl = 0x03
+[085F:0EBC] 75D0             Jnz      0x0E8E
+[085F:0EBE] 8306241208       Add16    word [ds:0x1224], byte +0x08
+[085F:0EC3] C3               Retn
+
+[085F:0EC4] 8B162112         Mov16    dx, word [ds:0x1221]          ; xref: call@085F:0934, call@085F:0C95
+[085F:0EC8] A11F12           Mov16    ax, word [ds:0x121F]
+[085F:0ECB] 86C4             Xchg8    ah, al                        ; ah is dirty
+[085F:0ECD] 02C2             Add8     al, dl
+[085F:0ECF] 27               Daa
+[085F:0ED0] 86C4             Xchg8    ah, al                        ; ah is dirty
+[085F:0ED2] 12C6             Adc8     al, dh                        ; al is dirty
+[085F:0ED4] 27               Daa
+[085F:0ED5] A31F12           Mov16    word [ds:0x121F], ax
+[085F:0ED8] 9C               Pushf
+[085F:0ED9] A11D12           Mov16    ax, word [ds:0x121D]
+[085F:0EDC] 86C4             Xchg8    ah, al                        ; ah is dirty
+[085F:0EDE] 1400             Adc8     al, 0x00                      ; al is dirty
+[085F:0EE0] 27               Daa
+[085F:0EE1] 86C4             Xchg8    ah, al                        ; ah is dirty
+[085F:0EE3] 1400             Adc8     al, 0x00                      ; al is dirty
+[085F:0EE5] 27               Daa
+[085F:0EE6] A31D12           Mov16    word [ds:0x121D], ax
+[085F:0EE9] 9D               Popf
+[085F:0EEA] A00B12           Mov8     al, byte [ds:0x120B]
+[085F:0EED] 1400             Adc8     al, 0x00                      ; al is dirty
+[085F:0EEF] A20B12           Mov8     byte [ds:0x120B], al
+[085F:0EF2] C3               Retn
+
+[085F:0EF3] F606DA111F       Test8    byte [ds:0x11DA], 0x1F        ; xref: call@085F:0259
+[085F:0EF8] 753E             Jnz      0x0F38
+[085F:0EFA] A02E12           Mov8     al, byte [ds:0x122E]
+[085F:0EFD] A24C10           Mov8     byte [ds:0x104C], al
+[085F:0F00] C70623120800     Mov16    word [ds:0x1223], 0x0008
+[085F:0F06] A00B12           Mov8     al, byte [ds:0x120B]
+[085F:0F09] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0F0B] B364             Mov8     bl, 0x64                      ; bl = 0x64
+[085F:0F0D] F6F3             Div8     bl                            ; bl is dirty
+[085F:0F0F] 50               Push16   ax
+[085F:0F10] 240F             And8     al, 0x0F                      ; al is dirty
+[085F:0F12] 3C00             Cmp8     al, 0x00
+[085F:0F14] 7502             Jnz      0x0F18
+[085F:0F16] B00A             Mov8     al, 0x0A                      ; al = 0x0A
+[085F:0F18] E849FF           CallNear 0x0E64                        ; xref: branch@085F:0F14
+[085F:0F1B] 58               Pop16    ax                            ; ax is dirty
+[085F:0F1C] 88E0             Mov8     al, ah                        ; al = 0x00
+[085F:0F1E] 32E4             Xor8     ah, ah                        ; ah = 0x00
+[085F:0F20] B30A             Mov8     bl, 0x0A                      ; bl = 0x0A
+[085F:0F22] F6F3             Div8     bl                            ; bl is dirty
+[085F:0F24] 50               Push16   ax
+[085F:0F25] 240F             And8     al, 0x0F                      ; al is dirty
+[085F:0F27] 3C00             Cmp8     al, 0x00
+[085F:0F29] 7502             Jnz      0x0F2D
+[085F:0F2B] B00A             Mov8     al, 0x0A                      ; al = 0x0A
+[085F:0F2D] E834FF           CallNear 0x0E64                        ; xref: branch@085F:0F29
+[085F:0F30] 58               Pop16    ax                            ; ax is dirty
+[085F:0F31] 88E0             Mov8     al, ah                        ; al = 0x00
+[085F:0F33] 240F             And8     al, 0x0F                      ; al is dirty
+[085F:0F35] E82CFF           CallNear 0x0E64
+[085F:0F38] C3               Retn                                   ; xref: branch@085F:0EF8
+
+[085F:0F39] F606DA111F       Test8    byte [ds:0x11DA], 0x1F        ; xref: call@085F:025C
+[085F:0F3E] 752F             Jnz      0x0F6F
+[085F:0F40] F6060B12FF       Test8    byte [ds:0x120B], 0xFF
+[085F:0F45] 7567             Jnz      0x0FAE
+[085F:0F47] A1FB11           Mov16    ax, word [ds:0x11FB]
+[085F:0F4A] 0B06FD11         Or16     ax, word [ds:0x11FD]          ; ax is dirty
+[085F:0F4E] 751F             Jnz      0x0F6F
+[085F:0F50] C6064C1055       Mov8     byte [ds:0x104C], 0x55
+[085F:0F55] C706D6118080     Mov16    word [ds:0x11D6], 0x8080
+[085F:0F5B] C706D4116F31     Mov16    word [ds:0x11D4], 0x316F
+[085F:0F61] E8CAF5           CallNear 0x052E
+[085F:0F64] F6062C12FF       Test8    byte [ds:0x122C], 0xFF
+[085F:0F69] 7404             Jz       0x0F6F
+[085F:0F6B] 5A               Pop16    dx                            ; dx is dirty
+[085F:0F6C] E9EFF1           JmpNear  0x015E
+
+[085F:0F6F] C3               Retn                                   ; xref: branch@085F:0F3E, branch@085F:0F4E, branch@085F:0F69, branch@085F:0F75, branch@085F:0F7C
+
+[085F:0F70] F6062712FF       Test8    byte [ds:0x1227], 0xFF        ; xref: call@085F:025F
+[085F:0F75] 74F8             Jz       0x0F6F
+[085F:0F77] F6060812FF       Test8    byte [ds:0x1208], 0xFF
+[085F:0F7C] 75F1             Jnz      0x0F6F
+[085F:0F7E] C606271200       Mov8     byte [ds:0x1227], 0x00
+[085F:0F83] C70659100000     Mov16    word [ds:0x1059], 0x0000
+[085F:0F89] C70657100000     Mov16    word [ds:0x1057], 0x0000
+[085F:0F8F] E898F7           CallNear 0x072A
+[085F:0F92] A16110           Mov16    ax, word [ds:0x1061]
+[085F:0F95] A35310           Mov16    word [ds:0x1053], ax
+[085F:0F98] 243F             And8     al, 0x3F                      ; al is dirty
+[085F:0F9A] A25010           Mov8     byte [ds:0x1050], al
+[085F:0F9D] 8B1E6310         Mov16    bx, word [ds:0x1063]
+[085F:0FA1] 891E5510         Mov16    word [ds:0x1055], bx
+[085F:0FA5] A803             Test8    al, 0x03
+[085F:0FA7] 7401             Jz       0x0FAA
+[085F:0FA9] C3               Retn
+
+[085F:0FAA] E8C9FA           CallNear 0x0A76                        ; xref: branch@085F:0FA7
+[085F:0FAD] C3               Retn
+
+[085F:0FAE] C6062C1200       Mov8     byte [ds:0x122C], 0x00        ; xref: branch@085F:0F45
+[085F:0FB3] C3               Retn
+
+[085F:0FB4] 8B1E3112         Mov16    bx, word [ds:0x1231]          ; xref: call@085F:014F, jump@085F:0FC9
+[085F:0FB8] 8A07             Mov8     al, byte [ds:bx]
+[085F:0FBA] 3CFF             Cmp8     al, 0xFF
+[085F:0FBC] 740D             Jz       0x0FCB
+[085F:0FBE] B40E             Mov8     ah, 0x0E                      ; ah = 0x0E
+[085F:0FC0] BB0000           Mov16    bx, 0x0000                    ; bx = 0x0000
+[085F:0FC3] CD10             Int      0x10                          ; video: unrecognized AH = 0E | dirty all regs
+[085F:0FC5] FF063112         Inc16    word [ds:0x1231]
+[085F:0FC9] EBE9             JmpShort 0x0FB4
+
+[085F:0FCB] C3               Retn                                   ; xref: branch@085F:0FBC
+
+[085F:0FCC] 8B164D10         Mov16    dx, word [ds:0x104D]          ; xref: call@085F:0453, call@085F:045F
+[085F:0FD0] 2AF7             Sub8     dh, bh                        ; dh = 0x01
+[085F:0FD2] 7302             Jnc      0x0FD6
+[085F:0FD4] F6DE             Neg8     dh
+[085F:0FD6] 80FEC8           Cmp8     dh, 0xC8                      ; xref: branch@085F:0FD2
+[085F:0FD9] 736C             Jnc      0x1047
+[085F:0FDB] 2AD3             Sub8     dl, bl                        ; dl = 0xBF
+[085F:0FDD] 7302             Jnc      0x0FE1
+[085F:0FDF] F6DA             Neg8     dl
+[085F:0FE1] 80FAC8           Cmp8     dl, 0xC8                      ; xref: branch@085F:0FDD
+[085F:0FE4] 7361             Jnc      0x1047
+[085F:0FE6] 8B164D10         Mov16    dx, word [ds:0x104D]
+[085F:0FEA] 891E4D10         Mov16    word [ds:0x104D], bx
+[085F:0FEE] 52               Push16   dx
+[085F:0FEF] B90001           Mov16    cx, 0x0100                    ; cx = 0x0100
+[085F:0FF2] 88F8             Mov8     al, bh                        ; al = 0x00
+[085F:0FF4] 2AC6             Sub8     al, dh                        ; al = 0xFF
+[085F:0FF6] 7304             Jnc      0x0FFC
+[085F:0FF8] F6DD             Neg8     ch
+[085F:0FFA] F6D8             Neg8     al
+[085F:0FFC] 88C7             Mov8     bh, al                        ; xref: branch@085F:0FF6; bh = 0xFF
+[085F:0FFE] 88D8             Mov8     al, bl                        ; al = 0x41
+[085F:1000] 2AC2             Sub8     al, dl                        ; al = 0x82
+[085F:1002] BA0100           Mov16    dx, 0x0001                    ; dx = 0x0001
+[085F:1005] 7304             Jnc      0x100B
+[085F:1007] F7DA             Neg16    dx
+[085F:1009] F6D8             Neg8     al
+[085F:100B] 88C3             Mov8     bl, al                        ; xref: branch@085F:1005; bl = 0x82
+[085F:100D] 3AC7             Cmp8     al, bh
+[085F:100F] 7304             Jnc      0x1015
+[085F:1011] 87D1             Xchg16   cx, dx                        ; cx is dirty
+[085F:1013] 86FB             Xchg8    bl, bh                        ; bl is dirty
+[085F:1015] 89164810         Mov16    word [ds:0x1048], dx          ; xref: branch@085F:100F
+[085F:1019] 890E4A10         Mov16    word [ds:0x104A], cx
+[085F:101D] 88D9             Mov8     cl, bl                        ; cl = 0x82
+[085F:101F] D0E9             Shr8     cl, 0x01                      ; cl is dirty
+[085F:1021] 88DD             Mov8     ch, bl                        ; ch = 0x82
+[085F:1023] FEC5             Inc8     ch                            ; ch = 0x83
+[085F:1025] 5A               Pop16    dx                            ; dx is dirty
+[085F:1026] 53               Push16   bx                            ; xref: branch@085F:1045
+[085F:1027] 89D3             Mov16    bx, dx                        ; bx is dirty
+[085F:1029] E807F8           CallNear 0x0833
+[085F:102C] 5B               Pop16    bx                            ; bx is dirty
+[085F:102D] 88C8             Mov8     al, cl                        ; al = 0x82
+[085F:102F] 02C7             Add8     al, bh                        ; al = 0x81
+[085F:1031] 7204             Jc       0x1037
+[085F:1033] 3AC3             Cmp8     al, bl
+[085F:1035] 7206             Jc       0x103D
+[085F:1037] 2AC3             Sub8     al, bl                        ; xref: branch@085F:1031; al = 0xFF
+[085F:1039] 03164A10         Add16    dx, word [ds:0x104A]
+[085F:103D] 88C1             Mov8     cl, al                        ; xref: branch@085F:1035; cl = 0xFF
+[085F:103F] 03164810         Add16    dx, word [ds:0x1048]
+[085F:1043] FECD             Dec8     ch                            ; ch = 0x82
+[085F:1045] 75DF             Jnz      0x1026
+[085F:1047] C3               Retn                                   ; xref: branch@085F:0FD9, branch@085F:0FE4
+
+[085F:1048] FB110B06         db       0xFB, 0x11, 0x0B, 0x06
+[085F:104C] FD11751F         db       0xFD, 0x11, 0x75, 0x1F
+[085F:1050] C6064C10         db       0xC6, 0x06, 0x4C, 0x10
+[085F:1054] 55C706D6         db       0x55, 0xC7, 0x06, 0xD6
+[085F:1058] 118080C7         db       0x11, 0x80, 0x80, 0xC7
+[085F:105C] 06D4116F         db       0x06, 0xD4, 0x11, 0x6F
+[085F:1060] 31E8CAF5         db       0x31, 0xE8, 0xCA, 0xF5
+[085F:1064] F6062C12         db       0xF6, 0x06, 0x2C, 0x12
+[085F:1068] FF74045A         db       0xFF, 0x74, 0x04, 0x5A
+[085F:106C] E9EFF1C3         db       0xE9, 0xEF, 0xF1, 0xC3
+[085F:1070] F6062712         db       0xF6, 0x06, 0x27, 0x12
+[085F:1074] FF74F8F6         db       0xFF, 0x74, 0xF8, 0xF6
+[085F:1078] 060812FF         db       0x06, 0x08, 0x12, 0xFF
+[085F:107C] 75F1C606         db       0x75, 0xF1, 0xC6, 0x06
+[085F:1080] 271200C7         db       0x27, 0x12, 0x00, 0xC7
+[085F:1084] 06591000         db       0x06, 0x59, 0x10, 0x00
+[085F:1088] 00C70657         db       0x00, 0xC7, 0x06, 0x57
+[085F:108C] 100000E8         db       0x10, 0x00, 0x00, 0xE8
+[085F:1090] 98F7A161         db       0x98, 0xF7, 0xA1, 0x61
+[085F:1094] 10A35310         db       0x10, 0xA3, 0x53, 0x10
+[085F:1098] 243FA250         db       0x24, 0x3F, 0xA2, 0x50
+[085F:109C] 108B1E63         db       0x10, 0x8B, 0x1E, 0x63
+[085F:10A0] 10891E55         db       0x10, 0x89, 0x1E, 0x55
+[085F:10A4] 10A80374         db       0x10, 0xA8, 0x03, 0x74
+[085F:10A8] 01C3E8C9         db       0x01, 0xC3, 0xE8, 0xC9
+[085F:10AC] FAC3C606         db       0xFA, 0xC3, 0xC6, 0x06
+[085F:10B0] 2C1200C3         db       0x2C, 0x12, 0x00, 0xC3
+[085F:10B4] 8B1E3112         db       0x8B, 0x1E, 0x31, 0x12
+[085F:10B8] 8A073CFF         db       0x8A, 0x07, 0x3C, 0xFF
+[085F:10BC] 740DB40E         db       0x74, 0x0D, 0xB4, 0x0E
+[085F:10C0] BB0000CD         db       0xBB, 0x00, 0x00, 0xCD
+[085F:10C4] 10FF0631         db       0x10, 0xFF, 0x06, 0x31
+[085F:10C8] 12EBE9C3         db       0x12, 0xEB, 0xE9, 0xC3
+[085F:10CC] 8B164D10         db       0x8B, 0x16, 0x4D, 0x10
+[085F:10D0] 2AF77302         db       0x2A, 0xF7, 0x73, 0x02
+[085F:10D4] F6DE80FE         db       0xF6, 0xDE, 0x80, 0xFE
+[085F:10D8] C8736C2A         db       0xC8, 0x73, 0x6C, 0x2A
+[085F:10DC] D37302F6         db       0xD3, 0x73, 0x02, 0xF6
+[085F:10E0] DA80FAC8         db       0xDA, 0x80, 0xFA, 0xC8
+[085F:10E4] 73618B16         db       0x73, 0x61, 0x8B, 0x16
+[085F:10E8] 4D10891E         db       0x4D, 0x10, 0x89, 0x1E
+[085F:10EC] 4D1052B9         db       0x4D, 0x10, 0x52, 0xB9
+[085F:10F0] 000188F8         db       0x00, 0x01, 0x88, 0xF8
+[085F:10F4] 2AC67304         db       0x2A, 0xC6, 0x73, 0x04
+[085F:10F8] F6DDF6D8         db       0xF6, 0xDD, 0xF6, 0xD8
+[085F:10FC] 88C788D8         db       0x88, 0xC7, 0x88, 0xD8
+[085F:1100] 2AC2BA01         db       0x2A, 0xC2, 0xBA, 0x01
+[085F:1104] 007304F7         db       0x00, 0x73, 0x04, 0xF7
+[085F:1108] DAF6D888         db       0xDA, 0xF6, 0xD8, 0x88
+[085F:110C] C33AC773         db       0xC3, 0x3A, 0xC7, 0x73
+[085F:1110] 0487D186         db       0x04, 0x87, 0xD1, 0x86
+[085F:1114] FB891648         db       0xFB, 0x89, 0x16, 0x48
+[085F:1118] 10890E4A         db       0x10, 0x89, 0x0E, 0x4A
+[085F:111C] 1088D9D0         db       0x10, 0x88, 0xD9, 0xD0
+[085F:1120] E988DDFE         db       0xE9, 0x88, 0xDD, 0xFE
+[085F:1124] C55A5389         db       0xC5, 0x5A, 0x53, 0x89
+[085F:1128] D3E807F8         db       0xD3, 0xE8, 0x07, 0xF8
+[085F:112C] 5B88C802         db       0x5B, 0x88, 0xC8, 0x02
+[085F:1130] C772043A         db       0xC7, 0x72, 0x04, 0x3A
+[085F:1134] C372062A         db       0xC3, 0x72, 0x06, 0x2A
+[085F:1138] C303164A         db       0xC3, 0x03, 0x16, 0x4A
+[085F:113C] 1088C103         db       0x10, 0x88, 0xC1, 0x03
+[085F:1140] 164810FE         db       0x16, 0x48, 0x10, 0xFE
+[085F:1144] CD75DFC3         db       0xCD, 0x75, 0xDF, 0xC3
+[085F:1148] FB110B06         db       0xFB, 0x11, 0x0B, 0x06
+[085F:114C] FD11751F         db       0xFD, 0x11, 0x75, 0x1F
+[085F:1150] C6064C10         db       0xC6, 0x06, 0x4C, 0x10
+[085F:1154] 55C706D6         db       0x55, 0xC7, 0x06, 0xD6
+[085F:1158] 118080C7         db       0x11, 0x80, 0x80, 0xC7
+[085F:115C] 06D4116F         db       0x06, 0xD4, 0x11, 0x6F
+[085F:1160] 31E8CAF5         db       0x31, 0xE8, 0xCA, 0xF5
+[085F:1164] F6062C12         db       0xF6, 0x06, 0x2C, 0x12
+[085F:1168] FF74045A         db       0xFF, 0x74, 0x04, 0x5A
+[085F:116C] E9EFF1C3         db       0xE9, 0xEF, 0xF1, 0xC3
+[085F:1170] F6062712         db       0xF6, 0x06, 0x27, 0x12
+[085F:1174] FF74F8F6         db       0xFF, 0x74, 0xF8, 0xF6
+[085F:1178] 060812FF         db       0x06, 0x08, 0x12, 0xFF
+[085F:117C] 75F1C606         db       0x75, 0xF1, 0xC6, 0x06
+[085F:1180] 271200C7         db       0x27, 0x12, 0x00, 0xC7
+[085F:1184] 06591000         db       0x06, 0x59, 0x10, 0x00
+[085F:1188] 00C70657         db       0x00, 0xC7, 0x06, 0x57
+[085F:118C] 100000E8         db       0x10, 0x00, 0x00, 0xE8
+[085F:1190] 98F7A161         db       0x98, 0xF7, 0xA1, 0x61
+[085F:1194] 10A35310         db       0x10, 0xA3, 0x53, 0x10
+[085F:1198] 243FA250         db       0x24, 0x3F, 0xA2, 0x50
+[085F:119C] 108B1E63         db       0x10, 0x8B, 0x1E, 0x63
+[085F:11A0] 10891E55         db       0x10, 0x89, 0x1E, 0x55
+[085F:11A4] 10A80374         db       0x10, 0xA8, 0x03, 0x74
+[085F:11A8] 01C3E8C9         db       0x01, 0xC3, 0xE8, 0xC9
+[085F:11AC] FAC3C606         db       0xFA, 0xC3, 0xC6, 0x06
+[085F:11B0] 2C1200C3         db       0x2C, 0x12, 0x00, 0xC3
+[085F:11B4] 8B1E3112         db       0x8B, 0x1E, 0x31, 0x12
+[085F:11B8] 8A073CFF         db       0x8A, 0x07, 0x3C, 0xFF
+[085F:11BC] 740DB40E         db       0x74, 0x0D, 0xB4, 0x0E
+[085F:11C0] BB0000CD         db       0xBB, 0x00, 0x00, 0xCD
+[085F:11C4] 10FF0631         db       0x10, 0xFF, 0x06, 0x31
+[085F:11C8] 12000000         db       0x12, 0x00, 0x00, 0x00
+[085F:11CC] 8B164D10         db       0x8B, 0x16, 0x4D, 0x10
+[085F:11D0] 2AF77302         db       0x2A, 0xF7, 0x73, 0x02
+[085F:11D4] F6DE80FE         db       0xF6, 0xDE, 0x80, 0xFE
+[085F:11D8] C8736C2A         db       0xC8, 0x73, 0x6C, 0x2A
+[085F:11DC] D37302F6         db       0xD3, 0x73, 0x02, 0xF6
+[085F:11E0] DA80FAC8         db       0xDA, 0x80, 0xFA, 0xC8
+[085F:11E4] 73618B16         db       0x73, 0x61, 0x8B, 0x16
+[085F:11E8] 4D10891E         db       0x4D, 0x10, 0x89, 0x1E
+[085F:11EC] 4D1052B9         db       0x4D, 0x10, 0x52, 0xB9
+[085F:11F0] 000188F8         db       0x00, 0x01, 0x88, 0xF8
+[085F:11F4] 2AC67304         db       0x2A, 0xC6, 0x73, 0x04
+[085F:11F8] F6DDF6D8         db       0xF6, 0xDD, 0xF6, 0xD8
+[085F:11FC] 88C788D8         db       0x88, 0xC7, 0x88, 0xD8
+[085F:1200] 2AC2BA01         db       0x2A, 0xC2, 0xBA, 0x01
+[085F:1204] 007304F7         db       0x00, 0x73, 0x04, 0xF7
+[085F:1208] DAF6D888         db       0xDA, 0xF6, 0xD8, 0x88
+[085F:120C] C33AC773         db       0xC3, 0x3A, 0xC7, 0x73
+[085F:1210] 0487D186         db       0x04, 0x87, 0xD1, 0x86
+[085F:1214] FB891648         db       0xFB, 0x89, 0x16, 0x48
+[085F:1218] 10890E4A         db       0x10, 0x89, 0x0E, 0x4A
+[085F:121C] 1088D9D0         db       0x10, 0x88, 0xD9, 0xD0
+[085F:1220] E988DDFE         db       0xE9, 0x88, 0xDD, 0xFE
+[085F:1224] C55A5389         db       0xC5, 0x5A, 0x53, 0x89
+[085F:1228] D3E807F8         db       0xD3, 0xE8, 0x07, 0xF8
+[085F:122C] 5B07550A         db       0x5B, 0x07, 0x55, 0x0A
+[085F:1230] 1072040A         db       0x10, 0x72, 0x04, 0x0A
+[085F:1234] 0A0A0A0A         db       0x0A, 0x0A, 0x0A, 0x0A
+[085F:1238] 0A0A0D20         db       0x0A, 0x0A, 0x0D, 0x20
+[085F:123C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1240] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1244] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1248] 20415354         db       0x20, 0x41, 0x53, 0x54
+[085F:124C] 524F2D44         db       0x52, 0x4F, 0x2D, 0x44
+[085F:1250] 4F444745         db       0x4F, 0x44, 0x47, 0x45
+[085F:1254] 0A0A0D20         db       0x0A, 0x0A, 0x0D, 0x20
+[085F:1258] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:125C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1260] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1264] 2049424D         db       0x20, 0x49, 0x42, 0x4D
+[085F:1268] 20564552         db       0x20, 0x56, 0x45, 0x52
+[085F:126C] 53494F4E         db       0x53, 0x49, 0x4F, 0x4E
+[085F:1270] 0A0A0D20         db       0x0A, 0x0A, 0x0D, 0x20
+[085F:1274] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1278] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:127C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1280] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1284] 20204259         db       0x20, 0x20, 0x42, 0x59
+[085F:1288] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:128C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1290] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1294] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1298] 44415645         db       0x44, 0x41, 0x56, 0x45
+[085F:129C] 2047414E         db       0x20, 0x47, 0x41, 0x4E
+[085F:12A0] 474F4C41         db       0x47, 0x4F, 0x4C, 0x41
+[085F:12A4] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:12A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12B4] 20203033         db       0x20, 0x20, 0x30, 0x33
+[085F:12B8] 2F31302F         db       0x2F, 0x31, 0x30, 0x2F
+[085F:12BC] 38320A0A         db       0x38, 0x32, 0x0A, 0x0A
+[085F:12C0] 0D202020         db       0x0D, 0x20, 0x20, 0x20
+[085F:12C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12CC] 20204741         db       0x20, 0x20, 0x47, 0x41
+[085F:12D0] 4D452043         db       0x4D, 0x45, 0x20, 0x43
+[085F:12D4] 4F4E5452         db       0x4F, 0x4E, 0x54, 0x52
+[085F:12D8] 4F4C533A         db       0x4F, 0x4C, 0x53, 0x3A
+[085F:12DC] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:12E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:12E8] 5B204639         db       0x5B, 0x20, 0x46, 0x39
+[085F:12EC] 205D203D         db       0x20, 0x5D, 0x20, 0x3D
+[085F:12F0] 20524F54         db       0x20, 0x52, 0x4F, 0x54
+[085F:12F4] 41544520         db       0x41, 0x54, 0x45, 0x20
+[085F:12F8] 4C454654         db       0x4C, 0x45, 0x46, 0x54
+[085F:12FC] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:1300] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1304] 2020205B         db       0x20, 0x20, 0x20, 0x5B
+[085F:1308] 20463130         db       0x20, 0x46, 0x31, 0x30
+[085F:130C] 205D203D         db       0x20, 0x5D, 0x20, 0x3D
+[085F:1310] 20524F54         db       0x20, 0x52, 0x4F, 0x54
+[085F:1314] 41544520         db       0x41, 0x54, 0x45, 0x20
+[085F:1318] 52494748         db       0x52, 0x49, 0x47, 0x48
+[085F:131C] 540A0D20         db       0x54, 0x0A, 0x0D, 0x20
+[085F:1320] 20205B20         db       0x20, 0x20, 0x5B, 0x20
+[085F:1324] 494E5320         db       0x49, 0x4E, 0x53, 0x20
+[085F:1328] 5D203D20         db       0x5D, 0x20, 0x3D, 0x20
+[085F:132C] 54485255         db       0x54, 0x48, 0x52, 0x55
+[085F:1330] 53542020         db       0x53, 0x54, 0x20, 0x20
+[085F:1334] 20205B20         db       0x20, 0x20, 0x5B, 0x20
+[085F:1338] 44454C20         db       0x44, 0x45, 0x4C, 0x20
+[085F:133C] 5D203D20         db       0x5D, 0x20, 0x3D, 0x20
+[085F:1340] 46495245         db       0x46, 0x49, 0x52, 0x45
+[085F:1344] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:1348] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:134C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1350] 5B535041         db       0x5B, 0x53, 0x50, 0x41
+[085F:1354] 43455D20         db       0x43, 0x45, 0x5D, 0x20
+[085F:1358] 3D204859         db       0x3D, 0x20, 0x48, 0x59
+[085F:135C] 50455253         db       0x50, 0x45, 0x52, 0x53
+[085F:1360] 50414345         db       0x50, 0x41, 0x43, 0x45
+[085F:1364] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:1368] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:136C] 20205B4E         db       0x20, 0x20, 0x5B, 0x4E
+[085F:1370] 554D204C         db       0x55, 0x4D, 0x20, 0x4C
+[085F:1374] 4F434B5D         db       0x4F, 0x43, 0x4B, 0x5D
+[085F:1378] 203D2053         db       0x20, 0x3D, 0x20, 0x53
+[085F:137C] 54415254         db       0x54, 0x41, 0x52, 0x54
+[085F:1380] 2047414D         db       0x20, 0x47, 0x41, 0x4D
+[085F:1384] 450A0D20         db       0x45, 0x0A, 0x0D, 0x20
+[085F:1388] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:138C] 20205B53         db       0x20, 0x20, 0x5B, 0x53
+[085F:1390] 43524F4C         db       0x43, 0x52, 0x4F, 0x4C
+[085F:1394] 4C204C4F         db       0x4C, 0x20, 0x4C, 0x4F
+[085F:1398] 434B5D20         db       0x43, 0x4B, 0x5D, 0x20
+[085F:139C] 3D204558         db       0x3D, 0x20, 0x45, 0x58
+[085F:13A0] 49542047         db       0x49, 0x54, 0x20, 0x47
+[085F:13A4] 414D450A         db       0x41, 0x4D, 0x45, 0x0A
+[085F:13A8] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:13AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:13B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:13B4] 2053434F         db       0x20, 0x53, 0x43, 0x4F
+[085F:13B8] 52494E47         db       0x52, 0x49, 0x4E, 0x47
+[085F:13BC] 3A202850         db       0x3A, 0x20, 0x28, 0x50
+[085F:13C0] 4F494E54         db       0x4F, 0x49, 0x4E, 0x54
+[085F:13C4] 53290A0D         db       0x53, 0x29, 0x0A, 0x0D
+[085F:13C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:13CC] 20454E45         db       0x20, 0x45, 0x4E, 0x45
+[085F:13D0] 4D592053         db       0x4D, 0x59, 0x20, 0x53
+[085F:13D4] 48495053         db       0x48, 0x49, 0x50, 0x53
+[085F:13D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:13DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:13E0] 204D4554         db       0x20, 0x4D, 0x45, 0x54
+[085F:13E4] 454F524F         db       0x45, 0x4F, 0x52, 0x4F
+[085F:13E8] 4944530A         db       0x49, 0x44, 0x53, 0x0A
+[085F:13EC] 0D202020         db       0x0D, 0x20, 0x20, 0x20
+[085F:13F0] 2020204C         db       0x20, 0x20, 0x20, 0x4C
+[085F:13F4] 41524745         db       0x41, 0x52, 0x47, 0x45
+[085F:13F8] 20323030         db       0x20, 0x32, 0x30, 0x30
+[085F:13FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1400] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1404] 2020204C         db       0x20, 0x20, 0x20, 0x4C
+[085F:1408] 41524745         db       0x41, 0x52, 0x47, 0x45
+[085F:140C] 2032300A         db       0x20, 0x32, 0x30, 0x0A
+[085F:1410] 0D202020         db       0x0D, 0x20, 0x20, 0x20
+[085F:1414] 2020534D         db       0x20, 0x20, 0x53, 0x4D
+[085F:1418] 414C4C20         db       0x41, 0x4C, 0x4C, 0x20
+[085F:141C] 20313030         db       0x20, 0x31, 0x30, 0x30
+[085F:1420] 30202020         db       0x30, 0x20, 0x20, 0x20
+[085F:1424] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1428] 20204D45         db       0x20, 0x20, 0x4D, 0x45
+[085F:142C] 4449554D         db       0x44, 0x49, 0x55, 0x4D
+[085F:1430] 20203530         db       0x20, 0x20, 0x35, 0x30
+[085F:1434] 0A0D2020         db       0x0A, 0x0D, 0x20, 0x20
+[085F:1438] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:143C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1440] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1444] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1448] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:144C] 20202053         db       0x20, 0x20, 0x20, 0x53
+[085F:1450] 4D414C4C         db       0x4D, 0x41, 0x4C, 0x4C
+[085F:1454] 20203130         db       0x20, 0x20, 0x31, 0x30
+[085F:1458] 300A0A0D         db       0x30, 0x0A, 0x0A, 0x0D
+[085F:145C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1460] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1464] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1468] 44495354         db       0x44, 0x49, 0x53, 0x54
+[085F:146C] 52494255         db       0x52, 0x49, 0x42, 0x55
+[085F:1470] 54454420         db       0x54, 0x45, 0x44, 0x20
+[085F:1474] 42593A0A         db       0x42, 0x59, 0x3A, 0x0A
+[085F:1478] 0D202020         db       0x0D, 0x20, 0x20, 0x20
+[085F:147C] 20204449         db       0x20, 0x20, 0x44, 0x49
+[085F:1480] 47495441         db       0x47, 0x49, 0x54, 0x41
+[085F:1484] 4C204D41         db       0x4C, 0x20, 0x4D, 0x41
+[085F:1488] 524B4554         db       0x52, 0x4B, 0x45, 0x54
+[085F:148C] 494E4720         db       0x49, 0x4E, 0x47, 0x20
+[085F:1490] 434F5250         db       0x43, 0x4F, 0x52, 0x50
+[085F:1494] 4F524154         db       0x4F, 0x52, 0x41, 0x54
+[085F:1498] 494F4E0D         db       0x49, 0x4F, 0x4E, 0x0D
+[085F:149C] FF0FC030         db       0xFF, 0x0F, 0xC0, 0x30
+[085F:14A0] 30303030         db       0x30, 0x30, 0x30, 0x30
+[085F:14A4] 30303030         db       0x30, 0x30, 0x30, 0x30
+[085F:14A8] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:14AC] 0003000F         db       0x00, 0x03, 0x00, 0x0F
+[085F:14B0] 00030003         db       0x00, 0x03, 0x00, 0x03
+[085F:14B4] 00030003         db       0x00, 0x03, 0x00, 0x03
+[085F:14B8] 000FC000         db       0x00, 0x0F, 0xC0, 0x00
+[085F:14BC] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:14C0] 30003000         db       0x30, 0x00, 0x30, 0x00
+[085F:14C4] C003000C         db       0xC0, 0x03, 0x00, 0x0C
+[085F:14C8] 003FF000         db       0x00, 0x3F, 0xF0, 0x00
+[085F:14CC] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:14D0] 30003003         db       0x30, 0x00, 0x30, 0x03
+[085F:14D4] C0003030         db       0xC0, 0x00, 0x30, 0x30
+[085F:14D8] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:14DC] 0000C003         db       0x00, 0x00, 0xC0, 0x03
+[085F:14E0] C00CC030         db       0xC0, 0x0C, 0xC0, 0x30
+[085F:14E4] C03FF000         db       0xC0, 0x3F, 0xF0, 0x00
+[085F:14E8] C000C000         db       0xC0, 0x00, 0xC0, 0x00
+[085F:14EC] 003FF030         db       0x00, 0x3F, 0xF0, 0x30
+[085F:14F0] 003FC000         db       0x00, 0x3F, 0xC0, 0x00
+[085F:14F4] 30003030         db       0x30, 0x00, 0x30, 0x30
+[085F:14F8] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:14FC] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:1500] 3030003F         db       0x30, 0x30, 0x00, 0x3F
+[085F:1504] C0303030         db       0xC0, 0x30, 0x30, 0x30
+[085F:1508] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:150C] 003FF000         db       0x00, 0x3F, 0xF0, 0x00
+[085F:1510] 3000C003         db       0x30, 0x00, 0xC0, 0x03
+[085F:1514] 00030003         db       0x00, 0x03, 0x00, 0x03
+[085F:1518] 00030000         db       0x00, 0x03, 0x00, 0x00
+[085F:151C] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:1520] 3030300F         db       0x30, 0x30, 0x30, 0x0F
+[085F:1524] C0303030         db       0xC0, 0x30, 0x30, 0x30
+[085F:1528] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:152C] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:1530] 3030300F         db       0x30, 0x30, 0x30, 0x0F
+[085F:1534] F0003030         db       0xF0, 0x00, 0x30, 0x30
+[085F:1538] 300FC000         db       0x30, 0x0F, 0xC0, 0x00
+[085F:153C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1540] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1544] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1548] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:154C] 00000150         db       0x00, 0x00, 0x01, 0x50
+[085F:1550] 00200000         db       0x00, 0x20, 0x00, 0x00
+[085F:1554] 38012002         db       0x38, 0x01, 0x20, 0x02
+[085F:1558] 2A030A04         db       0x2A, 0x03, 0x0A, 0x04
+[085F:155C] 7F051006         db       0x7F, 0x05, 0x10, 0x06
+[085F:1560] 7F077808         db       0x7F, 0x07, 0x78, 0x08
+[085F:1564] 0209010A         db       0x02, 0x09, 0x01, 0x0A
+[085F:1568] 060B070C         db       0x06, 0x0B, 0x07, 0x0C
+[085F:156C] 000D0005         db       0x00, 0x0D, 0x00, 0x05
+[085F:1570] 00FB05FC         db       0x00, 0xFB, 0x05, 0xFC
+[085F:1574] 02FCFDFB         db       0x02, 0xFC, 0xFD, 0xFB
+[085F:1578] FA0400FA         db       0xFA, 0x04, 0x00, 0xFA
+[085F:157C] 04FB02FC         db       0x04, 0xFB, 0x02, 0xFC
+[085F:1580] FCFBF904         db       0xFC, 0xFB, 0xF9, 0x04
+[085F:1584] 01FA04FB         db       0x01, 0xFA, 0x04, 0xFB
+[085F:1588] 01FCFCFB         db       0x01, 0xFC, 0xFC, 0xFB
+[085F:158C] F90402FA         db       0xF9, 0x04, 0x02, 0xFA
+[085F:1590] 03FB01FC         db       0x03, 0xFB, 0x01, 0xFC
+[085F:1594] FBFCF804         db       0xFB, 0xFC, 0xF8, 0x04
+[085F:1598] 02F902FB         db       0x02, 0xF9, 0x02, 0xFB
+[085F:159C] 00FDFBFC         db       0x00, 0xFD, 0xFB, 0xFC
+[085F:15A0] F80403F9         db       0xF8, 0x04, 0x03, 0xF9
+[085F:15A4] 01FBFFFD         db       0x01, 0xFB, 0xFF, 0xFD
+[085F:15A8] FAFDF704         db       0xFA, 0xFD, 0xF7, 0x04
+[085F:15AC] 03F900FB         db       0x03, 0xF9, 0x00, 0xFB
+[085F:15B0] FFFDFAFE         db       0xFF, 0xFD, 0xFA, 0xFE
+[085F:15B4] F70304F9         db       0xF7, 0x03, 0x04, 0xF9
+[085F:15B8] FFFBFEFE         db       0xFF, 0xFB, 0xFE, 0xFE
+[085F:15BC] FAFEF703         db       0xFA, 0xFE, 0xF7, 0x03
+[085F:15C0] 04F9FFFB         db       0x04, 0xF9, 0xFF, 0xFB
+[085F:15C4] FEFEFAFF         db       0xFE, 0xFE, 0xFA, 0xFF
+[085F:15C8] F70305F9         db       0xF7, 0x03, 0x05, 0xF9
+[085F:15CC] FEFBFDFF         db       0xFE, 0xFB, 0xFD, 0xFF
+[085F:15D0] F9FFF702         db       0xF9, 0xFF, 0xF7, 0x02
+[085F:15D4] 05F9FDFC         db       0x05, 0xF9, 0xFD, 0xFC
+[085F:15D8] FCFFF900         db       0xFC, 0xFF, 0xF9, 0x00
+[085F:15DC] F70206FA         db       0xF7, 0x02, 0x06, 0xFA
+[085F:15E0] FCFCFCFF         db       0xFC, 0xFC, 0xFC, 0xFF
+[085F:15E4] F901F701         db       0xF9, 0x01, 0xF7, 0x01
+[085F:15E8] 06FAFBFC         db       0x06, 0xFA, 0xFB, 0xFC
+[085F:15EC] FB00F901         db       0xFB, 0x00, 0xF9, 0x01
+[085F:15F0] F70106FA         db       0xF7, 0x01, 0x06, 0xFA
+[085F:15F4] FAFCFB00         db       0xFA, 0xFC, 0xFB, 0x00
+[085F:15F8] F902F700         db       0xF9, 0x02, 0xF7, 0x00
+[085F:15FC] 06FBFAFD         db       0x06, 0xFB, 0xFA, 0xFD
+[085F:1600] FB01F902         db       0xFB, 0x01, 0xF9, 0x02
+[085F:1604] F80006FB         db       0xF8, 0x00, 0x06, 0xFB
+[085F:1608] F9FDFA01         db       0xF9, 0xFD, 0xFA, 0x01
+[085F:160C] FA03F800         db       0xFA, 0x03, 0xF8, 0x00
+[085F:1610] 07FCF9FE         db       0x07, 0xFC, 0xF9, 0xFE
+[085F:1614] FA01FA03         db       0xFA, 0x01, 0xFA, 0x03
+[085F:1618] F9FF06FC         db       0xF9, 0xFF, 0x06, 0xFC
+[085F:161C] F8FEFA02         db       0xF8, 0xFE, 0xFA, 0x02
+[085F:1620] FA04F9FF         db       0xFA, 0x04, 0xF9, 0xFF
+[085F:1624] 06FDF8FE         db       0x06, 0xFD, 0xF8, 0xFE
+[085F:1628] F902FB04         db       0xF9, 0x02, 0xFB, 0x04
+[085F:162C] FAFE06FD         db       0xFA, 0xFE, 0x06, 0xFD
+[085F:1630] F7FFF903         db       0xF7, 0xFF, 0xF9, 0x03
+[085F:1634] FB05FAFE         db       0xFB, 0x05, 0xFA, 0xFE
+[085F:1638] 06FEF7FF         db       0x06, 0xFE, 0xF7, 0xFF
+[085F:163C] F903FB05         db       0xF9, 0x03, 0xFB, 0x05
+[085F:1640] FBFD06FE         db       0xFB, 0xFD, 0x06, 0xFE
+[085F:1644] F700F903         db       0xF7, 0x00, 0xF9, 0x03
+[085F:1648] FC05FCFD         db       0xFC, 0x05, 0xFC, 0xFD
+[085F:164C] 05FFF700         db       0x05, 0xFF, 0xF7, 0x00
+[085F:1650] F903FC06         db       0xF9, 0x03, 0xFC, 0x06
+[085F:1654] FDFC0500         db       0xFD, 0xFC, 0x05, 0x00
+[085F:1658] F700F904         db       0xF7, 0x00, 0xF9, 0x04
+[085F:165C] FD06FEFC         db       0xFD, 0x06, 0xFE, 0xFC
+[085F:1660] 0400F701         db       0x04, 0x00, 0xF7, 0x01
+[085F:1664] FA04FE06         db       0xFA, 0x04, 0xFE, 0x06
+[085F:1668] FFFC0401         db       0xFF, 0xFC, 0x04, 0x01
+[085F:166C] F701FA04         db       0xF7, 0x01, 0xFA, 0x04
+[085F:1670] FE06FFFB         db       0xFE, 0x06, 0xFF, 0xFB
+[085F:1674] 0301F702         db       0x03, 0x01, 0xF7, 0x02
+[085F:1678] FA04FF06         db       0xFA, 0x04, 0xFF, 0x06
+[085F:167C] 00FB0302         db       0x00, 0xFB, 0x03, 0x02
+[085F:1680] F702FA04         db       0xF7, 0x02, 0xFA, 0x04
+[085F:1684] FF0601FB         db       0xFF, 0x06, 0x01, 0xFB
+[085F:1688] 0203F802         db       0x02, 0x03, 0xF8, 0x02
+[085F:168C] FB040006         db       0xFB, 0x04, 0x00, 0x06
+[085F:1690] 02FB0203         db       0x02, 0xFB, 0x02, 0x03
+[085F:1694] F803FB04         db       0xF8, 0x03, 0xFB, 0x04
+[085F:1698] 010503FB         db       0x01, 0x05, 0x03, 0xFB
+[085F:169C] 0104F903         db       0x01, 0x04, 0xF9, 0x03
+[085F:16A0] FC040105         db       0xFC, 0x04, 0x01, 0x05
+[085F:16A4] 04FB0004         db       0x04, 0xFB, 0x00, 0x04
+[085F:16A8] F903FC04         db       0xF9, 0x03, 0xFC, 0x04
+[085F:16AC] 020504FB         db       0x02, 0x05, 0x04, 0xFB
+[085F:16B0] 0004FA03         db       0x00, 0x04, 0xFA, 0x03
+[085F:16B4] FD040205         db       0xFD, 0x04, 0x02, 0x05
+[085F:16B8] 05FBFF05         db       0x05, 0xFB, 0xFF, 0x05
+[085F:16BC] FB04FD03         db       0xFB, 0x04, 0xFD, 0x03
+[085F:16C0] 030406FB         db       0x03, 0x04, 0x06, 0xFB
+[085F:16C4] FE05FB04         db       0xFE, 0x05, 0xFB, 0x04
+[085F:16C8] FE030304         db       0xFE, 0x03, 0x03, 0x04
+[085F:16CC] 06FBFD05         db       0x06, 0xFB, 0xFD, 0x05
+[085F:16D0] FC04FE03         db       0xFC, 0x04, 0xFE, 0x03
+[085F:16D4] 040307FB         db       0x04, 0x03, 0x07, 0xFB
+[085F:16D8] FD06FD04         db       0xFD, 0x06, 0xFD, 0x04
+[085F:16DC] FF020403         db       0xFF, 0x02, 0x04, 0x03
+[085F:16E0] 07FBFC06         db       0x07, 0xFB, 0xFC, 0x06
+[085F:16E4] FE040002         db       0xFE, 0x04, 0x00, 0x02
+[085F:16E8] 050208FB         db       0x05, 0x02, 0x08, 0xFB
+[085F:16EC] FC06FF04         db       0xFC, 0x06, 0xFF, 0x04
+[085F:16F0] 00020501         db       0x00, 0x02, 0x05, 0x01
+[085F:16F4] 08FCFB06         db       0x08, 0xFC, 0xFB, 0x06
+[085F:16F8] 00040101         db       0x00, 0x04, 0x01, 0x01
+[085F:16FC] 050108FC         db       0x05, 0x01, 0x08, 0xFC
+[085F:1700] FB060004         db       0xFB, 0x06, 0x00, 0x04
+[085F:1704] 01010500         db       0x01, 0x01, 0x05, 0x00
+[085F:1708] 08FCFA06         db       0x08, 0xFC, 0xFA, 0x06
+[085F:170C] 01040200         db       0x01, 0x04, 0x02, 0x00
+[085F:1710] 060008FD         db       0x06, 0x00, 0x08, 0xFD
+[085F:1714] FA060203         db       0xFA, 0x06, 0x02, 0x03
+[085F:1718] 030006FF         db       0x03, 0x00, 0x06, 0xFF
+[085F:171C] 08FDF905         db       0x08, 0xFD, 0xF9, 0x05
+[085F:1720] 03030300         db       0x03, 0x03, 0x03, 0x00
+[085F:1724] 06FE08FE         db       0x06, 0xFE, 0x08, 0xFE
+[085F:1728] F9050403         db       0xF9, 0x05, 0x04, 0x03
+[085F:172C] 04FF06FE         db       0x04, 0xFF, 0x06, 0xFE
+[085F:1730] 08FEF905         db       0x08, 0xFE, 0xF9, 0x05
+[085F:1734] 050304FF         db       0x05, 0x03, 0x04, 0xFF
+[085F:1738] 06FD08FF         db       0x06, 0xFD, 0x08, 0xFF
+[085F:173C] F9040502         db       0xF9, 0x04, 0x05, 0x02
+[085F:1740] 04FE06FD         db       0x04, 0xFE, 0x06, 0xFD
+[085F:1744] 07FFF904         db       0x07, 0xFF, 0xF9, 0x04
+[085F:1748] 060205FE         db       0x06, 0x02, 0x05, 0xFE
+[085F:174C] 05FC0700         db       0x05, 0xFC, 0x07, 0x00
+[085F:1750] F9040602         db       0xF9, 0x04, 0x06, 0x02
+[085F:1754] 05FE05FC         db       0x05, 0xFE, 0x05, 0xFC
+[085F:1758] 0700F903         db       0x07, 0x00, 0xF9, 0x03
+[085F:175C] 070105FD         db       0x07, 0x01, 0x05, 0xFD
+[085F:1760] 05FB0600         db       0x05, 0xFB, 0x06, 0x00
+[085F:1764] F9020701         db       0xF9, 0x02, 0x07, 0x01
+[085F:1768] 06FD04FB         db       0x06, 0xFD, 0x04, 0xFB
+[085F:176C] 0501F902         db       0x05, 0x01, 0xF9, 0x02
+[085F:1770] 080006FC         db       0x08, 0x00, 0x06, 0xFC
+[085F:1774] 04FA0501         db       0x04, 0xFA, 0x05, 0x01
+[085F:1778] F9010800         db       0xF9, 0x01, 0x08, 0x00
+[085F:177C] 06FC04FA         db       0x06, 0xFC, 0x04, 0xFA
+[085F:1780] 0402F901         db       0x04, 0x02, 0xF9, 0x01
+[085F:1784] 08FF06FC         db       0x08, 0xFF, 0x06, 0xFC
+[085F:1788] 03FA0302         db       0x03, 0xFA, 0x03, 0x02
+[085F:178C] FA0008FF         db       0xFA, 0x00, 0x08, 0xFF
+[085F:1790] 06FC03F9         db       0x06, 0xFC, 0x03, 0xF9
+[085F:1794] 0203FAFF         db       0x02, 0x03, 0xFA, 0xFF
+[085F:1798] 08FF06FB         db       0x08, 0xFF, 0x06, 0xFB
+[085F:179C] 02F90103         db       0x02, 0xF9, 0x01, 0x03
+[085F:17A0] FBFF08FE         db       0xFB, 0xFF, 0x08, 0xFE
+[085F:17A4] 05FB01F9         db       0x05, 0xFB, 0x01, 0xF9
+[085F:17A8] 0003FBFE         db       0x00, 0x03, 0xFB, 0xFE
+[085F:17AC] 08FE05FB         db       0x08, 0xFE, 0x05, 0xFB
+[085F:17B0] 01F90004         db       0x01, 0xF9, 0x00, 0x04
+[085F:17B4] FCFE08FD         db       0xFC, 0xFE, 0x08, 0xFD
+[085F:17B8] 05FB00F9         db       0x05, 0xFB, 0x00, 0xF9
+[085F:17BC] FF04FCFD         db       0xFF, 0x04, 0xFC, 0xFD
+[085F:17C0] 08FD05FB         db       0x08, 0xFD, 0x05, 0xFB
+[085F:17C4] 00F9FE04         db       0x00, 0xF9, 0xFE, 0x04
+[085F:17C8] FDFC07FD         db       0xFD, 0xFC, 0x07, 0xFD
+[085F:17CC] 04FBFFF9         db       0x04, 0xFB, 0xFF, 0xF9
+[085F:17D0] FD04FDFC         db       0xFD, 0x04, 0xFD, 0xFC
+[085F:17D4] 07FC04FB         db       0x07, 0xFC, 0x04, 0xFB
+[085F:17D8] FEFAFC04         db       0xFE, 0xFA, 0xFC, 0x04
+[085F:17DC] FEFB06FC         db       0xFE, 0xFB, 0x06, 0xFC
+[085F:17E0] 03FBFEFA         db       0x03, 0xFB, 0xFE, 0xFA
+[085F:17E4] FB04FFFB         db       0xFB, 0x04, 0xFF, 0xFB
+[085F:17E8] 06FC03FB         db       0x06, 0xFC, 0x03, 0xFB
+[085F:17EC] FDFAFB0A         db       0xFD, 0xFA, 0xFB, 0x0A
+[085F:17F0] 0E0A0F0B         db       0x0E, 0x0A, 0x0F, 0x0B
+[085F:17F4] 110A1309         db       0x11, 0x0A, 0x13, 0x09
+[085F:17F8] 11081107         db       0x11, 0x08, 0x11, 0x07
+[085F:17FC] 12061107         db       0x12, 0x06, 0x11, 0x07
+[085F:1800] 0E060C05         db       0x0E, 0x06, 0x0C, 0x05
+[085F:1804] 02080A09         db       0x02, 0x08, 0x0A, 0x09
+[085F:1808] 0C0B0D0B         db       0x0C, 0x0B, 0x0D, 0x0B
+[085F:180C] 0F0A0F0A         db       0x0F, 0x0A, 0x0F, 0x0A
+[085F:1810] 100A1208         db       0x10, 0x0A, 0x12, 0x08
+[085F:1814] 13081107         db       0x13, 0x08, 0x11, 0x07
+[085F:1818] 11061205         db       0x11, 0x06, 0x12, 0x05
+[085F:181C] 10060D06         db       0x10, 0x06, 0x0D, 0x06
+[085F:1820] 0B060208         db       0x0B, 0x06, 0x02, 0x08
+[085F:1824] 0A090C0B         db       0x0A, 0x09, 0x0C, 0x0B
+[085F:1828] 0E0B1009         db       0x0E, 0x0B, 0x10, 0x09
+[085F:182C] 10091109         db       0x10, 0x09, 0x11, 0x09
+[085F:1830] 13071307         db       0x13, 0x07, 0x13, 0x07
+[085F:1834] 11061105         db       0x11, 0x06, 0x11, 0x05
+[085F:1838] 12051006         db       0x12, 0x05, 0x10, 0x06
+[085F:183C] 0D060B07         db       0x0D, 0x06, 0x0B, 0x07
+[085F:1840] 02090B09         db       0x02, 0x09, 0x0B, 0x09
+[085F:1844] 0D0A0F0A         db       0x0D, 0x0A, 0x0F, 0x0A
+[085F:1848] 11091008         db       0x11, 0x09, 0x10, 0x08
+[085F:184C] 11081306         db       0x11, 0x08, 0x13, 0x06
+[085F:1850] 13061106         db       0x13, 0x06, 0x11, 0x06
+[085F:1854] 10041104         db       0x10, 0x04, 0x11, 0x04
+[085F:1858] 0F060D06         db       0x0F, 0x06, 0x0D, 0x06
+[085F:185C] 0B080208         db       0x0B, 0x08, 0x02, 0x08
+[085F:1860] 0B080D09         db       0x0B, 0x08, 0x0D, 0x09
+[085F:1864] 10091208         db       0x10, 0x09, 0x12, 0x08
+[085F:1868] 11071107         db       0x11, 0x07, 0x11, 0x07
+[085F:186C] 13051308         db       0x13, 0x05, 0x13, 0x08
+[085F:1870] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1874] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1878] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:187C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1880] 08FFFF00         db       0x08, 0xFF, 0xFF, 0x00
+[085F:1884] FFFF0000         db       0xFF, 0xFF, 0x00, 0x00
+[085F:1888] 000000FF         db       0x00, 0x00, 0x00, 0xFF
+[085F:188C] 00FFFFFF         db       0x00, 0xFF, 0xFF, 0xFF
+[085F:1890] 0008FFFF         db       0x00, 0x08, 0xFF, 0xFF
+[085F:1894] 00FEFF00         db       0x00, 0xFE, 0xFF, 0x00
+[085F:1898] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:189C] FF00FFFF         db       0xFF, 0x00, 0xFF, 0xFF
+[085F:18A0] FF0008FE         db       0xFF, 0x00, 0x08, 0xFE
+[085F:18A4] FE00FEFE         db       0xFE, 0x00, 0xFE, 0xFE
+[085F:18A8] 00010000         db       0x00, 0x01, 0x00, 0x00
+[085F:18AC] 01FF00FF         db       0x01, 0xFF, 0x00, 0xFF
+[085F:18B0] FFFF0108         db       0xFF, 0xFF, 0x01, 0x08
+[085F:18B4] FEFE01FD         db       0xFE, 0xFE, 0x01, 0xFD
+[085F:18B8] FE000100         db       0xFE, 0x00, 0x01, 0x00
+[085F:18BC] 0001FF00         db       0x00, 0x01, 0xFF, 0x00
+[085F:18C0] FFFFFE01         db       0xFF, 0xFF, 0xFE, 0x01
+[085F:18C4] 08FEFD01         db       0x08, 0xFE, 0xFD, 0x01
+[085F:18C8] FCFD0102         db       0xFC, 0xFD, 0x01, 0x02
+[085F:18CC] 010001FF         db       0x01, 0x00, 0x01, 0xFF
+[085F:18D0] 00FEFFFE         db       0x00, 0xFE, 0xFF, 0xFE
+[085F:18D4] 0208FDFD         db       0x02, 0x08, 0xFD, 0xFD
+[085F:18D8] 01FCFD01         db       0x01, 0xFC, 0xFD, 0x01
+[085F:18DC] 02010102         db       0x02, 0x01, 0x01, 0x02
+[085F:18E0] FE00FEFF         db       0xFE, 0x00, 0xFE, 0xFF
+[085F:18E4] FE0208FD         db       0xFE, 0x02, 0x08, 0xFD
+[085F:18E8] FC01FBFD         db       0xFC, 0x01, 0xFB, 0xFD
+[085F:18EC] 01030101         db       0x01, 0x03, 0x01, 0x01
+[085F:18F0] 02FE00FE         db       0x02, 0xFE, 0x00, 0xFE
+[085F:18F4] FEFD0308         db       0xFE, 0xFD, 0x03, 0x08
+[085F:18F8] FCFC02FA         db       0xFC, 0xFC, 0x02, 0xFA
+[085F:18FC] FC010301         db       0xFC, 0x01, 0x03, 0x01
+[085F:1900] 0102FE00         db       0x01, 0x02, 0xFE, 0x00
+[085F:1904] FEFEFD03         db       0xFE, 0xFE, 0xFD, 0x03
+[085F:1908] 08FCFB02         db       0x08, 0xFC, 0xFB, 0x02
+[085F:190C] FAFC0204         db       0xFA, 0xFC, 0x02, 0x04
+[085F:1910] 020103FE         db       0x02, 0x01, 0x03, 0xFE
+[085F:1914] 00FDFEFD         db       0x00, 0xFD, 0xFE, 0xFD
+[085F:1918] 0408FCFB         db       0x04, 0x08, 0xFC, 0xFB
+[085F:191C] 02F9FB02         db       0x02, 0xF9, 0xFB, 0x02
+[085F:1920] 04020103         db       0x04, 0x02, 0x01, 0x03
+[085F:1924] FE00FDFE         db       0xFE, 0x00, 0xFD, 0xFE
+[085F:1928] FD0408FB         db       0xFD, 0x04, 0x08, 0xFB
+[085F:192C] FA02F8FB         db       0xFA, 0x02, 0xF8, 0xFB
+[085F:1930] 02050201         db       0x02, 0x05, 0x02, 0x01
+[085F:1934] 03FD00FD         db       0x03, 0xFD, 0x00, 0xFD
+[085F:1938] FEFC0408         db       0xFE, 0xFC, 0x04, 0x08
+[085F:193C] FBFA03F8         db       0xFB, 0xFA, 0x03, 0xF8
+[085F:1940] FA020502         db       0xFA, 0x02, 0x05, 0x02
+[085F:1944] 0204FD00         db       0x02, 0x04, 0xFD, 0x00
+[085F:1948] FDFEFC05         db       0xFD, 0xFE, 0xFC, 0x05
+[085F:194C] 08FBF903         db       0x08, 0xFB, 0xF9, 0x03
+[085F:1950] F7FA0306         db       0xF7, 0xFA, 0x03, 0x06
+[085F:1954] 030204FD         db       0x03, 0x02, 0x04, 0xFD
+[085F:1958] 00FDFDFC         db       0x00, 0xFD, 0xFD, 0xFC
+[085F:195C] 0508FAF9         db       0x05, 0x08, 0xFA, 0xF9
+[085F:1960] 03F7FA03         db       0x03, 0xF7, 0xFA, 0x03
+[085F:1964] 06030204         db       0x06, 0x03, 0x02, 0x04
+[085F:1968] FD00FCFD         db       0xFD, 0x00, 0xFC, 0xFD
+[085F:196C] FB0608FA         db       0xFB, 0x06, 0x08, 0xFA
+[085F:1970] F803F6F9         db       0xF8, 0x03, 0xF6, 0xF9
+[085F:1974] 03070302         db       0x03, 0x07, 0x03, 0x02
+[085F:1978] 05FD00FC         db       0x05, 0xFD, 0x00, 0xFC
+[085F:197C] FDFB0608         db       0xFD, 0xFB, 0x06, 0x08
+[085F:1980] F9F804F5         db       0xF9, 0xF8, 0x04, 0xF5
+[085F:1984] F9030703         db       0xF9, 0x03, 0x07, 0x03
+[085F:1988] 0205FD00         db       0x02, 0x05, 0xFD, 0x00
+[085F:198C] FCFDFB07         db       0xFC, 0xFD, 0xFB, 0x07
+[085F:1990] 08F9F704         db       0x08, 0xF9, 0xF7, 0x04
+[085F:1994] F5F80308         db       0xF5, 0xF8, 0x03, 0x08
+[085F:1998] 030205FC         db       0x03, 0x02, 0x05, 0xFC
+[085F:199C] 00FCFDFA         db       0x00, 0xFC, 0xFD, 0xFA
+[085F:19A0] 0708F9F7         db       0x07, 0x08, 0xF9, 0xF7
+[085F:19A4] 04F4F804         db       0x04, 0xF4, 0xF8, 0x04
+[085F:19A8] 08040306         db       0x08, 0x04, 0x03, 0x06
+[085F:19AC] FC00FBFD         db       0xFC, 0x00, 0xFB, 0xFD
+[085F:19B0] FA0808F8         db       0xFA, 0x08, 0x08, 0xF8
+[085F:19B4] F704F3F7         db       0xF7, 0x04, 0xF3, 0xF7
+[085F:19B8] 04090403         db       0x04, 0x09, 0x04, 0x03
+[085F:19BC] 06FC00FB         db       0x06, 0xFC, 0x00, 0xFB
+[085F:19C0] FCFA0808         db       0xFC, 0xFA, 0x08, 0x08
+[085F:19C4] F8F605F3         db       0xF8, 0xF6, 0x05, 0xF3
+[085F:19C8] F7040904         db       0xF7, 0x04, 0x09, 0x04
+[085F:19CC] 0306FC00         db       0x03, 0x06, 0xFC, 0x00
+[085F:19D0] FBFCFA08         db       0xFB, 0xFC, 0xFA, 0x08
+[085F:19D4] 08F8F605         db       0x08, 0xF8, 0xF6, 0x05
+[085F:19D8] F2F7040A         db       0xF2, 0xF7, 0x04, 0x0A
+[085F:19DC] 040307FC         db       0x04, 0x03, 0x07, 0xFC
+[085F:19E0] 00FBFCF9         db       0x00, 0xFB, 0xFC, 0xF9
+[085F:19E4] 0908F7F5         db       0x09, 0x08, 0xF7, 0xF5
+[085F:19E8] 05F1F605         db       0x05, 0xF1, 0xF6, 0x05
+[085F:19EC] 0A050307         db       0x0A, 0x05, 0x03, 0x07
+[085F:19F0] FB00FBFC         db       0xFB, 0x00, 0xFB, 0xFC
+[085F:19F4] F90908F7         db       0xF9, 0x09, 0x08, 0xF7
+[085F:19F8] F505F1F6         db       0xF5, 0x05, 0xF1, 0xF6
+[085F:19FC] 050B0504         db       0x05, 0x0B, 0x05, 0x04
+[085F:1A00] 07FB00FA         db       0x07, 0xFB, 0x00, 0xFA
+[085F:1A04] FCF90A08         db       0xFC, 0xF9, 0x0A, 0x08
+[085F:1A08] F6F406F0         db       0xF6, 0xF4, 0x06, 0xF0
+[085F:1A0C] F5050B05         db       0xF5, 0x05, 0x0B, 0x05
+[085F:1A10] 0408FB00         db       0x04, 0x08, 0xFB, 0x00
+[085F:1A14] FAFCF80A         db       0xFA, 0xFC, 0xF8, 0x0A
+[085F:1A18] 08F6F406         db       0x08, 0xF6, 0xF4, 0x06
+[085F:1A1C] F0F5050C         db       0xF0, 0xF5, 0x05, 0x0C
+[085F:1A20] 050408FB         db       0x05, 0x04, 0x08, 0xFB
+[085F:1A24] 00FAFBF8         db       0x00, 0xFA, 0xFB, 0xF8
+[085F:1A28] 0B08F6F3         db       0x0B, 0x08, 0xF6, 0xF3
+[085F:1A2C] 06EFF406         db       0x06, 0xEF, 0xF4, 0x06
+[085F:1A30] 0C060408         db       0x0C, 0x06, 0x04, 0x08
+[085F:1A34] FB00FAFB         db       0xFB, 0x00, 0xFA, 0xFB
+[085F:1A38] F80B08F5         db       0xF8, 0x0B, 0x08, 0xF5
+[085F:1A3C] F306EEF4         db       0xF3, 0x06, 0xEE, 0xF4
+[085F:1A40] 060D0604         db       0x06, 0x0D, 0x06, 0x04
+[085F:1A44] 09FA00F9         db       0x09, 0xFA, 0x00, 0xF9
+[085F:1A48] FBF70C08         db       0xFB, 0xF7, 0x0C, 0x08
+[085F:1A4C] F5F207EE         db       0xF5, 0xF2, 0x07, 0xEE
+[085F:1A50] F4060D06         db       0xF4, 0x06, 0x0D, 0x06
+[085F:1A54] 0409FA00         db       0x04, 0x09, 0xFA, 0x00
+[085F:1A58] F9FBF70C         db       0xF9, 0xFB, 0xF7, 0x0C
+[085F:1A5C] 08F4F207         db       0x08, 0xF4, 0xF2, 0x07
+[085F:1A60] EDF3060E         db       0xED, 0xF3, 0x06, 0x0E
+[085F:1A64] 060509FA         db       0x06, 0x05, 0x09, 0xFA
+[085F:1A68] 00F9FBF7         db       0x00, 0xF9, 0xFB, 0xF7
+[085F:1A6C] 0D08F4F1         db       0x0D, 0x08, 0xF4, 0xF1
+[085F:1A70] 07ECF307         db       0x07, 0xEC, 0xF3, 0x07
+[085F:1A74] 0E06050A         db       0x0E, 0x06, 0x05, 0x0A
+[085F:1A78] FA00F9FB         db       0xFA, 0x00, 0xF9, 0xFB
+[085F:1A7C] F70D08F4         db       0xF7, 0x0D, 0x08, 0xF4
+[085F:1A80] F107ECF2         db       0xF1, 0x07, 0xEC, 0xF2
+[085F:1A84] 070F0705         db       0x07, 0x0F, 0x07, 0x05
+[085F:1A88] 0AFA00F9         db       0x0A, 0xFA, 0x00, 0xF9
+[085F:1A8C] FAF60D00         db       0xFA, 0xF6, 0x0D, 0x00
+[085F:1A90] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1A94] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1A98] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1A9C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AA0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AA4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AA8] 04000000         db       0x04, 0x00, 0x00, 0x00
+[085F:1AAC] 000000FF         db       0x00, 0x00, 0x00, 0xFF
+[085F:1AB0] FFFFEFFF         db       0xFF, 0xFF, 0xEF, 0xFF
+[085F:1AB4] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1AB8] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1ABC] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1AC0] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1AC4] FFFFFDDF         db       0xFF, 0xFF, 0xFD, 0xDF
+[085F:1AC8] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1ACC] FFFFFF00         db       0xFF, 0xFF, 0xFF, 0x00
+[085F:1AD0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AD4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AD8] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1ADC] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AE0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AE4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1AE8] 04040000         db       0x04, 0x04, 0x00, 0x00
+[085F:1AEC] 000000FF         db       0x00, 0x00, 0x00, 0xFF
+[085F:1AF0] BFFFFFFF         db       0xBF, 0xFF, 0xFF, 0xFF
+[085F:1AF4] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1AF8] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1AFC] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1B00] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1B04] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1B08] FFFFFFFF         db       0xFF, 0xFF, 0xFF, 0xFF
+[085F:1B0C] FFFFFF00         db       0xFF, 0xFF, 0xFF, 0x00
+[085F:1B10] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B14] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B18] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B1C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B20] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B24] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B28] 04000000         db       0x04, 0x00, 0x00, 0x00
+[085F:1B2C] 000000DF         db       0x00, 0x00, 0x00, 0xDF
+[085F:1B30] DFDFCFDF         db       0xDF, 0xDF, 0xCF, 0xDF
+[085F:1B34] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B38] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B3C] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B40] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B44] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B48] DFDFDFDF         db       0xDF, 0xDF, 0xDF, 0xDF
+[085F:1B4C] DFDFDF00         db       0xDF, 0xDF, 0xDF, 0x00
+[085F:1B50] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B54] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B58] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B5C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B60] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B64] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B68] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:1B6C] 00000018         db       0x00, 0x00, 0x00, 0x18
+[085F:1B70] 01000016         db       0x01, 0x00, 0x00, 0x16
+[085F:1B74] 01260012         db       0x01, 0x26, 0x00, 0x12
+[085F:1B78] 014C000B         db       0x01, 0x4C, 0x00, 0x0B
+[085F:1B7C] 01710002         db       0x01, 0x71, 0x00, 0x02
+[085F:1B80] 019600F6         db       0x01, 0x96, 0x00, 0xF6
+[085F:1B84] 00B800E8         db       0x00, 0xB8, 0x00, 0xE8
+[085F:1B88] 00D900D8         db       0x00, 0xD9, 0x00, 0xD8
+[085F:1B8C] 00F800C5         db       0x00, 0xF8, 0x00, 0xC5
+[085F:1B90] 001501B1         db       0x00, 0x15, 0x01, 0xB1
+[085F:1B94] 002F019B         db       0x00, 0x2F, 0x01, 0x9B
+[085F:1B98] 00450183         db       0x00, 0x45, 0x01, 0x83
+[085F:1B9C] 0059016B         db       0x00, 0x59, 0x01, 0x6B
+[085F:1BA0] 006A0151         db       0x00, 0x6A, 0x01, 0x51
+[085F:1BA4] 00770136         db       0x00, 0x77, 0x01, 0x36
+[085F:1BA8] 0080011B         db       0x00, 0x80, 0x01, 0x1B
+[085F:1BAC] 00860100         db       0x00, 0x86, 0x01, 0x00
+[085F:1BB0] 008801E4         db       0x00, 0x88, 0x01, 0xE4
+[085F:1BB4] FF8601C9         db       0xFF, 0x86, 0x01, 0xC9
+[085F:1BB8] FF8001AE         db       0xFF, 0x80, 0x01, 0xAE
+[085F:1BBC] FF770194         db       0xFF, 0x77, 0x01, 0x94
+[085F:1BC0] FF6A017C         db       0xFF, 0x6A, 0x01, 0x7C
+[085F:1BC4] FF590164         db       0xFF, 0x59, 0x01, 0x64
+[085F:1BC8] FF45014E         db       0xFF, 0x45, 0x01, 0x4E
+[085F:1BCC] FF2F013A         db       0xFF, 0x2F, 0x01, 0x3A
+[085F:1BD0] FF150127         db       0xFF, 0x15, 0x01, 0x27
+[085F:1BD4] FFF80017         db       0xFF, 0xF8, 0x00, 0x17
+[085F:1BD8] FFD90009         db       0xFF, 0xD9, 0x00, 0x09
+[085F:1BDC] FFB800FD         db       0xFF, 0xB8, 0x00, 0xFD
+[085F:1BE0] FE9600F4         db       0xFE, 0x96, 0x00, 0xF4
+[085F:1BE4] FE7100ED         db       0xFE, 0x71, 0x00, 0xED
+[085F:1BE8] FE4C00E9         db       0xFE, 0x4C, 0x00, 0xE9
+[085F:1BEC] FE2600E8         db       0xFE, 0x26, 0x00, 0xE8
+[085F:1BF0] FE0000E9         db       0xFE, 0x00, 0x00, 0xE9
+[085F:1BF4] FED9FFED         db       0xFE, 0xD9, 0xFF, 0xED
+[085F:1BF8] FEB3FFF4         db       0xFE, 0xB3, 0xFF, 0xF4
+[085F:1BFC] FE8EFFFD         db       0xFE, 0x8E, 0xFF, 0xFD
+[085F:1C00] FE69FF09         db       0xFE, 0x69, 0xFF, 0x09
+[085F:1C04] FF47FF17         db       0xFF, 0x47, 0xFF, 0x17
+[085F:1C08] FF26FF27         db       0xFF, 0x26, 0xFF, 0x27
+[085F:1C0C] FF07FF3A         db       0xFF, 0x07, 0xFF, 0x3A
+[085F:1C10] FFEAFE4E         db       0xFF, 0xEA, 0xFE, 0x4E
+[085F:1C14] FFD0FE64         db       0xFF, 0xD0, 0xFE, 0x64
+[085F:1C18] FFBAFE7C         db       0xFF, 0xBA, 0xFE, 0x7C
+[085F:1C1C] FFA6FE94         db       0xFF, 0xA6, 0xFE, 0x94
+[085F:1C20] FF95FEAE         db       0xFF, 0x95, 0xFE, 0xAE
+[085F:1C24] FF88FEC9         db       0xFF, 0x88, 0xFE, 0xC9
+[085F:1C28] FF7FFEE4         db       0xFF, 0x7F, 0xFE, 0xE4
+[085F:1C2C] FF79FEFF         db       0xFF, 0x79, 0xFE, 0xFF
+[085F:1C30] FF78FE1B         db       0xFF, 0x78, 0xFE, 0x1B
+[085F:1C34] 0079FE36         db       0x00, 0x79, 0xFE, 0x36
+[085F:1C38] 007FFE51         db       0x00, 0x7F, 0xFE, 0x51
+[085F:1C3C] 0088FE6B         db       0x00, 0x88, 0xFE, 0x6B
+[085F:1C40] 0095FE83         db       0x00, 0x95, 0xFE, 0x83
+[085F:1C44] 00A6FE9B         db       0x00, 0xA6, 0xFE, 0x9B
+[085F:1C48] 00BAFEB1         db       0x00, 0xBA, 0xFE, 0xB1
+[085F:1C4C] 00D0FEC5         db       0x00, 0xD0, 0xFE, 0xC5
+[085F:1C50] 00EAFED8         db       0x00, 0xEA, 0xFE, 0xD8
+[085F:1C54] 0007FFE8         db       0x00, 0x07, 0xFF, 0xE8
+[085F:1C58] 0026FFF6         db       0x00, 0x26, 0xFF, 0xF6
+[085F:1C5C] 0047FF02         db       0x00, 0x47, 0xFF, 0x02
+[085F:1C60] 0169FF0B         db       0x01, 0x69, 0xFF, 0x0B
+[085F:1C64] 018EFF12         db       0x01, 0x8E, 0xFF, 0x12
+[085F:1C68] 01B3FF16         db       0x01, 0xB3, 0xFF, 0x16
+[085F:1C6C] 01D9FF32         db       0x01, 0xD9, 0xFF, 0x32
+[085F:1C70] 00000031         db       0x00, 0x00, 0x00, 0x31
+[085F:1C74] 00040031         db       0x00, 0x04, 0x00, 0x31
+[085F:1C78] 0009002F         db       0x00, 0x09, 0x00, 0x2F
+[085F:1C7C] 000E002E         db       0x00, 0x0E, 0x00, 0x2E
+[085F:1C80] 0013002C         db       0x00, 0x13, 0x00, 0x2C
+[085F:1C84] 00170029         db       0x00, 0x17, 0x00, 0x29
+[085F:1C88] 001B0026         db       0x00, 0x1B, 0x00, 0x26
+[085F:1C8C] 001F0023         db       0x00, 0x1F, 0x00, 0x23
+[085F:1C90] 0023001F         db       0x00, 0x23, 0x00, 0x1F
+[085F:1C94] 0026001B         db       0x00, 0x26, 0x00, 0x1B
+[085F:1C98] 00290017         db       0x00, 0x29, 0x00, 0x17
+[085F:1C9C] 002C0013         db       0x00, 0x2C, 0x00, 0x13
+[085F:1CA0] 002E000E         db       0x00, 0x2E, 0x00, 0x0E
+[085F:1CA4] 002F0009         db       0x00, 0x2F, 0x00, 0x09
+[085F:1CA8] 00310004         db       0x00, 0x31, 0x00, 0x04
+[085F:1CAC] 00310000         db       0x00, 0x31, 0x00, 0x00
+[085F:1CB0] 003200FB         db       0x00, 0x32, 0x00, 0xFB
+[085F:1CB4] FF3100F6         db       0xFF, 0x31, 0x00, 0xF6
+[085F:1CB8] FF3100F1         db       0xFF, 0x31, 0x00, 0xF1
+[085F:1CBC] FF2F00EC         db       0xFF, 0x2F, 0x00, 0xEC
+[085F:1CC0] FF2E00E8         db       0xFF, 0x2E, 0x00, 0xE8
+[085F:1CC4] FF2C00E4         db       0xFF, 0x2C, 0x00, 0xE4
+[085F:1CC8] FF2900E0         db       0xFF, 0x29, 0x00, 0xE0
+[085F:1CCC] FF2600DC         db       0xFF, 0x26, 0x00, 0xDC
+[085F:1CD0] FF2300D9         db       0xFF, 0x23, 0x00, 0xD9
+[085F:1CD4] FF1F00D6         db       0xFF, 0x1F, 0x00, 0xD6
+[085F:1CD8] FF1B00D3         db       0xFF, 0x1B, 0x00, 0xD3
+[085F:1CDC] FF1700D1         db       0xFF, 0x17, 0x00, 0xD1
+[085F:1CE0] FF1300D0         db       0xFF, 0x13, 0x00, 0xD0
+[085F:1CE4] FF0E00CE         db       0xFF, 0x0E, 0x00, 0xCE
+[085F:1CE8] FF0900CE         db       0xFF, 0x09, 0x00, 0xCE
+[085F:1CEC] FF0400CE         db       0xFF, 0x04, 0x00, 0xCE
+[085F:1CF0] FF0000CE         db       0xFF, 0x00, 0x00, 0xCE
+[085F:1CF4] FFFBFFCE         db       0xFF, 0xFB, 0xFF, 0xCE
+[085F:1CF8] FFF6FFD0         db       0xFF, 0xF6, 0xFF, 0xD0
+[085F:1CFC] FFF1FFD1         db       0xFF, 0xF1, 0xFF, 0xD1
+[085F:1D00] FFECFFD3         db       0xFF, 0xEC, 0xFF, 0xD3
+[085F:1D04] FFE8FFD6         db       0xFF, 0xE8, 0xFF, 0xD6
+[085F:1D08] FFE4FFD9         db       0xFF, 0xE4, 0xFF, 0xD9
+[085F:1D0C] FFE0FFDC         db       0xFF, 0xE0, 0xFF, 0xDC
+[085F:1D10] FFDCFFE0         db       0xFF, 0xDC, 0xFF, 0xE0
+[085F:1D14] FFD9FFE4         db       0xFF, 0xD9, 0xFF, 0xE4
+[085F:1D18] FFD6FFE8         db       0xFF, 0xD6, 0xFF, 0xE8
+[085F:1D1C] FFD3FFEC         db       0xFF, 0xD3, 0xFF, 0xEC
+[085F:1D20] FFD1FFF1         db       0xFF, 0xD1, 0xFF, 0xF1
+[085F:1D24] FFD0FFF6         db       0xFF, 0xD0, 0xFF, 0xF6
+[085F:1D28] FFCEFFFB         db       0xFF, 0xCE, 0xFF, 0xFB
+[085F:1D2C] FFCEFFFF         db       0xFF, 0xCE, 0xFF, 0xFF
+[085F:1D30] FFCEFF04         db       0xFF, 0xCE, 0xFF, 0x04
+[085F:1D34] 00CEFF09         db       0x00, 0xCE, 0xFF, 0x09
+[085F:1D38] 00CEFF0E         db       0x00, 0xCE, 0xFF, 0x0E
+[085F:1D3C] 00D0FF13         db       0x00, 0xD0, 0xFF, 0x13
+[085F:1D40] 00D1FF17         db       0x00, 0xD1, 0xFF, 0x17
+[085F:1D44] 00D3FF1B         db       0x00, 0xD3, 0xFF, 0x1B
+[085F:1D48] 00D6FF1F         db       0x00, 0xD6, 0xFF, 0x1F
+[085F:1D4C] 00D9FF23         db       0x00, 0xD9, 0xFF, 0x23
+[085F:1D50] 00DCFF26         db       0x00, 0xDC, 0xFF, 0x26
+[085F:1D54] 00E0FF29         db       0x00, 0xE0, 0xFF, 0x29
+[085F:1D58] 00E4FF2C         db       0x00, 0xE4, 0xFF, 0x2C
+[085F:1D5C] 00E8FF2E         db       0x00, 0xE8, 0xFF, 0x2E
+[085F:1D60] 00ECFF2F         db       0x00, 0xEC, 0xFF, 0x2F
+[085F:1D64] 00F1FF31         db       0x00, 0xF1, 0xFF, 0x31
+[085F:1D68] 00F6FF31         db       0x00, 0xF6, 0xFF, 0x31
+[085F:1D6C] 00FBFFF8         db       0x00, 0xFB, 0xFF, 0xF8
+[085F:1D70] FE100500         db       0xFE, 0x10, 0x05, 0x00
+[085F:1D74] 0FF00000         db       0x0F, 0xF0, 0x00, 0x00
+[085F:1D78] 00F00F00         db       0x00, 0xF0, 0x0F, 0x00
+[085F:1D7C] 0000C000         db       0x00, 0x00, 0xC0, 0x00
+[085F:1D80] C0000030         db       0xC0, 0x00, 0x00, 0x30
+[085F:1D84] 3C30003F         db       0x3C, 0x30, 0x00, 0x3F
+[085F:1D88] 30C30C00         db       0x30, 0xC3, 0x0C, 0x00
+[085F:1D8C] 30F0330C         db       0x30, 0xF0, 0x33, 0x0C
+[085F:1D90] 00C0300F         db       0x00, 0xC0, 0x30, 0x0F
+[085F:1D94] 0300C00C         db       0x03, 0x00, 0xC0, 0x0C
+[085F:1D98] 000300C3         db       0x00, 0x03, 0x00, 0xC3
+[085F:1D9C] 0003C300         db       0x00, 0x03, 0xC3, 0x00
+[085F:1DA0] CCC003C3         db       0xCC, 0xC0, 0x03, 0xC3
+[085F:1DA4] 003303C0         db       0x00, 0x33, 0x03, 0xC0
+[085F:1DA8] 0C00300C         db       0x0C, 0x00, 0x30, 0x0C
+[085F:1DAC] 300C000C         db       0x30, 0x0C, 0x00, 0x0C
+[085F:1DB0] 0C303000         db       0x0C, 0x30, 0x30, 0x00
+[085F:1DB4] 030CC0C0         db       0x03, 0x0C, 0xC0, 0xC0
+[085F:1DB8] 0000F3CF         db       0x00, 0x00, 0xF3, 0xCF
+[085F:1DBC] 0000000F         db       0x00, 0x00, 0x00, 0x0F
+[085F:1DC0] F0000020         db       0xF0, 0x00, 0x00, 0x20
+[085F:1DC4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DC8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DCC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DD0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DD4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DD8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DDC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DE0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DE4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DE8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1DEC] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:1DF0] FF04030C         db       0xFF, 0x04, 0x03, 0x0C
+[085F:1DF4] 3300C003         db       0x33, 0x00, 0xC0, 0x03
+[085F:1DF8] 00300C00         db       0x00, 0x30, 0x0C, 0x00
+[085F:1DFC] 03CF0020         db       0x03, 0xCF, 0x00, 0x20
+[085F:1E00] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E04] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E08] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E0C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E10] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E14] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E18] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E1C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E20] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E24] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E28] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E2C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E30] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E34] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E38] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E3C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E40] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E44] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E48] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E4C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E50] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E54] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E58] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E5C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E60] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E64] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E68] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1E6C] 202020F8         db       0x20, 0x20, 0x20, 0xF8
+[085F:1E70] FE100500         db       0xFE, 0x10, 0x05, 0x00
+[085F:1E74] 03FC0000         db       0x03, 0xFC, 0x00, 0x00
+[085F:1E78] 003C03C0         db       0x00, 0x3C, 0x03, 0xC0
+[085F:1E7C] 00003000         db       0x00, 0x00, 0x30, 0x00
+[085F:1E80] 3000000C         db       0x30, 0x00, 0x00, 0x0C
+[085F:1E84] 0F0C000F         db       0x0F, 0x0C, 0x00, 0x0F
+[085F:1E88] CC30C300         db       0xCC, 0x30, 0xC3, 0x00
+[085F:1E8C] 0C3C0CC3         db       0x0C, 0x3C, 0x0C, 0xC3
+[085F:1E90] 00300C03         db       0x00, 0x30, 0x0C, 0x03
+[085F:1E94] C0C03003         db       0xC0, 0xC0, 0x30, 0x03
+[085F:1E98] 0000C030         db       0x00, 0x00, 0xC0, 0x30
+[085F:1E9C] C000F0C0         db       0xC0, 0x00, 0xF0, 0xC0
+[085F:1EA0] 333000F0         db       0x33, 0x30, 0x00, 0xF0
+[085F:1EA4] C00CC0F0         db       0xC0, 0x0C, 0xC0, 0xF0
+[085F:1EA8] 03000C03         db       0x03, 0x00, 0x0C, 0x03
+[085F:1EAC] 0C030003         db       0x0C, 0x03, 0x00, 0x03
+[085F:1EB0] 030C0C00         db       0x03, 0x0C, 0x0C, 0x00
+[085F:1EB4] 00C33030         db       0x00, 0xC3, 0x30, 0x30
+[085F:1EB8] 00003CF3         db       0x00, 0x00, 0x3C, 0xF3
+[085F:1EBC] C0000003         db       0xC0, 0x00, 0x00, 0x03
+[085F:1EC0] FC000020         db       0xFC, 0x00, 0x00, 0x20
+[085F:1EC4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EC8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1ECC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1ED0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1ED4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1ED8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EDC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EE0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EE4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EE8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1EEC] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:1EF0] FF040303         db       0xFF, 0x04, 0x03, 0x03
+[085F:1EF4] 0CC03000         db       0x0C, 0xC0, 0x30, 0x00
+[085F:1EF8] C00C0300         db       0xC0, 0x0C, 0x03, 0x00
+[085F:1EFC] 00F3C020         db       0x00, 0xF3, 0xC0, 0x20
+[085F:1F00] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F04] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F08] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F0C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F10] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F14] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F18] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F1C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F20] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F24] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F28] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F2C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F30] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F34] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F38] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F3C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F40] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F44] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F48] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F4C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F50] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F54] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F58] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F5C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F60] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F64] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F68] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1F6C] 202020F8         db       0x20, 0x20, 0x20, 0xF8
+[085F:1F70] FE100500         db       0xFE, 0x10, 0x05, 0x00
+[085F:1F74] 00FF0000         db       0x00, 0xFF, 0x00, 0x00
+[085F:1F78] 000F00F0         db       0x00, 0x0F, 0x00, 0xF0
+[085F:1F7C] 00000C00         db       0x00, 0x00, 0x0C, 0x00
+[085F:1F80] 0C000003         db       0x0C, 0x00, 0x00, 0x03
+[085F:1F84] 03C30003         db       0x03, 0xC3, 0x00, 0x03
+[085F:1F88] F30C30C0         db       0xF3, 0x0C, 0x30, 0xC0
+[085F:1F8C] 030F0330         db       0x03, 0x0F, 0x03, 0x30
+[085F:1F90] C00C0300         db       0xC0, 0x0C, 0x03, 0x00
+[085F:1F94] F0300C00         db       0xF0, 0x30, 0x0C, 0x00
+[085F:1F98] C000300C         db       0xC0, 0x00, 0x30, 0x0C
+[085F:1F9C] 30003C30         db       0x30, 0x00, 0x3C, 0x30
+[085F:1FA0] 0CCC003C         db       0x0C, 0xCC, 0x00, 0x3C
+[085F:1FA4] 3003303C         db       0x30, 0x03, 0x30, 0x3C
+[085F:1FA8] 00C00300         db       0x00, 0xC0, 0x03, 0x00
+[085F:1FAC] C300C000         db       0xC3, 0x00, 0xC0, 0x00
+[085F:1FB0] C0C30300         db       0xC0, 0xC3, 0x03, 0x00
+[085F:1FB4] 0030CC0C         db       0x00, 0x30, 0xCC, 0x0C
+[085F:1FB8] 00000F3C         db       0x00, 0x00, 0x0F, 0x3C
+[085F:1FBC] F0000000         db       0xF0, 0x00, 0x00, 0x00
+[085F:1FC0] FF000020         db       0xFF, 0x00, 0x00, 0x20
+[085F:1FC4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FC8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FCC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FD0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FD4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FD8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FDC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FE0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FE4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FE8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:1FEC] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:1FF0] FF040300         db       0xFF, 0x04, 0x03, 0x00
+[085F:1FF4] C3300C00         db       0xC3, 0x30, 0x0C, 0x00
+[085F:1FF8] 300300C0         db       0x30, 0x03, 0x00, 0xC0
+[085F:1FFC] 003CF020         db       0x00, 0x3C, 0xF0, 0x20
+[085F:2000] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2004] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2008] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:200C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2010] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2014] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2018] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:201C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2020] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2024] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2028] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:202C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2030] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2034] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2038] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:203C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2040] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2044] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2048] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:204C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2050] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2054] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2058] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:205C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2060] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2064] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2068] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:206C] 202020F8         db       0x20, 0x20, 0x20, 0xF8
+[085F:2070] FE100500         db       0xFE, 0x10, 0x05, 0x00
+[085F:2074] 003FC000         db       0x00, 0x3F, 0xC0, 0x00
+[085F:2078] 0003C03C         db       0x00, 0x03, 0xC0, 0x3C
+[085F:207C] 00000300         db       0x00, 0x00, 0x03, 0x00
+[085F:2080] 03000000         db       0x03, 0x00, 0x00, 0x00
+[085F:2084] C0F0C000         db       0xC0, 0xF0, 0xC0, 0x00
+[085F:2088] FCC30C30         db       0xFC, 0xC3, 0x0C, 0x30
+[085F:208C] 00C3C0CC         db       0x00, 0xC3, 0xC0, 0xCC
+[085F:2090] 300300C0         db       0x30, 0x03, 0x00, 0xC0
+[085F:2094] 3C0C0300         db       0x3C, 0x0C, 0x03, 0x00
+[085F:2098] 30000C03         db       0x30, 0x00, 0x0C, 0x03
+[085F:209C] 0C000F0C         db       0x0C, 0x00, 0x0F, 0x0C
+[085F:20A0] 0333000F         db       0x03, 0x33, 0x00, 0x0F
+[085F:20A4] 0C00CC0F         db       0x0C, 0x00, 0xCC, 0x0F
+[085F:20A8] 003000C0         db       0x00, 0x30, 0x00, 0xC0
+[085F:20AC] 30C03000         db       0x30, 0xC0, 0x30, 0x00
+[085F:20B0] 3030C0C0         db       0x30, 0x30, 0xC0, 0xC0
+[085F:20B4] 000C3303         db       0x00, 0x0C, 0x33, 0x03
+[085F:20B8] 000003CF         db       0x00, 0x00, 0x03, 0xCF
+[085F:20BC] 3C000000         db       0x3C, 0x00, 0x00, 0x00
+[085F:20C0] 3FC00020         db       0x3F, 0xC0, 0x00, 0x20
+[085F:20C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:20EC] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:20F0] FF040300         db       0xFF, 0x04, 0x03, 0x00
+[085F:20F4] 30CC0300         db       0x30, 0xCC, 0x03, 0x00
+[085F:20F8] 0C00C030         db       0x0C, 0x00, 0xC0, 0x30
+[085F:20FC] 000F3C20         db       0x00, 0x0F, 0x3C, 0x20
+[085F:2100] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2104] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2108] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:210C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2110] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2114] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2118] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:211C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2120] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2124] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2128] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:212C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2130] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2134] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2138] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:213C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2140] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2144] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2148] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:214C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2150] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2154] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2158] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:215C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2160] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2164] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2168] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:216C] 202020FA         db       0x20, 0x20, 0x20, 0xFA
+[085F:2170] FE0C0400         db       0xFE, 0x0C, 0x04, 0x00
+[085F:2174] FC000003         db       0xFC, 0x00, 0x00, 0x03
+[085F:2178] 0300000C         db       0x03, 0x00, 0x00, 0x0C
+[085F:217C] 00C00003         db       0x00, 0xC0, 0x00, 0x03
+[085F:2180] 003C000C         db       0x00, 0x3C, 0x00, 0x0C
+[085F:2184] 00030030         db       0x00, 0x03, 0x00, 0x30
+[085F:2188] 000300C0         db       0x00, 0x03, 0x00, 0xC0
+[085F:218C] 000300C0         db       0x00, 0x03, 0x00, 0xC0
+[085F:2190] 000C0030         db       0x00, 0x0C, 0x00, 0x30
+[085F:2194] 003C000C         db       0x00, 0x3C, 0x00, 0x0C
+[085F:2198] 00C00003         db       0x00, 0xC0, 0x00, 0x03
+[085F:219C] C0C00000         db       0xC0, 0xC0, 0x00, 0x00
+[085F:21A0] 3F000020         db       0x3F, 0x00, 0x00, 0x20
+[085F:21A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:21FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2200] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2204] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2208] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:220C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2210] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2214] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2218] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:221C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2220] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2224] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2228] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:222C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2230] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2234] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2238] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:223C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2240] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2244] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2248] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:224C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2250] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2254] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2258] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:225C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2260] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2264] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2268] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:226C] 202020FA         db       0x20, 0x20, 0x20, 0xFA
+[085F:2270] FE0C0400         db       0xFE, 0x0C, 0x04, 0x00
+[085F:2274] 3F000000         db       0x3F, 0x00, 0x00, 0x00
+[085F:2278] C0C00003         db       0xC0, 0xC0, 0x00, 0x03
+[085F:227C] 00300000         db       0x00, 0x30, 0x00, 0x00
+[085F:2280] C00F0003         db       0xC0, 0x0F, 0x00, 0x03
+[085F:2284] 0000C00C         db       0x00, 0x00, 0xC0, 0x0C
+[085F:2288] 0000C030         db       0x00, 0x00, 0xC0, 0x30
+[085F:228C] 0000C030         db       0x00, 0x00, 0xC0, 0x30
+[085F:2290] 0003000C         db       0x00, 0x03, 0x00, 0x0C
+[085F:2294] 000F0003         db       0x00, 0x0F, 0x00, 0x03
+[085F:2298] 00300000         db       0x00, 0x30, 0x00, 0x00
+[085F:229C] F0300000         db       0xF0, 0x30, 0x00, 0x00
+[085F:22A0] 0FC00020         db       0x0F, 0xC0, 0x00, 0x20
+[085F:22A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:22FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2300] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2304] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2308] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:230C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2310] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2314] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2318] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:231C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2320] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2324] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2328] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:232C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2330] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2334] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2338] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:233C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2340] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2344] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2348] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:234C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2350] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2354] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2358] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:235C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2360] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2364] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2368] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:236C] 202020FA         db       0x20, 0x20, 0x20, 0xFA
+[085F:2370] FE0C0400         db       0xFE, 0x0C, 0x04, 0x00
+[085F:2374] 0FC00000         db       0x0F, 0xC0, 0x00, 0x00
+[085F:2378] 30300000         db       0x30, 0x30, 0x00, 0x00
+[085F:237C] C00C0000         db       0xC0, 0x0C, 0x00, 0x00
+[085F:2380] 3003C000         db       0x30, 0x03, 0xC0, 0x00
+[085F:2384] C0003003         db       0xC0, 0x00, 0x30, 0x03
+[085F:2388] 0000300C         db       0x00, 0x00, 0x30, 0x0C
+[085F:238C] 0000300C         db       0x00, 0x00, 0x30, 0x0C
+[085F:2390] 0000C003         db       0x00, 0x00, 0xC0, 0x03
+[085F:2394] 0003C000         db       0x00, 0x03, 0xC0, 0x00
+[085F:2398] C00C0000         db       0xC0, 0x0C, 0x00, 0x00
+[085F:239C] 3C0C0000         db       0x3C, 0x0C, 0x00, 0x00
+[085F:23A0] 03F00020         db       0x03, 0xF0, 0x00, 0x20
+[085F:23A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:23FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2400] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2404] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2408] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:240C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2410] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2414] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2418] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:241C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2420] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2424] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2428] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:242C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2430] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2434] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2438] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:243C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2440] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2444] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2448] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:244C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2450] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2454] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2458] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:245C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2460] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2464] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2468] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:246C] 202020FA         db       0x20, 0x20, 0x20, 0xFA
+[085F:2470] FE0C0400         db       0xFE, 0x0C, 0x04, 0x00
+[085F:2474] 03F00000         db       0x03, 0xF0, 0x00, 0x00
+[085F:2478] 0C0C0000         db       0x0C, 0x0C, 0x00, 0x00
+[085F:247C] 30030000         db       0x30, 0x03, 0x00, 0x00
+[085F:2480] 0C00F000         db       0x0C, 0x00, 0xF0, 0x00
+[085F:2484] 30000C00         db       0x30, 0x00, 0x0C, 0x00
+[085F:2488] C0000C03         db       0xC0, 0x00, 0x0C, 0x03
+[085F:248C] 00000C03         db       0x00, 0x00, 0x0C, 0x03
+[085F:2490] 00003000         db       0x00, 0x00, 0x30, 0x00
+[085F:2494] C000F000         db       0xC0, 0x00, 0xF0, 0x00
+[085F:2498] 30030000         db       0x30, 0x03, 0x00, 0x00
+[085F:249C] 0F030000         db       0x0F, 0x03, 0x00, 0x00
+[085F:24A0] 00FC0020         db       0x00, 0xFC, 0x00, 0x20
+[085F:24A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:24FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2500] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2504] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2508] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:250C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2510] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2514] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2518] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:251C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2520] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2524] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2528] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:252C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2530] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2534] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2538] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:253C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2540] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2544] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2548] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:254C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2550] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2554] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2558] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:255C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2560] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2564] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2568] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:256C] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:2570] FF080303         db       0xFF, 0x08, 0x03, 0x03
+[085F:2574] C0000C30         db       0xC0, 0x00, 0x0C, 0x30
+[085F:2578] 00303C00         db       0x00, 0x30, 0x3C, 0x00
+[085F:257C] 0C0300F0         db       0x0C, 0x03, 0x00, 0xF0
+[085F:2580] 0C00300C         db       0x0C, 0x00, 0x30, 0x0C
+[085F:2584] 000C3000         db       0x00, 0x0C, 0x30, 0x00
+[085F:2588] 03C00020         db       0x03, 0xC0, 0x00, 0x20
+[085F:258C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2590] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2594] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2598] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:259C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25A0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:25FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2600] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2604] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2608] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:260C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2610] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2614] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2618] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:261C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2620] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2624] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2628] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:262C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2630] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2634] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2638] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:263C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2640] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2644] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2648] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:264C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2650] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2654] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2658] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:265C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2660] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2664] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2668] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:266C] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:2670] FF080300         db       0xFF, 0x08, 0x03, 0x00
+[085F:2674] F000030C         db       0xF0, 0x00, 0x03, 0x0C
+[085F:2678] 000C0F00         db       0x00, 0x0C, 0x0F, 0x00
+[085F:267C] 0300C03C         db       0x03, 0x00, 0xC0, 0x3C
+[085F:2680] 03000C03         db       0x03, 0x00, 0x0C, 0x03
+[085F:2684] 00030C00         db       0x00, 0x03, 0x0C, 0x00
+[085F:2688] 00F00020         db       0x00, 0xF0, 0x00, 0x20
+[085F:268C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2690] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2694] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2698] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:269C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26A0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:26FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2700] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2704] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2708] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:270C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2710] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2714] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2718] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:271C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2720] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2724] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2728] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:272C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2730] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2734] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2738] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:273C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2740] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2744] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2748] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:274C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2750] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2754] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2758] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:275C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2760] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2764] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2768] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:276C] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:2770] FF080300         db       0xFF, 0x08, 0x03, 0x00
+[085F:2774] 3C0000C3         db       0x3C, 0x00, 0x00, 0xC3
+[085F:2778] 000303C0         db       0x00, 0x03, 0x03, 0xC0
+[085F:277C] 00C0300F         db       0x00, 0xC0, 0x30, 0x0F
+[085F:2780] 00C00300         db       0x00, 0xC0, 0x03, 0x00
+[085F:2784] C000C300         db       0xC0, 0x00, 0xC3, 0x00
+[085F:2788] 003C0020         db       0x00, 0x3C, 0x00, 0x20
+[085F:278C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2790] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2794] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2798] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:279C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27A0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:27FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2800] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2804] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2808] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:280C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2810] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2814] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2818] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:281C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2820] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2824] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2828] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:282C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2830] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2834] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2838] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:283C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2840] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2844] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2848] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:284C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2850] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2854] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2858] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:285C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2860] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2864] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2868] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:286C] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:2870] FF080300         db       0xFF, 0x08, 0x03, 0x00
+[085F:2874] 0F000030         db       0x0F, 0x00, 0x00, 0x30
+[085F:2878] C000C0F0         db       0xC0, 0x00, 0xC0, 0xF0
+[085F:287C] 00300C03         db       0x00, 0x30, 0x0C, 0x03
+[085F:2880] C03000C0         db       0xC0, 0x30, 0x00, 0xC0
+[085F:2884] 300030C0         db       0x30, 0x00, 0x30, 0xC0
+[085F:2888] 000F0020         db       0x00, 0x0F, 0x00, 0x20
+[085F:288C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2890] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2894] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2898] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:289C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28A0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28A4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28A8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28AC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28B0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28B4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28B8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28BC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28C0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28C4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28C8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28CC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28D0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28D4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28D8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28DC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28E0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28E4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28E8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28EC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28F0] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28F4] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28F8] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:28FC] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2900] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2904] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2908] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:290C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2910] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2914] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2918] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:291C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2920] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2924] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2928] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:292C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2930] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2934] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2938] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:293C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2940] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2944] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2948] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:294C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2950] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2954] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2958] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:295C] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2960] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2964] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:2968] 20202020         db       0x20, 0x20, 0x20, 0x20
+[085F:296C] 202020FC         db       0x20, 0x20, 0x20, 0xFC
+[085F:2970] FE080430         db       0xFE, 0x08, 0x04, 0x30
+[085F:2974] FF0C00C3         db       0xFF, 0x0C, 0x00, 0xC3
+[085F:2978] 00C300FF         db       0x00, 0xC3, 0x00, 0xFF
+[085F:297C] 3CFF00FF         db       0x3C, 0xFF, 0x00, 0xFF
+[085F:2980] 00FF00C3         db       0x00, 0xFF, 0x00, 0xC3
+[085F:2984] 00C30030         db       0x00, 0xC3, 0x00, 0x30
+[085F:2988] FF0C0000         db       0xFF, 0x0C, 0x00, 0x00
+[085F:298C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2990] 00000036         db       0x00, 0x00, 0x00, 0x36
+[085F:2994] EBC93AA5         db       0xEB, 0xC9, 0x3A, 0xA5
+[085F:2998] 36B7C244         db       0x36, 0xB7, 0xC2, 0x44
+[085F:299C] 102AA236         db       0x10, 0x2A, 0xA2, 0x36
+[085F:29A0] EB2AA636         db       0xEB, 0x2A, 0xA6, 0x36
+[085F:29A4] CD3623D2         db       0xCD, 0x36, 0x23, 0xD2
+[085F:29A8] 4410EB22         db       0x44, 0x10, 0xEB, 0x22
+[085F:29AC] A8363E01         db       0xA8, 0x36, 0x3E, 0x01
+[085F:29B0] C39A10CD         db       0xC3, 0x9A, 0x10, 0xCD
+[085F:29B4] 0E102A1B         db       0x0E, 0x10, 0x2A, 0x1B
+[085F:29B8] 39011832         db       0x39, 0x01, 0x18, 0x32
+[085F:29BC] 3A943657         db       0x3A, 0x94, 0x36, 0x57
+[085F:29C0] 7E23E67F         db       0x7E, 0x23, 0xE6, 0x7F
+[085F:29C4] 02033294         db       0x02, 0x03, 0x32, 0x94
+[085F:29C8] 36FE20D2         db       0x36, 0xFE, 0x20, 0xD2
+[085F:29CC] 4D10FE0A         db       0x4D, 0x10, 0xFE, 0x0A
+[085F:29D0] CA7F10FE         db       0xCA, 0x7F, 0x10, 0xFE
+[085F:29D4] 09CA4D10         db       0x09, 0xCA, 0x4D, 0x10
+[085F:29D8] FE0DCA8B         db       0xFE, 0x0D, 0xCA, 0x8B
+[085F:29DC] 10FE1ACA         db       0x10, 0xFE, 0x1A, 0xCA
+[085F:29E0] 9F10C6C0         db       0x9F, 0x10, 0xC6, 0xC0
+[085F:29E4] 023EDE0B         db       0x02, 0x3E, 0xDE, 0x0B
+[085F:29E8] 020303C3         db       0x02, 0x03, 0x03, 0xC3
+[085F:29EC] 4D107AFE         db       0x4D, 0x10, 0x7A, 0xFE
+[085F:29F0] 0D3E0AC2         db       0x0D, 0x3E, 0x0A, 0xC2
+[085F:29F4] 73100BC3         db       0x73, 0x10, 0x0B, 0xC3
+[085F:29F8] 4D10221B         db       0x4D, 0x10, 0x22, 0x1B
+[085F:29FC] 393E0A02         db       0x39, 0x3E, 0x0A, 0x02
+[085F:2A00] 606922A4         db       0x60, 0x69, 0x22, 0xA4
+[085F:2A04] 36211832         db       0x36, 0x21, 0x18, 0x32
+[085F:2A08] AF32A136         db       0xAF, 0x32, 0xA1, 0x36
+[085F:2A0C] B7C97A32         db       0xB7, 0xC9, 0x7A, 0x32
+[085F:2A10] 94360BC5         db       0x94, 0x36, 0x0B, 0xC5
+[085F:2A14] E5CDF910         db       0xE5, 0xCD, 0xF9, 0x10
+[085F:2A18] E1111D3A         db       0xE1, 0x11, 0x1D, 0x3A
+[085F:2A1C] CD3623C1         db       0xCD, 0x36, 0x23, 0xC1
+[085F:2A20] D2BA10CD         db       0xD2, 0xBA, 0x10, 0xCD
+[085F:2A24] E310C24D         db       0xE3, 0x10, 0xC2, 0x4D
+[085F:2A28] 103E0D02         db       0x10, 0x3E, 0x0D, 0x02
+[085F:2A2C] 215C00CD         db       0x21, 0x5C, 0x00, 0xCD
+[085F:2A30] C61F21C8         db       0xC6, 0x1F, 0x21, 0xC8
+[085F:2A34] 1037C95C         db       0x10, 0x37, 0xC9, 0x5C
+[085F:2A38] 5C5C0945         db       0x5C, 0x5C, 0x09, 0x45
+[085F:2A3C] 4E440953         db       0x4E, 0x44, 0x09, 0x53
+[085F:2A40] 74617465         db       0x74, 0x61, 0x74, 0x65
+[085F:2A44] 6D656E74         db       0x6D, 0x65, 0x6E, 0x74
+[085F:2A48] 204D6973         db       0x20, 0x4D, 0x69, 0x73
+[085F:2A4C] 73696E67         db       0x73, 0x69, 0x6E, 0x67
+[085F:2A50] 0D0AC521         db       0x0D, 0x0A, 0xC5, 0x21
+[085F:2A54] 1D39E511         db       0x1D, 0x39, 0xE5, 0x11
+[085F:2A58] 5C000E02         db       0x5C, 0x00, 0x0E, 0x02
+[085F:2A5C] CDD61F36         db       0xCD, 0xD6, 0x1F, 0x36
+[085F:2A60] 1AEBE179         db       0x1A, 0xEB, 0xE1, 0x79
+[085F:2A64] C1FE02C9         db       0xC1, 0xFE, 0x02, 0xC9
+[085F:2A68] 0E0BCD05         db       0x0E, 0x0B, 0xCD, 0x05
+[085F:2A6C] 00B7C8FC         db       0x00, 0xB7, 0xC8, 0xFC
+[085F:2A70] FE08040C         db       0xFE, 0x08, 0x04, 0x0C
+[085F:2A74] 3FC30030         db       0x3F, 0xC3, 0x00, 0x30
+[085F:2A78] C030C03F         db       0xC0, 0x30, 0xC0, 0x3F
+[085F:2A7C] CF3FC03F         db       0xCF, 0x3F, 0xC0, 0x3F
+[085F:2A80] C03FC030         db       0xC0, 0x3F, 0xC0, 0x30
+[085F:2A84] C030C00C         db       0xC0, 0x30, 0xC0, 0x0C
+[085F:2A88] 3FC30000         db       0x3F, 0xC3, 0x00, 0x00
+[085F:2A8C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2A90] 00000065         db       0x00, 0x00, 0x00, 0x65
+[085F:2A94] 64206279         db       0x64, 0x20, 0x62, 0x79
+[085F:2A98] 20757365         db       0x20, 0x75, 0x73, 0x65
+[085F:2A9C] 722E0D00         db       0x72, 0x2E, 0x0D, 0x00
+[085F:2AA0] EB2ABD36         db       0xEB, 0x2A, 0xBD, 0x36
+[085F:2AA4] EB1BCD36         db       0xEB, 0x1B, 0xCD, 0x36
+[085F:2AA8] 23D822D1         db       0x23, 0xD8, 0x22, 0xD1
+[085F:2AAC] 3622D336         db       0x36, 0x22, 0xD3, 0x36
+[085F:2AB0] 115C00D5         db       0x11, 0x5C, 0x00, 0xD5
+[085F:2AB4] 0E0CCD63         db       0x0E, 0x0C, 0xCD, 0x63
+[085F:2AB8] 23E1CD94         db       0x23, 0xE1, 0xCD, 0x94
+[085F:2ABC] 1FDAA520         db       0x1F, 0xDA, 0xA5, 0x20
+[085F:2AC0] 218F11CD         db       0x21, 0x8F, 0x11, 0xCD
+[085F:2AC4] 6221218F         db       0x62, 0x21, 0x21, 0x8F
+[085F:2AC8] 1111151E         db       0x11, 0x11, 0x15, 0x1E
+[085F:2ACC] 0E0ECD63         db       0x0E, 0x0E, 0xCD, 0x63
+[085F:2AD0] 233E8232         db       0x23, 0x3E, 0x82, 0x32
+[085F:2AD4] 38200E02         db       0x38, 0x20, 0x0E, 0x02
+[085F:2AD8] 217C11CD         db       0x21, 0x7C, 0x11, 0xCD
+[085F:2ADC] 5920CD3D         db       0x59, 0x20, 0xCD, 0x3D
+[085F:2AE0] 20211D3A         db       0x20, 0x21, 0x1D, 0x3A
+[085F:2AE4] 221B3936         db       0x22, 0x1B, 0x39, 0x36
+[085F:2AE8] 1AB7C920         db       0x1A, 0xB7, 0xC9, 0x20
+[085F:2AEC] 20506173         db       0x20, 0x50, 0x61, 0x73
+[085F:2AF0] 73203220         db       0x73, 0x20, 0x32, 0x20
+[085F:2AF4] 2D205265         db       0x2D, 0x20, 0x52, 0x65
+[085F:2AF8] 6164696E         db       0x61, 0x64, 0x69, 0x6E
+[085F:2AFC] 6720423A         db       0x67, 0x20, 0x42, 0x3A
+[085F:2B00] 41445445         db       0x41, 0x44, 0x54, 0x45
+[085F:2B04] 53542020         db       0x53, 0x54, 0x20, 0x20
+[085F:2B08] 2E41534D         db       0x2E, 0x41, 0x53, 0x4D
+[085F:2B0C] 0D00E437         db       0x0D, 0x00, 0xE4, 0x37
+[085F:2B10] 5C38A735         db       0x5C, 0x38, 0xA7, 0x35
+[085F:2B14] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2B18] 0A02A800         db       0x0A, 0x02, 0xA8, 0x00
+[085F:2B1C] BA2FCDCB         db       0xBA, 0x2F, 0xCD, 0xCB
+[085F:2B20] 11D83AAB         db       0x11, 0xD8, 0x3A, 0xAB
+[085F:2B24] 11E620C0         db       0x11, 0xE6, 0x20, 0xC0
+[085F:2B28] 3E55C3DA         db       0x3E, 0x55, 0xC3, 0xDA
+[085F:2B2C] 112AE336         db       0x11, 0x2A, 0xE3, 0x36
+[085F:2B30] 22A7117C         db       0x22, 0xA7, 0x11, 0x7C
+[085F:2B34] B5C2CB11         db       0xB5, 0xC2, 0xCB, 0x11
+[085F:2B38] 37C92AA7         db       0x37, 0xC9, 0x2A, 0xA7
+[085F:2B3C] 11CDE211         db       0x11, 0xCD, 0xE2, 0x11
+[085F:2B40] DADD11FE         db       0xDA, 0xDD, 0x11, 0xFE
+[085F:2B44] 033FD03E         db       0x03, 0x3F, 0xD0, 0x3E
+[085F:2B48] 45320232         db       0x45, 0x32, 0x02, 0x32
+[085F:2B4C] AF37676F         db       0xAF, 0x37, 0x67, 0x6F
+[085F:2B50] C9EB2100         db       0xC9, 0xEB, 0x21, 0x00
+[085F:2B54] 0022AD11         db       0x00, 0x22, 0xAD, 0x11
+[085F:2B58] 2EA022AB         db       0x2E, 0xA0, 0x22, 0xAB
+[085F:2B5C] 11210000         db       0x11, 0x21, 0x00, 0x00
+[085F:2B60] 3922A311         db       0x39, 0x22, 0xA3, 0x11
+[085F:2B64] 7AB33E53         db       0x7A, 0xB3, 0x3E, 0x53
+[085F:2B68] CA2413EB         db       0xCA, 0x24, 0x13, 0xEB
+[085F:2B6C] CDF512FC         db       0xCD, 0xF5, 0x12, 0xFC
+[085F:2B70] FE080403         db       0xFE, 0x08, 0x04, 0x03
+[085F:2B74] 0FF0C00C         db       0x0F, 0xF0, 0xC0, 0x0C
+[085F:2B78] 300C300F         db       0x30, 0x0C, 0x30, 0x0F
+[085F:2B7C] F3CFF00F         db       0xF3, 0xCF, 0xF0, 0x0F
+[085F:2B80] F00FF00C         db       0xF0, 0x0F, 0xF0, 0x0C
+[085F:2B84] 300C3003         db       0x30, 0x0C, 0x30, 0x03
+[085F:2B88] 0FF0C000         db       0x0F, 0xF0, 0xC0, 0x00
+[085F:2B8C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2B90] 000000CA         db       0x00, 0x00, 0x00, 0xCA
+[085F:2B94] 3D122B7E         db       0x3D, 0x12, 0x2B, 0x7E
+[085F:2B98] CD9F12F1         db       0xCD, 0x9F, 0x12, 0xF1
+[085F:2B9C] F5C5CD9F         db       0xF5, 0xC5, 0xCD, 0x9F
+[085F:2BA0] 12F1B9FA         db       0x12, 0xF1, 0xB9, 0xFA
+[085F:2BA4] 3D12CD9A         db       0x3D, 0x12, 0xCD, 0x9A
+[085F:2BA8] 15C31B12         db       0x15, 0xC3, 0x1B, 0x12
+[085F:2BAC] F1CD8515         db       0xF1, 0xCD, 0x85, 0x15
+[085F:2BB0] C30012CD         db       0xC3, 0x00, 0x12, 0xCD
+[085F:2BB4] 9A152AA1         db       0x9A, 0x15, 0x2A, 0xA1
+[085F:2BB8] 11115C38         db       0x11, 0x11, 0x5C, 0x38
+[085F:2BBC] CD3623C2         db       0xCD, 0x36, 0x23, 0xC2
+[085F:2BC0] 4412CD00         db       0x44, 0x12, 0xCD, 0x00
+[085F:2BC4] 15F5E52A         db       0x15, 0xF5, 0xE5, 0x2A
+[085F:2BC8] 9F1111E4         db       0x9F, 0x11, 0x11, 0xE4
+[085F:2BCC] 37CD3623         db       0x37, 0xCD, 0x36, 0x23
+[085F:2BD0] C21E13E1         db       0xC2, 0x1E, 0x13, 0xE1
+[085F:2BD4] F111E437         db       0xF1, 0x11, 0xE4, 0x37
+[085F:2BD8] B7CA7A12         db       0xB7, 0xCA, 0x7A, 0x12
+[085F:2BDC] FE01C273         db       0xFE, 0x01, 0xC2, 0x73
+[085F:2BE0] 1213FE03         db       0x12, 0x13, 0xFE, 0x03
+[085F:2BE4] FA7912EB         db       0xFA, 0x79, 0x12, 0xEB
+[085F:2BE8] B732AC11         db       0xB7, 0x32, 0xAC, 0x11
+[085F:2BEC] 22AD11C9         db       0x22, 0xAD, 0x11, 0xC9
+[085F:2BF0] CD9A152A         db       0xCD, 0x9A, 0x15, 0x2A
+[085F:2BF4] A111CD36         db       0xA1, 0x11, 0xCD, 0x36
+[085F:2BF8] 23CA1E13         db       0x23, 0xCA, 0x1E, 0x13
+[085F:2BFC] 2B7EFE18         db       0x2B, 0x7E, 0xFE, 0x18
+[085F:2C00] C2811222         db       0xC2, 0x81, 0x12, 0x22
+[085F:2C04] A1113E20         db       0xA1, 0x11, 0x3E, 0x20
+[085F:2C08] 32A511C3         db       0x32, 0xA5, 0x11, 0xC3
+[085F:2C0C] 00120721         db       0x00, 0x12, 0x07, 0x21
+[085F:2C10] B312CD20         db       0xB3, 0x12, 0xCD, 0x20
+[085F:2C14] 2111E312         db       0x21, 0x11, 0xE3, 0x12
+[085F:2C18] CD3623DA         db       0xCD, 0x36, 0x23, 0xDA
+[085F:2C1C] 1E134623         db       0x1E, 0x13, 0x46, 0x23
+[085F:2C20] 4EC90100         db       0x4E, 0xC9, 0x01, 0x00
+[085F:2C24] 0F0E0F0E         db       0x0F, 0x0E, 0x0F, 0x0E
+[085F:2C28] 13121312         db       0x13, 0x12, 0x13, 0x12
+[085F:2C2C] 09080706         db       0x09, 0x08, 0x07, 0x06
+[085F:2C30] 07060D0C         db       0x07, 0x06, 0x0D, 0x0C
+[085F:2C34] 0D0C0D0C         db       0x0D, 0x0C, 0x0D, 0x0C
+[085F:2C38] 0D0C0D0C         db       0x0D, 0x0C, 0x0D, 0x0C
+[085F:2C3C] 0D0C1312         db       0x0D, 0x0C, 0x13, 0x12
+[085F:2C40] 13121716         db       0x13, 0x12, 0x17, 0x16
+[085F:2C44] 17160B0A         db       0x17, 0x16, 0x0B, 0x0A
+[085F:2C48] 13121110         db       0x13, 0x12, 0x11, 0x10
+[085F:2C4C] 17161716         db       0x17, 0x16, 0x17, 0x16
+[085F:2C50] 00000364         db       0x00, 0x00, 0x03, 0x64
+[085F:2C54] 65040000         db       0x65, 0x04, 0x00, 0x00
+[085F:2C58] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2C5C] 00000100         db       0x00, 0x00, 0x01, 0x00
+[085F:2C60] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2C64] 7E23FE00         db       0x7E, 0x23, 0xFE, 0x00
+[085F:2C68] CA1E13FE         db       0xCA, 0x1E, 0x13, 0xFE
+[085F:2C6C] 09CAF5FC         db       0x09, 0xCA, 0xF5, 0xFC
+[085F:2C70] FE080400         db       0xFE, 0x08, 0x04, 0x00
+[085F:2C74] C3FC3003         db       0xC3, 0xFC, 0x30, 0x03
+[085F:2C78] 0C030C03         db       0x0C, 0x03, 0x0C, 0x03
+[085F:2C7C] FCF3FC03         db       0xFC, 0xF3, 0xFC, 0x03
+[085F:2C80] FC03FC03         db       0xFC, 0x03, 0xFC, 0x03
+[085F:2C84] 0C030C00         db       0x0C, 0x03, 0x0C, 0x00
+[085F:2C88] C3FC3000         db       0xC3, 0xFC, 0x30, 0x00
+[085F:2C8C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2C90] 00000032         db       0x00, 0x00, 0x00, 0x32
+[085F:2C94] 02322100         db       0x02, 0x32, 0x21, 0x00
+[085F:2C98] 0022AD11         db       0x00, 0x22, 0xAD, 0x11
+[085F:2C9C] 11AD113E         db       0x11, 0xAD, 0x11, 0x3E
+[085F:2CA0] 0032AC11         db       0x00, 0x32, 0xAC, 0x11
+[085F:2CA4] 37C9CDE8         db       0x37, 0xC9, 0xCD, 0xE8
+[085F:2CA8] 14FE00C8         db       0x14, 0xFE, 0x00, 0xC8
+[085F:2CAC] FE09CA37         db       0xFE, 0x09, 0xCA, 0x37
+[085F:2CB0] 13FE30FA         db       0x13, 0xFE, 0x30, 0xFA
+[085F:2CB4] 4C13FE3A         db       0x4C, 0x13, 0xFE, 0x3A
+[085F:2CB8] FA8E14FE         db       0xFA, 0x8E, 0x14, 0xFE
+[085F:2CBC] 3ACAB714         db       0x3A, 0xCA, 0xB7, 0x14
+[085F:2CC0] CDF918DA         db       0xCD, 0xF9, 0x18, 0xDA
+[085F:2CC4] B714FE1C         db       0xB7, 0x14, 0xFE, 0x1C
+[085F:2CC8] C282137E         db       0xC2, 0x82, 0x13, 0x7E
+[085F:2CCC] FE034723         db       0xFE, 0x03, 0x47, 0x23
+[085F:2CD0] F27413E5         db       0xF2, 0x74, 0x13, 0xE5
+[085F:2CD4] FE015623         db       0xFE, 0x01, 0x56, 0x23
+[085F:2CD8] 5EE1C276         db       0x5E, 0xE1, 0xC2, 0x76
+[085F:2CDC] 135A1600         db       0x13, 0x5A, 0x16, 0x00
+[085F:2CE0] C3761354         db       0xC3, 0x76, 0x13, 0x54
+[085F:2CE4] 5DCD2021         db       0x5D, 0xCD, 0x20, 0x21
+[085F:2CE8] 3EA132AB         db       0x3E, 0xA1, 0x32, 0xAB
+[085F:2CEC] 1178C3DB         db       0x11, 0x78, 0xC3, 0xDB
+[085F:2CF0] 1411D813         db       0x14, 0x11, 0xD8, 0x13
+[085F:2CF4] 2AA7112B         db       0x2A, 0xA7, 0x11, 0x2B
+[085F:2CF8] CD1F18DA         db       0xCD, 0x1F, 0x18, 0xDA
+[085F:2CFC] 1E13EB22         db       0x1E, 0x13, 0xEB, 0x22
+[085F:2D00] A711EB23         db       0xA7, 0x11, 0xEB, 0x23
+[085F:2D04] 7EB7F0E6         db       0x7E, 0xB7, 0xF0, 0xE6
+[085F:2D08] 7F473AA5         db       0x7F, 0x47, 0x3A, 0xA5
+[085F:2D0C] 11FE2078         db       0x11, 0xFE, 0x20, 0x78
+[085F:2D10] C82B7EB7         db       0xC8, 0x2B, 0x7E, 0xB7
+[085F:2D14] F2D1131A         db       0xF2, 0xD1, 0x13, 0x1A
+[085F:2D18] 132AF236         db       0x13, 0x2A, 0xF2, 0x36
+[085F:2D1C] FE4FCAC3         db       0xFE, 0x4F, 0xCA, 0xC3
+[085F:2D20] 132AEA36         db       0x13, 0x2A, 0xEA, 0x36
+[085F:2D24] FE50CAC3         db       0xFE, 0x50, 0xCA, 0xC3
+[085F:2D28] 132AEE36         db       0x13, 0x2A, 0xEE, 0x36
+[085F:2D2C] FE4CCAC3         db       0xFE, 0x4C, 0xCA, 0xC3
+[085F:2D30] 131BEB22         db       0x13, 0x1B, 0xEB, 0x22
+[085F:2D34] A7113EA0         db       0xA7, 0x11, 0x3E, 0xA0
+[085F:2D38] 32AB113E         db       0x32, 0xAB, 0x11, 0x3E
+[085F:2D3C] 00C3D814         db       0x00, 0xC3, 0xD8, 0x14
+[085F:2D40] 47B73E20         db       0x47, 0xB7, 0x3E, 0x20
+[085F:2D44] C878C911         db       0xC8, 0x78, 0xC9, 0x11
+[085F:2D48] 2C001E11         db       0x2C, 0x00, 0x1E, 0x11
+[085F:2D4C] 5C001E11         db       0x5C, 0x00, 0x1E, 0x11
+[085F:2D50] 5D001E11         db       0x5D, 0x00, 0x1E, 0x11
+[085F:2D54] 2F000411         db       0x2F, 0x00, 0x04, 0x11
+[085F:2D58] 2AFF8311         db       0x2A, 0xFF, 0x83, 0x11
+[085F:2D5C] 24FF8711         db       0x24, 0xFF, 0x87, 0x11
+[085F:2D60] 2B008112         db       0x2B, 0x00, 0x81, 0x12
+[085F:2D64] 5E5E0007         db       0x5E, 0x5E, 0x00, 0x07
+[085F:2D68] 115E0006         db       0x11, 0x5E, 0x00, 0x06
+[085F:2D6C] 112600FA         db       0x11, 0x26, 0x00, 0xFA
+[085F:2D70] FE0C0500         db       0xFE, 0x0C, 0x05, 0x00
+[085F:2D74] C3C30000         db       0xC3, 0xC3, 0x00, 0x00
+[085F:2D78] 03FC3FC0         db       0x03, 0xFC, 0x3F, 0xC0
+[085F:2D7C] 0000CC33         db       0x00, 0x00, 0xCC, 0x33
+[085F:2D80] 0000000C         db       0x00, 0x00, 0x00, 0x0C
+[085F:2D84] 30000003         db       0x30, 0x00, 0x00, 0x03
+[085F:2D88] FFFFC000         db       0xFF, 0xFF, 0xC0, 0x00
+[085F:2D8C] 0C000030         db       0x0C, 0x00, 0x00, 0x30
+[085F:2D90] 0030C3C3         db       0x00, 0x30, 0xC3, 0xC3
+[085F:2D94] 0C00C30C         db       0x0C, 0x00, 0xC3, 0x0C
+[085F:2D98] 30C30030         db       0x30, 0xC3, 0x00, 0x30
+[085F:2D9C] C3C30C00         db       0xC3, 0xC3, 0x0C, 0x00
+[085F:2DA0] 0C000030         db       0x0C, 0x00, 0x00, 0x30
+[085F:2DA4] 0003FFFF         db       0x00, 0x03, 0xFF, 0xFF
+[085F:2DA8] C0000000         db       0xC0, 0x00, 0x00, 0x00
+[085F:2DAC] 00000001         db       0x00, 0x00, 0x00, 0x01
+[085F:2DB0] C39A10CD         db       0xC3, 0x9A, 0x10, 0xCD
+[085F:2DB4] 0E102A1B         db       0x0E, 0x10, 0x2A, 0x1B
+[085F:2DB8] 39011832         db       0x39, 0x01, 0x18, 0x32
+[085F:2DBC] 3A943657         db       0x3A, 0x94, 0x36, 0x57
+[085F:2DC0] 7E23E67F         db       0x7E, 0x23, 0xE6, 0x7F
+[085F:2DC4] 02033294         db       0x02, 0x03, 0x32, 0x94
+[085F:2DC8] 36FE20D2         db       0x36, 0xFE, 0x20, 0xD2
+[085F:2DCC] 4D10FE0A         db       0x4D, 0x10, 0xFE, 0x0A
+[085F:2DD0] CA7F10FE         db       0xCA, 0x7F, 0x10, 0xFE
+[085F:2DD4] 09CA4D10         db       0x09, 0xCA, 0x4D, 0x10
+[085F:2DD8] FE0DCA8B         db       0xFE, 0x0D, 0xCA, 0x8B
+[085F:2DDC] 10FE1ACA         db       0x10, 0xFE, 0x1A, 0xCA
+[085F:2DE0] 9F10C6C0         db       0x9F, 0x10, 0xC6, 0xC0
+[085F:2DE4] 023EDE0B         db       0x02, 0x3E, 0xDE, 0x0B
+[085F:2DE8] 020303C3         db       0x02, 0x03, 0x03, 0xC3
+[085F:2DEC] 4D107AFE         db       0x4D, 0x10, 0x7A, 0xFE
+[085F:2DF0] 0D3E0AC2         db       0x0D, 0x3E, 0x0A, 0xC2
+[085F:2DF4] 73100BC3         db       0x73, 0x10, 0x0B, 0xC3
+[085F:2DF8] 4D10221B         db       0x4D, 0x10, 0x22, 0x1B
+[085F:2DFC] 393E0A02         db       0x39, 0x3E, 0x0A, 0x02
+[085F:2E00] 606922A4         db       0x60, 0x69, 0x22, 0xA4
+[085F:2E04] 36211832         db       0x36, 0x21, 0x18, 0x32
+[085F:2E08] AF32A136         db       0xAF, 0x32, 0xA1, 0x36
+[085F:2E0C] B7C97A32         db       0xB7, 0xC9, 0x7A, 0x32
+[085F:2E10] 94360BC5         db       0x94, 0x36, 0x0B, 0xC5
+[085F:2E14] E5CDF910         db       0xE5, 0xCD, 0xF9, 0x10
+[085F:2E18] E1111D3A         db       0xE1, 0x11, 0x1D, 0x3A
+[085F:2E1C] CD3623C1         db       0xCD, 0x36, 0x23, 0xC1
+[085F:2E20] D2BA10CD         db       0xD2, 0xBA, 0x10, 0xCD
+[085F:2E24] E310C24D         db       0xE3, 0x10, 0xC2, 0x4D
+[085F:2E28] 103E0D02         db       0x10, 0x3E, 0x0D, 0x02
+[085F:2E2C] 215C00CD         db       0x21, 0x5C, 0x00, 0xCD
+[085F:2E30] C61F21C8         db       0xC6, 0x1F, 0x21, 0xC8
+[085F:2E34] 1037C95C         db       0x10, 0x37, 0xC9, 0x5C
+[085F:2E38] 5C5C0945         db       0x5C, 0x5C, 0x09, 0x45
+[085F:2E3C] 4E440953         db       0x4E, 0x44, 0x09, 0x53
+[085F:2E40] 74617465         db       0x74, 0x61, 0x74, 0x65
+[085F:2E44] 6D656E74         db       0x6D, 0x65, 0x6E, 0x74
+[085F:2E48] 204D6973         db       0x20, 0x4D, 0x69, 0x73
+[085F:2E4C] 73696E67         db       0x73, 0x69, 0x6E, 0x67
+[085F:2E50] 0D0AC521         db       0x0D, 0x0A, 0xC5, 0x21
+[085F:2E54] 1D39E511         db       0x1D, 0x39, 0xE5, 0x11
+[085F:2E58] 5C000E02         db       0x5C, 0x00, 0x0E, 0x02
+[085F:2E5C] CDD61F36         db       0xCD, 0xD6, 0x1F, 0x36
+[085F:2E60] 1AEBE179         db       0x1A, 0xEB, 0xE1, 0x79
+[085F:2E64] C1FE02C9         db       0xC1, 0xFE, 0x02, 0xC9
+[085F:2E68] 0E0BCD05         db       0x0E, 0x0B, 0xCD, 0x05
+[085F:2E6C] 00B7C8FA         db       0x00, 0xB7, 0xC8, 0xFA
+[085F:2E70] FE0C0500         db       0xFE, 0x0C, 0x05, 0x00
+[085F:2E74] 30F0C000         db       0x30, 0xF0, 0xC0, 0x00
+[085F:2E78] 00FF0FF0         db       0x00, 0xFF, 0x0F, 0xF0
+[085F:2E7C] 0000330C         db       0x00, 0x00, 0x33, 0x0C
+[085F:2E80] C0000003         db       0xC0, 0x00, 0x00, 0x03
+[085F:2E84] 0C000000         db       0x0C, 0x00, 0x00, 0x00
+[085F:2E88] FFFFF000         db       0xFF, 0xFF, 0xF0, 0x00
+[085F:2E8C] 0300000C         db       0x03, 0x00, 0x00, 0x0C
+[085F:2E90] 000C30F0         db       0x00, 0x0C, 0x30, 0xF0
+[085F:2E94] C30030C3         db       0xC3, 0x00, 0x30, 0xC3
+[085F:2E98] 0C30C00C         db       0x0C, 0x30, 0xC0, 0x0C
+[085F:2E9C] 30F0C300         db       0x30, 0xF0, 0xC3, 0x00
+[085F:2EA0] 0300000C         db       0x03, 0x00, 0x00, 0x0C
+[085F:2EA4] 0000FFFF         db       0x00, 0x00, 0xFF, 0xFF
+[085F:2EA8] F0000000         db       0xF0, 0x00, 0x00, 0x00
+[085F:2EAC] 00000036         db       0x00, 0x00, 0x00, 0x36
+[085F:2EB0] 115C00D5         db       0x11, 0x5C, 0x00, 0xD5
+[085F:2EB4] 0E0CCD63         db       0x0E, 0x0C, 0xCD, 0x63
+[085F:2EB8] 23E1CD94         db       0x23, 0xE1, 0xCD, 0x94
+[085F:2EBC] 1FDAA520         db       0x1F, 0xDA, 0xA5, 0x20
+[085F:2EC0] 218F11CD         db       0x21, 0x8F, 0x11, 0xCD
+[085F:2EC4] 6221218F         db       0x62, 0x21, 0x21, 0x8F
+[085F:2EC8] 1111151E         db       0x11, 0x11, 0x15, 0x1E
+[085F:2ECC] 0E0ECD63         db       0x0E, 0x0E, 0xCD, 0x63
+[085F:2ED0] 233E8232         db       0x23, 0x3E, 0x82, 0x32
+[085F:2ED4] 38200E02         db       0x38, 0x20, 0x0E, 0x02
+[085F:2ED8] 217C11CD         db       0x21, 0x7C, 0x11, 0xCD
+[085F:2EDC] 5920CD3D         db       0x59, 0x20, 0xCD, 0x3D
+[085F:2EE0] 20211D3A         db       0x20, 0x21, 0x1D, 0x3A
+[085F:2EE4] 221B3936         db       0x22, 0x1B, 0x39, 0x36
+[085F:2EE8] 1AB7C920         db       0x1A, 0xB7, 0xC9, 0x20
+[085F:2EEC] 20506173         db       0x20, 0x50, 0x61, 0x73
+[085F:2EF0] 73203220         db       0x73, 0x20, 0x32, 0x20
+[085F:2EF4] 2D205265         db       0x2D, 0x20, 0x52, 0x65
+[085F:2EF8] 6164696E         db       0x61, 0x64, 0x69, 0x6E
+[085F:2EFC] 6720423A         db       0x67, 0x20, 0x42, 0x3A
+[085F:2F00] 41445445         db       0x41, 0x44, 0x54, 0x45
+[085F:2F04] 53542020         db       0x53, 0x54, 0x20, 0x20
+[085F:2F08] 2E41534D         db       0x2E, 0x41, 0x53, 0x4D
+[085F:2F0C] 0D00E437         db       0x0D, 0x00, 0xE4, 0x37
+[085F:2F10] 5C38A735         db       0x5C, 0x38, 0xA7, 0x35
+[085F:2F14] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:2F18] 0A02A800         db       0x0A, 0x02, 0xA8, 0x00
+[085F:2F1C] BA2FCDCB         db       0xBA, 0x2F, 0xCD, 0xCB
+[085F:2F20] 11D83AAB         db       0x11, 0xD8, 0x3A, 0xAB
+[085F:2F24] 11E620C0         db       0x11, 0xE6, 0x20, 0xC0
+[085F:2F28] 3E55C3DA         db       0x3E, 0x55, 0xC3, 0xDA
+[085F:2F2C] 112AE336         db       0x11, 0x2A, 0xE3, 0x36
+[085F:2F30] 22A7117C         db       0x22, 0xA7, 0x11, 0x7C
+[085F:2F34] B5C2CB11         db       0xB5, 0xC2, 0xCB, 0x11
+[085F:2F38] 37C92AA7         db       0x37, 0xC9, 0x2A, 0xA7
+[085F:2F3C] 11CDE211         db       0x11, 0xCD, 0xE2, 0x11
+[085F:2F40] DADD11FE         db       0xDA, 0xDD, 0x11, 0xFE
+[085F:2F44] 033FD03E         db       0x03, 0x3F, 0xD0, 0x3E
+[085F:2F48] 45320232         db       0x45, 0x32, 0x02, 0x32
+[085F:2F4C] AF37676F         db       0xAF, 0x37, 0x67, 0x6F
+[085F:2F50] C9EB2100         db       0xC9, 0xEB, 0x21, 0x00
+[085F:2F54] 0022AD11         db       0x00, 0x22, 0xAD, 0x11
+[085F:2F58] 2EA022AB         db       0x2E, 0xA0, 0x22, 0xAB
+[085F:2F5C] 11210000         db       0x11, 0x21, 0x00, 0x00
+[085F:2F60] 3922A311         db       0x39, 0x22, 0xA3, 0x11
+[085F:2F64] 7AB33E53         db       0x7A, 0xB3, 0x3E, 0x53
+[085F:2F68] CA2413EB         db       0xCA, 0x24, 0x13, 0xEB
+[085F:2F6C] CDF512FA         db       0xCD, 0xF5, 0x12, 0xFA
+[085F:2F70] FE0C0500         db       0xFE, 0x0C, 0x05, 0x00
+[085F:2F74] 0C3C3000         db       0x0C, 0x3C, 0x30, 0x00
+[085F:2F78] 003FC3FC         db       0x00, 0x3F, 0xC3, 0xFC
+[085F:2F7C] 00000CC3         db       0x00, 0x00, 0x0C, 0xC3
+[085F:2F80] 30000000         db       0x30, 0x00, 0x00, 0x00
+[085F:2F84] C3000000         db       0xC3, 0x00, 0x00, 0x00
+[085F:2F88] 3FFFFC00         db       0x3F, 0xFF, 0xFC, 0x00
+[085F:2F8C] 00C00003         db       0x00, 0xC0, 0x00, 0x03
+[085F:2F90] 00030C3C         db       0x00, 0x03, 0x0C, 0x3C
+[085F:2F94] 30C00C30         db       0x30, 0xC0, 0x0C, 0x30
+[085F:2F98] C30C3003         db       0xC3, 0x0C, 0x30, 0x03
+[085F:2F9C] 0C3C30C0         db       0x0C, 0x3C, 0x30, 0xC0
+[085F:2FA0] 00C00003         db       0x00, 0xC0, 0x00, 0x03
+[085F:2FA4] 00003FFF         db       0x00, 0x00, 0x3F, 0xFF
+[085F:2FA8] FC000000         db       0xFC, 0x00, 0x00, 0x00
+[085F:2FAC] 00000015         db       0x00, 0x00, 0x00, 0x15
+[085F:2FB0] C30012CD         db       0xC3, 0x00, 0x12, 0xCD
+[085F:2FB4] 9A152AA1         db       0x9A, 0x15, 0x2A, 0xA1
+[085F:2FB8] 11115C38         db       0x11, 0x11, 0x5C, 0x38
+[085F:2FBC] CD3623C2         db       0xCD, 0x36, 0x23, 0xC2
+[085F:2FC0] 4412CD00         db       0x44, 0x12, 0xCD, 0x00
+[085F:2FC4] 15F5E52A         db       0x15, 0xF5, 0xE5, 0x2A
+[085F:2FC8] 9F1111E4         db       0x9F, 0x11, 0x11, 0xE4
+[085F:2FCC] 37CD3623         db       0x37, 0xCD, 0x36, 0x23
+[085F:2FD0] C21E13E1         db       0xC2, 0x1E, 0x13, 0xE1
+[085F:2FD4] F111E437         db       0xF1, 0x11, 0xE4, 0x37
+[085F:2FD8] B7CA7A12         db       0xB7, 0xCA, 0x7A, 0x12
+[085F:2FDC] FE01C273         db       0xFE, 0x01, 0xC2, 0x73
+[085F:2FE0] 1213FE03         db       0x12, 0x13, 0xFE, 0x03
+[085F:2FE4] FA7912EB         db       0xFA, 0x79, 0x12, 0xEB
+[085F:2FE8] B732AC11         db       0xB7, 0x32, 0xAC, 0x11
+[085F:2FEC] 22AD11C9         db       0x22, 0xAD, 0x11, 0xC9
+[085F:2FF0] CD9A152A         db       0xCD, 0x9A, 0x15, 0x2A
+[085F:2FF4] A111CD36         db       0xA1, 0x11, 0xCD, 0x36
+[085F:2FF8] 23CA1E13         db       0x23, 0xCA, 0x1E, 0x13
+[085F:2FFC] 2B7EFE18         db       0x2B, 0x7E, 0xFE, 0x18
+[085F:3000] C2811222         db       0xC2, 0x81, 0x12, 0x22
+[085F:3004] A1113E20         db       0xA1, 0x11, 0x3E, 0x20
+[085F:3008] 32A511C3         db       0x32, 0xA5, 0x11, 0xC3
+[085F:300C] 00120721         db       0x00, 0x12, 0x07, 0x21
+[085F:3010] B312CD20         db       0xB3, 0x12, 0xCD, 0x20
+[085F:3014] 2111E312         db       0x21, 0x11, 0xE3, 0x12
+[085F:3018] CD3623DA         db       0xCD, 0x36, 0x23, 0xDA
+[085F:301C] 1E134623         db       0x1E, 0x13, 0x46, 0x23
+[085F:3020] 4EC90100         db       0x4E, 0xC9, 0x01, 0x00
+[085F:3024] 0F0E0F0E         db       0x0F, 0x0E, 0x0F, 0x0E
+[085F:3028] 13121312         db       0x13, 0x12, 0x13, 0x12
+[085F:302C] 09080706         db       0x09, 0x08, 0x07, 0x06
+[085F:3030] 07060D0C         db       0x07, 0x06, 0x0D, 0x0C
+[085F:3034] 0D0C0D0C         db       0x0D, 0x0C, 0x0D, 0x0C
+[085F:3038] 0D0C0D0C         db       0x0D, 0x0C, 0x0D, 0x0C
+[085F:303C] 0D0C1312         db       0x0D, 0x0C, 0x13, 0x12
+[085F:3040] 13121716         db       0x13, 0x12, 0x17, 0x16
+[085F:3044] 17160B0A         db       0x17, 0x16, 0x0B, 0x0A
+[085F:3048] 13121110         db       0x13, 0x12, 0x11, 0x10
+[085F:304C] 17161716         db       0x17, 0x16, 0x17, 0x16
+[085F:3050] 00000364         db       0x00, 0x00, 0x03, 0x64
+[085F:3054] 65040000         db       0x65, 0x04, 0x00, 0x00
+[085F:3058] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:305C] 00000100         db       0x00, 0x00, 0x01, 0x00
+[085F:3060] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:3064] 7E23FE00         db       0x7E, 0x23, 0xFE, 0x00
+[085F:3068] CA1E13FE         db       0xCA, 0x1E, 0x13, 0xFE
+[085F:306C] 09CAF5FA         db       0x09, 0xCA, 0xF5, 0xFA
+[085F:3070] FE0C0500         db       0xFE, 0x0C, 0x05, 0x00
+[085F:3074] 030F0C00         db       0x03, 0x0F, 0x0C, 0x00
+[085F:3078] 000FF0FF         db       0x00, 0x0F, 0xF0, 0xFF
+[085F:307C] 00000330         db       0x00, 0x00, 0x03, 0x30
+[085F:3080] CC000000         db       0xCC, 0x00, 0x00, 0x00
+[085F:3084] 30C00000         db       0x30, 0xC0, 0x00, 0x00
+[085F:3088] 0FFFFF00         db       0x0F, 0xFF, 0xFF, 0x00
+[085F:308C] 00300000         db       0x00, 0x30, 0x00, 0x00
+[085F:3090] C000C30F         db       0xC0, 0x00, 0xC3, 0x0F
+[085F:3094] 0C30030C         db       0x0C, 0x30, 0x03, 0x0C
+[085F:3098] 30C30C00         db       0x30, 0xC3, 0x0C, 0x00
+[085F:309C] C30F0C30         db       0xC3, 0x0F, 0x0C, 0x30
+[085F:30A0] 00300000         db       0x00, 0x30, 0x00, 0x00
+[085F:30A4] C0000FFF         db       0xC0, 0x00, 0x0F, 0xFF
+[085F:30A8] FF000000         db       0xFF, 0x00, 0x00, 0x00
+[085F:30AC] 00000037         db       0x00, 0x00, 0x00, 0x37
+[085F:30B0] 13FE30FA         db       0x13, 0xFE, 0x30, 0xFA
+[085F:30B4] 4C13FE3A         db       0x4C, 0x13, 0xFE, 0x3A
+[085F:30B8] FA8E14FE         db       0xFA, 0x8E, 0x14, 0xFE
+[085F:30BC] 3ACAB714         db       0x3A, 0xCA, 0xB7, 0x14
+[085F:30C0] CDF918DA         db       0xCD, 0xF9, 0x18, 0xDA
+[085F:30C4] B714FE1C         db       0xB7, 0x14, 0xFE, 0x1C
+[085F:30C8] C282137E         db       0xC2, 0x82, 0x13, 0x7E
+[085F:30CC] FE034723         db       0xFE, 0x03, 0x47, 0x23
+[085F:30D0] F27413E5         db       0xF2, 0x74, 0x13, 0xE5
+[085F:30D4] FE015623         db       0xFE, 0x01, 0x56, 0x23
+[085F:30D8] 5EE1C276         db       0x5E, 0xE1, 0xC2, 0x76
+[085F:30DC] 135A1600         db       0x13, 0x5A, 0x16, 0x00
+[085F:30E0] C3761354         db       0xC3, 0x76, 0x13, 0x54
+[085F:30E4] 5DCD2021         db       0x5D, 0xCD, 0x20, 0x21
+[085F:30E8] 3EA132AB         db       0x3E, 0xA1, 0x32, 0xAB
+[085F:30EC] 1178C3DB         db       0x11, 0x78, 0xC3, 0xDB
+[085F:30F0] 1411D813         db       0x14, 0x11, 0xD8, 0x13
+[085F:30F4] 2AA7112B         db       0x2A, 0xA7, 0x11, 0x2B
+[085F:30F8] CD1F18DA         db       0xCD, 0x1F, 0x18, 0xDA
+[085F:30FC] 1E13EB22         db       0x1E, 0x13, 0xEB, 0x22
+[085F:3100] A711EB23         db       0xA7, 0x11, 0xEB, 0x23
+[085F:3104] 7EB7F0E6         db       0x7E, 0xB7, 0xF0, 0xE6
+[085F:3108] 7F473AA5         db       0x7F, 0x47, 0x3A, 0xA5
+[085F:310C] 11FE2078         db       0x11, 0xFE, 0x20, 0x78
+[085F:3110] C82B7EB7         db       0xC8, 0x2B, 0x7E, 0xB7
+[085F:3114] F2D1131A         db       0xF2, 0xD1, 0x13, 0x1A
+[085F:3118] 132AF236         db       0x13, 0x2A, 0xF2, 0x36
+[085F:311C] FE4FCAC3         db       0xFE, 0x4F, 0xCA, 0xC3
+[085F:3120] 132AEA36         db       0x13, 0x2A, 0xEA, 0x36
+[085F:3124] FE50CAC3         db       0xFE, 0x50, 0xCA, 0xC3
+[085F:3128] 132AEE36         db       0x13, 0x2A, 0xEE, 0x36
+[085F:312C] FE4CCAC3         db       0xFE, 0x4C, 0xCA, 0xC3
+[085F:3130] 131BEB22         db       0x13, 0x1B, 0xEB, 0x22
+[085F:3134] A7113EA0         db       0xA7, 0x11, 0x3E, 0xA0
+[085F:3138] 32AB113E         db       0x32, 0xAB, 0x11, 0x3E
+[085F:313C] 00C3D814         db       0x00, 0xC3, 0xD8, 0x14
+[085F:3140] 47B73E20         db       0x47, 0xB7, 0x3E, 0x20
+[085F:3144] C878C911         db       0xC8, 0x78, 0xC9, 0x11
+[085F:3148] 2C001E11         db       0x2C, 0x00, 0x1E, 0x11
+[085F:314C] 5C001E11         db       0x5C, 0x00, 0x1E, 0x11
+[085F:3150] 5D001E11         db       0x5D, 0x00, 0x1E, 0x11
+[085F:3154] 2F000411         db       0x2F, 0x00, 0x04, 0x11
+[085F:3158] 2AFF8311         db       0x2A, 0xFF, 0x83, 0x11
+[085F:315C] 24FF8711         db       0x24, 0xFF, 0x87, 0x11
+[085F:3160] 2B008112         db       0x2B, 0x00, 0x81, 0x12
+[085F:3164] 5E5E0007         db       0x5E, 0x5E, 0x00, 0x07
+[085F:3168] 115E0006         db       0x11, 0x5E, 0x00, 0x06
+[085F:316C] 112600FC         db       0x11, 0x26, 0x00, 0xFC
+[085F:3170] F9080F3F         db       0xF9, 0x08, 0x0F, 0x3F
+[085F:3174] 00C0C0CF         db       0x00, 0xC0, 0xC0, 0xCF
+[085F:3178] FC0003F0         db       0xFC, 0x00, 0x03, 0xF0
+[085F:317C] C0CFFCFF         db       0xC0, 0xCF, 0xFC, 0xFF
+[085F:3180] 0000C0C3         db       0x00, 0x00, 0xC0, 0xC3
+[085F:3184] 30F3CC00         db       0x30, 0xF3, 0xCC, 0x00
+[085F:3188] 000C0CC0         db       0x00, 0x0C, 0x0C, 0xC0
+[085F:318C] CC00C0C0         db       0xCC, 0x00, 0xC0, 0xC0
+[085F:3190] 00C00C0C         db       0x00, 0xC0, 0x0C, 0x0C
+[085F:3194] CCCC0000         db       0xCC, 0xCC, 0x00, 0x00
+[085F:3198] 0C0CC0CC         db       0x0C, 0x0C, 0xC0, 0xCC
+[085F:319C] 00C0C000         db       0x00, 0xC0, 0xC0, 0x00
+[085F:31A0] C00C0CC0         db       0xC0, 0x0C, 0x0C, 0xC0
+[085F:31A4] CFF0000C         db       0xCF, 0xF0, 0x00, 0x0C
+[085F:31A8] 0CC0CFF0         db       0x0C, 0xC0, 0xCF, 0xF0
+[085F:31AC] FF0000C3         db       0xFF, 0x00, 0x00, 0xC3
+[085F:31B0] CFFCC0CC         db       0xCF, 0xFC, 0xC0, 0xCC
+[085F:31B4] 00000C0C         db       0x00, 0x00, 0x0C, 0x0C
+[085F:31B8] C0CC00CC         db       0xC0, 0xCC, 0x00, 0xCC
+[085F:31BC] 0000C0CC         db       0x00, 0x00, 0xC0, 0xCC
+[085F:31C0] 0CC0CC00         db       0x0C, 0xC0, 0xCC, 0x00
+[085F:31C4] 000C0C33         db       0x00, 0x0C, 0x0C, 0x33
+[085F:31C8] 0C00C300         db       0x0C, 0x00, 0xC3, 0x00
+[085F:31CC] 003F0C0C         db       0x00, 0x3F, 0x0C, 0x0C
+[085F:31D0] C0CFFC00         db       0xC0, 0xCF, 0xFC, 0x00
+[085F:31D4] 03F00C0F         db       0x03, 0xF0, 0x0C, 0x0F
+[085F:31D8] FCC0C000         db       0xFC, 0xC0, 0xC0, 0x00
+[085F:31DC] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:31E0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:31E4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:31E8] 00000021         db       0x00, 0x00, 0x00, 0x21
+[085F:31EC] B56F7EB7         db       0xB5, 0x6F, 0x7E, 0xB7
+[085F:31F0] 37F82BB6         db       0x37, 0xF8, 0x2B, 0xB6
+[085F:31F4] 2BB6C037         db       0x2B, 0xB6, 0xC0, 0x37
+[085F:31F8] C9CDAE2E         db       0xC9, 0xCD, 0xAE, 0x2E
+[085F:31FC] CD3714CD         db       0xCD, 0x37, 0x14, 0xCD
+[085F:3200] AF41CDA4         db       0xAF, 0x41, 0xCD, 0xA4
+[085F:3204] 41D8FE8D         db       0x41, 0xD8, 0xFE, 0x8D
+[085F:3208] CA8A41B7         db       0xCA, 0x8A, 0x41, 0xB7
+[085F:320C] C9CD3714         db       0xC9, 0xCD, 0x37, 0x14
+[085F:3210] CDAF41CD         db       0xCD, 0xAF, 0x41, 0xCD
+[085F:3214] 6B4DD8FE         db       0x6B, 0x4D, 0xD8, 0xFE
+[085F:3218] A0CA9E41         db       0xA0, 0xCA, 0x9E, 0x41
+[085F:321C] B7C97AE6         db       0xB7, 0xC9, 0x7A, 0xE6
+[085F:3220] 7FFE2DC8         db       0x7F, 0xFE, 0x2D, 0xC8
+[085F:3224] CD451BC8         db       0xCD, 0x45, 0x1B, 0xC8
+[085F:3228] CD6B4DD8         db       0xCD, 0x6B, 0x4D, 0xD8
+[085F:322C] CD2F1BC8         db       0xCD, 0x2F, 0x1B, 0xC8
+[085F:3230] E67FFE0C         db       0xE6, 0x7F, 0xFE, 0x0C
+[085F:3234] C83E20CD         db       0xC8, 0x3E, 0x20, 0xCD
+[085F:3238] C414CD83         db       0xC4, 0x14, 0xCD, 0x83
+[085F:323C] 4DC3E113         db       0x4D, 0xC3, 0xE1, 0x13
+[085F:3240] FE0CC8FE         db       0xFE, 0x0C, 0xC8, 0xFE
+[085F:3244] 8CC8C336         db       0x8C, 0xC8, 0xC3, 0x36
+[085F:3248] 1BFE2EC8         db       0x1B, 0xFE, 0x2E, 0xC8
+[085F:324C] FE2CC8FE         db       0xFE, 0x2C, 0xC8, 0xFE
+[085F:3250] 3BC8FE3F         db       0x3B, 0xC8, 0xFE, 0x3F
+[085F:3254] C8FE21C9         db       0xC8, 0xFE, 0x21, 0xC9
+[085F:3258] 0000003A         db       0x00, 0x00, 0x00, 0x3A
+[085F:325C] 023EB7C8         db       0x02, 0x3E, 0xB7, 0xC8
+[085F:3260] 473A093E         db       0x47, 0x3A, 0x09, 0x3E
+[085F:3264] B7C821E9         db       0xB7, 0xC8, 0x21, 0xE9
+[085F:3268] 4136FF34         db       0x41, 0x36, 0xFF, 0x34
+[085F:326C] 90D2FCFC         db       0x90, 0xD2, 0xFC, 0xFC
+[085F:3270] F9080F0F         db       0xF9, 0x08, 0x0F, 0x0F
+[085F:3274] C0303033         db       0xC0, 0x30, 0x30, 0x33
+[085F:3278] FF0000FC         db       0xFF, 0x00, 0x00, 0xFC
+[085F:327C] 3033FF3F         db       0x30, 0x33, 0xFF, 0x3F
+[085F:3280] C0003030         db       0xC0, 0x00, 0x30, 0x30
+[085F:3284] CC3CF300         db       0xCC, 0x3C, 0xF3, 0x00
+[085F:3288] 00030330         db       0x00, 0x03, 0x03, 0x30
+[085F:328C] 33003030         db       0x33, 0x00, 0x30, 0x30
+[085F:3290] 00300303         db       0x00, 0x30, 0x03, 0x03
+[085F:3294] 33330000         db       0x33, 0x33, 0x00, 0x00
+[085F:3298] 03033033         db       0x03, 0x03, 0x30, 0x33
+[085F:329C] 00303000         db       0x00, 0x30, 0x30, 0x00
+[085F:32A0] 30030330         db       0x30, 0x03, 0x03, 0x30
+[085F:32A4] 33FC0003         db       0x33, 0xFC, 0x00, 0x03
+[085F:32A8] 033033FC         db       0x03, 0x30, 0x33, 0xFC
+[085F:32AC] 3FC00030         db       0x3F, 0xC0, 0x00, 0x30
+[085F:32B0] F3FF3033         db       0xF3, 0xFF, 0x30, 0x33
+[085F:32B4] 00000303         db       0x00, 0x00, 0x03, 0x03
+[085F:32B8] 30330033         db       0x30, 0x33, 0x00, 0x33
+[085F:32BC] 00003033         db       0x00, 0x00, 0x30, 0x33
+[085F:32C0] 03303300         db       0x03, 0x30, 0x33, 0x00
+[085F:32C4] 0003030C         db       0x00, 0x03, 0x03, 0x0C
+[085F:32C8] C30030C0         db       0xC3, 0x00, 0x30, 0xC0
+[085F:32CC] 000FC303         db       0x00, 0x0F, 0xC3, 0x03
+[085F:32D0] 3033FF00         db       0x30, 0x33, 0xFF, 0x00
+[085F:32D4] 00FC0303         db       0x00, 0xFC, 0x03, 0x03
+[085F:32D8] FF303000         db       0xFF, 0x30, 0x30, 0x00
+[085F:32DC] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:32E0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:32E4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:32E8] 0000003E         db       0x00, 0x00, 0x00, 0x3E
+[085F:32EC] 7EB7C835         db       0x7E, 0xB7, 0xC8, 0x35
+[085F:32F0] 3EA0C3C4         db       0x3E, 0xA0, 0xC3, 0xC4
+[085F:32F4] 14F5C5D5         db       0x14, 0xF5, 0xC5, 0xD5
+[085F:32F8] E53A9C6F         db       0xE5, 0x3A, 0x9C, 0x6F
+[085F:32FC] B7C4A942         db       0xB7, 0xC4, 0xA9, 0x42
+[085F:3300] E1D1C1F1         db       0xE1, 0xD1, 0xC1, 0xF1
+[085F:3304] C9CD834D         db       0xC9, 0xCD, 0x83, 0x4D
+[085F:3308] E67FFE0D         db       0xE6, 0x7F, 0xFE, 0x0D
+[085F:330C] C0CD6B4D         db       0xC0, 0xCD, 0x6B, 0x4D
+[085F:3310] E67FFE0A         db       0xE6, 0x7F, 0xFE, 0x0A
+[085F:3314] CCE113C9         db       0xCC, 0xE1, 0x13, 0xC9
+[085F:3318] CD964221         db       0xCD, 0x96, 0x42, 0x21
+[085F:331C] 876D7E36         db       0x87, 0x6D, 0x7E, 0x36
+[085F:3320] 00B7CA2C         db       0x00, 0xB7, 0xCA, 0x2C
+[085F:3324] 43CD5946         db       0x43, 0xCD, 0x59, 0x46
+[085F:3328] DADA4260         db       0xDA, 0xDA, 0x42, 0x60
+[085F:332C] 692B7E2B         db       0x69, 0x2B, 0x7E, 0x2B
+[085F:3330] B62BB62B         db       0xB6, 0x2B, 0xB6, 0x2B
+[085F:3334] C2CA4236         db       0xC2, 0xCA, 0x42, 0x36
+[085F:3338] 00210200         db       0x00, 0x21, 0x02, 0x00
+[085F:333C] 095E2356         db       0x09, 0x5E, 0x23, 0x56
+[085F:3340] 13137BE6         db       0x13, 0x13, 0x7B, 0xE6
+[085F:3344] FCB2CAF8         db       0xFC, 0xB2, 0xCA, 0xF8
+[085F:3348] 42CD084F         db       0x42, 0xCD, 0x08, 0x4F
+[085F:334C] 1F1FE63F         db       0x1F, 0x1F, 0xE6, 0x3F
+[085F:3350] 47CDF04E         db       0x47, 0xCD, 0xF0, 0x4E
+[085F:3354] 803DCD17         db       0x80, 0x3D, 0xCD, 0x17
+[085F:3358] 4FAF02CD         db       0x4F, 0xAF, 0x02, 0xCD
+[085F:335C] 21461100         db       0x21, 0x46, 0x11, 0x00
+[085F:3360] 10636BCD         db       0x10, 0x63, 0x6B, 0xCD
+[085F:3364] 781937F5         db       0x78, 0x19, 0x37, 0xF5
+[085F:3368] 3E7ECDD2         db       0x3E, 0x7E, 0xCD, 0xD2
+[085F:336C] 4ECD71FC         db       0x4E, 0xCD, 0x71, 0xFC
+[085F:3370] F9080F03         db       0xF9, 0x08, 0x0F, 0x03
+[085F:3374] F00C0C0C         db       0xF0, 0x0C, 0x0C, 0x0C
+[085F:3378] FFC0003F         db       0xFF, 0xC0, 0x00, 0x3F
+[085F:337C] 0C0CFFCF         db       0x0C, 0x0C, 0xFF, 0xCF
+[085F:3380] F0000C0C         db       0xF0, 0x00, 0x0C, 0x0C
+[085F:3384] 330F3CC0         db       0x33, 0x0F, 0x3C, 0xC0
+[085F:3388] 0000C0CC         db       0x00, 0x00, 0xC0, 0xCC
+[085F:338C] 0CC00C0C         db       0x0C, 0xC0, 0x0C, 0x0C
+[085F:3390] 000C00C0         db       0x00, 0x0C, 0x00, 0xC0
+[085F:3394] CCCCC000         db       0xCC, 0xCC, 0xC0, 0x00
+[085F:3398] 00C0CC0C         db       0x00, 0xC0, 0xCC, 0x0C
+[085F:339C] C00C0C00         db       0xC0, 0x0C, 0x0C, 0x00
+[085F:33A0] 0C00C0CC         db       0x0C, 0x00, 0xC0, 0xCC
+[085F:33A4] 0CFF0000         db       0x0C, 0xFF, 0x00, 0x00
+[085F:33A8] C0CC0CFF         db       0xC0, 0xCC, 0x0C, 0xFF
+[085F:33AC] 0FF0000C         db       0x0F, 0xF0, 0x00, 0x0C
+[085F:33B0] 3CFFCC0C         db       0x3C, 0xFF, 0xCC, 0x0C
+[085F:33B4] C00000C0         db       0xC0, 0x00, 0x00, 0xC0
+[085F:33B8] CC0CC00C         db       0xCC, 0x0C, 0xC0, 0x0C
+[085F:33BC] C0000C0C         db       0xC0, 0x00, 0x0C, 0x0C
+[085F:33C0] C0CC0CC0         db       0xC0, 0xCC, 0x0C, 0xC0
+[085F:33C4] 0000C0C3         db       0x00, 0x00, 0xC0, 0xC3
+[085F:33C8] 30C00C30         db       0x30, 0xC0, 0x0C, 0x30
+[085F:33CC] 0003F0C0         db       0x00, 0x03, 0xF0, 0xC0
+[085F:33D0] CC0CFFC0         db       0xCC, 0x0C, 0xFF, 0xC0
+[085F:33D4] 003F00C0         db       0x00, 0x3F, 0x00, 0xC0
+[085F:33D8] FFCC0C00         db       0xFF, 0xCC, 0x0C, 0x00
+[085F:33DC] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:33E0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:33E4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:33E8] 0000003A         db       0x00, 0x00, 0x00, 0x3A
+[085F:33EC] 8B6DCD17         db       0x8B, 0x6D, 0xCD, 0x17
+[085F:33F0] 4F606922         db       0x4F, 0x60, 0x69, 0x22
+[085F:33F4] A66DCD68         db       0xA6, 0x6D, 0xCD, 0x68
+[085F:33F8] 19CDFD47         db       0x19, 0xCD, 0xFD, 0x47
+[085F:33FC] 3A916D32         db       0x3A, 0x91, 0x6D, 0x32
+[085F:3400] 8C6D3A92         db       0x8C, 0x6D, 0x3A, 0x92
+[085F:3404] 6D328D6D         db       0x6D, 0x32, 0x8D, 0x6D
+[085F:3408] 6F260022         db       0x6F, 0x26, 0x00, 0x22
+[085F:340C] 8E6DCD87         db       0x8E, 0x6D, 0xCD, 0x87
+[085F:3410] 523A8A6D         db       0x52, 0x3A, 0x8A, 0x6D
+[085F:3414] F4FE4EF4         db       0xF4, 0xFE, 0x4E, 0xF4
+[085F:3418] 124C0AE6         db       0x12, 0x4C, 0x0A, 0xE6
+[085F:341C] 20CAE543         db       0x20, 0xCA, 0xE5, 0x43
+[085F:3420] 3A8A6D3D         db       0x3A, 0x8A, 0x6D, 0x3D
+[085F:3424] CD174F21         db       0xCD, 0x17, 0x4F, 0x21
+[085F:3428] CE69BECA         db       0xCE, 0x69, 0xBE, 0xCA
+[085F:342C] E2430AE6         db       0xE2, 0x43, 0x0A, 0xE6
+[085F:3430] 04C2E543         db       0x04, 0xC2, 0xE5, 0x43
+[085F:3434] 0AE611FE         db       0x0A, 0xE6, 0x11, 0xFE
+[085F:3438] 11C2E243         db       0x11, 0xC2, 0xE2, 0x43
+[085F:343C] CD6819CD         db       0xCD, 0x68, 0x19, 0xCD
+[085F:3440] FD473ABE         db       0xFD, 0x47, 0x3A, 0xBE
+[085F:3444] 6D2A8E6D         db       0x6D, 0x2A, 0x8E, 0x6D
+[085F:3448] CDEB1A22         db       0xCD, 0xEB, 0x1A, 0x22
+[085F:344C] 8E6DC39F         db       0x8E, 0x6D, 0xC3, 0x9F
+[085F:3450] 433E3FFE         db       0x43, 0x3E, 0x3F, 0xFE
+[085F:3454] AF32906D         db       0xAF, 0x32, 0x90, 0x6D
+[085F:3458] 21886D7E         db       0x21, 0x88, 0x6D, 0x7E
+[085F:345C] 36002FB7         db       0x36, 0x00, 0x2F, 0xB7
+[085F:3460] CC8752C2         db       0xCC, 0x87, 0x52, 0xC2
+[085F:3464] 0044CDFF         db       0x00, 0x44, 0xCD, 0xFF
+[085F:3468] 1FCDE024         db       0x1F, 0xCD, 0xE0, 0x24
+[085F:346C] CDE31FFC         db       0xCD, 0xE3, 0x1F, 0xFC
+[085F:3470] F9080F00         db       0xF9, 0x08, 0x0F, 0x00
+[085F:3474] FC030303         db       0xFC, 0x03, 0x03, 0x03
+[085F:3478] 3FF0000F         db       0x3F, 0xF0, 0x00, 0x0F
+[085F:347C] C3033FF3         db       0xC3, 0x03, 0x3F, 0xF3
+[085F:3480] FC000303         db       0xFC, 0x00, 0x03, 0x03
+[085F:3484] 0CC3CF30         db       0x0C, 0xC3, 0xCF, 0x30
+[085F:3488] 00003033         db       0x00, 0x00, 0x30, 0x33
+[085F:348C] 03300303         db       0x03, 0x30, 0x03, 0x03
+[085F:3490] 00030030         db       0x00, 0x03, 0x00, 0x30
+[085F:3494] 33333000         db       0x33, 0x33, 0x30, 0x00
+[085F:3498] 00303303         db       0x00, 0x30, 0x33, 0x03
+[085F:349C] 30030300         db       0x30, 0x03, 0x03, 0x00
+[085F:34A0] 03003033         db       0x03, 0x00, 0x30, 0x33
+[085F:34A4] 033FC000         db       0x03, 0x3F, 0xC0, 0x00
+[085F:34A8] 3033033F         db       0x30, 0x33, 0x03, 0x3F
+[085F:34AC] C3FC0003         db       0xC3, 0xFC, 0x00, 0x03
+[085F:34B0] 0F3FF303         db       0x0F, 0x3F, 0xF3, 0x03
+[085F:34B4] 30000030         db       0x30, 0x00, 0x00, 0x30
+[085F:34B8] 33033003         db       0x33, 0x03, 0x30, 0x03
+[085F:34BC] 30000303         db       0x30, 0x00, 0x03, 0x03
+[085F:34C0] 30330330         db       0x30, 0x33, 0x03, 0x30
+[085F:34C4] 00003030         db       0x00, 0x00, 0x30, 0x30
+[085F:34C8] CC30030C         db       0xCC, 0x30, 0x03, 0x0C
+[085F:34CC] 0000FC30         db       0x00, 0x00, 0xFC, 0x30
+[085F:34D0] 33033FF0         db       0x33, 0x03, 0x3F, 0xF0
+[085F:34D4] 000FC030         db       0x00, 0x0F, 0xC0, 0x30
+[085F:34D8] 3FF30300         db       0x3F, 0xF3, 0x03, 0x00
+[085F:34DC] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:34E0] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:34E4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:34E8] 000000D2         db       0x00, 0x00, 0x00, 0xD2
+[085F:34EC] 69BEFAC2         db       0x69, 0xBE, 0xFA, 0xC2
+[085F:34F0] 4421FCFF         db       0x44, 0x21, 0xFC, 0xFF
+[085F:34F4] 093435CA         db       0x09, 0x34, 0x35, 0xCA
+[085F:34F8] 9144CD2D         db       0x91, 0x44, 0xCD, 0x2D
+[085F:34FC] 46C37B44         db       0x46, 0xC3, 0x7B, 0x44
+[085F:3500] 3D36002B         db       0x3D, 0x36, 0x00, 0x2B
+[085F:3504] 2B2B2BE5         db       0x2B, 0x2B, 0x2B, 0xE5
+[085F:3508] 21D269BE         db       0x21, 0xD2, 0x69, 0xBE
+[085F:350C] E1F29144         db       0xE1, 0xF2, 0x91, 0x44
+[085F:3510] D5CDC544         db       0xD5, 0xCD, 0xC5, 0x44
+[085F:3514] D121FCFF         db       0xD1, 0x21, 0xFC, 0xFF
+[085F:3518] 097EB7CA         db       0x09, 0x7E, 0xB7, 0xCA
+[085F:351C] A144CD2D         db       0xA1, 0x44, 0xCD, 0x2D
+[085F:3520] 4621D269         db       0x46, 0x21, 0xD2, 0x69
+[085F:3524] BEFAC244         db       0xBE, 0xFA, 0xC2, 0x44
+[085F:3528] BAF2A644         db       0xBA, 0xF2, 0xA6, 0x44
+[085F:352C] FEFFF2A6         db       0xFE, 0xFF, 0xF2, 0xA6
+[085F:3530] 44E1D1C9         db       0x44, 0xE1, 0xD1, 0xC9
+[085F:3534] CD6819CD         db       0xCD, 0x68, 0x19, 0xCD
+[085F:3538] 9F47DAFA         db       0x9F, 0x47, 0xDA, 0xFA
+[085F:353C] 441610CD         db       0x44, 0x16, 0x10, 0xCD
+[085F:3540] FD47CD39         db       0xFD, 0x47, 0xCD, 0x39
+[085F:3544] 19DAED44         db       0x19, 0xDA, 0xED, 0x44
+[085F:3548] F5C50B0B         db       0xF5, 0xC5, 0x0B, 0x0B
+[085F:354C] 0B0BCDB9         db       0x0B, 0x0B, 0xCD, 0xB9
+[085F:3550] 4DCD3846         db       0x4D, 0xCD, 0x38, 0x46
+[085F:3554] C1F1C2D0         db       0xC1, 0xF1, 0xC2, 0xD0
+[085F:3558] 44C31546         db       0x44, 0xC3, 0x15, 0x46
+[085F:355C] CD3846CD         db       0xCD, 0x38, 0x46, 0xCD
+[085F:3560] 21467AE6         db       0x21, 0x46, 0x7A, 0xE6
+[085F:3564] FE57C378         db       0xFE, 0x57, 0xC3, 0x78
+[085F:3568] 191615C5         db       0x19, 0x16, 0x15, 0xC5
+[085F:356C] 0B0B0B01         db       0x0B, 0x0B, 0x0B, 0x01
+[085F:3570] 020311B9         db       0x02, 0x03, 0x11, 0xB9
+[085F:3574] 1D211000         db       0x1D, 0x21, 0x10, 0x00
+[085F:3578] 7E070707         db       0x7E, 0x07, 0x07, 0x07
+[085F:357C] 07E60FC6         db       0x07, 0xE6, 0x0F, 0xC6
+[085F:3580] 3012137E         db       0x30, 0x12, 0x13, 0x7E
+[085F:3584] E60FC630         db       0xE6, 0x0F, 0xC6, 0x30
+[085F:3588] 12131323         db       0x12, 0x13, 0x13, 0x23
+[085F:358C] 05C27835         db       0x05, 0xC2, 0x78, 0x35
+[085F:3590] 0D2020FC         db       0x0D, 0x20, 0x20, 0xFC
+[085F:3594] 1FA73356         db       0x1F, 0xA7, 0x33, 0x56
+[085F:3598] 01621562         db       0x01, 0x62, 0x15, 0x62
+[085F:359C] 152020FC         db       0x15, 0x20, 0x20, 0xFC
+[085F:35A0] 1F972097         db       0x1F, 0x97, 0x20, 0x97
+[085F:35A4] 20020661         db       0x20, 0x02, 0x06, 0x61
+[085F:35A8] 1D8320AD         db       0x1D, 0x83, 0x20, 0xAD
+[085F:35AC] 02D51313         db       0x02, 0xD5, 0x13, 0x13
+[085F:35B0] 1A130600         db       0x1A, 0x13, 0x06, 0x00
+[085F:35B4] 4FCD3836         db       0x4F, 0xCD, 0x38, 0x36
+[085F:35B8] CD48360D         db       0xCD, 0x48, 0x36, 0x0D
+[085F:35BC] FA223604         db       0xFA, 0x22, 0x36, 0x04
+[085F:35C0] 7D12137C         db       0x7D, 0x12, 0x13, 0x7C
+[085F:35C4] 12133A5F         db       0x12, 0x13, 0x3A, 0x5F
+[085F:35C8] 36B7C207         db       0x36, 0xB7, 0xC2, 0x07
+[085F:35CC] 367EFE20         db       0x36, 0x7E, 0xFE, 0x20
+[085F:35D0] CA0136FE         db       0xCA, 0x01, 0x36, 0xFE
+[085F:35D4] 09CA0136         db       0x09, 0xCA, 0x01, 0x36
+[085F:35D8] FE2CCA01         db       0xFE, 0x2C, 0xCA, 0x01
+[085F:35DC] 36FE3BCA         db       0x36, 0xFE, 0x3B, 0xCA
+[085F:35E0] 0136FE7C         db       0x01, 0x36, 0xFE, 0x7C
+[085F:35E4] CA2236FE         db       0xCA, 0x22, 0x36, 0xFE
+[085F:35E8] 0DCA2236         db       0x0D, 0xCA, 0x22, 0x36
+[085F:35EC] B7CA2236         db       0xB7, 0xCA, 0x22, 0x36
+[085F:35F0] FE61DAFD         db       0xFE, 0x61, 0xDA, 0xFD
+[085F:35F4] 35FE7BF2         db       0x35, 0xFE, 0x7B, 0xF2
+[085F:35F8] FD35EE20         db       0xFD, 0x35, 0xEE, 0x20
+[085F:35FC] 7723C3CD         db       0x77, 0x23, 0xC3, 0xCD
+[085F:3600] 35360023         db       0x35, 0x36, 0x00, 0x23
+[085F:3604] C3B5353A         db       0xC3, 0xB5, 0x35, 0x3A
+[085F:3608] 5F3696CA         db       0x5F, 0x36, 0x96, 0xCA
+[085F:360C] 1C367EFE         db       0x1C, 0x36, 0x7E, 0xFE
+[085F:3610] 0DCA2236         db       0x0D, 0xCA, 0x22, 0x36
+[085F:3614] B7CA2236         db       0xB7, 0xCA, 0x22, 0x36
+[085F:3618] 23C30736         db       0x23, 0xC3, 0x07, 0x36
+[085F:361C] 360023C3         db       0x36, 0x00, 0x23, 0xC3
+[085F:3620] CD353600         db       0xCD, 0x35, 0x36, 0x00
+[085F:3624] 1B1A671B         db       0x1B, 0x1A, 0x67, 0x1B
+[085F:3628] 1A6F7EB7         db       0x1A, 0x6F, 0x7E, 0xB7
+[085F:362C] C2303605         db       0xC2, 0x30, 0x36, 0x05
+[085F:3630] D1AF1213         db       0xD1, 0xAF, 0x12, 0x13
+[085F:3634] 7812B7C9         db       0x78, 0x12, 0xB7, 0xC9
+[085F:3638] 7EFE20CA         db       0x7E, 0xFE, 0x20, 0xCA
+[085F:363C] 4336FE09         db       0x43, 0x36, 0xFE, 0x09
+[085F:3640] C2473623         db       0xC2, 0x47, 0x36, 0x23
+[085F:3644] C33836C9         db       0xC3, 0x38, 0x36, 0xC9
+[085F:3648] 7EFE27CA         db       0x7E, 0xFE, 0x27, 0xCA
+[085F:364C] 5836FE22         db       0x58, 0x36, 0xFE, 0x22
+[085F:3650] CA5836AF         db       0xCA, 0x58, 0x36, 0xAF
+[085F:3654] 325F36C9         db       0x32, 0x5F, 0x36, 0xC9
+[085F:3658] 36002332         db       0x36, 0x00, 0x23, 0x32
+[085F:365C] 5F36C900         db       0x5F, 0x36, 0xC9, 0x00
+[085F:3660] 11F232D5         db       0x11, 0xF2, 0x32, 0xD5
+[085F:3664] EB7E23BE         db       0xEB, 0x7E, 0x23, 0xBE
+[085F:3668] CA7B363C         db       0xCA, 0x7B, 0x36, 0x3C
+[085F:366C] 2B772387         db       0x2B, 0x77, 0x23, 0x87
+[085F:3670] 16005F19         db       0x16, 0x00, 0x5F, 0x19
+[085F:3674] 5E2356EB         db       0x5E, 0x23, 0x56, 0xEB
+[085F:3678] D1AFC937         db       0xD1, 0xAF, 0xC9, 0x37
+[085F:367C] D1C9C354         db       0xD1, 0xC9, 0xC3, 0x54
+[085F:3680] 54545454         db       0x54, 0x54, 0x54, 0x54
+[085F:3684] 54545454         db       0x54, 0x54, 0x54, 0x54
+[085F:3688] 54545454         db       0x54, 0x54, 0x54, 0x54
+[085F:368C] 54545454         db       0x54, 0x54, 0x54, 0x54
+[085F:3690] 00005304         db       0x00, 0x00, 0x53, 0x04
+[085F:3694] 0D000200         db       0x0D, 0x00, 0x02, 0x00
+[085F:3698] 00FF0000         db       0x00, 0xFF, 0x00, 0x00
+[085F:369C] 00013D00         db       0x00, 0x01, 0x3D, 0x00
+[085F:36A0] 00000088         db       0x00, 0x00, 0x00, 0x88
+[085F:36A4] 1D320088         db       0x1D, 0x32, 0x00, 0x88
+[085F:36A8] F887F448         db       0xF8, 0x87, 0xF4, 0x48
+[085F:36AC] 06000000         db       0x06, 0x00, 0x00, 0x00
+[085F:36B0] 00006868         db       0x00, 0x00, 0x68, 0x68
+[085F:36B4] 68680000         db       0x68, 0x68, 0x00, 0x00
+[085F:36B8] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:36BC] 002A3AFE         db       0x00, 0x2A, 0x3A, 0xFE
+[085F:36C0] 3BE24806         db       0x3B, 0xE2, 0x48, 0x06
+[085F:36C4] C8C53600         db       0xC8, 0xC5, 0x36, 0x00
+[085F:36C8] 80000006         db       0x80, 0x00, 0x00, 0x06
+[085F:36CC] C8FF0000         db       0xC8, 0xFF, 0x00, 0x00
+[085F:36D0] 001E3A1E         db       0x00, 0x1E, 0x3A, 0x1E
+[085F:36D4] 3A2A3AFE         db       0x3A, 0x2A, 0x3A, 0xFE
+[085F:36D8] 3B000000         db       0x3B, 0x00, 0x00, 0x00
+[085F:36DC] 00B23600         db       0x00, 0xB2, 0x36, 0x00
+[085F:36E0] 00993800         db       0x00, 0x99, 0x38, 0x00
+[085F:36E4] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:36E8] 00080800         db       0x00, 0x08, 0x08, 0x00
+[085F:36EC] 6F356F35         db       0x6F, 0x35, 0x6F, 0x35
+[085F:36F0] 6F356F35         db       0x6F, 0x35, 0x6F, 0x35
+[085F:36F4] 20000000         db       0x20, 0x00, 0x00, 0x00
+[085F:36F8] 00000001         db       0x00, 0x00, 0x00, 0x01
+[085F:36FC] 53544143         db       0x53, 0x54, 0x41, 0x43
+[085F:3700] 4B20A06F         db       0x4B, 0x20, 0xA0, 0x6F
+[085F:3704] 3500003A         db       0x35, 0x00, 0x00, 0x3A
+[085F:3708] 30303031         db       0x30, 0x30, 0x30, 0x31
+[085F:370C] 30303130         db       0x30, 0x30, 0x31, 0x30
+[085F:3710] 0D0A3032         db       0x0D, 0x0A, 0x30, 0x32
+[085F:3714] 30393031         db       0x30, 0x39, 0x30, 0x31
+[085F:3718] 30413036         db       0x30, 0x41, 0x30, 0x36
+[085F:371C] 30423037         db       0x30, 0x42, 0x30, 0x37
+[085F:3720] 30433030         db       0x30, 0x43, 0x30, 0x30
+[085F:3724] 30443030         db       0x30, 0x44, 0x30, 0x30
+[085F:3728] 32440D0A         db       0x32, 0x44, 0x0D, 0x0A
+[085F:372C] 30373738         db       0x30, 0x37, 0x37, 0x38
+[085F:3730] 35410D0A         db       0x35, 0x41, 0x0D, 0x0A
+[085F:3734] 3F000001         db       0x3F, 0x00, 0x00, 0x01
+[085F:3738] 0000003B         db       0x00, 0x00, 0x00, 0x3B
+[085F:373C] 37483787         db       0x37, 0x48, 0x37, 0x87
+[085F:3740] 2E021D00         db       0x2E, 0x02, 0x1D, 0x00
+[085F:3744] 2C010000         db       0x2C, 0x01, 0x00, 0x00
+[085F:3748] 0A060B07         db       0x0A, 0x06, 0x0B, 0x07
+[085F:374C] 4954414C         db       0x49, 0x54, 0x41, 0x4C
+[085F:3750] 204D4152         db       0x20, 0x4D, 0x41, 0x52
+[085F:3754] 4B455449         db       0x4B, 0x45, 0x54, 0x49
+[085F:3758] 4E472043         db       0x4E, 0x47, 0x20, 0x43
+[085F:375C] 4F52504F         db       0x4F, 0x52, 0x50, 0x4F
+[085F:3760] 52415449         db       0x52, 0x41, 0x54, 0x49
+[085F:3764] 4F4E0D0A         db       0x4F, 0x4E, 0x0D, 0x0A
+[085F:3768] 0A0D0DCF         db       0x0A, 0x0D, 0x0D, 0xCF
+[085F:376C] CFCFCFCF         db       0xCF, 0xCF, 0xCF, 0xCF
+[085F:3770] CFCFCFCF         db       0xCF, 0xCF, 0xCF, 0xCF
+[085F:3774] CFCFCFCF         db       0xCF, 0xCF, 0xCF, 0xCF
+[085F:3778] CFCFCFCF         db       0xCF, 0xCF, 0xCF, 0xCF
+[085F:377C] CFCFCFCF         db       0xCF, 0xCF, 0xCF, 0xCF
+[085F:3780] 3E20C212         db       0x3E, 0x20, 0xC2, 0x12
+[085F:3784] 1921AE25         db       0x19, 0x21, 0xAE, 0x25
+[085F:3788] 35AF32DC         db       0x35, 0xAF, 0x32, 0xDC
+[085F:378C] 07CD5C1D         db       0x07, 0xCD, 0x5C, 0x1D
+[085F:3790] CD661A3A         db       0xCD, 0x66, 0x1A, 0x3A
+[085F:3794] 00003DC8         db       0x00, 0x00, 0x3D, 0xC8
+[085F:3798] CD661AC9         db       0xCD, 0x66, 0x1A, 0xC9
+[085F:379C] CDD51ACD         db       0xCD, 0xD5, 0x1A, 0xCD
+[085F:37A0] 78202A04         db       0x78, 0x20, 0x2A, 0x04
+[085F:37A4] 0222D206         db       0x02, 0x22, 0xD2, 0x06
+[085F:37A8] 2AB02522         db       0x2A, 0xB0, 0x25, 0x22
+[085F:37AC] BE0622CE         db       0xBE, 0x06, 0x22, 0xCE
+[085F:37B0] 062AAC25         db       0x06, 0x2A, 0xAC, 0x25
+[085F:37B4] 22CA06E1         db       0x22, 0xCA, 0x06, 0xE1
+[085F:37B8] C9213302         db       0xC9, 0x21, 0x33, 0x02
+[085F:37BC] 3A05023D         db       0x3A, 0x05, 0x02, 0x3D
+[085F:37C0] BEDA5019         db       0xBE, 0xDA, 0x50, 0x19
+[085F:37C4] 23C34819         db       0x23, 0xC3, 0x48, 0x19
+[085F:37C8] 463A0302         db       0x46, 0x3A, 0x03, 0x02
+[085F:37CC] B8DA5919         db       0xB8, 0xDA, 0x59, 0x19
+[085F:37D0] 78320502         db       0x78, 0x32, 0x05, 0x02
+[085F:37D4] CD771AC9         db       0xCD, 0x77, 0x1A, 0xC9
+[085F:37D8] 3E0C32DC         db       0x3E, 0x0C, 0x32, 0xDC
+[085F:37DC] 07CD5C1D         db       0x07, 0xCD, 0x5C, 0x1D
+[085F:37E0] C93E0A32         db       0xC9, 0x3E, 0x0A, 0x32
+[085F:37E4] 366F00A0         db       0x36, 0x6F, 0x00, 0xA0
+[085F:37E8] 010000A0         db       0x01, 0x00, 0x00, 0xA0
+[085F:37EC] 32DC073A         db       0x32, 0xDC, 0x07, 0x3A
+[085F:37F0] 9707F5F6         db       0x97, 0x07, 0xF5, 0xF6
+[085F:37F4] 20329707         db       0x20, 0x32, 0x97, 0x07
+[085F:37F8] CD5C1DF1         db       0xCD, 0x5C, 0x1D, 0xF1
+[085F:37FC] 329707C9         db       0x32, 0x97, 0x07, 0xC9
+[085F:3800] 7EE67FCD         db       0x7E, 0xE6, 0x7F, 0xCD
+[085F:3804] 571B3E13         db       0x57, 0x1B, 0x3E, 0x13
+[085F:3808] D2FE37B7         db       0xD2, 0xFE, 0x37, 0xB7
+[085F:380C] C9CDAD4F         db       0xC9, 0xCD, 0xAD, 0x4F
+[085F:3810] CD8752C2         db       0xCD, 0x87, 0x52, 0xC2
+[085F:3814] 203811F9         db       0x20, 0x38, 0x11, 0xF9
+[085F:3818] 713AEA6A         db       0x71, 0x3A, 0xEA, 0x6A
+[085F:381C] B7C42720         db       0xB7, 0xC4, 0x27, 0x20
+[085F:3820] 11FB71CD         db       0x11, 0xFB, 0x71, 0xCD
+[085F:3824] 27203AEA         db       0x27, 0x20, 0x3A, 0xEA
+[085F:3828] 6AC630CD         db       0x6A, 0xC6, 0x30, 0xCD
+[085F:382C] 6923CD1F         db       0x69, 0x23, 0xCD, 0x1F
+[085F:3830] 20200E00         db       0x20, 0x20, 0x0E, 0x00
+[085F:3834] AFCD514F         db       0xAF, 0xCD, 0x51, 0x4F
+[085F:3838] 02FD713A         db       0x02, 0xFD, 0x71, 0x3A
+[085F:383C] 2000CDF0         db       0x20, 0x00, 0xCD, 0xF0
+[085F:3840] 20CD6923         db       0x20, 0xCD, 0x69, 0x23
+[085F:3844] D630D8FE         db       0xD6, 0x30, 0xD8, 0xFE
+[085F:3848] 04D032EA         db       0x04, 0xD0, 0x32, 0xEA
+[085F:384C] 6AAF32A5         db       0x6A, 0xAF, 0x32, 0xA5
+[085F:3850] 6DC9CD7C         db       0x6D, 0xC9, 0xCD, 0x7C
+[085F:3854] 3ACD420D         db       0x3A, 0xCD, 0x42, 0x0D
+[085F:3858] 3AE66AB7         db       0x3A, 0xE6, 0x6A, 0xB7
+[085F:385C] 010272C4         db       0x01, 0x02, 0x72, 0xC4
+[085F:3860] 2720CA59         db       0x27, 0x20, 0xCA, 0x59
+[085F:3864] 0DCDAC52         db       0x0D, 0xCD, 0xAC, 0x52
+[085F:3868] C4F020CD         db       0xC4, 0xF0, 0x20, 0xCD
+[085F:386C] F42B3AE7         db       0xF4, 0x2B, 0x3A, 0xE7
+[085F:3870] 6AB7C03A         db       0x6A, 0xB7, 0xC0, 0x3A
+[085F:3874] E66AB7C3         db       0xE6, 0x6A, 0xB7, 0xC3
+[085F:3878] 6238CD7C         db       0x62, 0x38, 0xCD, 0x7C
+[085F:387C] 3AC3420D         db       0x3A, 0xC3, 0x42, 0x0D
+[085F:3880] 3EFF32EB         db       0x3E, 0xFF, 0x32, 0xEB
+[085F:3884] 6ACD7C3A         db       0x6A, 0xCD, 0x7C, 0x3A
+[085F:3888] C3180DCD         db       0xC3, 0x18, 0x0D, 0xCD
+[085F:388C] C44F3A9B         db       0xC4, 0x4F, 0x3A, 0x9B
+[085F:3890] 6FB7C2A4         db       0x6F, 0xB7, 0xC2, 0xA4
+[085F:3894] 38110772         db       0x38, 0x11, 0x07, 0x72
+[085F:3898] 09454E44         db       0x09, 0x45, 0x4E, 0x44
+[085F:389C] 00094551         db       0x00, 0x09, 0x45, 0x51
+[085F:38A0] 55092A2B         db       0x55, 0x09, 0x2A, 0x2B
+[085F:38A4] 31303048         db       0x31, 0x30, 0x30, 0x48
+[085F:38A8] 00204154         db       0x00, 0x20, 0x41, 0x54
+[085F:38AC] 202C524F         db       0x20, 0x2C, 0x52, 0x4F
+[085F:38B0] 5833002C         db       0x58, 0x33, 0x00, 0x2C
+[085F:38B4] 3042482C         db       0x30, 0x42, 0x48, 0x2C
+[085F:38B8] 30374800         db       0x30, 0x37, 0x48, 0x00
+[085F:38BC] 482C3041         db       0x48, 0x2C, 0x30, 0x41
+[085F:38C0] 48004800         db       0x48, 0x00, 0x48, 0x00
+[085F:38C4] 33304800         db       0x33, 0x30, 0x48, 0x00
+[085F:38C8] 482C3044         db       0x48, 0x2C, 0x30, 0x44
+[085F:38CC] 480072CD         db       0x48, 0x00, 0x72, 0xCD
+[085F:38D0] 3B51D83A         db       0x3B, 0x51, 0xD8, 0x3A
+[085F:38D4] EA6AB7CA         db       0xEA, 0x6A, 0xB7, 0xCA
+[085F:38D8] EF38CDAD         db       0xEF, 0x38, 0xCD, 0xAD
+[085F:38DC] 4FCD8752         db       0x4F, 0xCD, 0x87, 0x52
+[085F:38E0] CC272011         db       0xCC, 0x27, 0x20, 0x11
+[085F:38E4] 0372CD87         db       0x03, 0x72, 0xCD, 0x87
+[085F:38E8] 52CC2720         db       0x52, 0xCC, 0x27, 0x20
+[085F:38EC] CD594F3A         db       0xCD, 0x59, 0x4F, 0x3A
+[085F:38F0] A26D32A4         db       0xA2, 0x6D, 0x32, 0xA4
+[085F:38F4] 6D115C00         db       0x6D, 0x11, 0x5C, 0x00
+[085F:38F8] 21606ACD         db       0x21, 0x60, 0x6A, 0xCD
+[085F:38FC] DD390E13         db       0xDD, 0x39, 0x0E, 0x13
+[085F:3900] 14454449         db       0x14, 0x45, 0x44, 0x49
+[085F:3904] 5420284F         db       0x54, 0x20, 0x28, 0x4F
+[085F:3908] 52205265         db       0x52, 0x20, 0x52, 0x65
+[085F:390C] 7475726E         db       0x74, 0x75, 0x72, 0x6E
+[085F:3910] 2900C832         db       0x29, 0x00, 0xC8, 0x32
+[085F:3914] 6C00C37E         db       0x6C, 0x00, 0xC3, 0x7E
+[085F:3918] 0BCDD49F         db       0x0B, 0xCD, 0xD4, 0x9F
+[085F:391C] 39480D0A         db       0x39, 0x48, 0x0D, 0x0A
+[085F:3920] 4C534D41         db       0x4C, 0x53, 0x4D, 0x41
+[085F:3924] 4C4C0944         db       0x4C, 0x4C, 0x09, 0x44
+[085F:3928] 53093034         db       0x53, 0x09, 0x30, 0x34
+[085F:392C] 3030480D         db       0x30, 0x30, 0x48, 0x0D
+[085F:3930] 0A4C4249         db       0x0A, 0x4C, 0x42, 0x49
+[085F:3934] 47094453         db       0x47, 0x09, 0x44, 0x53
+[085F:3938] 09303430         db       0x09, 0x30, 0x34, 0x30
+[085F:393C] 30480D0A         db       0x30, 0x48, 0x0D, 0x0A
+[085F:3940] 474F4D53         db       0x47, 0x4F, 0x4D, 0x53
+[085F:3944] 47094453         db       0x47, 0x09, 0x44, 0x53
+[085F:3948] 09303430         db       0x09, 0x30, 0x34, 0x30
+[085F:394C] 30480D0A         db       0x30, 0x48, 0x0D, 0x0A
+[085F:3950] 094D5347         db       0x09, 0x4D, 0x53, 0x47
+[085F:3954] 09274441         db       0x09, 0x27, 0x44, 0x41
+[085F:3958] 54412054         db       0x54, 0x41, 0x20, 0x54
+[085F:395C] 41424C45         db       0x41, 0x42, 0x4C, 0x45
+[085F:3960] 20415420         db       0x20, 0x41, 0x54, 0x20
+[085F:3964] 272C4441         db       0x27, 0x2C, 0x44, 0x41
+[085F:3968] 54410D0A         db       0x54, 0x41, 0x0D, 0x0A
+[085F:396C] 094D5347         db       0x09, 0x4D, 0x53, 0x47
+[085F:3970] 0927524F         db       0x09, 0x27, 0x52, 0x4F
+[085F:3974] 434B2054         db       0x43, 0x4B, 0x20, 0x54
+[085F:3978] 41424C45         db       0x41, 0x42, 0x4C, 0x45
+[085F:397C] 20415420         db       0x20, 0x41, 0x54, 0x20
+[085F:3980] 272C524F         db       0x27, 0x2C, 0x52, 0x4F
+[085F:3984] 58330D0A         db       0x58, 0x33, 0x0D, 0x0A
+[085F:3988] 53544143         db       0x53, 0x54, 0x41, 0x43
+[085F:398C] 4B094551         db       0x4B, 0x09, 0x45, 0x51
+[085F:3990] 55092A2B         db       0x55, 0x09, 0x2A, 0x2B
+[085F:3994] 31303048         db       0x31, 0x30, 0x30, 0x48
+[085F:3998] 0D0A0945         db       0x0D, 0x0A, 0x09, 0x45
+[085F:399C] 4E440D0A         db       0x4E, 0x44, 0x0D, 0x0A
+[085F:39A0] 0D0A1A1A         db       0x0D, 0x0A, 0x1A, 0x1A
+[085F:39A4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39A8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39AC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39B0] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39B4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39B8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39BC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39C0] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39C4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39C8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39CC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39D0] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39D4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39D8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39DC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39E0] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39E4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39E8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39EC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39F0] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39F4] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39F8] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:39FC] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A00] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A04] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A08] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A0C] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A10] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A14] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A18] 1A1A1A1A         db       0x1A, 0x1A, 0x1A, 0x1A
+[085F:3A1C] 1A1A0241         db       0x1A, 0x1A, 0x02, 0x41
+[085F:3A20] 44544553         db       0x44, 0x54, 0x45, 0x53
+[085F:3A24] 54202041         db       0x54, 0x20, 0x20, 0x41
+[085F:3A28] 534D47CD         db       0x53, 0x4D, 0x47, 0xCD
+[085F:3A2C] 261BB7C2         db       0x26, 0x1B, 0xB7, 0xC2
+[085F:3A30] 3D3A78FE         db       0x3D, 0x3A, 0x78, 0xFE
+[085F:3A34] FFF5CD59         db       0xFF, 0xF5, 0xCD, 0x59
+[085F:3A38] 4FF1E1C1         db       0x4F, 0xF1, 0xE1, 0xC1
+[085F:3A3C] C9CD1F20         db       0xC9, 0xCD, 0x1F, 0x20
+[085F:3A40] 89894241         db       0x89, 0x89, 0x42, 0x41
+[085F:3A44] 44201520         db       0x44, 0x20, 0x15, 0x20
+[085F:3A48] 4E414D45         db       0x4E, 0x41, 0x4D, 0x45
+[085F:3A4C] 3A2000E1         db       0x3A, 0x20, 0x00, 0xE1
+[085F:3A50] E5CD3120         db       0xE5, 0xCD, 0x31, 0x20
+[085F:3A54] CD594FC3         db       0xCD, 0x59, 0x4F, 0xC3
+[085F:3A58] FA390926         db       0xFA, 0x39, 0x09, 0x26
+[085F:3A5C] CD011DC0         db       0xCD, 0x01, 0x1D, 0xC0
+[085F:3A60] CD1F2089         db       0xCD, 0x1F, 0x20, 0x89
+[085F:3A64] 89152000         db       0x89, 0x15, 0x20, 0x00
+[085F:3A68] CD3120CD         db       0xCD, 0x31, 0x20, 0xCD
+[085F:3A6C] 684F204E         db       0x68, 0x4F, 0x20, 0x4E
+[085F:3A70] 4F542046         db       0x4F, 0x54, 0x20, 0x46
+[085F:3A74] 4F554E44         db       0x4F, 0x55, 0x4E, 0x44
+[085F:3A78] 0F00AFC9         db       0x0F, 0x00, 0xAF, 0xC9
+[085F:3A7C] CD4D4F0E         db       0xCD, 0x4D, 0x4F, 0x0E
+[085F:3A80] 13205341         db       0x13, 0x20, 0x53, 0x41
+[085F:3A84] 56494E47         db       0x56, 0x49, 0x4E, 0x47
+[085F:3A88] 2000D511         db       0x20, 0x00, 0xD5, 0x11
+[085F:3A8C] 766ACD1F         db       0x76, 0x6A, 0xCD, 0x1F
+[085F:3A90] 20152000         db       0x20, 0x15, 0x20, 0x00
+[085F:3A94] CD2720D1         db       0xCD, 0x27, 0x20, 0xD1
+[085F:3A98] C3594FCD         db       0xC3, 0x59, 0x4F, 0xCD
+[085F:3A9C] 1F202028         db       0x1F, 0x20, 0x20, 0x28
+[085F:3AA0] 592F4E29         db       0x59, 0x2F, 0x4E, 0x29
+[085F:3AA4] 3A2000CD         db       0x3A, 0x20, 0x00, 0xCD
+[085F:3AA8] 594FCDF0         db       0x59, 0x4F, 0xCD, 0xF0
+[085F:3AAC] 20CDF42B         db       0x20, 0xCD, 0xF4, 0x2B
+[085F:3AB0] CD761BFE         db       0xCD, 0x76, 0x1B, 0xFE
+[085F:3AB4] 59CABA3A         db       0x59, 0xCA, 0xBA, 0x3A
+[085F:3AB8] 3E4ECD69         db       0x3E, 0x4E, 0xCD, 0x69
+[085F:3ABC] 23FE59C9         db       0x23, 0xFE, 0x59, 0xC9
+[085F:3AC0] C5010003         db       0xC5, 0x01, 0x00, 0x03
+[085F:3AC4] C3D73AC5         db       0xC3, 0xD7, 0x3A, 0xC5
+[085F:3AC8] 010009C3         db       0x01, 0x00, 0x09, 0xC3
+[085F:3ACC] D73AC506         db       0xD7, 0x3A, 0xC5, 0x06
+[085F:3AD0] 19C3D73A         db       0x19, 0xC3, 0xD7, 0x3A
+[085F:3AD4] C50640CD         db       0xC5, 0x06, 0x40, 0xCD
+[085F:3AD8] 9421C2F2         db       0x94, 0x21, 0xC2, 0xF2
+[085F:3ADC] 3A3AE66A         db       0x3A, 0x3A, 0xE6, 0x6A
+[085F:3AE0] B7CAEC3A         db       0xB7, 0xCA, 0xEC, 0x3A
+[085F:3AE4] 0B0B79E6         db       0x0B, 0x0B, 0x79, 0xE6
+[085F:3AE8] 07CCAC52         db       0x07, 0xCC, 0xAC, 0x52
+[085F:3AEC] 0B78B7F2         db       0x0B, 0x78, 0xB7, 0xF2
+[085F:3AF0] D73AC1C3         db       0xD7, 0x3A, 0xC1, 0xC3
+[085F:3AF4] 94213AE6         db       0x94, 0x21, 0x3A, 0xE6
+[085F:3AF8] 6AB7CA27         db       0x6A, 0xB7, 0xCA, 0x27
+[085F:3AFC] 3B21E76A         db       0x3B, 0x21, 0xE7, 0x6A
+[085F:3B00] 7E3600B7         db       0x7E, 0x36, 0x00, 0xB7
+[085F:3B04] C03EFF32         db       0xC0, 0x3E, 0xFF, 0x32
+[085F:3B08] 8F68CDC4         db       0x8F, 0x68, 0xCD, 0xC4
+[085F:3B0C] 4F110F72         db       0x4F, 0x11, 0x0F, 0x72
+[085F:3B10] CD2720CD         db       0xCD, 0x27, 0x20, 0xCD
+[085F:3B14] 594FCDAA         db       0x59, 0x4F, 0xCD, 0xAA
+[085F:3B18] 3A3E0032         db       0x3A, 0x3E, 0x00, 0x32
+[085F:3B1C] 8F6877C0         db       0x8F, 0x68, 0x77, 0xC0
+[085F:3B20] 2F329068         db       0x2F, 0x32, 0x90, 0x68
+[085F:3B24] C3C75921         db       0xC3, 0xC7, 0x59, 0x21
+[085F:3B28] 1F72CD3B         db       0x1F, 0x72, 0xCD, 0x3B
+[085F:3B2C] 51D8CD2D         db       0x51, 0xD8, 0xCD, 0x2D
+[085F:3B30] 51CDAD4F         db       0x51, 0xCD, 0xAD, 0x4F
+[085F:3B34] 11646921         db       0x11, 0x64, 0x69, 0x21
+[085F:3B38] A26ACDDA         db       0xA2, 0x6A, 0xCD, 0xDA
+[085F:3B3C] 390E1314         db       0x39, 0x0E, 0x13, 0x14
+[085F:3B40] 5052494E         db       0x50, 0x52, 0x49, 0x4E
+[085F:3B44] 5400C8CD         db       0x54, 0x00, 0xC8, 0xCD
+[085F:3B48] 5C3ACA34         db       0x5C, 0x3A, 0xCA, 0x34
+[085F:3B4C] 3B2B7EFE         db       0x3B, 0x2B, 0x7E, 0xFE
+[085F:3B50] 1BC4573B         db       0x1B, 0xC4, 0x57, 0x3B
+[085F:3B54] C35F5111         db       0xC3, 0x5F, 0x51, 0x11
+[085F:3B58] 1172CD27         db       0x11, 0x72, 0xCD, 0x27
+[085F:3B5C] 20CDD04F         db       0x20, 0xCD, 0xD0, 0x4F
+[085F:3B60] 3AA26D3C         db       0x3A, 0xA2, 0x6D, 0x3C
+[085F:3B64] 32A46D3A         db       0x32, 0xA4, 0x6D, 0x3A
+[085F:3B68] A46DCDF6         db       0xA4, 0x6D, 0xCD, 0xF6
+[085F:3B6C] 1FCD624F         db       0x1F, 0xCD, 0x62, 0x4F
+[085F:3B70] 3DCDF61F         db       0x3D, 0xCD, 0xF6, 0x1F
+[085F:3B74] 111572CD         db       0x11, 0x15, 0x72, 0xCD
+[085F:3B78] E83BC2A1         db       0xE8, 0x3B, 0xC2, 0xA1
+[085F:3B7C] 3B118A69         db       0x3B, 0x11, 0x8A, 0x69
+[085F:3B80] 21B86ACD         db       0x21, 0xB8, 0x6A, 0xCD
+[085F:3B84] DA391313         db       0xDA, 0x39, 0x13, 0x13
+[085F:3B88] 2020204F         db       0x20, 0x20, 0x20, 0x4F
+[085F:3B8C] 55545055         db       0x55, 0x54, 0x50, 0x55
+[085F:3B90] 54201520         db       0x54, 0x20, 0x15, 0x20
+[085F:3B94] 4E414D45         db       0x4E, 0x41, 0x4D, 0x45
+[085F:3B98] 00CA673B         db       0x00, 0xCA, 0x67, 0x3B
+[085F:3B9C] 3EFF3220         db       0x3E, 0xFF, 0x32, 0x20
+[085F:3BA0] 6921CE6A         db       0x69, 0x21, 0xCE, 0x6A
+[085F:3BA4] 111372CD         db       0x11, 0x13, 0x72, 0xCD
+[085F:3BA8] 754F221E         db       0x75, 0x4F, 0x22, 0x1E
+[085F:3BAC] 69CD624F         db       0x69, 0xCD, 0x62, 0x4F
+[085F:3BB0] 111772CD         db       0x11, 0x17, 0x72, 0xCD
+[085F:3BB4] E83B321D         db       0xE8, 0x3B, 0x32, 0x1D
+[085F:3BB8] 69111972         db       0x69, 0x11, 0x19, 0x72
+[085F:3BBC] CDE83B32         db       0xCD, 0xE8, 0x3B, 0x32
+[085F:3BC0] 1B693A20         db       0x1B, 0x69, 0x3A, 0x20
+[085F:3BC4] 69B72F11         db       0x69, 0xB7, 0x2F, 0x11
+[085F:3BC8] 1B72CCE8         db       0x1B, 0x72, 0xCC, 0xE8
+[085F:3BCC] 3B322169         db       0x3B, 0x32, 0x21, 0x69
+[085F:3BD0] 3A2069B7         db       0x3A, 0x20, 0x69, 0xB7
+[085F:3BD4] C0111D72         db       0xC0, 0x11, 0x1D, 0x72
+[085F:3BD8] CD2720CD         db       0xCD, 0x27, 0x20, 0xCD
+[085F:3BDC] D04FCD59         db       0xD0, 0x4F, 0xCD, 0x59
+[085F:3BE0] 4FCDF020         db       0x4F, 0xCD, 0xF0, 0x20
+[085F:3BE4] CDF42BC9         db       0xCD, 0xF4, 0x2B, 0xC9
+[085F:3BE8] CD1F2013         db       0xCD, 0x1F, 0x20, 0x13
+[085F:3BEC] 1300CD27         db       0x13, 0x00, 0xCD, 0x27
+[085F:3BF0] 20CDF73B         db       0x20, 0xCD, 0xF7, 0x3B
+[085F:3BF4] C35623CD         db       0xC3, 0x56, 0x23, 0xCD
+[085F:3BF8] 9B3A3EFF         db       0x9B, 0x3A, 0x3E, 0xFF
+[085F:3BFC] C82F5945         db       0xC8, 0x2F, 0x59, 0x45
+[085F:3C00] 4C4C4F57         db       0x4C, 0x4C, 0x4F, 0x57
+[085F:3C04] A8FF0000         db       0xA8, 0xFF, 0x00, 0x00
+[085F:3C08] 00475245         db       0x00, 0x47, 0x52, 0x45
+[085F:3C0C] 454E20A8         db       0x45, 0x4E, 0x20, 0xA8
+[085F:3C10] 55000000         db       0x55, 0x00, 0x00, 0x00
+[085F:3C14] 52454420         db       0x52, 0x45, 0x44, 0x20
+[085F:3C18] 2020A8AA         db       0x20, 0x20, 0xA8, 0xAA
+[085F:3C1C] 00000042         db       0x00, 0x00, 0x00, 0x42
+[085F:3C20] 4C41434B         db       0x4C, 0x41, 0x43, 0x4B
+[085F:3C24] 20A80000         db       0x20, 0xA8, 0x00, 0x00
+[085F:3C28] 00005359         db       0x00, 0x00, 0x53, 0x59
+[085F:3C2C] 53494E54         db       0x53, 0x49, 0x4E, 0x54
+[085F:3C30] A81D0100         db       0xA8, 0x1D, 0x01, 0x00
+[085F:3C34] 004B494C         db       0x00, 0x4B, 0x49, 0x4C
+[085F:3C38] 4C2020A8         db       0x4C, 0x20, 0x20, 0xA8
+[085F:3C3C] 03010000         db       0x03, 0x01, 0x00, 0x00
+[085F:3C40] 4B494C4C         db       0x4B, 0x49, 0x4C, 0x4C
+[085F:3C44] 4552A809         db       0x45, 0x52, 0xA8, 0x09
+[085F:3C48] 0100004B         db       0x01, 0x00, 0x00, 0x4B
+[085F:3C4C] 42495649         db       0x42, 0x49, 0x56, 0x49
+[085F:3C50] 50A8DB03         db       0x50, 0xA8, 0xDB, 0x03
+[085F:3C54] 00004B42         db       0x00, 0x00, 0x4B, 0x42
+[085F:3C58] 49564353         db       0x49, 0x56, 0x43, 0x53
+[085F:3C5C] A8DD0300         db       0xA8, 0xDD, 0x03, 0x00
+[085F:3C60] 004B4559         db       0x00, 0x4B, 0x45, 0x59
+[085F:3C64] 424420A8         db       0x42, 0x44, 0x20, 0xA8
+[085F:3C68] A7020000         db       0xA7, 0x02, 0x00, 0x00
+[085F:3C6C] 474C4F52         db       0x47, 0x4C, 0x4F, 0x52
+[085F:3C70] 5920A049         db       0x59, 0x20, 0xA0, 0x49
+[085F:3C74] 01000054         db       0x01, 0x00, 0x00, 0x54
+[085F:3C78] 49544C45         db       0x49, 0x54, 0x4C, 0x45
+[085F:3C7C] 20A83312         db       0x20, 0xA8, 0x33, 0x12
+[085F:3C80] 00005045         db       0x00, 0x00, 0x50, 0x45
+[085F:3C84] 4E43494C         db       0x4E, 0x43, 0x49, 0x4C
+[085F:3C88] A8311200         db       0xA8, 0x31, 0x12, 0x00
+[085F:3C8C] 00505249         db       0x00, 0x50, 0x52, 0x49
+[085F:3C90] 4E5420A8         db       0x4E, 0x54, 0x20, 0xA8
+[085F:3C94] B40F0000         db       0xB4, 0x0F, 0x00, 0x00
+[085F:3C98] 5347464C         db       0x53, 0x47, 0x46, 0x4C
+[085F:3C9C] 4720A82C         db       0x47, 0x20, 0xA8, 0x2C
+[085F:3CA0] 12000050         db       0x12, 0x00, 0x00, 0x50
+[085F:3CA4] 41555345         db       0x41, 0x55, 0x53, 0x45
+[085F:3CA8] 20A85701         db       0x20, 0xA8, 0x57, 0x01
+[085F:3CAC] 00004245         db       0x00, 0x00, 0x42, 0x45
+[085F:3CB0] 47494E20         db       0x47, 0x49, 0x4E, 0x20
+[085F:3CB4] A85E0100         db       0xA8, 0x5E, 0x01, 0x00
+[085F:3CB8] 00535441         db       0x00, 0x53, 0x54, 0x41
+[085F:3CBC] 434B20A8         db       0x43, 0x4B, 0x20, 0xA8
+[085F:3CC0] 6F360000         db       0x6F, 0x36, 0x00, 0x00
+[085F:3CC4] 5045524D         db       0x50, 0x45, 0x52, 0x4D
+[085F:3CC8] 4120A82D         db       0x41, 0x20, 0xA8, 0x2D
+[085F:3CCC] 12000050         db       0x12, 0x00, 0x00, 0x50
+[085F:3CD0] 4152414D         db       0x41, 0x52, 0x41, 0x4D
+[085F:3CD4] 20A84810         db       0x20, 0xA8, 0x48, 0x10
+[085F:3CD8] 00005252         db       0x00, 0x00, 0x52, 0x52
+[085F:3CDC] 494E5420         db       0x49, 0x4E, 0x54, 0x20
+[085F:3CE0] A8670100         db       0xA8, 0x67, 0x01, 0x00
+[085F:3CE4] 00414E47         db       0x00, 0x41, 0x4E, 0x47
+[085F:3CE8] 4C4520A8         db       0x4C, 0x45, 0x20, 0xA8
+[085F:3CEC] 50100000         db       0x50, 0x10, 0x00, 0x00
+[085F:3CF0] 42555454         db       0x42, 0x55, 0x54, 0x54
+[085F:3CF4] 4E20A85F         db       0x4E, 0x20, 0xA8, 0x5F
+[085F:3CF8] 10000058         db       0x10, 0x00, 0x00, 0x58
+[085F:3CFC] 504F5320         db       0x50, 0x4F, 0x53, 0x20
+[085F:3D00] 20A85310         db       0x20, 0xA8, 0x53, 0x10
+[085F:3D04] 00005950         db       0x00, 0x00, 0x59, 0x50
+[085F:3D08] 4F532020         db       0x4F, 0x53, 0x20, 0x20
+[085F:3D0C] A8551000         db       0xA8, 0x55, 0x10, 0x00
+[085F:3D10] 00585645         db       0x00, 0x58, 0x56, 0x45
+[085F:3D14] 4C4F20A8         db       0x4C, 0x4F, 0x20, 0xA8
+[085F:3D18] 59100000         db       0x59, 0x10, 0x00, 0x00
+[085F:3D1C] 5956454C         db       0x59, 0x56, 0x45, 0x4C
+[085F:3D20] 4F20A857         db       0x4F, 0x20, 0xA8, 0x57
+[085F:3D24] 10000043         db       0x10, 0x00, 0x00, 0x43
+[085F:3D28] 4C495020         db       0x4C, 0x49, 0x50, 0x20
+[085F:3D2C] 20A8FB11         db       0x20, 0xA8, 0xFB, 0x11
+[085F:3D30] 00005245         db       0x00, 0x00, 0x52, 0x45
+[085F:3D34] 434F5244         db       0x43, 0x4F, 0x52, 0x44
+[085F:3D38] A8071200         db       0xA8, 0x07, 0x12, 0x00
+[085F:3D3C] 00474F4E         db       0x00, 0x47, 0x4F, 0x4E
+[085F:3D40] 452020A8         db       0x45, 0x20, 0x20, 0xA8
+[085F:3D44] 06120000         db       0x06, 0x12, 0x00, 0x00
+[085F:3D48] 434C4541         db       0x43, 0x4C, 0x45, 0x41
+[085F:3D4C] 5220A0A5         db       0x52, 0x20, 0xA0, 0xA5
+[085F:3D50] 01000045         db       0x01, 0x00, 0x00, 0x45
+[085F:3D54] 52415345         db       0x52, 0x41, 0x53, 0x45
+[085F:3D58] 20A87A08         db       0x20, 0xA8, 0x7A, 0x08
+[085F:3D5C] 00005650         db       0x00, 0x00, 0x56, 0x50
+[085F:3D60] 524F4720         db       0x52, 0x4F, 0x47, 0x20
+[085F:3D64] A88D0800         db       0xA8, 0x8D, 0x08, 0x00
+[085F:3D68] 0052554B         db       0x00, 0x52, 0x55, 0x4B
+[085F:3D6C] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:3D70] CB110000         db       0xCB, 0x11, 0x00, 0x00
+[085F:3D74] 53484950         db       0x53, 0x48, 0x49, 0x50
+[085F:3D78] 5320A80B         db       0x53, 0x20, 0xA8, 0x0B
+[085F:3D7C] 1200004C         db       0x12, 0x00, 0x00, 0x4C
+[085F:3D80] 54494D45         db       0x54, 0x49, 0x4D, 0x45
+[085F:3D84] 52A82512         db       0x52, 0xA8, 0x25, 0x12
+[085F:3D88] 00004652         db       0x00, 0x00, 0x46, 0x52
+[085F:3D8C] 414D4520         db       0x41, 0x4D, 0x45, 0x20
+[085F:3D90] A8BB0100         db       0xA8, 0xBB, 0x01, 0x00
+[085F:3D94] 0046554C         db       0x00, 0x46, 0x55, 0x4C
+[085F:3D98] 4C2020A8         db       0x4C, 0x20, 0x20, 0xA8
+[085F:3D9C] CB010000         db       0xCB, 0x01, 0x00, 0x00
+[085F:3DA0] 494E4954         db       0x49, 0x4E, 0x49, 0x54
+[085F:3DA4] 4320A8D8         db       0x43, 0x20, 0xA8, 0xD8
+[085F:3DA8] 1100004D         db       0x11, 0x00, 0x00, 0x4D
+[085F:3DAC] 414E5920         db       0x41, 0x4E, 0x59, 0x20
+[085F:3DB0] 20A80512         db       0x20, 0xA8, 0x05, 0x12
+[085F:3DB4] 0000524F         db       0x00, 0x00, 0x52, 0x4F
+[085F:3DB8] 4B4C4F50         db       0x4B, 0x4C, 0x4F, 0x50
+[085F:3DBC] A8D50100         db       0xA8, 0xD5, 0x01, 0x00
+[085F:3DC0] 0052414E         db       0x00, 0x52, 0x41, 0x4E
+[085F:3DC4] 444D20A8         db       0x44, 0x4D, 0x20, 0xA8
+[085F:3DC8] 2A070000         db       0x2A, 0x07, 0x00, 0x00
+[085F:3DCC] 53495A45         db       0x53, 0x49, 0x5A, 0x45
+[085F:3DD0] 2020A8C9         db       0x20, 0x20, 0xA8, 0xC9
+[085F:3DD4] 11000052         db       0x11, 0x00, 0x00, 0x52
+[085F:3DD8] 4E443120         db       0x4E, 0x44, 0x31, 0x20
+[085F:3DDC] 20A86110         db       0x20, 0xA8, 0x61, 0x10
+[085F:3DE0] 0000524E         db       0x00, 0x00, 0x52, 0x4E
+[085F:3DE4] 44322020         db       0x44, 0x32, 0x20, 0x20
+[085F:3DE8] A8631000         db       0xA8, 0x63, 0x10, 0x00
+[085F:3DEC] 00525850         db       0x00, 0x52, 0x58, 0x50
+[085F:3DF0] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:3DF4] CC110000         db       0xCC, 0x11, 0x00, 0x00
+[085F:3DF8] 52595020         db       0x52, 0x59, 0x50, 0x20
+[085F:3DFC] 2020A8CE         db       0x20, 0x20, 0xA8, 0xCE
+[085F:3E00] 11000057         db       0x11, 0x00, 0x00, 0x57
+[085F:3E04] 41592020         db       0x41, 0x59, 0x20, 0x20
+[085F:3E08] 20A80002         db       0x20, 0xA8, 0x00, 0x02
+[085F:3E0C] 00004F4E         db       0x00, 0x00, 0x4F, 0x4E
+[085F:3E10] 45202020         db       0x45, 0x20, 0x20, 0x20
+[085F:3E14] A8F40100         db       0xA8, 0xF4, 0x01, 0x00
+[085F:3E18] 00524E44         db       0x00, 0x52, 0x4E, 0x44
+[085F:3E1C] 332020A8         db       0x33, 0x20, 0x20, 0xA8
+[085F:3E20] 65100000         db       0x65, 0x10, 0x00, 0x00
+[085F:3E24] 52585620         db       0x52, 0x58, 0x56, 0x20
+[085F:3E28] 2020A8D0         db       0x20, 0x20, 0xA8, 0xD0
+[085F:3E2C] 11000052         db       0x11, 0x00, 0x00, 0x52
+[085F:3E30] 4E443420         db       0x4E, 0x44, 0x34, 0x20
+[085F:3E34] 20A86710         db       0x20, 0xA8, 0x67, 0x10
+[085F:3E38] 00005259         db       0x00, 0x00, 0x52, 0x59
+[085F:3E3C] 56202020         db       0x56, 0x20, 0x20, 0x20
+[085F:3E40] A8D21100         db       0xA8, 0xD2, 0x11, 0x00
+[085F:3E44] 00434C4F         db       0x00, 0x43, 0x4C, 0x4F
+[085F:3E48] 442020A8         db       0x44, 0x20, 0x20, 0xA8
+[085F:3E4C] 79060000         db       0x79, 0x06, 0x00, 0x00
+[085F:3E50] 53544152         db       0x53, 0x54, 0x41, 0x52
+[085F:3E54] 5420A81B         db       0x54, 0x20, 0xA8, 0x1B
+[085F:3E58] 02000049         db       0x02, 0x00, 0x00, 0x49
+[085F:3E5C] 4E544552         db       0x4E, 0x54, 0x45, 0x52
+[085F:3E60] 20A8DA11         db       0x20, 0xA8, 0xDA, 0x11
+[085F:3E64] 00004354         db       0x00, 0x00, 0x43, 0x54
+[085F:3E68] 524C2020         db       0x52, 0x4C, 0x20, 0x20
+[085F:3E6C] A8640200         db       0xA8, 0x64, 0x02, 0x00
+[085F:3E70] 004D4F56         db       0x00, 0x4D, 0x4F, 0x56
+[085F:3E74] 452020A8         db       0x45, 0x20, 0x20, 0xA8
+[085F:3E78] 63040000         db       0x63, 0x04, 0x00, 0x00
+[085F:3E7C] 53445220         db       0x53, 0x44, 0x52, 0x20
+[085F:3E80] 2020A8DF         db       0x20, 0x20, 0xA8, 0xDF
+[085F:3E84] 03000041         db       0x03, 0x00, 0x00, 0x41
+[085F:3E88] 54554820         db       0x54, 0x55, 0x48, 0x20
+[085F:3E8C] 20A8E204         db       0x20, 0xA8, 0xE2, 0x04
+[085F:3E90] 00004153         db       0x00, 0x00, 0x41, 0x53
+[085F:3E94] 54522020         db       0x54, 0x52, 0x20, 0x20
+[085F:3E98] A8F90600         db       0xA8, 0xF9, 0x06, 0x00
+[085F:3E9C] 0053484F         db       0x00, 0x53, 0x48, 0x4F
+[085F:3EA0] 4F5420A8         db       0x4F, 0x54, 0x20, 0xA8
+[085F:3EA4] 69070000         db       0x69, 0x07, 0x00, 0x00
+[085F:3EA8] 4D495353         db       0x4D, 0x49, 0x53, 0x53
+[085F:3EAC] 4C20A8D9         db       0x4C, 0x20, 0xA8, 0xD9
+[085F:3EB0] 07000045         db       0x07, 0x00, 0x00, 0x45
+[085F:3EB4] 58504C4F         db       0x58, 0x50, 0x4C, 0x4F
+[085F:3EB8] 20A8E509         db       0x20, 0xA8, 0xE5, 0x09
+[085F:3EBC] 00004E4F         db       0x00, 0x00, 0x4E, 0x4F
+[085F:3EC0] 4E452020         db       0x4E, 0x45, 0x20, 0x20
+[085F:3EC4] A8320A00         db       0xA8, 0x32, 0x0A, 0x00
+[085F:3EC8] 0052454E         db       0x00, 0x52, 0x45, 0x4E
+[085F:3ECC] 442020A8         db       0x44, 0x20, 0x20, 0xA8
+[085F:3ED0] 030B0000         db       0x03, 0x0B, 0x00, 0x00
+[085F:3ED4] 5253544F         db       0x52, 0x53, 0x54, 0x4F
+[085F:3ED8] 5220A8B0         db       0x52, 0x20, 0xA8, 0xB0
+[085F:3EDC] 0A000041         db       0x0A, 0x00, 0x00, 0x41
+[085F:3EE0] 4E4E4F59         db       0x4E, 0x4E, 0x4F, 0x59
+[085F:3EE4] 20A8B80B         db       0x20, 0xA8, 0xB8, 0x0B
+[085F:3EE8] 00004C49         db       0x00, 0x00, 0x4C, 0x49
+[085F:3EEC] 54544C45         db       0x54, 0x54, 0x4C, 0x45
+[085F:3EF0] A8600B00         db       0xA8, 0x60, 0x0B, 0x00
+[085F:3EF4] 00574F55         db       0x00, 0x57, 0x4F, 0x55
+[085F:3EF8] 4E4420A8         db       0x4E, 0x44, 0x20, 0xA8
+[085F:3EFC] 180C0000         db       0x18, 0x0C, 0x00, 0x00
+[085F:3F00] 41545441         db       0x41, 0x54, 0x54, 0x41
+[085F:3F04] 434BA8E1         db       0x43, 0x4B, 0xA8, 0xE1
+[085F:3F08] 0C000045         db       0x0C, 0x00, 0x00, 0x45
+[085F:3F0C] 46495245         db       0x46, 0x49, 0x52, 0x45
+[085F:3F10] 20A83D0D         db       0x20, 0xA8, 0x3D, 0x0D
+[085F:3F14] 00004542         db       0x00, 0x00, 0x45, 0x42
+[085F:3F18] 554C4954         db       0x55, 0x4C, 0x49, 0x54
+[085F:3F1C] A8A80D00         db       0xA8, 0xA8, 0x0D, 0x00
+[085F:3F20] 00505343         db       0x00, 0x50, 0x53, 0x43
+[085F:3F24] 4F5245A8         db       0x4F, 0x52, 0x45, 0xA8
+[085F:3F28] 2F0E0000         db       0x2F, 0x0E, 0x00, 0x00
+[085F:3F2C] 54524945         db       0x54, 0x52, 0x49, 0x45
+[085F:3F30] 5320A8F3         db       0x53, 0x20, 0xA8, 0xF3
+[085F:3F34] 0E000047         db       0x0E, 0x00, 0x00, 0x47
+[085F:3F38] 414D4F56         db       0x41, 0x4D, 0x4F, 0x56
+[085F:3F3C] 52A8390F         db       0x52, 0xA8, 0x39, 0x0F
+[085F:3F40] 00004859         db       0x00, 0x00, 0x48, 0x59
+[085F:3F44] 50455220         db       0x50, 0x45, 0x52, 0x20
+[085F:3F48] A8700F00         db       0xA8, 0x70, 0x0F, 0x00
+[085F:3F4C] 00484954         db       0x00, 0x48, 0x49, 0x54
+[085F:3F50] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:3F54] 08120000         db       0x08, 0x12, 0x00, 0x00
+[085F:3F58] 52475446         db       0x52, 0x47, 0x54, 0x46
+[085F:3F5C] 4C47A828         db       0x4C, 0x47, 0xA8, 0x28
+[085F:3F60] 12000043         db       0x12, 0x00, 0x00, 0x43
+[085F:3F64] 54524C31         db       0x54, 0x52, 0x4C, 0x31
+[085F:3F68] 20A88202         db       0x20, 0xA8, 0x82, 0x02
+[085F:3F6C] 00004C46         db       0x00, 0x00, 0x4C, 0x46
+[085F:3F70] 54464C47         db       0x54, 0x46, 0x4C, 0x47
+[085F:3F74] A8291200         db       0xA8, 0x29, 0x12, 0x00
+[085F:3F78] 00435452         db       0x00, 0x43, 0x54, 0x52
+[085F:3F7C] 4C3220A8         db       0x4C, 0x32, 0x20, 0xA8
+[085F:3F80] 92020000         db       0x92, 0x02, 0x00, 0x00
+[085F:3F84] 54535446         db       0x54, 0x53, 0x54, 0x46
+[085F:3F88] 4C47A82A         db       0x4C, 0x47, 0xA8, 0x2A
+[085F:3F8C] 12000054         db       0x12, 0x00, 0x00, 0x54
+[085F:3F90] 464C4147         db       0x46, 0x4C, 0x41, 0x47
+[085F:3F94] 20A86010         db       0x20, 0xA8, 0x60, 0x10
+[085F:3F98] 00004354         db       0x00, 0x00, 0x43, 0x54
+[085F:3F9C] 524C4520         db       0x52, 0x4C, 0x45, 0x20
+[085F:3FA0] A8A60200         db       0xA8, 0xA6, 0x02, 0x00
+[085F:3FA4] 00435452         db       0x00, 0x43, 0x54, 0x52
+[085F:3FA8] 4C3320A8         db       0x4C, 0x33, 0x20, 0xA8
+[085F:3FAC] A1020000         db       0xA1, 0x02, 0x00, 0x00
+[085F:3FB0] 4859504B         db       0x48, 0x59, 0x50, 0x4B
+[085F:3FB4] 4559A826         db       0x45, 0x59, 0xA8, 0x26
+[085F:3FB8] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:3FBC] 42342020         db       0x42, 0x34, 0x20, 0x20
+[085F:3FC0] 20A8CA02         db       0x20, 0xA8, 0xCA, 0x02
+[085F:3FC4] 00004C46         db       0x00, 0x00, 0x4C, 0x46
+[085F:3FC8] 544B4559         db       0x54, 0x4B, 0x45, 0x59
+[085F:3FCC] A8320300         db       0xA8, 0x32, 0x03, 0x00
+[085F:3FD0] 004B4235         db       0x00, 0x4B, 0x42, 0x35
+[085F:3FD4] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:3FD8] D2020000         db       0xD2, 0x02, 0x00, 0x00
+[085F:3FDC] 5247544B         db       0x52, 0x47, 0x54, 0x4B
+[085F:3FE0] 4559A845         db       0x45, 0x59, 0xA8, 0x45
+[085F:3FE4] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:3FE8] 42362020         db       0x42, 0x36, 0x20, 0x20
+[085F:3FEC] 20A8DA02         db       0x20, 0xA8, 0xDA, 0x02
+[085F:3FF0] 00005453         db       0x00, 0x00, 0x54, 0x53
+[085F:3FF4] 544B4559         db       0x54, 0x4B, 0x45, 0x59
+[085F:3FF8] A8580300         db       0xA8, 0x58, 0x03, 0x00
+[085F:3FFC] 004B4237         db       0x00, 0x4B, 0x42, 0x37
+[085F:4000] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:4004] E2020000         db       0xE2, 0x02, 0x00, 0x00
+[085F:4008] 4649524B         db       0x46, 0x49, 0x52, 0x4B
+[085F:400C] 4559A86B         db       0x45, 0x59, 0xA8, 0x6B
+[085F:4010] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:4014] 42382020         db       0x42, 0x38, 0x20, 0x20
+[085F:4018] 20A8EA02         db       0x20, 0xA8, 0xEA, 0x02
+[085F:401C] 00005347         db       0x00, 0x00, 0x53, 0x47
+[085F:4020] 4B455920         db       0x4B, 0x45, 0x59, 0x20
+[085F:4024] A8770300         db       0xA8, 0x77, 0x03, 0x00
+[085F:4028] 004B4239         db       0x00, 0x4B, 0x42, 0x39
+[085F:402C] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:4030] F2020000         db       0xF2, 0x02, 0x00, 0x00
+[085F:4034] 45584B45         db       0x45, 0x58, 0x4B, 0x45
+[085F:4038] 5920A87E         db       0x59, 0x20, 0xA8, 0x7E
+[085F:403C] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:4040] 42412020         db       0x42, 0x41, 0x20, 0x20
+[085F:4044] 20A8FA02         db       0x20, 0xA8, 0xFA, 0x02
+[085F:4048] 0000534B         db       0x00, 0x00, 0x53, 0x4B
+[085F:404C] 494C4C31         db       0x49, 0x4C, 0x4C, 0x31
+[085F:4050] A8810300         db       0xA8, 0x81, 0x03, 0x00
+[085F:4054] 004B4231         db       0x00, 0x4B, 0x42, 0x31
+[085F:4058] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:405C] 02030000         db       0x02, 0x03, 0x00, 0x00
+[085F:4060] 534B494C         db       0x53, 0x4B, 0x49, 0x4C
+[085F:4064] 4C32A88D         db       0x4C, 0x32, 0xA8, 0x8D
+[085F:4068] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:406C] 42322020         db       0x42, 0x32, 0x20, 0x20
+[085F:4070] 20A80A03         db       0x20, 0xA8, 0x0A, 0x03
+[085F:4074] 00004241         db       0x00, 0x00, 0x42, 0x41
+[085F:4078] 434B4752         db       0x43, 0x4B, 0x47, 0x52
+[085F:407C] A8BA0300         db       0xA8, 0xBA, 0x03, 0x00
+[085F:4080] 004B4233         db       0x00, 0x4B, 0x42, 0x33
+[085F:4084] 202020A8         db       0x20, 0x20, 0x20, 0xA8
+[085F:4088] 13030000         db       0x13, 0x03, 0x00, 0x00
+[085F:408C] 43425720         db       0x43, 0x42, 0x57, 0x20
+[085F:4090] 2020A899         db       0x20, 0x20, 0xA8, 0x99
+[085F:4094] 0300004B         db       0x03, 0x00, 0x00, 0x4B
+[085F:4098] 42455849         db       0x42, 0x45, 0x58, 0x49
+[085F:409C] 54A81B03         db       0x54, 0xA8, 0x1B, 0x03
+[085F:40A0] 00004859         db       0x00, 0x00, 0x48, 0x59
+[085F:40A4] 50464C47         db       0x50, 0x46, 0x4C, 0x47
+[085F:40A8] A8271200         db       0xA8, 0x27, 0x12, 0x00
+[085F:40AC] 00484B45         db       0x00, 0x48, 0x4B, 0x45
+[085F:40B0] 585420A8         db       0x58, 0x54, 0x20, 0xA8
+[085F:40B4] 30030000         db       0x30, 0x03, 0x00, 0x00
+[085F:40B8] 4C46544F         db       0x4C, 0x46, 0x54, 0x4F
+[085F:40BC] 4646A83E         db       0x46, 0x46, 0xA8, 0x3E
+[085F:40C0] 03000052         db       0x03, 0x00, 0x00, 0x52
+[085F:40C4] 47544F46         db       0x47, 0x54, 0x4F, 0x46
+[085F:40C8] 46A85103         db       0x46, 0xA8, 0x51, 0x03
+[085F:40CC] 00005453         db       0x00, 0x00, 0x54, 0x53
+[085F:40D0] 544F4646         db       0x54, 0x4F, 0x46, 0x46
+[085F:40D4] A8640300         db       0xA8, 0x64, 0x03, 0x00
+[085F:40D8] 00464952         db       0x00, 0x46, 0x49, 0x52
+[085F:40DC] 464C47A8         db       0x46, 0x4C, 0x47, 0xA8
+[085F:40E0] 2B120000         db       0x2B, 0x12, 0x00, 0x00
+[085F:40E4] 53504545         db       0x53, 0x50, 0x45, 0x45
+[085F:40E8] 4420A82D         db       0x44, 0x20, 0xA8, 0x2D
+[085F:40EC] 12000053         db       0x12, 0x00, 0x00, 0x53
+[085F:40F0] 4348524F         db       0x43, 0x48, 0x52, 0x4F
+[085F:40F4] 4DA82E12         db       0x4D, 0xA8, 0x2E, 0x12
+[085F:40F8] 00004342         db       0x00, 0x00, 0x43, 0x42
+[085F:40FC] 434F4E20         db       0x43, 0x4F, 0x4E, 0x20
+[085F:4100] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4104] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4108] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:410C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4110] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4114] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4118] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:411C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4120] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4124] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4128] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:412C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4130] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4134] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4138] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:413C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4140] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4144] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4148] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:414C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4150] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4154] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4158] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:415C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4160] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4164] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4168] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:416C] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4170] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4174] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:4178] 00000000         db       0x00, 0x00, 0x00, 0x00
+[085F:417C] 00000000         db       0x00, 0x00, 0x00, 0x00
+

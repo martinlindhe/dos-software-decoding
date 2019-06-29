@@ -1,0 +1,217 @@
+00000100  B83011            mov ax,0x1130
+00000103  B706              mov bh,0x6
+00000105  CD10              int 0x10
+00000107  2E892EB2CB        mov [cs:0xcbb2],bp
+0000010C  2E8C06B4CB        mov [cs:0xcbb4],es
+00000111  0E                push cs
+00000112  07                pop es
+00000113  B81300            mov ax,0x13
+00000116  CD10              int 0x10
+00000118  B81210            mov ax,0x1012
+0000011B  B90500            mov cx,0x5
+0000011E  B301              mov bl,0x1
+00000120  BA9302            mov dx,0x293
+00000123  CD10              int 0x10
+00000125  B309              mov bl,0x9
+00000127  83E902            sub cx,byte +0x2
+0000012A  CD10              int 0x10
+0000012C  BED202            mov si,0x2d2
+0000012F  BFF202            mov di,0x2f2
+00000132  B90300            mov cx,0x3
+00000135  51                push cx
+00000136  B90800            mov cx,0x8
+00000139  F3A5              rep movsw
+0000013B  83EE20            sub si,byte +0x20
+0000013E  59                pop cx
+0000013F  E2F4              loop 0x135
+00000141  BEA202            mov si,0x2a2
+00000144  BF2A03            mov di,0x32a
+00000147  E82301            call 0x26d
+0000014A  BEAA02            mov si,0x2aa
+0000014D  BF2203            mov di,0x322
+00000150  E81A01            call 0x26d
+00000153  33C0              xor ax,ax
+00000155  B90064            mov cx,0x6400
+00000158  BFA203            mov di,0x3a2
+0000015B  F3AB              rep stosw
+0000015D  32DB              xor bl,bl
+0000015F  BEA202            mov si,0x2a2
+00000162  8BFE              mov di,si
+00000164  FEC3              inc bl
+00000166  80FB7F            cmp bl,0x7f
+00000169  7713              ja 0x17e
+0000016B  B91000            mov cx,0x10
+0000016E  AD                lodsw
+0000016F  51                push cx
+00000170  50                push ax
+00000171  B90700            mov cx,0x7
+00000174  F3A5              rep movsw
+00000176  58                pop ax
+00000177  59                pop cx
+00000178  AB                stosw
+00000179  E2F3              loop 0x16e
+0000017B  EB1E              jmp short 0x19b
+0000017D  90                nop
+0000017E  B91000            mov cx,0x10
+00000181  83EE02            sub si,byte +0x2
+00000184  FD                std
+00000185  83C610            add si,byte +0x10
+00000188  8BFE              mov di,si
+0000018A  AD                lodsw
+0000018B  51                push cx
+0000018C  50                push ax
+0000018D  B90700            mov cx,0x7
+00000190  F3A5              rep movsw
+00000192  58                pop ax
+00000193  59                pop cx
+00000194  AB                stosw
+00000195  83C610            add si,byte +0x10
+00000198  E2EB              loop 0x185
+0000019A  FC                cld
+0000019B  BEA202            mov si,0x2a2
+0000019E  BFA2CB            mov di,0xcba2
+000001A1  B90800            mov cx,0x8
+000001A4  F3A5              rep movsw
+000001A6  BFA202            mov di,0x2a2
+000001A9  B97800            mov cx,0x78
+000001AC  F3A5              rep movsw
+000001AE  BEA2CB            mov si,0xcba2
+000001B1  BF9203            mov di,0x392
+000001B4  B90800            mov cx,0x8
+000001B7  F3A5              rep movsw
+000001B9  BEA202            mov si,0x2a2
+000001BC  BFA203            mov di,0x3a2
+000001BF  33C0              xor ax,ax
+000001C1  B9A000            mov cx,0xa0
+000001C4  51                push cx
+000001C5  B91400            mov cx,0x14
+000001C8  51                push cx
+000001C9  B90800            mov cx,0x8
+000001CC  F3A5              rep movsw
+000001CE  83EE10            sub si,byte +0x10
+000001D1  59                pop cx
+000001D2  E2F4              loop 0x1c8
+000001D4  83C610            add si,byte +0x10
+000001D7  40                inc ax
+000001D8  3D1000            cmp ax,0x10
+000001DB  7206              jc 0x1e3
+000001DD  81EE0001          sub si,0x100
+000001E1  33C0              xor ax,ax
+000001E3  59                pop cx
+000001E4  E2DE              loop 0x1c4
+000001E6  BFAC53            mov di,0x53ac
+000001E9  33ED              xor bp,bp
+000001EB  1E                push ds
+000001EC  2EA1B4CB          mov ax,[cs:0xcbb4]
+000001F0  8ED8              mov ds,ax
+000001F2  2E8A868002        mov al,[cs:bp+0x280]
+000001F7  3C00              cmp al,0x0
+000001F9  7441              jz 0x23c
+000001FB  32E4              xor ah,ah
+000001FD  C1E004            shl ax,byte 0x4
+00000200  8BF0              mov si,ax
+00000202  2E0336B2CB        add si,[cs:0xcbb2]
+00000207  B280              mov dl,0x80
+00000209  80FA00            cmp dl,0x0
+0000020C  742B              jz 0x239
+0000020E  B91000            mov cx,0x10
+00000211  AC                lodsb
+00000212  84C2              test dl,al
+00000214  740F              jz 0x225
+00000216  2E8A05            mov al,[cs:di]
+00000219  3408              xor al,0x8
+0000021B  2E8805            mov [cs:di],al
+0000021E  0402              add al,0x2
+00000220  2E88854001        mov [cs:di+0x140],al
+00000225  81C78002          add di,0x280
+00000229  E2E6              loop 0x211
+0000022B  D0EA              shr dl,1
+0000022D  81EF0028          sub di,0x2800
+00000231  83C702            add di,byte +0x2
+00000234  83EE10            sub si,byte +0x10
+00000237  EBD0              jmp short 0x209
+00000239  45                inc bp
+0000023A  EBB6              jmp short 0x1f2
+0000023C  1F                pop ds
+0000023D  06                push es
+0000023E  B800A0            mov ax,0xa000
+00000241  8EC0              mov es,ax
+00000243  BEA203            mov si,0x3a2
+00000246  BF0019            mov di,0x1900
+00000249  B90064            mov cx,0x6400
+0000024C  BADA03            mov dx,0x3da
+0000024F  EC                in al,dx
+00000250  A808              test al,0x8
+00000252  74FB              jz 0x24f
+00000254  F3A5              rep movsw
+00000256  07                pop es
+00000257  E460              in al,0x60
+00000259  3C01              cmp al,0x1
+0000025B  7405              jz 0x262
+0000025D  BD5F01            mov bp,0x15f
+00000260  FFE5              jmp bp
+00000262  B80300            mov ax,0x3
+00000265  CD10              int 0x10
+00000267  B8014C            mov ax,0x4c01
+0000026A  CD21              int 0x21
+0000026C  C3                ret
+0000026D  B90800            mov cx,0x8
+00000270  51                push cx
+00000271  B90400            mov cx,0x4
+00000274  F3A5              rep movsw
+00000276  59                pop cx
+00000277  83C608            add si,byte +0x8
+0000027A  83C708            add di,byte +0x8
+0000027D  E2F1              loop 0x270
+0000027F  C3                ret
+00000280  2D3DF0            sub ax,0xf03d
+00000283  FE                db 0xfe
+00000284  20542E            and [si+0x2e],dl
+00000287  692E4C2E452E      imul bp,[0x2e4c],word 0x2e45
+0000028D  44                inc sp
+0000028E  20FE              and dh,bh
+00000290  F03D2D00          lock cmp ax,0x2d
+00000294  0012              add [bp+si],dl
+00000296  0000              add [bx+si],al
+00000298  16                push ss
+00000299  0000              add [bx+si],al
+0000029B  1A00              sbb al,[bx+si]
+0000029D  001E0000          add [0x0],bl
+000002A1  2205              and al,[di]
+000002A3  050505            add ax,0x505
+000002A6  050505            add ax,0x505
+000002A9  050505            add ax,0x505
+000002AC  050505            add ax,0x505
+000002AF  050505            add ax,0x505
+000002B2  0404              add al,0x4
+000002B4  0404              add al,0x4
+000002B6  0404              add al,0x4
+000002B8  0405              add al,0x5
+000002BA  0101              add [bx+di],ax
+000002BC  0101              add [bx+di],ax
+000002BE  0101              add [bx+di],ax
+000002C0  0105              add [di],ax
+000002C2  0403              add al,0x3
+000002C4  0303              add ax,[bp+di]
+000002C6  0303              add ax,[bp+di]
+000002C8  0405              add al,0x5
+000002CA  0102              add [bp+si],ax
+000002CC  0202              add al,[bp+si]
+000002CE  0202              add al,[bp+si]
+000002D0  0105              add [di],ax
+000002D2  0403              add al,0x3
+000002D4  0202              add al,[bp+si]
+000002D6  0203              add al,[bp+di]
+000002D8  0405              add al,0x5
+000002DA  0102              add [bp+si],ax
+000002DC  0303              add ax,[bp+di]
+000002DE  0302              add ax,[bp+si]
+000002E0  0105              add [di],ax
+000002E2  0403              add al,0x3
+000002E4  0201              add al,[bx+di]
+000002E6  0203              add al,[bp+di]
+000002E8  0405              add al,0x5
+000002EA  0102              add [bp+si],ax
+000002EC  0304              add ax,[si]
+000002EE  0302              add ax,[bp+si]
+000002F0  0105              add [di],ax

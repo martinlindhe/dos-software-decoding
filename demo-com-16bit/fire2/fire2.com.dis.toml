@@ -1,0 +1,2 @@
+
+00000199  75FB              jnz 0x196  ; waits until we leave vertical retrace (bit 3)

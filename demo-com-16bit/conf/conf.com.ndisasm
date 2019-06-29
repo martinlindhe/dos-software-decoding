@@ -1,0 +1,89 @@
+00000100  BB8F79            mov bx,0x798f
+00000103  31C9              xor cx,cx
+00000105  BD0001            mov bp,0x100
+00000108  B8D9FF            mov ax,0xffd9
+0000010B  F7EB              imul bx
+0000010D  01D1              add cx,dx
+0000010F  01CB              add bx,cx
+00000111  3E88BE0002        mov [ds:bp+0x200],bh
+00000116  3E8086000280      add byte [ds:bp+0x200],0x80
+0000011C  4D                dec bp
+0000011D  75E9              jnz 0x108
+0000011F  6800A0            push word 0xa000
+00000122  07                pop es
+00000123  B81300            mov ax,0x13
+00000126  CD10              int 0x10
+00000128  BAC803            mov dx,0x3c8
+0000012B  30C0              xor al,al
+0000012D  EE                out dx,al
+0000012E  42                inc dx
+0000012F  30DB              xor bl,bl
+00000131  B94000            mov cx,0x40
+00000134  30C0              xor al,al
+00000136  EE                out dx,al
+00000137  88D8              mov al,bl
+00000139  0440              add al,0x40
+0000013B  EE                out dx,al
+0000013C  30C0              xor al,al
+0000013E  EE                out dx,al
+0000013F  FEC3              inc bl
+00000141  E2F1              loop 0x134
+00000143  B94000            mov cx,0x40
+00000146  30DB              xor bl,bl
+00000148  B03F              mov al,0x3f
+0000014A  EE                out dx,al
+0000014B  28D8              sub al,bl
+0000014D  EE                out dx,al
+0000014E  B00E              mov al,0xe
+00000150  EE                out dx,al
+00000151  FEC3              inc bl
+00000153  E2F3              loop 0x148
+00000155  31D2              xor dx,dx
+00000157  C606000300        mov byte [0x300],0x0
+0000015C  C606010300        mov byte [0x301],0x0
+00000161  31FF              xor di,di
+00000163  88F4              mov ah,dh
+00000165  88D0              mov al,dl
+00000167  B9C800            mov cx,0xc8
+0000016A  51                push cx
+0000016B  8A3E0003          mov bh,[0x300]
+0000016F  8A1E0103          mov bl,[0x301]
+00000173  B94001            mov cx,0x140
+00000176  50                push ax
+00000177  E460              in al,0x60
+00000179  3C01              cmp al,0x1
+0000017B  58                pop ax
+0000017C  744E              jz 0x1cc
+0000017E  52                push dx
+0000017F  89C6              mov si,ax
+00000181  56                push si
+00000182  C1EE08            shr si,byte 0x8
+00000185  8A940002          mov dl,[si+0x200]
+00000189  5E                pop si
+0000018A  81E6FF00          and si,0xff
+0000018E  02940002          add dl,[si+0x200]
+00000192  89DE              mov si,bx
+00000194  56                push si
+00000195  C1EE08            shr si,byte 0x8
+00000198  02940002          add dl,[si+0x200]
+0000019C  5E                pop si
+0000019D  81E6FF00          and si,0xff
+000001A1  02940002          add dl,[si+0x200]
+000001A5  268815            mov [es:di],dl
+000001A8  5A                pop dx
+000001A9  47                inc di
+000001AA  8006010306        add byte [0x301],0x6
+000001AF  FEC7              inc bh
+000001B1  80C302            add bl,0x2
+000001B4  E2C0              loop 0x176
+000001B6  80C402            add ah,0x2
+000001B9  FEC0              inc al
+000001BB  59                pop cx
+000001BC  E2AC              loop 0x16a
+000001BE  80C603            add dh,0x3
+000001C1  8006000305        add byte [0x300],0x5
+000001C6  FE060103          inc byte [0x301]
+000001CA  EB95              jmp short 0x161
+000001CC  B80300            mov ax,0x3
+000001CF  CD10              int 0x10
+000001D1  CD20              int 0x20
