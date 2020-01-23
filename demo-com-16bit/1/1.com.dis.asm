@@ -1,5 +1,6 @@
-; Source demo-com-16bit/1/1.com
+; Source 1.com
 
+; starting tracing disassembly at 085F:0100
 [085F:0100] 53               Push16   bx
 [085F:0101] 41               Inc16    cx                            ; cx = 0x0001
 [085F:0102] 46               Inc16    si                            ; si = 0x0001
@@ -17,7 +18,7 @@
 [085F:0115] 680080           Push16   0x8000
 [085F:0118] 0FA1             Pop16    fs                            ; fs is dirty
 [085F:011A] B81300           Mov16    ax, 0x0013                    ; ax = 0x0013
-[085F:011D] CD10             Int      0x10                          ; video: set 320x200 VGA mode (0x13) | dirty all regs
+[085F:011D] CD10             Int      0x10                          ; video: set 320x200x256 mode (0x13) | dirty all regs
 [085F:011F] 33C0             Xor16    ax, ax                        ; ax = 0x0000
 [085F:0121] 40               Inc16    ax                            ; ax = 0x0001
 [085F:0122] BAC803           Mov16    dx, 0x03C8                    ; dx = 0x03C8
@@ -168,7 +169,7 @@
 [085F:0265] 3C01             Cmp8     al, 0x01
 [085F:0267] 0F855DFF         Jnz      0x01C8
 [085F:026B] B80300           Mov16    ax, 0x0003                    ; xref: branch@085F:0110; ax = 0x0003
-[085F:026E] CD10             Int      0x10                          ; video: set 80x25 text mode (0x03) | dirty all regs
+[085F:026E] CD10             Int      0x10                          ; video: set 80x25x16 text mode (0x03) | dirty all regs
 [085F:0270] C3               Retn
 
 [085F:0271] 00060D13         db       0x00, 0x06, 0x0D, 0x13
