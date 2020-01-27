@@ -1,0 +1,41 @@
+ectotrax:
+
+Add16    word [ds:si-0x04], di
+Add8     al, byte [ds:si]
+
+Cmp16    bx, 0x016C
+Cwd16
+
+Dec8     byte [ds:si]
+
+Idiv16   bx                   
+Imul16   di, ax, 0x0140       
+Imul16   si, si, byte -0x0E   
+
+Lodsb                         
+Lodsw                         
+
+Mov16    ax, word [ds:0x0118]
+Mov16    word [ds:0x0118], ax 
+Mov16    word [ds:0x01EF], ax
+Mov16    word [ds:si-0x07], di
+Mov8     ah, byte [fs:bp+si]  
+
+Mov8     byte [ds:si-0x05], 0x
+Mov8     byte [es:di], bl
+Movsx16  si, byte [ds:bx]     
+Neg8     ah
+
+Pop16    es                   
+Pop16    fs                   
+Push16   0xA000
+Push16   es
+
+Rol16    di, 0x08
+Sbb8     al, 0x40             
+Shl8     ah, 0x01             
+Stosb                         
+Sub8     al, byte [ds:si]
+Test8    al, 0x08
+Xor16    word [ds:si-0x02], di
+

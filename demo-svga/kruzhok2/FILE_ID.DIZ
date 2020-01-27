@@ -1,0 +1,10 @@
+xylem presents:
+  KRUZHOK 2
+
+A 4K intro for the 386 released at Revision 2018
+
+Requirements:
+
+ - 386 (with working FPU)
+ - sound card with OPL2
+ - DPMI host running

@@ -1,0 +1,8 @@
+================ homogenic ==============
+      A 256 byte intro by: Superogue
+
+         Winner of the Rsync 2020 
+          tiny intro competition
+		
+         (c)2020 Marquee Design
+=========================================

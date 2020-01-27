@@ -1,7 +1,8 @@
-; Source demo-com-16bit/ectotrax/ectotrax.com
+; Source ectotrax.com
 
+; starting tracing disassembly at 085F:0100
 [085F:0100] B81300           Mov16    ax, 0x0013                    ; ax = 0x0013
-[085F:0103] CD10             Int      0x10                          ; video: set 320x200 VGA mode (0x13) | dirty all regs
+[085F:0103] CD10             Int      0x10                          ; video: set 320x200x256 mode (0x13) | dirty all regs
 [085F:0105] B80011           Mov16    ax, 0x1100                    ; ax = 0x1100
 [085F:0108] BAC803           Mov16    dx, 0x03C8                    ; dx = 0x03C8
 [085F:010B] EE               Out8     dx, al                        ; vga: PEL address write mode (0x03C8) = 00
@@ -75,7 +76,7 @@
 [085F:019F] 8804             Mov8     byte [ds:si], al
 [085F:01A1] 0FBE37           Movsx16  si, byte [ds:bx]              ; xref: branch@085F:019B
 [085F:01A4] 43               Inc16    bx                            ; bx = 0x0163
-[085F:01A5] 6BF6F2           Imul16   si, si, 0xF2                  ; si is dirty
+[085F:01A5] 6BF6F2           Imul16   si, si, byte -0x0E            ; si is dirty
 [085F:01A8] B20E             Mov8     dl, 0x0E                      ; dl = 0x0E
 [085F:01AA] 648A22           Mov8     ah, byte [fs:bp+si]           ; xref: branch@085F:01C1
 [085F:01AD] 46               Inc16    si                            ; si = 0x011A
@@ -106,6 +107,6 @@
 [085F:01E2] CD16             Int      0x16                          ; keyboard: read scancode (non-blocking) | dirty all regs
 [085F:01E4] 0F8439FF         Jz       0x0121
 [085F:01E8] B80300           Mov16    ax, 0x0003                    ; ax = 0x0003
-[085F:01EB] CD10             Int      0x10                          ; video: set 80x25 text mode (0x03) | dirty all regs
+[085F:01EB] CD10             Int      0x10                          ; video: set 80x25x16 text mode (0x03) | dirty all regs
 [085F:01ED] CD20             Int      0x20                          ; dos: terminate program with return code 0 | dirty all regs
 
